@@ -1,0 +1,27 @@
+{
+    "name": "triumph-dev/triumph-blocks",
+    "description": "Create Gutenberg blocks from Twig templates and ACF fields.",
+    "keywords": ["wordpress", "gutenberg", "advanced custom fields"],
+    "require": {
+        "php": ">=7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Hale",
+            "email": "andrew@deepspacerobots.com"
+        },
+        {
+            "name": "Aaron Janke",
+            "email": "aaron@deepspacerobots.com"
+        }
+    ],
+    "require": {
+        "timber/timber": "^1.18.1",
+        "palmiak/timber-acf-wp-blocks": "^1.12"
+    },
+    "autoload": {
+        "files": ["triumph-blocks.php"]
+    }
+
+}
