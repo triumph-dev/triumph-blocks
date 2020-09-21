@@ -19,3 +19,23 @@ if ( ! function_exists( 'add_filter' ) ) {
 if ( ! function_exists( 'add_action' ) ) {
 	return;
 }
+
+
+add_filter( 'timber/acf-gutenberg-blocks-templates', function( $context ){
+	return [ 'vendor/triumph-dev/triumph-blocks/templates/blocks' ];
+} );
+
+add_action(
+	'acf/init',
+	function () {
+
+	//die();
+    if (is_array(Timber::$dirname)) {
+        $views = Timber::$dirname;
+    } else {
+        $views = array(Timber::$dirname);
+    }
+    $views[] = 'vendor/triumph-dev/triumph-blocks';
+	$views[] = 'vendor/triumph-dev/triumph-blocks/templates';
+    Timber::$dirname = $views;
+});

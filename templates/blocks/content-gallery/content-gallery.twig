@@ -21,18 +21,18 @@
 				<figure data-slide="slide-{{loop.index}}" class="slide {{ loop.index == 1 ? "active" : "" }}">
 					<!-- Left Image -->
 					{% if slide.right_align_image == false %}
-						{% include "blocks/content-gallery/image.twig" %}
+						{% include 'blocks/content-gallery/image.twig' %}
 					{% endif %}
 
 					<!-- Text -->
 					<figcaption data-background-color="{{ slide.background_color }}">
 						{{ slide.copy }}
-						{% include "blocks/content-gallery/links.twig" %}
+						{% include 'blocks/content-gallery/links.twig' %}
 					</figcaption>
 
 					<!-- Right Image -->
 					{% if slide.right_align_image %}
-						{% include "blocks/content-gallery/image.twig" %}
+						{% include 'blocks/content-gallery/image.twig' %}
 					{% endif %}
 				</figure>
 			{% endfor %}

@@ -21,7 +21,7 @@
         <h2>Recent News</h2>
         <div class="posts">
 		    {% for news in recent_news|slice(0,3) %}
-                {% include "blocks/basic-block/basic-block.twig" with {post:news} %}
+                {% include 'blocks/basic-block/basic-block.twig' with {post:news} %}
             {% endfor %}
         </div>
         <a href="/news" class="btn">See All News</a>
