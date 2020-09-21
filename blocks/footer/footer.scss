@@ -1,0 +1,64 @@
+.footer {
+	background-color: var(--color-secondary);
+	background-image: url("../../assets/img/pattern.svg");
+	background-size: 5rem 10rem;
+	font-family: $font-sans-serif;
+	font-size: 0.9em;
+	color: $color-ui-light;
+	@extend %light-link;
+	p {
+		font-family: $font-sans-serif;
+	}
+}
+.footer-menu-wrapper {
+	padding: $space-lg $space-md;
+	h3 {
+		font-size: 1em;
+		@extend %uppercase;
+		margin-bottom: 0.5em;
+		color: white;
+	}
+}
+.menu-footer-nav {
+	@include md-and-up {
+		display: flex;
+		> *:not(:last-child) {
+			margin-right: $space-lg;
+			flex-grow: 1;
+		}
+	}
+	> li {
+		margin-bottom: $space-lg;
+	}
+}
+.footer-top {
+	@include md-and-up {
+		display: flex;
+		justify-content: space-between;
+	}
+	.footer-menu-logo {
+		@include ie {
+			height: 100%;
+		}
+	}
+}
+ul.menu-footer-social {
+	display: flex;
+	margin: 0 -0.5em $space-lg -0.5em;
+	a {
+		padding: 0.5em;
+	}
+}
+.footer-menu-logo {
+	width: 14rem;
+	margin-bottom: $space-lg;
+	display: block;
+	filter: grayscale(1) brightness(1000%);
+}
+
+.menu-footer-nav-first-child {
+	a {
+		display: inline-block;
+		padding: 0.2em 0;
+	}
+}

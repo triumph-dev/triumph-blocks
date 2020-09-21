@@ -1,0 +1,14 @@
+{% set alert = Post(alert) %}
+{% set icon = Image(alert.meta("icon")) %}
+{% set default_icon = '/wp-content/themes/tpay-theme/assets/img/alert-icon.svg' %}
+
+<aside id="{{ alert.slug }}-{{ alert.id }}" data-open="false" class="alert-banner">
+	{{ border }}
+	<div class="alert-banner-content-wrapper">
+		<div class="alert-icon"><img class="icon" src="{{ icon ? icon.src : default_icon }}" /></div>
+        <div class="alert-message">
+            {{ alert.content }}
+        </div>
+        <button class="alert-close"><span class="hidden">Close</span><i class="fal fa-times"></i></button>
+	</div>
+</aside>

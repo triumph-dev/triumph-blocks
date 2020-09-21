@@ -1,0 +1,39 @@
+.feature-list {
+	@extend %white-text;
+	.section-wrapper {
+		padding: $space-lg $space-md;
+		display: flex;
+		flex-direction: column;
+		@include md-and-up {
+			flex-direction: row;
+		}
+		> * {
+			width: 100%;
+		}
+	}
+}
+.feature {
+	display: flex;
+	align-items: flex-start;
+
+	&:not(:last-child) {
+		margin: 0 0 $space-md 0;
+		@include md-and-up {
+			margin: 0 $space-md 0 0;
+			border-right: $border-width solid rgba($color-ui-gray, .4);
+		}
+	}
+	h4 {
+		margin-bottom: .3em;
+	}
+
+	img {
+		max-width: 3.5em;
+		@include ie {
+			height: 40px;
+		}
+	}
+	.copy {
+		padding: 0 $space-sm;
+	}
+}

@@ -1,0 +1,11 @@
+.apps {
+    width: max-content;
+    @include ie {
+        width:0px;
+    }
+    @extend %center-flex;
+    img {
+        height: calc(30px + 2vw);
+        margin-right: $space-xs;
+    }
+}

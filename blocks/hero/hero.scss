@@ -1,0 +1,160 @@
+$min-height:500px;
+$interior-min-height:400px;
+
+.hero {
+    position: relative;
+    .tns-controls {
+        display: none;
+    }
+    .tns-nav {
+        position: absolute;
+        bottom:20px;
+        z-index: 2;
+        left:0;
+        right:0;
+        margin: 0 auto;
+        text-align: center;
+        button {
+            @extend %tns-button;
+        }
+    }
+    .tns-inner, .panes {
+        overflow:auto;
+        overflow-x:hidden;
+    }
+    .tns-inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .panes {
+        display: flex;
+        &.carousel {
+            .pane, figcaption {
+                padding-bottom: $space-md;
+                min-height:$min-height;
+            }
+        }
+        &:not(.carousel) {
+            .pane, figcaption {
+                min-height:$interior-min-height;
+            }
+            figcaption {
+                @include ie {
+                    height:0;
+                }
+            }
+            p {
+                max-width:30em;
+            }
+            h1, h2, h3 {
+                margin-bottom: 0;
+            }
+        }
+        figure.pane {
+            display: block;
+            float:left;
+            height:auto;
+            width:100%;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+            @include ie { 
+                background-position:center !important;
+                background-size:cover !important;
+            }
+            * {
+                color:#fff;
+            }
+        }
+        figcaption {
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            width:100%;
+            height:100%;
+            padding:$space-md;
+            @include md-and-up {
+                max-width:$breakpoint-lg;
+                padding:$space-lg $space-md;
+                margin: 0 auto;
+                @include heading {
+                    max-width:calc(500px + 20vw);
+                }
+                p {
+                    max-width:calc(500px + 20vw);
+                }
+            }
+            .image-arrow {
+                position: absolute;
+                bottom:0;
+                right:0;
+                opacity:0.7;
+                transform:rotate(90deg);
+                height:70px;
+                width:70px;
+                @include sm-and-up {
+                    height:130px;
+                    width:130px;
+                }
+            }
+        }
+        img.background-image {
+            object-fit:cover;
+            position: absolute;
+            height:100%;
+            width:100%;
+            z-index: -1;
+            filter:brightness(50%);
+            @include sm-and-up {
+                filter:brightness(70%);
+            }
+        }
+        a {
+            margin-bottom: $space-sm;
+            margin-left: 0;
+            width:100%;
+            text-align: center;
+            &:first-of-type {
+                margin-top: $space-md;
+            }
+            @include sm-and-up {
+                width:max-content;
+                margin-top: $space-md;
+            }
+            @include md-and-up {
+                margin-right: $space-sm;
+                margin-left: 0;
+            }
+            @include ie {
+                width:auto;
+            }
+        }
+        .apps {
+            margin-top: $space-md;
+            a {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+            img {
+                height:40px;
+                width:auto;
+                @include sm-and-up {
+                    height:45px;
+                }
+                &:first-of-type {
+                    margin-right: $space-sm;
+                    @include md-and-up {
+                        margin-right: $space-md;
+                    }
+                }
+            }
+        }
+        .links {
+            display: block;
+            @include md-and-up {    
+                display: flex;
+            }
+        }
+    }
+}

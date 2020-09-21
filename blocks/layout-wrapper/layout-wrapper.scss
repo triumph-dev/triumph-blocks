@@ -1,0 +1,27 @@
+[data-background-color="primary"] {
+	background: var(--color-primary);
+	@extend %white-text;
+}
+
+[data-background-color="secondary"], [data-background-color="accent"] {
+	background: var(--color-secondary);
+	@extend %white-text;
+}
+
+[data-background-color="accent"] {
+	background: var(--color-accent);
+}
+
+[data-background-color="white"] {
+	background: #fff;
+}
+
+[data-background-color="image"] {
+	position: relative;
+	img.background {
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		height: 100%;
+	}
+}

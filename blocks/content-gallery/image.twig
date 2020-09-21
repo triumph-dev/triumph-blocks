@@ -1,0 +1,7 @@
+{% set image = Image(slide.image) %}
+<div class="image-holder">
+    {% if slide.image_watermark %}
+        {% include "templates/blocks/image-watermark/image-watermark.twig" %}
+    {% endif %}
+    <img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+</div>

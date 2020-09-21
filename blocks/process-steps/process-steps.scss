@@ -1,0 +1,88 @@
+.process-steps {
+	.section-wrapper {
+		display: flex;
+		padding: $space-lg $space-md;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		@include md-and-up {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+	.copy {
+		margin-bottom: $space-md;
+		@include md-and-up {
+			max-width: 40%;
+			margin-bottom: 0;
+			padding-right: $space-lg;
+		}
+	}
+}
+ol.process-steps-list {
+	list-style: none;
+	counter-reset: my-awesome-counter;
+	padding-left: $space-md;
+	margin-bottom: 0;
+	@include md-and-up {
+		&.has-copy {
+			max-width: 50%;
+		}
+	}
+	li {
+		position: relative;
+		padding: 0 0 $space-lg $space-sm;
+		@include md-and-up {
+			padding: 0 0 $space-lg $space-md;
+		}
+		counter-increment: my-awesome-counter;
+		&:after {
+			/* bullets */
+			content: counter(my-awesome-counter);
+			background: white;
+			border: $border-width solid var(--color-accent);
+			border-radius: 100%;
+			@extend %center-flex;
+			font-weight: bold;
+			color: $color-ui-dark;
+			position: absolute;
+			top: 0px;
+			height: 45px;
+			width: 45px;
+			font-size: 20px;
+			left: -50px;
+			@include md-and-up {
+				height: 65px;
+				width: 65px;
+				font-size: 30px;
+				left: -60px;
+			}
+			@include ie {
+				padding-top: 7px;
+			}
+		}
+		&:before {
+			/* lines */
+			content: "";
+			position: absolute;
+			left: -1.75rem;
+			border-left: $border-width solid var(--color-accent);
+			height: 100%;
+			//width: 1px;
+		}
+		&:first-child {
+			padding-top: 0;
+			&:before {
+				/* first li's line */
+				top: 6px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+			}
+		}
+		&:last-child {
+			padding-bottom: 0;
+			&:before {
+				/* last li's line */
+				height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+			}
+		}
+	}
+}

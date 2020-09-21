@@ -1,0 +1,20 @@
+.recent-news .section-wrapper {
+    padding: $space-lg $space-sm;
+    text-align: center;
+    h2 {
+        text-align: center;
+        margin-bottom: $space-md;
+    }
+    a.btn {
+        margin-top: $space-md;
+        @include ie {
+            display: inline-block;
+            text-align: center;
+        }
+    }
+    .posts {
+        display: flex;
+        text-align: left;
+        flex-wrap:wrap;
+    }
+}

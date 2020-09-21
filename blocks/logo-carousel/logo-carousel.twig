@@ -1,0 +1,53 @@
+{#
+Title: Logo Carousel
+Description: A sliding carousel to display a message and some logos
+Category: triumph-blocks
+Icon: thumbs-up
+Keywords: 
+Mode: edit
+Align: left
+PostTypes: post page
+SupportsAlign: false
+SupportsMode: false
+SupportsMultiple: true
+#}
+
+{% set show_total = (fields.show_8_at_once ? 8 : 4) %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'logo-carousel' } %}
+	{% block block_content %}
+		<div class="logo-carousel {{ fields.logos|length > show_total ? "active" : "" }} block full-width {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+			<div class="copy">
+				{{ fields.copy }}
+			</div>
+
+			<div class="carousel">
+				<div class="slides">
+
+					{% for logo in fields.logos %}
+
+					{% set image = Image(logo.logo) %}
+					{% if loop.index0 is divisible by(show_total) %}
+					<div class="slider">
+						<div class="group {{ show_total == 8 ? "showing-eight" : "" }}">
+					{% endif %}
+							<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+					{% if loop.index is divisible by(show_total) or loop.last %}
+						</div>
+					</div>
+					{% endif %}
+
+					{% endfor %}
+				</div>
+				<ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
+					<li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+						<img src="{{ site.theme.link }}/assets/img/carousel-arrow.png" />
+					</li>
+					<li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+						<img src="{{ site.theme.link }}/assets/img/carousel-arrow.png" />
+					</li>
+				</ul>
+			</div>
+		</div>
+	{% endblock %}
+{% endembed %}

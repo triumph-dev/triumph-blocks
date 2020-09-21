@@ -1,0 +1,7 @@
+{% if slide.links|length %}
+    <div class="links">
+        {% for link in slide.links %}
+            <a class="btn {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
+        {% endfor %}
+    </div>
+{% endif %}

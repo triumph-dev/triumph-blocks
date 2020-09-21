@@ -1,0 +1,29 @@
+{#
+  Title: Recent News
+  Description: A grid grouping of recent blog posts
+  Category: triumph-blocks
+  Icon: format-image
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% if fields.choose_your_posts %}
+    {% set recent_news = Post(fields.choose_your_posts) %}
+{% endif %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'recent-news' } %}
+	{% block block_content %}
+        <h2>Recent News</h2>
+        <div class="posts">
+		    {% for news in recent_news|slice(0,3) %}
+                {% include "blocks/basic-block/basic-block.twig" with {post:news} %}
+            {% endfor %}
+        </div>
+        <a href="/news" class="btn">See All News</a>
+	{% endblock %}
+{% endembed %}

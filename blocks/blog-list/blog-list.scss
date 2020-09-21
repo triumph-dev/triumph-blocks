@@ -1,0 +1,44 @@
+ul.pagination {
+	display: flex;
+	margin-top: $space-md;
+
+	li {
+		margin-right: $space-xs;
+		margin-bottom: 0;
+		a {
+			display: block;
+			border-radius: $border-radius;
+			border: $border-width solid rgba($color-ui-gray, 0.2);
+			width: 2.5rem;
+			height: 2.5rem;
+			text-align: center;
+			line-height: 2.5;
+			background: transparent;
+			&:hover,
+			&:focus {
+				background: #fff;
+			}
+		}
+		&:only-child {
+			display: none;
+		}
+	}
+	li.active {
+		a {
+			border-color: rgba($color-primary, 0.5);
+			background: #fff;
+		}
+	}
+	li.disabled {
+		a {
+			border-radius: none;
+			border: none;
+			width: auto;
+			height: 2.5rem;
+			text-align: center;
+			line-height: 2.5;
+			pointer-events: none;
+			color: rgba($color-ui-gray, 0.5);
+		}
+	}
+}

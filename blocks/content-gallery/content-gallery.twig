@@ -1,0 +1,45 @@
+{#
+  Title: Content Gallery
+  Description: 2-up gallery with image and copy
+  Category: triumph-blocks
+  Icon: images-alt2
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% set carousel = (fields.gallery|length > 1 ? true : false) %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'content-gallery' } %}
+	{% block block_content %}
+		<div class="slides {{ carousel ? 'carousel' : 'single' }}">
+			{% for slide in fields.gallery %}
+				<figure data-slide="slide-{{loop.index}}" class="slide {{ loop.index == 1 ? "active" : "" }}">
+					<!-- Left Image -->
+					{% if slide.right_align_image == false %}
+						{% include "blocks/content-gallery/image.twig" %}
+					{% endif %}
+
+					<!-- Text -->
+					<figcaption data-background-color="{{ slide.background_color }}">
+						{{ slide.copy }}
+						{% include "blocks/content-gallery/links.twig" %}
+					</figcaption>
+
+					<!-- Right Image -->
+					{% if slide.right_align_image %}
+						{% include "blocks/content-gallery/image.twig" %}
+					{% endif %}
+				</figure>
+			{% endfor %}
+		</div>
+		{% if carousel %}
+			<div class="navigation"></div>
+		{% endif %}
+	{% endblock %}
+{% endembed %}
+

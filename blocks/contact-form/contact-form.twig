@@ -1,0 +1,95 @@
+{#
+  Title: Contact Form
+  Description: A Salesforce Web2Lead form
+  Category: triumph-blocks
+  Icon: align-center
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: "contact-form"} %}
+	{% block block_content %}
+
+        <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+            <input type=hidden name="oid" value="00D0q000000De67">
+            <input type=hidden name="retURL" value="http://www.triumphpay.com/">
+            <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+            <!--  these lines if you wish to test in debug mode.                          -->
+            <!--  <input type="hidden" name="debug" value=1>                              -->
+            <!--  <input type="hidden" name="debugEmail"                                  -->
+            <!--  value="jgaribay@tbcap.com.invalid">                                     -->
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="first_name">First Name</label>
+                    <input placeholder="First" id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="last_name">Last Name</label>
+                    <input placeholder="Last" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="email">Email</label>
+                    <input placeholder="name@website.com" id="email" maxlength="80" name="email" size="20" type="text" />
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="phone">Phone</label>
+                    <input placeholder="(555) 555-5555" id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                </div>
+            </div>
+
+            <h3>Company Details</h3>
+            <div class="input-wrapper">
+                <label for="company">Company</label>
+                <input placeholder="Company" id="company" maxlength="40" name="company" size="20" type="text" /><br>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="00N0q000005q9pv">Company Type</label>
+                <select  id="00N0q000005q9pv" name="00N0q000005q9pv" title="Company Type"><option value="">--None--</option><option value="Carrier">Carrier</option>
+                    <option value="Broker">Broker</option>
+                    <option value="Shipper">Shipper</option>
+                    <option value="Other - TMS, Media, Vendor, etc.">Other - TMS, Media, Vendor, etc.</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="00Ni00000080xM4">MC Docket:</label>
+                    <input  id="00Ni00000080xM4" maxlength="10" name="00Ni00000080xM4" size="20" type="text" />
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="00Ni00000095Wue">USDOT:</label>
+                    <input  id="00Ni00000095Wue" maxlength="13" name="00Ni00000095Wue" size="20" type="text" />
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="00N0q000005q9pw">TMS? Which One:</label>
+                <select  id="00N0q000005q9pw" name="00N0q000005q9pw" title="TMS? Which One">
+                    <option value="">--None--</option>
+                    <option value="Aljex">Aljex</option>
+                    <option value="Ascend TMS">Ascend TMS</option>
+                    <option value="DAT Keypoint">DAT Keypoint</option>
+                    <option value="McLeod">McLeod</option>
+                    <option value="MercuryGate">MercuryGate</option>
+                    <option value="TMW">TMW</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+ 
+            <input value="Submit" type="submit" name="submit">
+        </form>
+
+    {% endblock %}
+{% endembed %}

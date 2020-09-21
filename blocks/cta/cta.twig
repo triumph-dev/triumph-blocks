@@ -1,0 +1,37 @@
+{#
+  Title: CTA
+  Description: A banner with content and a CTA link.
+  Category: triumph-blocks
+  Icon: align-center
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% if fields.is_row %}
+	{% set class = 'cta is-row' %}
+{% else %}
+	{% set class = 'cta' %}
+{% endif %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class} %}
+	{% block block_content %}
+		<div class="content">
+			{{ fields.copy }}
+		</div>
+		{% if fields.links|length %}
+			<div class="buttons">
+				{% for link in fields.links %}
+					<a class="btn {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
+				{% endfor %}
+			</div>
+		{% endif %}
+		{% if fields.show_app_icons %}
+			{% include "blocks/app-icons/app-icons.twig" %}
+		{% endif %}
+	{% endblock %}
+{% endembed %}

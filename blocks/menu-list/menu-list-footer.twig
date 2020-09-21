@@ -1,0 +1,30 @@
+<ul class="{{ name }}">
+	<li>
+		<h3>Contact</h3>
+		<address>
+			<p>{{ options.address }}<br>
+			{{ options.city }}, {{ options.state }} {{ options.zip }}</p>
+			<p><a href="tel:{{ options.phone|replace({'(':'',')':'',' ':'', '-':''}) }}">{{ options.phone }}</a></p>
+			<p><a href="mailto:{{ options.email }}" >{{ options.email }}</a></p>
+		</address>
+	</li>
+	{% for item in items %}
+		<li>
+			{% if item.link == '#' %}
+				<h3 class="{{ item.classes|join(' ') }}">{{ item.title }}</h3>
+			{% else %}
+				<a target="{{ item.target }}" class="{{ item.classes|join(' ') }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% endif %}
+			
+			{% if item.children %}
+				<ul class="{{ name }}-first-child">
+					{% for item in item.children %}
+						<li>
+							<a target="{{ item.target }}" class="{{ item.classes|join(' ') }}" href="{{ item.link }}">{{ item.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>

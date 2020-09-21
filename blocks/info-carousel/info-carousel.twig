@@ -1,0 +1,37 @@
+{#
+  Title:Info Carousel
+  Description: Informational Carousel
+  Category: triumph-blocks
+  Icon: thumbs-up
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'info-carousel' } %}
+	{% block block_content %}
+		<div class="copy">
+			<h2>{{ fields.heading }}</h2>
+			{% for slide in fields.slides %}
+				<div data-slide="#slide-{{ loop.index }}" class="slide {{ loop.index == 1 ? "active" : "" }}">
+					<div class="mobile">
+						<img src="{{ Image(slide.image).src }}" srcset="{{ Image(slide.image).srcset }}" />
+					</div>
+					{{ slide.copy }}
+				</div>
+			{% endfor %}
+		</div>
+		<div class="images">
+			{% for slide in fields.slides %}
+				<div id="slide-{{ loop.index }}" class="image {{ loop.index == 1 ? "active" : "" }}">
+					<img src="{{ Image(slide.image).src }}" srcset="{{ Image(slide.image).srcset }}" />
+				</div>
+			{% endfor %}
+		</div>
+	{% endblock %}
+{% endembed %}

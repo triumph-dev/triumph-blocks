@@ -1,0 +1,28 @@
+{#
+  Title:Process Steps
+  Description: Steps in a process
+  Category: triumph-blocks
+  Icon: editor-ol
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'process-steps' } %}
+	{% block block_content %}
+		{% if fields.copy %}
+			<div class="copy">
+				{{ fields.copy }}
+			</div>
+		{% endif %}
+		<ol class="process-steps-list {{ fields.copy ? 'has-copy' : '' }}">
+			{% for step in fields.steps %}
+				<li>{{step.copy}}</li>
+			{% endfor %}
+		</ol>
+	{% endblock %}
+{% endembed %}

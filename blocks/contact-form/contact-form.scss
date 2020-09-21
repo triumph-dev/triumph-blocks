@@ -1,0 +1,30 @@
+.contact-form {
+	padding: 0 $space-md;
+	padding-bottom: $space-lg;
+	.input-wrapper {
+		width: 100%;
+	}
+	.input-group {
+		display: flex;
+		justify-content: space-between;
+		.input-wrapper {
+			width: calc(50% - (#{$space-xs}));
+			margin: 0 $space-xs;
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	h3 {
+		margin-top: $space-md;
+	}
+	input[type="submit"] {
+		margin: $space-md auto;
+		margin-bottom: 0;
+		display: block;
+	}
+}

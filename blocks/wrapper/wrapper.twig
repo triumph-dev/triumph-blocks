@@ -1,0 +1,18 @@
+{#
+  Title: Wrapper
+  Description: Wrapper
+  Category: triumph-blocks
+  Icon: admin-comments
+  Keywords: link
+  Mode: edit
+  PostTypes: post page
+  SupportsMode: false
+  SupportsMultiple: true
+  SupportsAlign: true
+  SupportsJSX: true
+#}
+
+<div class="wrapper {{ block.classes ? block.classes : '' }}" data-{{ block.id }}>
+	<InnerBlocks />
+</div>
+

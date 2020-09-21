@@ -1,0 +1,156 @@
+$max-height: calc(16em + 20vw);
+
+.content-gallery {
+	position: relative;
+
+	blockquote {
+		font-size: calc(.75em + 1vw);
+		font-family: $font-sans-serif;
+		p {
+			font-family: $font-sans-serif;
+			font-weight: 600;
+		}
+
+		cite {
+			font-size: .8em;
+			font-weight: 400;
+			font-family: $font-serif; 
+		}
+	}
+	.slides {
+		transition: all 0.2s ease-in;
+		@include md-and-up {
+			min-height: $max-height;
+		} 
+	}
+	figure {
+		display: block;
+		max-height: 100%;
+		margin-bottom: 0;
+		@include ie {
+			display: flex;
+			width: 100%;
+		}
+		@include md-and-up {
+			display: flex;
+		}
+		figcaption {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			width:100%; 
+			padding: $space-lg $space-md;
+			a:not(.btn) {
+				text-decoration: underline;
+				&:hover {
+					color:white;
+				}
+			}
+
+			@include sm-and-up {
+				padding: $space-lg;
+			}
+
+			@include md-and-up {
+				min-height: $max-height;
+			}
+
+			@include ie {
+				// width: 50%;
+				// float: right;
+				height: auto;
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6,
+				blockquote,
+				p {
+					width: 100%;
+				}
+			}
+
+			.links {
+				display: block;
+				@include sm-and-up {
+					display: flex;
+				}
+				margin-top: $space-md;
+				a {
+					width:100%;
+					display: block;
+					margin-right: $space-sm;
+				}
+			}
+		}
+		.image-holder {
+			position: relative;
+			max-width:800px;
+			width:100%;
+			@include md-and-up {
+				min-height: $max-height;
+			}
+			@include ie {
+				max-width:100%;
+				width:100%;
+			}
+		}
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.carousel {
+		figure {
+			max-width: 0;
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: opacity 0.2s ease-in;
+			&.active {
+				max-width: 100%;
+				max-height: 100%;
+				@include md-and-up {
+					max-height: $max-height;
+					min-height: $max-height;
+				}
+				opacity: 1;
+			}
+		}
+	}
+	.navigation {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: white;
+		padding: 10px;
+		@include md-and-up {
+			padding: 1rem 0;
+			background: transparent;
+			position: absolute;
+			bottom: 10px;
+			left: calc(50% + #{$space-lg});
+		}
+		.dot {
+			@extend %button-clean;
+			display: block;
+			height: 1.5em;
+			width: 1.5em;
+			margin: 0 $space-sm 0 0;
+			cursor: pointer;
+
+			border-radius: 100%;
+			background-color: white;
+			border: $border-width solid var(--color-primary);
+			transition: background-color 0.2s ease-in;
+			&.active {
+				background: var(--color-primary);
+			}
+			&:hover {
+				border: $border-width solid var(--color-primary);
+			}
+		}
+	}
+}

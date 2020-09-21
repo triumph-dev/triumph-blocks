@@ -1,0 +1,31 @@
+<nav id="footer-menu" class="footer-menu-wrapper container-lg">
+	<div class="footer-top">
+		<div class="footer-menu-logo">
+			{% if is_internet_explorer() %}
+				<img src="{{ fallback_logo_light_src() }}" alt="{{site.name}} Logo" />
+			{% else %}
+				<img src="{{ site_logo_src() }}" alt="{{site.name}} Logo" />
+			{% endif %}
+		</div>
+		
+		{% if menu.footerSocial %}
+			<div class="footer-social-menu">
+				<h3>Connect with Us</h3>
+				{% include "blocks/menu-list/menu-list.twig" with {'items': menu.footerSocial.get_items, 'name': 'menu-footer-social'} %}
+			</div>
+		{% endif %}
+	</div>
+	
+
+	{% if menu.footerNav %}
+		{% include "blocks/menu-list/menu-list-footer.twig" with {'items': menu.footerNav.get_items, 'name': 'menu-footer-nav'} %}
+	{% endif %}
+
+
+	<div class="footer-bottom">
+		Copyright {{"now"|date('Y')}} {{menu.footerNav.meta('copyright')}}
+	</div>
+
+
+</nav>
+

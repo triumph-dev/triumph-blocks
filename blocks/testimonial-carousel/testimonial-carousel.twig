@@ -1,0 +1,53 @@
+{#
+  Title:Testimonial Carousel
+  Description: A sliding list of testimonials
+  Category: triumph-blocks
+  Icon: editor-ol
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page partners
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% if testimonials is not defined %}
+	{% set testimonials = fields.testimonials %}
+{% endif %}
+
+{% if fields.background_color == "white" %}
+	{% set icon = "carousel-arrow-primary.png" %}
+{% else %}
+	{% set icon = "carousel-arrow.png" %}
+{% endif %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'testimonial-carousel' } %}
+	{% block block_content %}
+		<div class="testimonials {{ fields.show_arrow_navigation ? "arrows" : "" }}">
+			{% for testimonial in testimonials %}
+				<div class="testimonial">
+					{% set name = testimonial.customer_name %}
+					{% set title = testimonial.customer_title_and_company %}
+					{% set city = testimonial.customer_location %}
+
+					<h3 class="container-md">{{ testimonial.post_content }}</h3>
+					<h4>{{ name }}{% if title %}, {{ title }}{% endif %}</h4>
+					{% if city %}
+						<h4>{{ city }}</h4>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>	
+		{% if fields.show_arrow_navigation %}
+			<ul class="controls" id="testimonial-controls" aria-label="Carousel Navigation" tabindex="0">
+				<li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+					<img src="{{ site.theme.link }}/assets/img/{{ icon }}" />
+				</li>
+				<li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+					<img src="{{ site.theme.link }}/assets/img/{{ icon }}" />
+				</li>
+			</ul>
+		{% endif %}
+	{% endblock %}
+{% endembed %}

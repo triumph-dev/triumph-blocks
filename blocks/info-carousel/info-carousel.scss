@@ -1,0 +1,97 @@
+.info-carousel .section-wrapper {
+	display: flex;
+	padding: $space-lg $space-md;
+	flex-direction: column-reverse;
+	@include md-and-up {
+		flex-direction: row;
+	}
+	.copy {
+		width: 100%;
+		margin-top: $space-sm;
+		text-align: center;
+		@include md-and-up {
+			width: 50%;
+			text-align: left;
+			margin-top: 0;
+			padding-right: $space-md;
+			margin-left: $space-sm;
+		}
+		cursor: pointer;
+		h2 {
+			margin-bottom: $space-md;
+		}
+	}
+	.slide {
+		padding: $space-md;
+		margin-bottom: $space-sm;
+		border-radius: $border-radius;
+		transition: all 0.2s ease-in;
+		background: white;
+		@include heading {
+			margin-bottom: 5px;
+			margin-top: $space-md;
+			@include md-and-up {
+				margin-top: 0;
+			}
+		}
+		@include md-and-up {
+			background: transparent;
+			margin-left: -$space-sm;
+			padding: $space-sm;
+		}
+		.mobile {
+			display: block;
+			width: 200px;
+			height: 200px;
+			overflow: auto;
+			position: relative;
+			overflow: hidden;
+			margin: 0 auto;
+			margin-bottom: $space-sm;
+			img {
+				position: absolute;
+				width: 150px;
+				left: 0;
+				right: 0;
+				margin-left: auto;
+				margin-right: auto;
+				box-shadow: 0px 5px 10px 0px rgba($color-ui-dark, 0.2);
+			}
+			@include md-and-up {
+				display: none;
+			}
+		}
+		&:hover {
+			background: rgba(255, 255, 255, 0.5);
+		}
+		&.active {
+			background: white;
+			box-shadow: .5em .5em 2em 0px rgba($color-ui-dark, 0.1);
+		}
+	}
+	.images {
+		margin: 0 auto;
+		position: relative;
+		display: none;
+		@include md-and-up {
+			display: block;
+			transform: scale(.9);
+		}
+		.image {
+			border-radius: $border-radius;
+			overflow: hidden;
+			position: absolute;
+			transition: all 0.2s ease-in 0s;
+			box-shadow: .5em .5em 2em 0px rgba($color-ui-dark, 0.3);
+			cursor: pointer;
+			&:hover {
+				margin-left: 10px;
+			}
+			&.active {
+				&:hover {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+<div class="blog-list">
+	<div id="list-total">q</div>
+	<ol class="list">
+		{% for post in posts %}
+			{% include 'blocks/tease/tease-post.twig' %}
+		{% endfor %}
+	</ol>
+	<ul class="pagination"></ul>
+</div>

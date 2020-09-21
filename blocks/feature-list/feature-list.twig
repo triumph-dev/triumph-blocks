@@ -1,0 +1,29 @@
+{#
+  Title: Feature List
+  Description: Top item points of concern for the user in grid format
+  Category: triumph-blocks
+  Icon: editor-ul
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'feature-list' } %}
+	{% block block_content %}
+		{% for feature in fields.features %}
+			{% set image = Image(feature.icon) %}
+			<div class="feature" style="-ms-grid-column:{{loop.index}};">
+				<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+				<div class="copy">
+					{{ feature.copy }}
+				</div>
+			</div>
+		{% endfor %}
+	{% endblock %}
+{% endembed %}
