@@ -14,16 +14,19 @@
 
 {% if posts|length == 1 %}
 	{% set posts = recent_news|slice(0,1) %}
+	{% set identity = "demo-block" %}
+{% else %}
+	{% set identity = "" %}
 {% endif %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: ""} %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: "blog-wrapper"} %}
 	{% block block_content %}
 
 		<div class="blog-list">
 			{% if posts|length > 1 %}
 				<div id="list-total">q</div>
 			{% endif %}
-			<ol class="list">
+			<ol class="list {{ identity }}">
 				{% for post in posts %}
 					{% include 'blocks/tease/tease-post.twig' %}
 				{% endfor %}

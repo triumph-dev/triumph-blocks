@@ -1,7 +1,10 @@
+.list.demo-block {
+	margin: $space-lg $space-md;
+}
+
 ul.pagination {
 	display: flex;
 	margin-top: $space-md;
-
 	li {
 		margin-right: $space-xs;
 		margin-bottom: 0;
