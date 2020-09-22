@@ -1,9 +1,35 @@
-<div class="blog-list">
-	<div id="list-total">q</div>
-	<ol class="list">
-		{% for post in posts %}
-			{% include 'blocks/tease/tease-post.twig' %}
-		{% endfor %}
-	</ol>
-	<ul class="pagination"></ul>
-</div>
+{#
+  Title: Blog List
+  Description: A list of blogs outputted in the news page format
+  Category: triumph-blocks
+  Icon: align-center
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% if posts|length == 1 %}
+	{% set posts = recent_news|slice(0,1) %}
+{% endif %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: ""} %}
+	{% block block_content %}
+
+		<div class="blog-list">
+			{% if posts|length > 1 %}
+				<div id="list-total">q</div>
+			{% endif %}
+			<ol class="list">
+				{% for post in posts %}
+					{% include 'blocks/tease/tease-post.twig' %}
+				{% endfor %}
+			</ol>
+			<ul class="pagination"></ul>
+		</div>
+
+	{% endblock %}
+{% endembed %}
