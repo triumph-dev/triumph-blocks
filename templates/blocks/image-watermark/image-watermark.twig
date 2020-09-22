@@ -1,6 +1,4 @@
 <div class="image-watermark">
-    {% include "blocks/image-watermark/svg.twig" with {id: "top-left"} %}
-    {% include "blocks/image-watermark/svg.twig" with {id: "bottom-right"} %}
-    <img id="top-left" src="{{ site.theme.link }}/assets/img/image-watermark.svg" />
-    <img id="bottom-right" src="{{ site.theme.link }}/assets/img/image-watermark.svg" />
+    <img id="top-left" src="{{ site.theme.link }}/assets/img/{{ brand }}/image-watermark.svg" />
+    <img id="bottom-right" src="{{ site.theme.link }}/assets/img/{{ brand }}/image-watermark.svg" />
 </div>
