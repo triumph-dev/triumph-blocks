@@ -27,6 +27,10 @@ $interior-min-height:400px;
         flex-direction: column;
     }
 
+    .image-arrow g {
+        fill:var(--color-primary);
+    }
+
     .panes {
         display: flex;
         &.carousel {

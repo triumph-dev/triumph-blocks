@@ -1,4 +1,4 @@
 <div class="image-watermark">
-    <img src="{{ site.theme.link }}/assets/img/image-watermark.svg" id="top-left"/>
-    <img src="{{ site.theme.link }}/assets/img/image-watermark.svg" id="bottom-right"/>
+    {% include "blocks/image-watermark/svg.twig" with {id: "top-left"} %}
+    {% include "blocks/image-watermark/svg.twig" with {id: "bottom-right"} %}
 </div>

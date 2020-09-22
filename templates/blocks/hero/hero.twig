@@ -47,7 +47,7 @@
 							{% include 'blocks/app-icons/app-icons.twig' %}
 						{% endif %}
 						{% if slide.show_arrow_watermark %}
-							<img src="{{ site.theme.link }}/assets/img/image-watermark.svg" class="image-arrow" />
+							{% include "blocks/image-watermark/svg.twig" with {class:'image-arrow'} %}
 						{% endif %}
 					</figcaption>
 				</figure>
