@@ -1,0 +1,11 @@
+.brand-toggle {
+    padding:$space-lg $space-md;
+    background: var(--color-primary);
+    select {
+        background: #ffffff;
+        display: block;
+        max-width:300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
