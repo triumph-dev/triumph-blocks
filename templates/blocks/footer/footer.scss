@@ -6,12 +6,12 @@
 	font-size: 0.9em;
 	color: $color-ui-light;
 	@extend %light-link;
+	padding: $space-lg $space-md;
 	p {
 		font-family: $font-sans-serif;
 	}
 }
 .footer-menu-wrapper {
-	padding: $space-lg $space-md;
 	h3 {
 		font-size: 1em;
 		@extend %uppercase;

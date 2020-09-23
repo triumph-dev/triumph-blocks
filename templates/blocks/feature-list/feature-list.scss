@@ -1,7 +1,6 @@
 .feature-list {
 	@extend %white-text;
-	.section-wrapper {
-		padding: $space-lg $space-md;
+	.layout-wrapper {
 		display: flex;
 		flex-direction: column;
 		@include md-and-up {
@@ -20,11 +19,11 @@
 		margin: 0 0 $space-md 0;
 		@include md-and-up {
 			margin: 0 $space-md 0 0;
-			border-right: $border-width solid rgba($color-ui-gray, .4);
+			border-right: $border-width solid rgba($color-ui-gray, 0.4);
 		}
 	}
 	h4 {
-		margin-bottom: .3em;
+		margin-bottom: 0.3em;
 	}
 
 	img {

@@ -14,16 +14,7 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'icon-block-grid' } %}
 	{% block block_content %}
-		<div class="heading-and-copy">
-			<div class="content container-md">{{ fields.heading_and_copy }}</div>
-		</div>
-
-		<div class="icon-blocks container-lg {{ fields.icon_blocks|length is divisible by(4) ? 'four-wide' : '' }}">
-      {% if fields.boundaried_copy %}
-        <div class="boundaried-copy">
-          {{ fields.boundaried_copy }}
-        </div>
-      {% endif %}
+		<div class="icon-blocks {{ fields.icon_blocks|length is divisible by(4) ? 'four-wide' : '' }}">
 			{% for iconBlock in fields.icon_blocks %}
 				{% include "templates/blocks/icon-block/icon-block.twig" with {iconBlock: iconBlock, index:loop.index} %}
 			{% endfor %}

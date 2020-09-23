@@ -16,7 +16,7 @@ SupportsMultiple: true
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'logo-carousel' } %}
 	{% block block_content %}
-		<div class="logo-carousel {{ fields.logos|length > show_total ? "active" : "" }} block full-width {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+		<div class="logo-carousel-wrapper {{ fields.logos|length > show_total ? "active" : "" }} block full-width {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
 			<div class="copy">
 				{{ fields.copy }}
 			</div>

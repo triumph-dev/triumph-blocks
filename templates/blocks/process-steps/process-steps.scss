@@ -1,7 +1,6 @@
 .process-steps {
-	.section-wrapper {
+	.layout-wrapper {
 		display: flex;
-		padding: $space-lg $space-md;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
@@ -11,30 +10,29 @@
 		}
 	}
 	.copy {
-		margin-bottom: $space-md;
+		margin: 0 0 $space-md 0;
+
 		@include md-and-up {
-			max-width: 40%;
-			margin-bottom: 0;
-			padding-right: $space-lg;
+			margin: 0 $space-lg 0 0;
 		}
 	}
 }
 ol.process-steps-list {
 	list-style: none;
 	counter-reset: my-awesome-counter;
-	padding-left: $space-md;
+	padding-left: $space-lg;
 	margin-bottom: 0;
 	@include md-and-up {
 		&.has-copy {
 			max-width: 50%;
 		}
 	}
+	h3 {
+		padding-top: 0.35em;
+	}
 	li {
 		position: relative;
-		padding: 0 0 $space-lg $space-sm;
-		@include md-and-up {
-			padding: 0 0 $space-lg $space-md;
-		}
+		padding: 0 0 $space-md 0;
 		counter-increment: my-awesome-counter;
 		&:after {
 			/* bullets */
@@ -47,15 +45,11 @@ ol.process-steps-list {
 			color: $color-ui-dark;
 			position: absolute;
 			top: 0px;
-			height: 45px;
-			width: 45px;
-			font-size: 20px;
-			left: -50px;
+			height: 2em;
+			width: 2em;
+			font-size: 1.5em;
+			left: -#{$space-lg};
 			@include md-and-up {
-				height: 65px;
-				width: 65px;
-				font-size: 30px;
-				left: -60px;
 			}
 			@include ie {
 				padding-top: 7px;
@@ -65,7 +59,7 @@ ol.process-steps-list {
 			/* lines */
 			content: "";
 			position: absolute;
-			left: -1.75rem;
+			left: -2.5em;
 			border-left: $border-width solid var(--color-accent);
 			height: 100%;
 			//width: 1px;

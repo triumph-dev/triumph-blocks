@@ -1,4 +1,4 @@
-<section class="{{ blockName }} {{ block.classes ? block.classes : '' }} section-wrapper" {{ block.id ? 'data-' ~ block.id : '' }} data-background-color="{{ fields.background_color }}">
+<section class="section-wrapper {{ blockName }} {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }} data-background-color="{{ fields.background_color }}">
 
 	{% if fields.background_color == 'image' and fields.background_image %}
 		{% set image = Image(fields.background_image) %}
