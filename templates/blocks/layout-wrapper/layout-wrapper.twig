@@ -1,11 +1,11 @@
-<section class="{{ blockName }} {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }} data-background-color="{{ fields.background_color }}">
+<section class="{{ blockName }} {{ block.classes ? block.classes : '' }} section-wrapper" {{ block.id ? 'data-' ~ block.id : '' }} data-background-color="{{ fields.background_color }}">
 
 	{% if fields.background_color == 'image' and fields.background_image %}
 		{% set image = Image(fields.background_image) %}
 		<img class="background" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'section background' }}">
 	{% endif %}
 
-	<div class="section-wrapper {{ fields.width }}">
+	<div class="layout-wrapper {{ fields.width }}">
 		{% block block_content %}
 				
 		{% endblock %}

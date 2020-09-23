@@ -12,7 +12,8 @@
   SupportsJSX: true
 #}
 
-<div class="wrapper {{ block.classes ? block.classes : '' }}" data-{{ block.id }}>
-	<InnerBlocks />
-</div>
-
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'wrapper' } %}
+	{% block block_content %}
+		<InnerBlocks />
+	{% endblock %}
+{% endembed %}
