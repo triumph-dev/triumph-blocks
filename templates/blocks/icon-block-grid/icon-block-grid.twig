@@ -14,7 +14,13 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'icon-block-grid' } %}
 	{% block block_content %}
+
+		<div class="copy container-md">
+			{{ fields.copy }}
+		</div>
+
 		<div class="icon-blocks {{ fields.icon_blocks|length is divisible by(4) ? 'four-wide' : '' }}">
+
 			{% for iconBlock in fields.icon_blocks %}
 				{% include "templates/blocks/icon-block/icon-block.twig" with {iconBlock: iconBlock, index:loop.index} %}
 			{% endfor %}
