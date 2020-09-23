@@ -20,6 +20,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	return;
 }
 
+require_once 'functions/functions.php';
 
 add_filter( 'timber/acf-gutenberg-blocks-templates', function( $context ){
 	return [ 'vendor/triumph-dev/triumph-blocks/templates/blocks' ];

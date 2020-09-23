@@ -1,0 +1,75 @@
+{#
+  Title: Account Comparison
+  Description: Compare selected accounts
+  Category: triumph-blocks
+  Icon: money-alt
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% set table = function('account_comparison', fields.accounts) %}
+{% set colwidth = 60 / fields.accounts|length  %}
+{% set disclaimers = [] %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'account-comparison' } %}
+	{% block block_content %}
+	<div class="comparison-table-scroll-wrapper">
+	<div class="comparison-table-wrapper">
+		<table class="comparison-table">
+			<colgroup>
+				<col span="1" style="width: 40%;">
+				{% for account in table.accounts %}
+					<col span="1" style="width: {{ colwidth }}%;">
+				{% endfor %}
+			</colgroup>
+			<tbody>
+				<tr class="comparison-header">
+					<th scope="col">
+						
+					</th>
+					{% for account in table.accounts %}
+						<th class="account-name" scope="col">
+							<h4>{{ account.post_title }}</h4>
+						</th>
+					{% endfor %}
+				</tr>
+				{% for row in table.rows %}
+					{% set sup = '' %}
+					{% if row.instructions %}
+						{% set disclaimers = disclaimers|merge([row.instructions]) %}
+						{% set sup = '<sup><a href="#' ~ block.id ~'-disclaimer-' ~ disclaimers|length ~ '">' ~ disclaimers|length ~ '</a></sup>' %}
+					{% endif %}
+					<tr>
+						<th class="row-header" scope="row">{{ row.label }}{{ sup }}</th>
+						{% for value in row.values %}
+							<td>
+								{% if row.type == 'true_false' %}
+									{{ value ? '<i class="far fa-lg fa-check true"></i>' : '-' }}
+								{% else %}
+									{{ value ? value : '-' }}
+								{% endif %}
+							</td>
+						{% endfor %}	
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		
+	</div>
+	<div class="fade"> </div>
+	</div>
+	<div class="disclaimer small">
+		<ol>
+			{% for disclaimer in disclaimers %}
+				<li id="{{ block.id }}-disclaimer-{{ loop.index }}">{{ disclaimer }}</li>
+			{% endfor %}
+		</ol>
+	</div>
+	{% endblock %}
+{% endembed %}
+
