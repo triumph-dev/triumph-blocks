@@ -144,6 +144,10 @@ ul.menu-header-nav {
 	margin: $space-md 0;
 	border-bottom: 1px solid rgba($color-ui-gray, 0.2);
 	justify-content: center;
+	font-family:$font-sans-serif;
+	&.single-nav-menu {
+		justify-content: flex-end;
+	}
 	> li {
 		@extend %uppercase;
 		a {
