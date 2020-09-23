@@ -25,16 +25,18 @@
 			<option value="tpay">TPay</option>
 		</select>
 
-		<!-- Component Toggle -->
-		<select name="components" id="component-select">
-			{% for active_block in active_blocks %}
-				{% if loop.index == 1 %}
-					<option value="reset">--Show All--</option>
-				{% else %}
-					<option value="{{ active_block }}">{{ active_block|replace({ ("-"): " " })|title }}</option>
-				{% endif %}
-			{% endfor %}
-		</select>
+		{% if fields.show_component_filter %}
+			<!-- Component Toggle -->
+			<select name="components" id="component-select">
+				{% for active_block in active_blocks %}
+					{% if loop.index == 1 %}
+						<option value="reset">--Show All--</option>
+					{% else %}
+						<option value="{{ active_block }}">{{ active_block|replace({ ("-"): " " })|title }}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		{% endif %}
 	</div>
 	{% endblock %}
 {% endembed %}
