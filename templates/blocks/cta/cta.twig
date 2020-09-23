@@ -12,11 +12,7 @@
   SupportsMultiple: true
 #}
 
-{% if fields.is_row %}
-	{% set class = 'cta is-row' %}
-{% else %}
-	{% set class = 'cta' %}
-{% endif %}
+{% set class = (fields.is_row ? 'cta is-row' : (fields.is_a_header ? 'cta header' : 'cta')) %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class} %}
 	{% block block_content %}

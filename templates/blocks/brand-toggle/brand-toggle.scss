@@ -5,7 +5,20 @@
         background: #ffffff;
         display: block;
         max-width:300px;
+        border:none;
         margin: 0 auto;
         text-align: center;
+        margin-bottom: $space-sm;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include sm-and-up {
+            margin-bottom: 0;
+        }
+    }
+    .select-wrapper {
+        @include sm-and-up {
+            display: flex;
+        }
     }
 }
