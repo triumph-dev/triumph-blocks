@@ -1,5 +1,5 @@
-.recent-news .layout-wrapper {
-	padding: $space-lg $space-sm;
+.recent-news {
+	//padding: $space-lg $space-sm;
 	text-align: center;
 	h2 {
 		text-align: center;
@@ -13,8 +13,12 @@
 		}
 	}
 	.posts {
+		margin: 0 -#{$space-sm};
 		display: flex;
 		text-align: left;
 		flex-wrap: wrap;
+		> * {
+			margin: $space-sm;
+		}
 	}
 }
