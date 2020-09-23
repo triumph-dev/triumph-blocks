@@ -2,7 +2,7 @@
 
 	{% if fields.background_color == 'image' and fields.background_image %}
 		{% set image = Image(fields.background_image) %}
-		<img class="background" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'section background' }}">
+		<img class="background" data-object-fit="cover" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'section background' }}">
 	{% endif %}
 
 	<div class="layout-wrapper {{ fields.width }}">
