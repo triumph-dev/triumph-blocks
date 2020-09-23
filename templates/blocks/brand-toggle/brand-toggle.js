@@ -15,7 +15,7 @@ export default class BrandToggle {
 
     refreshBrands(e) {
         var brand = e.target.value;
-        var destination = window.location.origin + "?brand=" + brand;
+        var destination = window.location.href.split("/?")[0] + "?brand=" + brand;
         window.location.href = destination;
     }
 
