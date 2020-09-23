@@ -7,7 +7,7 @@ export default class BrandToggle {
 
         // Definitions
         this.element = document.querySelector(element);
-        this.blocks     = Array.prototype.slice.call(document.querySelectorAll(".article-body section[data-background-color]"));
+        this.blocks     = Array.prototype.slice.call(document.querySelectorAll("#content section[data-background-color]"));
 
         // Calls
         this.init();
