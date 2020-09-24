@@ -12,6 +12,11 @@ $hero-height: 500px;
 	@include ie {
 		display: block;
 	}
+	&:not(.carousel) {
+		.hero-pane {
+			width: 100%;
+		}
+	}
 }
 .tns-horizontal > .tns-item.hero-pane {
 	display: flex;
