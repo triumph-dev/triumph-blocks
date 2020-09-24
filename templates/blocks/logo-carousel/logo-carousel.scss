@@ -46,26 +46,10 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		width:100%;
 		@include lg-and-up {
 			justify-content: space-around;
 			flex-direction: row;
-		}
-		img {
-			width: 100%;
-			height: 100%;
-			max-width: 200px;
-			max-height: 90px;
-			margin-bottom: $space-md;
-			padding: $space-sm;
-			margin: 0;
-			@include sm-and-up {
-				max-width: 200px;
-				max-height: 100px;
-				height: auto;
-			}
-			@include ie {
-				height: 100%;
-			}
 		}
 	}
 	.group.showing-eight {
@@ -88,7 +72,7 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: 0;
+		left: 0; 
 		right: 0;
 		padding: 0 $space-md;
 		@include ie {
@@ -106,19 +90,17 @@
 			transform: rotate(180deg);
 		}
 	}
-	@include md-and-up {
-		&.active .carousel {
-			padding: $space-lg 0;
-		}
-		&:not(.active) .carousel .group {
-			img {
-				max-width: 250px;
-			}
-			&.showing-eight img {
-				max-width: 25%;
-				width:100%;
-				min-width:160px;
-			}
+	.image-wrapper {
+		width: 25%;
+		height: 100px;
+		position: relative;
+		object-fit: contain;
+		img {
+			position:absolute;
+			object-fit:contain;
+			width:100%;
+			padding:15px;
+			height:100%;
 		}
 	}
 }

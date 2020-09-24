@@ -31,7 +31,9 @@ SupportsMultiple: true
 					<div class="slider">
 						<div class="group {{ show_total == 8 ? "showing-eight" : "" }}">
 					{% endif %}
-							<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+							<div class="image-wrapper">
+								<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+							</div>
 					{% if loop.index is divisible by(show_total) or loop.last %}
 						</div>
 					</div>
