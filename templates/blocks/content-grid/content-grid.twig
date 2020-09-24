@@ -14,11 +14,16 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: "content-grid" } %}
 	{% block block_content %}
-		<ul class="content-grid-list">
+		{% if fields.grid_copy %}
+			<div class="content-grid-copy {{ fields.grid_copy_width }}">
+				{{ fields.grid_copy }}
+			</div>
+		{% endif %}
+		<ul class="content-grid-list" data-align={{ fields.grid_item_alignment }}>
 		{% for grid_item in fields.grid_items %}
 			<li class="content-grid-item grid-item-{{ fields.grid_item_style }}">
 				{% if grid_item.image %}
-					<div class="grid-item-header image">
+					<div class="grid-item-header {{ fields.grid_item_image_style }}">
 						{% set image = Image(grid_item.image) %}
 						<img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="cover"/>
 					</div>
@@ -31,8 +36,13 @@
 				{% endif %}
 
 				{% if grid_item.link.link.url  %}
+					{% if 'simple' in grid_item.link.link_style %}
+						{% set link_type = '' %}
+					{% else %}
+						{% set link_type = 'btn' %}
+					{% endif %}
 					<div class="grid-item-footer">
-						<a class="btn {{ grid_item.link.link_style }} {{ grid_item.link.link_color }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
+						<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
 					</div>
 				{% endif %}
 			</li>
