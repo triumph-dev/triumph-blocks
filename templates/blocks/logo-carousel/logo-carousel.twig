@@ -22,31 +22,24 @@ SupportsMultiple: true
 			</div>
 
 			<div class="carousel">
-				<div class="slides">
-
-					{% for logo in fields.logos %}
-
+			
+				{% for logo in fields.logos %}
 					{% set image = Image(logo.logo) %}
 					{% if loop.index0 is divisible by(show_total) %}
-					<div class="slider">
-						<div class="group {{ show_total == 8 ? "showing-eight" : "" }}">
+						<div class="carousel-slide">
+							<div class="logo-group">
 					{% endif %}
-							<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+							<div class="logo-wrapper">
+								<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+							</div>
 					{% if loop.index is divisible by(show_total) or loop.last %}
+							</div>
 						</div>
-					</div>
 					{% endif %}
+					
 
-					{% endfor %}
-				</div>
-				<ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
-					<li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-						<img src="{{ site.theme.link }}/assets/img/carousel-arrow.png" />
-					</li>
-					<li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
-						<img src="{{ site.theme.link }}/assets/img/carousel-arrow.png" />
-					</li>
-				</ul>
+				{% endfor %}
+			
 			</div>
 		</div>
 	{% endblock %}

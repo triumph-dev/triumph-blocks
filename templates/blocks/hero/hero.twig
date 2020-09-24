@@ -20,38 +20,46 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'hero' } %}
 	{% block block_content %}
-		<div class="panes {{ carousel ? 'carousel' : '' }}">
+
+		<div class="hero-panes {{ carousel ? 'carousel' : '' }}">
 			{% for slide in slides %}
 
 				{% set bg = false %}
 				{# Vars for handling two different BG image methods, based on browser specs #}
 				{% if slide.background_color == 'image' %}
 					{% set bg = Image(slide.background_image) %}
-					{% if is_internet_explorer() %}
-						{% set ie_fallback = true %}
-					{% endif %}
 				{% endif %}
+	
+					<div class="hero-pane" data-background-color="{{ slide.background_color }}">
 
-				<figure class="pane" data-background-color="{{ slide.background_color }}" {% if ie_fallback and bg %}style="background:url({{ bg }});"{% endif %}>
-					{% if bg and ie_fallback is null %}
-						<img class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" />
-					{% endif %}
-					<figcaption class="copy">
-						{{slide.copy}}
-						<div class="links">
-							{% for link in slide.links %}
-								<a class="btn {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
-							{% endfor %}
+						{% if bg  %}
+							<img class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" data-object-fit="cover"/>
+						{% endif %}
+
+						<div class="hero-copy-wrapper">
+							<div class="hero-copy">
+								{{slide.copy}}
+								<div class="links">
+									{% for link in slide.links %}
+										<a class="btn {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
+									{% endfor %}
+								</div>
+
+								{% if slide.show_app_icons %}
+									{% include 'blocks/app-icons/app-icons.twig' %}
+								{% endif %}
+
+								
+							</div>
+							
 						</div>
-						{% if slide.show_app_icons %}
-							{% include 'blocks/app-icons/app-icons.twig' %}
-						{% endif %}
 						{% if slide.show_arrow_watermark %}
-    						<img class="image-arrow" src="{{ site.theme.link }}/assets/img/{{ brand }}/image-watermark.svg" />
+							<img class="image-arrow" src="{{ site.theme.link }}/assets/img/{{ brand }}/image-watermark.svg" />
 						{% endif %}
-					</figcaption>
-				</figure>
+					</div>
+			
 			{% endfor %}
-		</div>
+		
+	</div>
 	{% endblock %}
 {% endembed %}

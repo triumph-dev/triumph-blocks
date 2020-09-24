@@ -12,26 +12,26 @@
 
 {% block content %}
 	<div class="meta">
-		<div class="categories-and-title">
-			<div class="categories" data-categories="{{ cat_slug_array|join('+') }}">
-				{% for category in post.categories %}
-					<a class="{{category.slug}}" href="{{ category.link }}">{{ category.name }}</a>{{ loop.last ? '' : ',' }}
-				{% endfor %}
-			</div>
-
-			<div class="tags" data-tags="{{ tag_slug_array|join('+') }}">
-				{{ post.tags|join(', ') }}
-			</div>
-			
-			<div class="title">
-				<a href="{{ post.link }}"><h3>{{ post.title }}</h3></a>
-				<p>{{ post.date|date('F, d') }} <span class="year" data-year="{{ post.date|date('Y')}}">{{ post.date|date('Y') }}</span></p>
-			</div>
-			<p class="mobile">{{ post.preview.length(200).read_more(false)}}</p>
+		<div class="categories" data-categories="{{ cat_slug_array|join('+') }}">
+			{% for category in post.categories %}
+				<a class="{{category.slug}}" href="{{ category.link }}">{{ category.name }}</a>{{ loop.last ? '' : ',' }}
+			{% endfor %}
 		</div>
-		<a class="btn primary border" href="{{ post.link }}">Read Article</a>
-	</div>
 
+		<div class="tags" data-tags="{{ tag_slug_array|join('+') }}">
+			{{ post.tags|join(', ') }}
+		</div>
+			
+		<div class="title">
+			<a href="{{ post.link }}"><h3>{{ post.title }}</h3></a>
+			<p>{{ post.date|date('F, d') }} <span class="year" data-year="{{ post.date|date('Y')}}">{{ post.date|date('Y') }}</span></p>
+		</div>
+		
+		<p class="mobile">{{ post.preview.length(200).read_more(false)}}</p>
+	
+		<a class="btn primary border" href="{{ post.link }}">Read Article</a>
+
+	</div>
 	<div class="post-preview">
 		<p>{{ post.content|slice(0, 600)|raw ~ "..."}}</p>
 	</div>
