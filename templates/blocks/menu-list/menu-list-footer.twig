@@ -1,5 +1,5 @@
 <ul class="{{ name }}">
-	{# <li>
+	<li>
 		<h3>Contact</h3>
 		<address>
 			<p>{{ options.address }}<br>
@@ -7,7 +7,7 @@
 			<p><a href="tel:{{ options.phone|replace({'(':'',')':'',' ':'', '-':''}) }}">{{ options.phone }}</a></p>
 			<p><a href="mailto:{{ options.email }}" >{{ options.email }}</a></p>
 		</address>
-	</li> #}
+	</li>
 	{% for item in items %}
 		<li>
 			{% if item.link == '#' %}
@@ -17,16 +17,9 @@
 			{% endif %}
 			
 			{% if item.children %}
-				{% set column = 1 %}
-				{% set row = 0 %}
-				<ul class="{{ name }}-first-child {{ item.children|length > 3 ? 'break-on-three' : '' }}">
+				<ul class="{{ name }}-first-child">
 					{% for item in item.children %}
-						{% set row = row + 1 %}
-						{% if loop.index is divisible by(4) %}
-							{% set column = column + 1 %}
-							{% set row = 1 %}
-						{% endif %}
-						<li style="-ms-grid-column:{{ column }};-ms-grid-row:{{ row }};">
+						<li>
 							<a target="{{ item.target }}" class="{{ item.classes|join(' ') }}" href="{{ item.link }}">{{ item.title }}</a>
 						</li>
 					{% endfor %}
