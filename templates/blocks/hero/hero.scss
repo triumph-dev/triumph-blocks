@@ -12,6 +12,16 @@ $hero-height: 500px;
 	@include ie {
 		display: block;
 	}
+	&:not(.carousel) {
+		.hero-pane {
+			width: 100%;
+		}
+		.hero-copy {
+			@include md-and-up {
+				margin-left: 10vw;
+			}
+		}
+	}
 }
 .tns-horizontal > .tns-item.hero-pane {
 	display: flex;
@@ -40,14 +50,14 @@ $hero-height: 500px;
 
 .hero-copy-wrapper {
 	width: 100%;
-	max-width: $breakpoint-lg;
 	margin: 0 auto;
 	position: relative;
 	z-index: 1;
 }
 .hero-copy {
 	@include md-and-up {
-		max-width: calc(500px + 20vw);
+		max-width: 30em;
+		margin-left: 15vw;
 	}
 }
 

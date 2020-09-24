@@ -23,7 +23,8 @@
 
 
 	<div class="footer-bottom">
-		Copyright {{"now"|date('Y')}} {{menu.footerNav.meta('copyright')}}
+		<div class="footer-subtitle">{{menu.footerNav.meta('footer_subtitle')}}</div>
+		<p class="copyright">© {{"now"|date('Y')}}. {{function('get_bloginfo', 'name')}}.</p>
 	</div>
 
 

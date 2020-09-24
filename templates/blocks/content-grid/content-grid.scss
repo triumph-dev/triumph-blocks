@@ -1,0 +1,44 @@
+$grid-gap: 3em;
+ul.content-grid-list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 calc(-#{$grid-gap} / 2);
+	> li {
+		margin: calc(#{$grid-gap} / 2);
+	}
+}
+li.content-grid-item {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	@include sm-and-up {
+		width: calc(50% - #{$grid-gap});
+	}
+	@include md-and-up {
+		width: calc(33.33% - #{$grid-gap});
+	}
+}
+
+.grid-item-header {
+	&.image {
+		background: $color-ui-gray;
+		position: relative;
+		height: calc(14em + 4vw);
+		img {
+			@extend %absolute-fill;
+			object-fit: cover;
+		}
+	}
+	margin-bottom: $space-sm;
+}
+.grid-item-copy {
+	flex-grow: 1;
+}
+
+.grid-item-footer {
+	margin-top: $space-sm;
+}
+
+grid-item-card {
+}

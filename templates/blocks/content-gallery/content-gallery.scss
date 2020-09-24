@@ -1,8 +1,10 @@
 $max-height: calc(16em + 20vw);
-
+.section-wrapper.content-gallery {
+	padding: 0;
+}
 .content-gallery {
 	position: relative;
-
+	padding:0;
 	blockquote {
 		font-size: calc(.75em + 1vw);
 		font-family: $font-sans-serif;

@@ -25,7 +25,7 @@
 			{% for slide in slides %}
 
 				{% set bg = false %}
-				{# Vars for handling two different BG image methods, based on browser specs #}
+
 				{% if slide.background_color == 'image' %}
 					{% set bg = Image(slide.background_image) %}
 				{% endif %}

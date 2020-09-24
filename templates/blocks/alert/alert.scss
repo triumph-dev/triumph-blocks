@@ -4,7 +4,7 @@
 	overflow: hidden;
 	max-height: 0;
 	transition: max-height 250ms ease-out;
-    font-size: 1em;
+	font-size: 1em;
 	&[data-open="true"] {
 		max-height: 12em;
 	}
@@ -44,6 +44,9 @@
 .alert-message {
 	> :last-child {
 		margin-bottom: 0;
+	}
+	> * {
+		font-family:$font-sans-serif;
 	}
 }
 .alert-banner-content-wrapper {
