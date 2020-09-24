@@ -1,5 +1,7 @@
 $max-height: calc(16em + 20vw);
-
+.section-wrapper.content-gallery {
+	padding: 0;
+}
 .content-gallery {
 	position: relative;
 	padding:0;
