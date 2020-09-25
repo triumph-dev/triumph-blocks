@@ -1,8 +1,8 @@
-.logo-carousel {
+.logo-carousel.section-wrapper {
 	@extend %white-text;
 	overflow: hidden;
 	max-width: 100vw;
-
+	padding: $space-lg 0 8em 0;
 	.copy {
 		margin-bottom: $space-sm;
 	}
@@ -18,15 +18,17 @@
 		flex-wrap: wrap;
 	}
 	.logo-wrapper {
-		width: 180px;
-		height: 80px;
-
-		margin: $space-sm $space-md;
+		width: 120px;
+		height: 60px;
+		
+		margin: $space-md $space-lg;
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
-			padding:15px;
+			@include ie {
+				height:auto;
+			}
 		}
 	}
 
