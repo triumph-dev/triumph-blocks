@@ -18,7 +18,7 @@
 	{% block block_content %}
 		<div class="slides {{ carousel ? 'carousel' : 'single' }}">
 			{% for slide in fields.gallery %}
-				<figure data-slide="slide-{{loop.index}}" class="slide {{ loop.index == 1 ? "active" : "" }}">
+				<figure data-slide="slide-{{loop.index}}" class="slide {{ loop.index == 1 ? "active" : "" }} {{ slide.right_align_image ? 'right-image' : '' }}">
 					<!-- Left Image -->
 					{% if slide.right_align_image == false %}
 						{% include 'blocks/content-gallery/image.twig' %}
@@ -26,8 +26,10 @@
 
 					<!-- Text -->
 					<figcaption data-background-color="{{ slide.background_color }}">
-						{{ slide.copy }}
-						{% include 'blocks/content-gallery/links.twig' %}
+						<div class="copy">
+							{{ slide.copy }}
+							{% include 'blocks/content-gallery/links.twig' %}
+						</div>
 					</figcaption>
 
 					<!-- Right Image -->

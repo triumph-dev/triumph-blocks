@@ -3,12 +3,13 @@
 }
 
 .testimonial-carousel {
+	overflow:hidden;
 	.tns-nav {
-		color: var(--color-primary);
+		color: var(--color-accent);
 		transform: translateY($space-lg);
 	}
 	.tns-controls {
-		color: var(--color-primary);
+		color: var(--color-accent);
 	}
 	padding: $space-lg 0;
 	@include md-and-up {
