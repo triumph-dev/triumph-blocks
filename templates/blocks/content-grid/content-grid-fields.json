@@ -79,8 +79,7 @@
                 },
                 "choices": {
                     "default": "Default",
-                    "card": "Card",
-                    "icon": "Icon"
+                    "card": "Card"
                 },
                 "default_value": "default",
                 "allow_null": 0,
