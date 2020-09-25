@@ -1,4 +1,4 @@
-$nav-letter-spacing:0;
+$nav-letter-spacing: 0;
 
 header#header {
 	position: sticky;
@@ -37,17 +37,18 @@ header#header {
 	a {
 		color: var(--color-secondary);
 		font-weight: 600;
-		letter-spacing:$nav-letter-spacing;
+		letter-spacing: $nav-letter-spacing;
 		&:hover {
 			color: $color-link-default;
 		}
 	}
 }
+
 .menu-logo {
 	width: 14rem;
 	flex-shrink: 0;
 	@include se {
-		width:10em;
+		width: 10em;
 	}
 }
 .main-menu-wrapper {
@@ -66,7 +67,8 @@ header#header {
 		}
 	}
 }
-
+a.menu-link {
+}
 .collapse-heading {
 	border: none;
 	@extend %button-clean;
@@ -96,7 +98,7 @@ $transition-time: 250ms;
 			padding: 0 1.5rem;
 			border: $border-width solid var(--color-secondary);
 			margin: 0;
-			letter-spacing:$nav-letter-spacing;
+			letter-spacing: $nav-letter-spacing;
 			svg {
 				display: inline-block;
 			}
@@ -111,12 +113,14 @@ $transition-time: 250ms;
 			max-height: 0;
 		}
 		a {
+			font-family: $font-sans-serif;
 			display: block;
 			padding: $space-xs;
 			//border-radius: $border-radius;
-			background:var(--color-primary);
-			letter-spacing:$nav-letter-spacing;
+			background: var(--color-primary);
+			letter-spacing: $nav-letter-spacing;
 			color: $color-ui-light;
+
 			&:hover {
 				background: var(--color-secondary);
 				color: $color-ui-light;
@@ -142,7 +146,7 @@ ul.menu-header-nav {
 	margin: $space-md 0;
 	border-bottom: 1px solid rgba($color-ui-gray, 0.2);
 	justify-content: center;
-	font-family:$font-sans-serif;
+	font-family: $font-sans-serif;
 	&.single-nav-menu {
 		justify-content: flex-end;
 	}
@@ -176,7 +180,8 @@ ul.menu-header-nav {
 		}
 		> li {
 			margin-left: calc(#{$space-lg} - 1em);
-			&.has-subnav .collapse-heading, &.has-subnav ul {
+			&.has-subnav .collapse-heading,
+			&.has-subnav ul {
 				margin-left: 1.5rem;
 			}
 			a {
