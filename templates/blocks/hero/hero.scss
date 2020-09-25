@@ -9,9 +9,6 @@ $hero-height: 500px;
 }
 .hero-panes {
 	display: flex;
-	@include ie {
-		display: block;
-	}
 	&:not(.carousel) {
 		.hero-pane {
 			width: 100%;
@@ -33,6 +30,10 @@ $hero-height: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@include ie {
+		background-position:center !important;
+		background-size:cover !important;
+	}
 	@include md-and-up {
 		height: $hero-height;
 	}
