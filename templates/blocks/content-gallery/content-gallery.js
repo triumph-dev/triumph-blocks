@@ -3,7 +3,7 @@ export default class Gallery {
 		this.element = document.querySelector(element);
 		this.block = this.element.parentNode;
 		this.slides = this.element.querySelectorAll('.slide');
-		this.navigation = this.block.querySelector('.navigation');
+		this.navigation = this.block.querySelector('.navigation .dots-container');
 		this.childrenCount = this.element.childElementCount;
 		this.dots = [];
 		this.init();

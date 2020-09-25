@@ -1,3 +1,5 @@
+$image-max-width:800px;
+$blockquote-max-width: calc(300px + 5vw);
 $max-height: calc(16em + 20vw);
 .section-wrapper.content-gallery {
 	padding: 0;
@@ -7,7 +9,16 @@ $max-height: calc(16em + 20vw);
 	padding:0;
 	blockquote {
 		font-size: calc(.75em + 1vw);
+		margin: 0 auto;
 		font-family: $font-sans-serif;
+		padding:$space-lg $space-md;
+		@include md-and-up {
+			padding:0;
+			max-width:$blockquote-max-width;
+		}
+		@include lg-and-up {
+			font-size: 1.5em;	
+		}
 		p {
 			font-family: $font-sans-serif;
 			font-weight: 600;
@@ -42,7 +53,9 @@ $max-height: calc(16em + 20vw);
 			justify-content: center;
 			align-items: flex-start;
 			width:100%; 
-			padding: $space-lg $space-md;
+			@media screen and (min-width: $breakpoint-md) and (max-width:calc(#{$image-max-width} * 2)) {
+				max-width:50%;
+			}
 			a:not(.btn) {
 				text-decoration: underline;
 				&:hover {
@@ -55,12 +68,15 @@ $max-height: calc(16em + 20vw);
 			}
 
 			@include md-and-up {
+				padding: 0;
+				padding-bottom: $space-lg;
+			}
+
+			@include md-and-up {
 				min-height: $max-height;
 			}
 
 			@include ie {
-				// width: 50%;
-				// float: right;
 				height: auto;
 				h1,
 				h2,
@@ -89,7 +105,7 @@ $max-height: calc(16em + 20vw);
 		}
 		.image-holder {
 			position: relative;
-			max-width:800px;
+			max-width:$image-max-width;
 			width:100%;
 			@include md-and-up {
 				min-height: $max-height;
@@ -123,17 +139,30 @@ $max-height: calc(16em + 20vw);
 		}
 	}
 	.navigation {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: white;
-		padding: 10px;
+		width:100%;
 		@include md-and-up {
-			padding: 1rem 0;
-			background: transparent;
 			position: absolute;
-			bottom: 10px;
-			left: calc(50% + #{$space-lg});
+			max-width:50%;
+			right:0;
+			bottom:$space-md;
+			margin-left: $space-lg;
+		}
+		@media screen and (min-width:calc(#{$image-max-width} * 2)) {
+			width:calc(100% - #{$image-max-width});
+			max-width:100%;
+		}
+		.dots-container {
+			padding-left: $space-lg;
+			margin: 0 auto;
+			padding:$space-sm;
+			background: white;
+			@extend %center-flex;
+			@include md-and-up {
+				padding:0;
+				background: transparent;
+				max-width:$blockquote-max-width;
+				justify-content: flex-start;
+			}
 		}
 		.dot {
 			@extend %button-clean;
