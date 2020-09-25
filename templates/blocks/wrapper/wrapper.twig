@@ -12,7 +12,13 @@
   SupportsJSX: true
 #}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'wrapper' } %}
+{% if fields.generous_vertical_padding %}
+  {% set class = "wrapper generous-vertical-padding" %}
+{% else %}
+  {% set class = "wrapper" %}
+{% endif %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class } %}
 	{% block block_content %}
 		<InnerBlocks />
 	{% endblock %}
