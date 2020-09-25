@@ -14,82 +14,166 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: "contact-form"} %}
 	{% block block_content %}
+		<form action=" https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8 " method="POST">
 
-        <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-            <input type=hidden name="oid" value="00D0q000000De67">
-            <input type=hidden name="retURL" value="http://www.triumphpay.com/">
-            <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-            <!--  these lines if you wish to test in debug mode.                          -->
-            <!--  <input type="hidden" name="debug" value=1>                              -->
-            <!--  <input type="hidden" name="debugEmail"                                  -->
-            <!--  value="jgaribay@tbcap.com.invalid">                                     -->
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <label for="first_name">First Name</label>
-                    <input placeholder="First" id="first_name" maxlength="40" name="first_name" size="20" type="text" />
-                </div>
+			<fieldset class="hidden" style="display:none" >
+			
+				<label for="lead_source">Lead Source</label>
+				<select  id="lead_source" name="lead_source">
+					<option value="Broker Efficiency Quiz">Broker Efficiency Quiz</option>
+				</select>
 
-                <div class="input-wrapper">
-                    <label for="last_name">Last Name</label>
-                    <input placeholder="Last" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
-                </div>
-            </div>
+				<label for="00N0H00000KlHl4">Web to Lead</label>
+				<input id="00N0H00000KlHl4" name="00N0H00000KlHl4" type="checkbox" value="1" checked/>
 
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <label for="email">Email</label>
-                    <input placeholder="name@website.com" id="email" maxlength="80" name="email" size="20" type="text" />
-                </div>
+				<input type=hidden name="oid" value="00Di0000000ZFlu">
+				<input type=hidden name="retURL" value="https://www.triumphpay.com/thank-you/">
 
-                <div class="input-wrapper">
-                    <label for="phone">Phone</label>
-                    <input placeholder="(555) 555-5555" id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-                </div>
-            </div>
+			</fieldset>
 
-            <h3>Company Details</h3>
-            <div class="input-wrapper">
-                <label for="company">Company</label>
-                <input placeholder="Company" id="company" maxlength="40" name="company" size="20" type="text" /><br>
-            </div>
+			
+			<div class="input-group">
+				<div class="input-wrapper">
+					<label for="first_name">First Name*</label>
+					<input   id="first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="Joe" required/>
+				</div>
 
-            <div class="input-wrapper">
-                <label for="00N0q000005q9pv">Company Type</label>
-                <select  id="00N0q000005q9pv" name="00N0q000005q9pv" title="Company Type"><option value="">--None--</option><option value="Carrier">Carrier</option>
-                    <option value="Broker">Broker</option>
-                    <option value="Shipper">Shipper</option>
-                    <option value="Other - TMS, Media, Vendor, etc.">Other - TMS, Media, Vendor, etc.</option>
-                </select>
-            </div>
+				<div class="input-wrapper">
 
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <label for="00Ni00000080xM4">MC Docket:</label>
-                    <input  id="00Ni00000080xM4" maxlength="10" name="00Ni00000080xM4" size="20" type="text" />
-                </div>
+					<label for="last_name">Last Name*</label>
+					<input  id="last_name" maxlength="80" name="last_name" size="20" type="text"  placeholder="Smith" required/>
+				</div>
+			</div>
 
-                <div class="input-wrapper">
-                    <label for="00Ni00000095Wue">USDOT:</label>
-                    <input  id="00Ni00000095Wue" maxlength="13" name="00Ni00000095Wue" size="20" type="text" />
-                </div>
-            </div>
+			<div class="input-group">
+				<div class="input-wrapper">
+					<label for="email">Email*</label>
+					<input  id="email" maxlength="80" name="email" size="20" type="email"  placeholder="joe.smith@domain.com" required/>
+				</div>
 
-            <div class="input-wrapper">
-                <label for="00N0q000005q9pw">TMS? Which One:</label>
-                <select  id="00N0q000005q9pw" name="00N0q000005q9pw" title="TMS? Which One">
-                    <option value="">--None--</option>
-                    <option value="Aljex">Aljex</option>
-                    <option value="Ascend TMS">Ascend TMS</option>
-                    <option value="DAT Keypoint">DAT Keypoint</option>
-                    <option value="McLeod">McLeod</option>
-                    <option value="MercuryGate">MercuryGate</option>
-                    <option value="TMW">TMW</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
- 
-            <input value="Submit" type="submit" name="submit">
-        </form>
+				<div class="input-wrapper">
+					<label for="phone">Phone*</label>
+					<input  id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="(123) 456-7890" required/>
+				</div>
+			</div>
+
+			<div class="input-group">
+				<div class="input-wrapper">
+					<label for="company">Company*</label>
+					<input  id="company" maxlength="40" name="company" size="20" type="text"  placeholder="Smith Shipping Inc." required/>
+				</div>
+				<div class="input-wrapper">
+					<label for="type">Company Type</label>
+					<select  id="00Ni000000FWTni" name="00Ni000000FWTni" title="Type">
+						<option disabled selected >Select your company type</option>
+						<option value="Carrier">Carrier</option>   
+						<option value="Broker">Broker</option>
+						<option value="Shipper">Shipper</option>
+						<option value="Other - TMS, Media, Vendor, etc.">Other - TMS, Media, Vendor, etc.</option>
+					</select>
+				</div>
+			</div>
+
+			<fieldset class="type-select-target" data-select="Carrier">
+				<h4>Carrier</h4>
+				<label for="mc">MC Docket</label>
+				<input  id="00Ni00000080xM4" maxlength="10" name="00Ni00000080xM4" size="20" type="text"  placeholder="MC Docket"/>
+
+				<label for="dot">DOT#</label>
+				<input  id="00Ni00000095Wue" maxlength="10" name="00Ni00000095Wue" size="20" type="text"  placeholder="DOT#"/>
+
+				<label for="howCanWeHelpYou">How can we help you?</label>
+				<textarea  id="00N0H00000IwWXT"  name="00N0H00000IwWXT" rows="4" type="text" wrap="soft"  placeholder="How can we help you?"></textarea>
+			</fieldset>
+
+			<fieldset class="type-select-target" data-select="Broker">
+				<h4>Broker</h4>
+				<label for="mc">MC Docket</label>
+				<input  id="00Ni00000080xM4" maxlength="10" name="00Ni00000080xM4" size="20" type="text"  placeholder="MC Docket"/>
+
+				<label for="dot">DOT#</label>
+				<input  id="00Ni00000095Wue" maxlength="10" name="00Ni00000095Wue" size="20" type="text"  placeholder="DOT#"/>
+
+				<label for="tms">TMS</label>
+				<select  id="00N0H00000KlHl3" name="00N0H00000KlHl3"  title="TMS" >
+					<option value="">--None--</option>
+					<option value="Aljex">Aljex</option>
+					<option value="Ascend TMS">Ascend TMS</option>	
+					<option value="McLeod">McLeod</option>	
+					<option value="TMW">TMW</option>
+					<option value="Homegrown">Homegrown</option>	
+					<option value="Revenova">Revenova</option>	
+					<option value="Via">Via</option>
+					<option value="Other">Other</option>
+				</select>
+
+				<label for="annualCarrierPayment">Annual Carrier Payments</label>
+				<select  id="00N0H00000KlIrP" name="00N0H00000KlIrP"  title="Annual Carrier Payments" >
+					<option value="">--None--</option>
+					<option value="$500M+">$500M+</option>
+					<option value="$50M-$500M">$50M-$500M</option>
+					<option value="$10M-$50M">$10M-$50M</option>
+					<option value="Less than $10M">Less than $10M</option>
+				</select>
+
+				<label for="role"> Your Role</label>
+				<select  id="00N0H00000J5yJA" name="00N0H00000J5yJA"  title="Your Role" >
+					<option value="">--None--</option>
+					<option value="Operations">Operations</option>
+					<option value="Technology">Technology</option>
+					<option value="Finance">Finance</option>
+					<option value="Other">Other</option>
+				</select>
+			</fieldset>
+
+
+			<fieldset class="type-select-target" data-select="Shipper">
+				<h4>Shipper</h4>
+				
+				<label for="role">Your Role</label>
+				<select  id="00N0H00000J5yJA" name="00N0H00000J5yJA"  title="Role" >
+					<option value="">--None--</option>
+					<option value="Operations">Operations</option>
+					<option value="Technology">Technology</option>
+					<option value="Finance">Finance</option>
+					<option value="Other">Other</option>
+				</select>
+
+				<label for="tms">TMS</label>
+				<select  id="00N0H00000KlHl3" name="00N0H00000KlHl3"  title="TMS" >
+					<option value="">--None--</option>
+					<option value="Aljex">Aljex</option>
+					<option value="Ascend TMS">Ascend TMS</option>	
+					<option value="McLeod">McLeod</option>
+					<option value="TMW">TMW</option>
+					<option value="Homegrown">Homegrown</option>	
+					<option value="Revenova">Revenova</option>	
+					<option value="Via">Via</option>
+					<option value="Other">Other</option>
+				</select>
+
+				<label for="annualCarrierPayment">Annual Carrier Payments</label>
+				<select  id="00N0H00000KlIrP" name="00N0H00000KlIrP"  title="Annual Carrier Payments" >
+					<option value="">--None--</option>
+					<option value="$500M+">$500M+</option>
+					<option value="$50M-$500M">$50M-$500M</option>
+					<option value="$10M-$50M">$10M-$50M</option>
+					<option value="Less than $10M">Less than $10M</option>
+				</select>
+
+			</fieldset>
+
+			<fieldset class="type-select-target" data-select="Other - TMS, Media, Vendor, etc.">
+				<h4>Other</h4>
+				
+				<label for="howCanWeHelpYou">How can we help you?</label>
+				<textarea  id="00N0H00000IwWXT" name="00N0H00000IwWXT" rows="4" type="text" wrap="soft"  placeholder="How can we help you?"></textarea>
+
+			</fieldset>
+
+			<input class="btn btn-primary" type="submit" name="submit" >
+
+		</form>
 
     {% endblock %}
 {% endembed %}
