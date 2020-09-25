@@ -12,7 +12,13 @@
   SupportsMultiple: true
 #}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: "content-grid" } %}
+{% if fields.alternative_background_margin %}
+	{% set class = 'content-grid alternative-background-margin' %}
+{% else %}
+	{% set class = 'content-grid' %}
+{% endif %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class } %}
 	{% block block_content %}
 		{% if fields.grid_copy %}
 			<div class="content-grid-copy {{ fields.grid_copy_width }}">

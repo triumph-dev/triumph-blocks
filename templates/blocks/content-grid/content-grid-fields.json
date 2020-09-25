@@ -142,6 +142,33 @@
                 "placeholder": ""
             },
             {
+                "key": "field_5f6df2f07a106",
+                "label": "Alternative Background Margin?",
+                "name": "alternative_background_margin",
+                "type": "true_false",
+                "instructions": "Checking this will cause the background color to end where\/cut through the middle of the top row of your icons.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5f6d1e3a172c9",
+                            "operator": "==",
+                            "value": "icon"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
                 "key": "field_5f6cf26b89d28",
                 "label": "Grid Items",
                 "name": "grid_items",
