@@ -30,7 +30,7 @@ SupportsMultiple: true
 							<div class="logo-group">
 					{% endif %}
 							<div class="logo-wrapper">
-								<img data-object-fit="contain" src="{{ image.src }}" srcset="{{ image.srcset }}" />
+								<img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="contain"/>
 							</div>
 					{% if loop.index is divisible by(show_total) or loop.last %}
 							</div>
