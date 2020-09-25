@@ -1,4 +1,4 @@
-$image-max-width:800px;
+$image-max-width:100%;
 $blockquote-max-width: calc(300px + 5vw);
 $max-height: calc(16em + 20vw);
 .section-wrapper.content-gallery {
@@ -97,8 +97,7 @@ $max-height: calc(16em + 20vw);
 				}
 				margin-top: $space-md;
 				a {
-					width:100%;
-					display: block;
+					display: inline-block;
 					margin-right: $space-sm;
 				}
 			}
@@ -121,6 +120,9 @@ $max-height: calc(16em + 20vw);
 		}
 	}
 	.carousel {
+		.copy {
+			width:100%;
+		}
 		figure {
 			max-width: 0;
 			max-height: 0;
@@ -135,6 +137,15 @@ $max-height: calc(16em + 20vw);
 					min-height: $max-height;
 				}
 				opacity: 1;
+			}
+		}
+	}
+	.single figure figcaption {
+		padding:$space-lg $space-md;
+		.copy {
+			@include md-and-up {
+				max-width:$blockquote-max-width;
+				margin:0 auto;
 			}
 		}
 	}
@@ -167,9 +178,9 @@ $max-height: calc(16em + 20vw);
 		.dot {
 			@extend %button-clean;
 			display: block;
-			height: 1.5em;
-			width: 1.5em;
-			margin: 0 $space-sm 0 0;
+			height: 11px;
+			width: 11px;
+			margin: 0 11px 0 0;
 			cursor: pointer;
 
 			border-radius: 100%;
@@ -177,10 +188,12 @@ $max-height: calc(16em + 20vw);
 			border: $border-width solid var(--color-primary);
 			transition: background-color 0.2s ease-in;
 			&.active {
-				background: var(--color-primary);
+				width:16px;
+				height:16px;
 			}
 			&:hover {
 				border: $border-width solid var(--color-primary);
+				background: var(--color-primary);
 			}
 		}
 	}

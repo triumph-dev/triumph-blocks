@@ -6,6 +6,7 @@
 	padding: $space-lg 0 8em 0;
 }
 .testimonial-carousel {
+	overflow:hidden;
 	.tns-nav {
 		color: var(--color-accent);
 		transform: translateY($space-lg);
