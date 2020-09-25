@@ -38,7 +38,7 @@ li.content-grid-item {
 .grid-item-header {
 	background: $color-ui-gray;
 	margin-bottom: $space-sm;
-	height: calc(14em + 4vw);
+	height: calc(10em + 4vw);
 	img {
 		width: 100%;
 		height: 100%;
@@ -69,10 +69,13 @@ li.content-grid-item {
 	background: #fff;
 
 	.grid-item-header {
-		margin-bottom: $space-md;
+		margin-bottom: 0;
 	}
 	.grid-item-copy {
-		margin: 0 $space-md;
+		margin: $space-md;
+	}
+	.grid-item-footer {
+		margin: 0 $space-md $space-md $space-md;
 	}
 
 	> :last-child {
