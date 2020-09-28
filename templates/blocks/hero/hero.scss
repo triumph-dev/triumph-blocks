@@ -45,10 +45,6 @@ $hero-height: 500px;
 		@extend %absolute-fill;
 		z-index: 0;
 		object-fit: cover;
-		filter: brightness(50%);
-		@include sm-and-up {
-			filter: brightness(70%);
-		}
 	}
 }
 

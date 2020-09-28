@@ -42,20 +42,5 @@
 	.apps {
 		margin: $space-md auto;
 		margin-bottom: 0;
-		img {
-			height: 50px;
-			@include se {
-				height: 40px;
-				width: auto;
-			}
-		}
-		@include ie {
-			height: auto;
-			width: 100%;
-			img {
-				width: 100px;
-				height: auto;
-			}
-		}
 	}
 }

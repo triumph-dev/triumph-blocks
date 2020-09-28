@@ -3,7 +3,11 @@
 }
 
 .testimonial-carousel.section-wrapper {
-	padding: $space-lg 0 8em 0;
+	padding: $space-lg 0;
+	padding-bottom: $space-xl;
+	@include sm-and-up {
+		padding: $space-xl 0;
+	}
 }
 .testimonial-carousel {
 	overflow: hidden;

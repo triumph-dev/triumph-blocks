@@ -87,7 +87,7 @@ li.content-grid-item {
 	@include md-and-up {
 		padding-top: 0;
 		border-top: $grid-gap solid white;
-		padding-bottom: $grid-gap;
+		//padding-bottom: $grid-gap;
 		ul {
 			margin-top: calc(#{-$grid-gap} * 2);
 		}

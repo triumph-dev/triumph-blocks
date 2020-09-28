@@ -1,3 +1,6 @@
 .wrapper.generous-vertical-padding {
-    padding: $space-xl $space-md;
+    padding: $space-lg $space-md;
+    @include sm-and-up {
+        padding: $space-xl $space-md;
+    }
 }

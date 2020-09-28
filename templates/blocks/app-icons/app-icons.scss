@@ -1,11 +1,21 @@
 .apps {
-    width: max-content;
-    @include ie {
-        width:0px;
-    }
-    @extend %center-flex;
     img {
-        height: calc(30px + 2vw);
-        margin-right: $space-xs;
+        display:inline;
+        height: 40px;
+        @include sm-and-up {
+            height:100%;
+        }
+    }
+    a {
+        display: inline-block;
+        width:max-content;
+        padding-top: $space-sm;
+        padding-right: $space-sm;
+        @include ie {
+            width:auto;
+        }
+        @include sm-and-up {
+            padding-right: $space-md;
+        }
     }
 }
