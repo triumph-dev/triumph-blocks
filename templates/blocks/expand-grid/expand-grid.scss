@@ -2,14 +2,51 @@
 	margin-bottom: $space-md;
 }
 .expand-grid {
+	li.grid-item-card {
+		min-height: 20em;
+	}
 }
 $grid-gap: 3em;
 ul.expand-grid-list {
-	columns: 3 auto;
-	margin: 0 calc(-#{$grid-gap} / 2);
-
+	break-inside: avoid-column;
+	column-count: 1;
+	column-width: 20em;
+	column-gap: $space-md;
 	> li {
+		margin: 0 0 $space-md 0;
+		width: 100%;
 		display: inline-block;
-		margin: calc(#{$grid-gap} / 2);
+	}
+	&[data-columns="3"] {
+		@include md-and-up {
+			column-count: 2;
+		}
+		@include lg-and-up {
+			column-count: 3;
+		}
+	}
+	&[data-columns="2"] {
+		@include md-and-up {
+			column-count: 2;
+		}
+	}
+}
+.expanded-copy {
+	padding: $space-sm 0 0 0;
+	overflow: hidden;
+	transition: max-height 200ms ease;
+	&[data-toggle="close"] {
+		max-height: 0;
+	}
+}
+
+.expand-grid-trigger {
+	.toggle-status:after {
+		content: " More";
+	}
+	&[data-target-toggle="open"] {
+		.toggle-status:after {
+			content: " Less";
+		}
 	}
 }

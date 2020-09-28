@@ -33,22 +33,15 @@
 				{% if grid_item.copy %}
 					<div class="grid-item-copy">
 						{{ grid_item.copy }}
-						{% if grid_item.expanded_copy %}
-							<div id="{{ block_id }}-item-{{ loop.index }}" class="">
-							</div>
-							<button class="simple" data-toggle-id="{{ block_id }}-item-{{ loop.index }}"><span class="toggle-title">Show</span></button>
-						{% endif %}
 					</div>
 				{% endif %}
 
-				{% if grid_item.link.link.url  %}
-					{% if 'simple' in grid_item.link.link_style %}
-						{% set link_type = '' %}
-					{% else %}
-						{% set link_type = 'btn' %}
-					{% endif %}
+				{% if grid_item.expanded_copy  %}
 					<div class="grid-item-footer">
-						<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
+						<button class="expand-grid-trigger simple" data-toggle-id="{{ block.id }}-item-{{ loop.index }}">Show<span class="toggle-status"></span></button>
+						<div id="{{ block.id }}-item-{{ loop.index }}" class="expanded-copy">
+							{{ grid_item.expanded_copy }}
+						</div>
 					</div>
 				{% endif %}
 			</li>

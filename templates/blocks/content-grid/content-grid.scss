@@ -49,7 +49,7 @@ li.content-grid-item {
 		background: transparent;
 		position: relative;
 		height: 5em;
-		margin: $space-md 0;
+		margin: $space-md;
 		img {
 			height: 100%;
 			width: auto;
@@ -67,6 +67,9 @@ li.content-grid-item {
 .grid-item-card {
 	@extend %dark-text;
 	background: #fff;
+	border-radius: $border-radius;
+	overflow: hidden;
+	border: $border-width solid rgba($color-ui-gray, .2);
 
 	.grid-item-header {
 		margin-bottom: 0;
