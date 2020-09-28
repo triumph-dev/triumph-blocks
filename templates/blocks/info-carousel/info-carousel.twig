@@ -15,21 +15,23 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'info-carousel' } %}
 	{% block block_content %}
-		<div class="copy">
-			<h2>{{ fields.heading }}</h2>
-			{% for slide in fields.slides %}
-				<div data-slide="#slide-{{ loop.index }}" class="slide {{ loop.index == 1 ? "active" : "" }}">
-					<div class="mobile">
+	<h2 class="info-carousel-heading-mobile">{{ fields.heading }}</h2>
+		<div class="slide-images-wrapper">
+			<div class="slide-images">
+				{% for slide in fields.slides %}
+
+					<div class="info-carousel-slide-image" data-content-id="{{ loop.index }}" data-active="{{ loop.index == 1 ? 'true' : 'false' }}" data-position="{{ loop.index }}">
 						<img src="{{ Image(slide.image).src }}" srcset="{{ Image(slide.image).srcset }}" />
 					</div>
-					{{ slide.copy }}
-				</div>
-			{% endfor %}
+
+				{% endfor %}
+			</div>
 		</div>
-		<div class="images">
+		<div class="slide-copy-wrapper">
+			<h2 class="info-carousel-heading-desktop">{{ fields.heading }}</h2>
 			{% for slide in fields.slides %}
-				<div id="slide-{{ loop.index }}" class="image {{ loop.index == 1 ? "active" : "" }}">
-					<img src="{{ Image(slide.image).src }}" srcset="{{ Image(slide.image).srcset }}" />
+				<div class="info-carousel-slide-copy" data-content-id="{{ loop.index }}" data-active="{{ loop.index == 1 ? 'true' : 'false' }}" data-position="{{ loop.index }}">
+					{{ slide.copy }}
 				</div>
 			{% endfor %}
 		</div>
