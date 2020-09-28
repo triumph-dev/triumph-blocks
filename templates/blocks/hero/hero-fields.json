@@ -248,6 +248,34 @@
                         "max_height": "",
                         "max_size": "",
                         "mime_types": ""
+                    },
+                    {
+                        "key": "field_5f723199fa570",
+                        "label": "Background Darkness Overlay",
+                        "name": "background_darkness_overlay",
+                        "type": "range",
+                        "instructions": "Specify the opacity of the dark overlay on your slide. Minimum value: 30%.",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5f5a559d9132a",
+                                    "operator": "==",
+                                    "value": "image"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 30,
+                        "min": 30,
+                        "max": 100,
+                        "step": "",
+                        "prepend": "",
+                        "append": "%"
                     }
                 ]
             }
