@@ -67,12 +67,10 @@ header#header {
 		}
 	}
 }
-a.menu-link {
-}
+
 .collapse-heading {
+	background: none;
 	border: none;
-	@extend %button-clean;
-	font-size: 0.9rem;
 	color: var(--color-secondary);
 	svg {
 		display: none;

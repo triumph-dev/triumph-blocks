@@ -1,0 +1,58 @@
+{#
+  Title: Expand Grid
+  Description: Expand Grid
+  Category: triumph-blocks
+  Icon: grid-view
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'expand-grid' } %}
+	{% block block_content %}
+		{% if fields.grid_copy %}
+			<div class="expand-grid-copy {{ fields.grid_copy_width }}">
+				{{ fields.grid_copy }}
+			</div>
+		{% endif %}
+		<ul class="expand-grid-list" data-columns="{{ fields.grid_columns }}">
+		{% for grid_item in fields.grid_items %}
+			<li class="expand-grid-item grid-item-card">
+				{% if grid_item.image %}
+					<div class="grid-item-header {{ fields.grid_item_image_style }}">
+						{% set image = Image(grid_item.image) %}
+						<img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="cover"/>
+					</div>
+				{% endif %}
+
+				{% if grid_item.copy %}
+					<div class="grid-item-copy">
+						{{ grid_item.copy }}
+						{% if grid_item.expanded_copy %}
+							<div id="{{ block_id }}-item-{{ loop.index }}" class="">
+							</div>
+							<button class="simple" data-toggle-id="{{ block_id }}-item-{{ loop.index }}"><span class="toggle-title">Show</span></button>
+						{% endif %}
+					</div>
+				{% endif %}
+
+				{% if grid_item.link.link.url  %}
+					{% if 'simple' in grid_item.link.link_style %}
+						{% set link_type = '' %}
+					{% else %}
+						{% set link_type = 'btn' %}
+					{% endif %}
+					<div class="grid-item-footer">
+						<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
+					</div>
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+    {% endblock %}
+{% endembed %}

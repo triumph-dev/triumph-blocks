@@ -1,3 +1,11 @@
+.blog-list {
+	ol.list {
+		> li:not(:last-child) {
+			margin-bottom: $space-md;
+		}
+	}
+}
+
 ul.pagination {
 	display: flex;
 	margin-top: $space-md;

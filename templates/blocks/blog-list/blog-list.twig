@@ -19,10 +19,9 @@
 	{% set identity = "" %}
 {% endif %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: "blog-list"} %}
-	{% block block_content %}
 
-		<div class="blog-wrapper">
+
+		<div class="blog-list">
 			{% if posts|length > 1 %}
 				<div id="list-total">q</div>
 			{% endif %}
@@ -34,5 +33,3 @@
 			<ul class="pagination"></ul>
 		</div>
 
-	{% endblock %}
-{% endembed %}
