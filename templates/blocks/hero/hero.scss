@@ -6,6 +6,9 @@ $hero-height: 500px;
 }
 .hero {
 	@extend %white-text;
+	.tns-nav {
+		bottom:$space-md;
+	}
 }
 .hero-panes {
 	display: flex;

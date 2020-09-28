@@ -157,19 +157,11 @@ $max-height: calc(16em + 20vw);
 		.dot {
 			@extend %button-clean;
 			display: block;
-			height: 11px;
-			width: 11px;
-			margin: 0 11px 0 0;
 			cursor: pointer;
-
 			border-radius: 100%;
 			background-color: white;
 			border: $border-width solid var(--color-primary);
 			transition: background-color 0.2s ease-in;
-			&.active {
-				width: 16px;
-				height: 16px;
-			}
 			&:hover {
 				border: $border-width solid var(--color-primary);
 				background: var(--color-primary);
