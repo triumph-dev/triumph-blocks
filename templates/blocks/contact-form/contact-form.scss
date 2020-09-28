@@ -1,6 +1,9 @@
-.contact-form {
+.section-wrapper.contact-form {
 	padding: 0 $space-md;
 	padding-bottom: $space-lg;
+	@include sm-and-up {
+		padding-bottom: $space-xl;
+	}
 	.input-wrapper {
 		width: 100%;
 	}

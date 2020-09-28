@@ -1,3 +1,13 @@
+.section-blog div[class^="container"] {
+	padding: $space-lg $space-md;
+	@include sm-and-up {
+		padding: $space-xl $space-md;
+	}
+}
+
+.section-wrapper.blog-list {
+	padding: 0;
+}
 ul.pagination {
 	display: flex;
 	margin-top: $space-md;
