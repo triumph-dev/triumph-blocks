@@ -3,5 +3,5 @@
     {% if slide.image_watermark %}
         {% include "templates/blocks/image-watermark/image-watermark.twig" %}
     {% endif %}
-    <img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+    <img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="cover" />
 </div>

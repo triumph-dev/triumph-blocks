@@ -1,95 +1,155 @@
-.info-carousel .layout-wrapper {
-	display: flex;
-	flex-direction: column-reverse;
+.info-carousel {
+	.layout-wrapper {
+		@include md-and-up {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+		}
+	}
+}
+.info-carousel-heading-mobile {
+	text-align: center;
+	margin-bottom: $space-md;
+	display: block;
 	@include md-and-up {
-		flex-direction: row;
-	}
-	.copy {
-		width: 100%;
-		margin-top: $space-sm;
-		text-align: center;
-		@include md-and-up {
-			width: 50%;
-			text-align: left;
-			margin-top: 0;
-			padding-right: $space-md;
-			margin-left: $space-sm;
-		}
-		cursor: pointer;
-		h2 {
-			margin-bottom: $space-md;
-		}
-	}
-	.slide {
-		padding: $space-md;
-		margin-bottom: $space-sm;
-		border-radius: $border-radius;
-		transition: all 0.2s ease-in;
-		background: white;
-		@include heading {
-			margin-bottom: 5px;
-			margin-top: $space-md;
-			@include md-and-up {
-				margin-top: 0;
-			}
-		}
-		@include md-and-up {
-			background: transparent;
-			margin-left: -$space-sm;
-			padding: $space-sm;
-		}
-		.mobile {
-			display: block;
-			width: 200px;
-			height: 200px;
-			overflow: auto;
-			position: relative;
-			overflow: hidden;
-			margin: 0 auto;
-			margin-bottom: $space-sm;
-			img {
-				position: absolute;
-				width: 150px;
-				left: 0;
-				right: 0;
-				margin-left: auto;
-				margin-right: auto;
-				box-shadow: 0px 5px 10px 0px rgba($color-ui-dark, 0.2);
-			}
-			@include md-and-up {
-				display: none;
-			}
-		}
-		&:hover {
-			background: rgba(255, 255, 255, 0.5);
-		}
-		&.active {
-			background: white;
-			box-shadow: 0.5em 0.5em 2em 0px rgba($color-ui-dark, 0.1);
-		}
-	}
-	.images {
-		margin: 0 auto;
-		position: relative;
 		display: none;
-		@include md-and-up {
-			display: block;
-			transform: scale(0.9);
+	}
+}
+.info-carousel-heading-desktop {
+	display: none;
+	@include md-and-up {
+		display: block;
+		margin-left: $space-sm;
+	}
+}
+.slide-copy-wrapper {
+	position: relative;
+	min-height: 12em;
+	margin: $space-md 0 0 0;
+	@include md-and-up {
+		margin: 0 $space-md 0 -#{$space-sm};
+	}
+	@include lg-and-up {
+		margin: 0 8vw 0 -#{$space-sm};
+	}
+}
+.info-carousel-slide-copy {
+	margin: $space-sm 0;
+	text-align: center;
+	padding: $space-sm;
+	border-radius: $border-radius;
+	transition: background-color 150ms ease, box-shadow 150ms ease;
+	&[data-position="1"] {
+		background-color: #fff;
+		box-shadow: 0 0.5em 2em 0px rgba($color-ui-dark, 0.2);
+	}
+	&[data-position="2"],
+	&[data-position="3"] {
+		display: none;
+	}
+	@include md-and-up {
+		text-align: left;
+		position: relative;
+		cursor: pointer;
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+			box-shadow: 0 0.5em 2em 0px rgba($color-ui-dark, 0.1);
 		}
-		.image {
-			border-radius: $border-radius;
-			overflow: hidden;
-			position: absolute;
-			transition: all 0.2s ease-in 0s;
-			box-shadow: 0.5em 0.5em 2em 0px rgba($color-ui-dark, 0.3);
-			cursor: pointer;
+		&[data-position="1"] {
+			background-color: #fff;
+		}
+		&[data-position="2"],
+		&[data-position="3"] {
+			display: block;
+		}
+	}
+}
+
+.slide-images-wrapper {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	perspective: 500px;
+	cursor: pointer;
+	@include md-and-up {
+		width: 26em;
+		flex-grow: 1;
+		flex-shrink: 0;
+		justify-content: flex-start;
+	}
+	.slide-images {
+		height: 100vw;
+		width: auto;
+		position: relative;
+		display: flex;
+
+		@include md-and-up {
+			height: 30em;
+		}
+	}
+}
+.info-carousel-slide-image {
+	position: relative;
+	top: 0;
+	left: 0;
+	transition: transform 350ms ease-in-out, z-index 250ms ease-in-out, filter 900ms ease-in-out;
+
+	img {
+		height: 100vw;
+		width: auto;
+		border-radius: $border-radius;
+		border: 1px solid;
+		border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.3);
+		box-shadow: 0 0.5em 2em 0px rgba($color-ui-dark, 0.6);
+		@include md-and-up {
+			height: 30em;
+		}
+	}
+
+	&[data-position="1"] {
+		// this is the one in focus, don't move it around.
+		transform: translate3d(0, 0, 0);
+		z-index: 2;
+
+		@include md-and-up {
+			transform: none;
 			&:hover {
-				margin-left: 10px;
+				transform: none;
 			}
-			&.active {
-				&:hover {
-					margin-left: 0;
-				}
+		}
+	}
+
+	&[data-position="2"] {
+		filter: brightness(0.95);
+		position: absolute;
+		// This one is not in focus,
+		// in mobile view, move it back and to the left
+		transform: translate3d(-25vw, 0, -8em);
+		z-index: 1;
+
+		@include md-and-up {
+			// in desktop view, move it back and to the right a little
+			transform: translate3d(8em, 0, -5em);
+			&:hover {
+				// on hover, make it poke out a little
+				transform: translate3d(10em, 0, -5em);
+			}
+		}
+	}
+	&[data-position="3"] {
+		filter: brightness(0.95);
+		position: absolute;
+		// This one is not in focus,
+		// in mobile view, move it back and to the right
+		transform: translate3d(25vw, 0, -8em);
+		z-index: 0;
+
+		@include md-and-up {
+			// in desktop view, move it back and to the right a lot
+			transform: translate3d(16em, 0, -10em);
+			&:hover {
+				// on hover, make it poke out a little
+				transform: translate3d(18em, 0, -10em);
 			}
 		}
 	}
