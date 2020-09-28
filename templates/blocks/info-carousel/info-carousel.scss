@@ -1,4 +1,5 @@
 .info-carousel {
+	overflow:hidden;
 	.layout-wrapper {
 		@include md-and-up {
 			display: flex;
