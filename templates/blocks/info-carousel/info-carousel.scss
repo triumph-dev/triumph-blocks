@@ -70,7 +70,7 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	perspective: 500px;
+
 	cursor: pointer;
 	@include md-and-up {
 		width: 26em;
@@ -79,6 +79,7 @@
 		justify-content: flex-start;
 	}
 	.slide-images {
+		perspective: 500px;
 		height: 100vw;
 		width: auto;
 		position: relative;
@@ -93,7 +94,7 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	transition: transform 350ms ease-in-out, z-index 250ms ease-in-out, filter 900ms ease-in-out;
+	transition: transform 350ms ease-in-out, z-index 150ms ease-in-out, filter 900ms ease-in-out;
 
 	img {
 		height: 100vw;
