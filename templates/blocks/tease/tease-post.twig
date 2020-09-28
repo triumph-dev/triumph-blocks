@@ -33,7 +33,7 @@
 
 	</div>
 	<div class="post-preview">
-		<p>{{ post.content|slice(0, 600)|raw ~ "..."}}</p>
+		<p>{{ post.content|striptags|split(' ')|slice(0, 75)|join(' ') ~'...'}}</p>
 	</div>
 
 {% endblock %}
