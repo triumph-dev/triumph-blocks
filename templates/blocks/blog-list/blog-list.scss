@@ -13,6 +13,12 @@
 	}
 }
 
+.categories a {
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 .section-wrapper.blog-list {
 	padding: 0;
 }
