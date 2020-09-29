@@ -25,7 +25,7 @@ export default class BlogFilter {
 		});
 	}
 
-	filterNow(){
+	filterNow() {
 		this.filters = document.querySelectorAll(this.filterSelector);
 
 		// find which inputs are checked, and add them to the
@@ -34,6 +34,8 @@ export default class BlogFilter {
 
 		// filter the list based on the arrays of selected filters
 		this.filterList();
+
+		this.updateText();
 	}
 
 	getCheckedInputs() {
@@ -95,11 +97,10 @@ export default class BlogFilter {
 
 	isArchive() {
 		// Checks if we're on an archive page. If so, it auto-filters by the category in question.
-		if(window.location.href.indexOf('category') > -1) {
-			var category = window.location.href.split("/category/")[1].replace("/", "");
-			document.querySelector('input[value="'+ category +'"]').checked = true;
+		if (window.location.href.indexOf('category') > -1) {
+			var category = window.location.href.split('/category/')[1].replace('/', '');
+			document.querySelector('input[value="' + category + '"]').checked = true;
 			this.filterNow();
-
 		}
 	}
 
