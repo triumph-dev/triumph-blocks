@@ -12,7 +12,6 @@ SupportsMode: false
 SupportsMultiple: true
 #}
 
-{% set show_total = (fields.show_8_at_once ? 8 : 4) %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'logo-carousel' } %}
 	{% block block_content %}
@@ -21,18 +20,18 @@ SupportsMultiple: true
 				{{ fields.copy }}
 			</div>
 
-			<div class="carousel">
+			<div class="carousel" data-double="{{ fields.show_8_at_once ? 'true' : 'false' }}">
 			
 				{% for logo in fields.logos %}
 					{% set image = Image(logo.logo) %}
-					{% if loop.index0 is divisible by(show_total) %}
+					{% if loop.index0 is divisible by(4) %}
 						<div class="carousel-slide">
 							<div class="logo-group">
 					{% endif %}
 							<div class="logo-wrapper">
 								<img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="contain"/>
 							</div>
-					{% if loop.index is divisible by(show_total) or loop.last %}
+					{% if loop.index is divisible by(4) or loop.last %}
 							</div>
 						</div>
 					{% endif %}
