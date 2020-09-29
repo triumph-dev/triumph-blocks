@@ -1,11 +1,11 @@
 [
     {
         "key": "group_5f57ecd0dc220",
-        "title": "Block - CTA",
+        "title": "Block - Banner",
         "fields": [
             {
                 "key": "field_5f57ecd96621d",
-                "label": "CTA",
+                "label": "Banner",
                 "name": "",
                 "type": "message",
                 "instructions": "",
@@ -199,7 +199,7 @@
                 {
                     "param": "block",
                     "operator": "==",
-                    "value": "acf\/cta"
+                    "value": "acf\/banner"
                 }
             ]
         ],

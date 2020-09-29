@@ -12,7 +12,7 @@
   SupportsMultiple: true
 #}
 
-{% set class = (fields.is_row ? 'cta is-row' : (fields.is_a_header ? 'cta header' : 'cta')) %}
+{% set class = (fields.is_row ? 'banner is-row' : (fields.is_a_header ? 'banner header' : 'banner')) %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class} %}
 	{% block block_content %}
