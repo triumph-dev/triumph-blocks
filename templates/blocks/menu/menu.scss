@@ -15,7 +15,11 @@ header#header {
 	align-items: center;
 	flex-wrap: wrap;
 	background: #ffffff;
-	padding: $space-md;
+	padding: $space-sm $space-md;
+	font-family: $font-sans-serif;
+	* {
+		font-family: $font-sans-serif;
+	}
 
 	.esp {
 		font-size: 0.8rem;
@@ -29,6 +33,7 @@ header#header {
 		flex-wrap: nowrap;
 		height: $menu-height;
 		padding: $space-md $space-lg;
+
 		.esp {
 			right: $space-lg;
 		}
@@ -69,6 +74,7 @@ header#header {
 }
 
 .collapse-heading {
+	@extend %button-clean;
 	background: none;
 	border: none;
 	color: var(--color-secondary);
@@ -92,6 +98,7 @@ $transition-time: 250ms;
 		text-align: center;
 
 		.collapse-heading {
+			height: 2.75rem;
 			transition: border-bottom 0ms linear $transition-time, border-radius 0ms linear $transition-time;
 			padding: 0 1.5rem;
 			border: $border-width solid var(--color-secondary);
