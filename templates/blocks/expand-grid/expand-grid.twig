@@ -38,7 +38,7 @@
 
 				{% if grid_item.expanded_copy  %}
 					<div class="grid-item-footer">
-						<button class="expand-grid-trigger simple" data-toggle-id="{{ block.id }}-item-{{ loop.index }}">Show<span class="toggle-status"></span></button>
+						<button class="expand-grid-trigger simple" data-expand-grid-toggle-id="{{ block.id }}-item-{{ loop.index }}">Show<span class="toggle-status"></span></button>
 						<div id="{{ block.id }}-item-{{ loop.index }}" class="expanded-copy">
 							{{ grid_item.expanded_copy }}
 						</div>
