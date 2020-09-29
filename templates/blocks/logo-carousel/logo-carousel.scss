@@ -45,13 +45,6 @@
 			object-fit: contain;
 		}
 	}
-	[data-double="false"] {
-		@include lg-and-up {
-			.logo-wrapper {
-				width: 50%;
-			}
-		}
-	}
 
 	@include sm-and-up {
 		&.active .carousel {
