@@ -38,13 +38,6 @@
 		width: 100%;
 		padding: $space-sm;
 
-		@include md-and-up {
-			width: 50%;
-		}
-		@include lg-and-up {
-			width: 25%;
-		}
-
 		img {
 			margin: 0 auto;
 			height: 80px;
@@ -52,9 +45,9 @@
 			object-fit: contain;
 		}
 	}
-	[data-double="true"] {
-		.logo-wrapper {
-			@include lg-and-up {
+	[data-double="false"] {
+		@include lg-and-up {
+			.logo-wrapper {
 				width: 50%;
 			}
 		}
