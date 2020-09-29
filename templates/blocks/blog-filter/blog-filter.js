@@ -11,6 +11,7 @@ export default class BlogFilter {
 	}
 	init() {
 		this.updateText();
+		this.isArchive();
 		this.filterList();
 		this.list.on('updated', () => {
 			this.updateText();
@@ -19,16 +20,20 @@ export default class BlogFilter {
 			// listen for check/uncheck
 			filter.addEventListener('change', (e) => {
 				// re-set the filters
-				this.filters = document.querySelectorAll(this.filterSelector);
-
-				// find which inputs are checked, and add them to the
-				// appropriate array of selected filters
-				this.getCheckedInputs();
-
-				// filter the list based on the arrays of selected filters
-				this.filterList();
+				this.filterNow();
 			});
 		});
+	}
+
+	filterNow(){
+		this.filters = document.querySelectorAll(this.filterSelector);
+
+		// find which inputs are checked, and add them to the
+		// appropriate array of selected filters
+		this.getCheckedInputs();
+
+		// filter the list based on the arrays of selected filters
+		this.filterList();
 	}
 
 	getCheckedInputs() {
@@ -86,6 +91,16 @@ export default class BlogFilter {
 		}
 
 		document.getElementById('list-total').innerHTML = listTotal;
+	}
+
+	isArchive() {
+		// Checks if we're on an archive page. If so, it auto-filters by the category in question.
+		if(window.location.href.indexOf('category') > -1) {
+			var category = window.location.href.split("/category/")[1].replace("/", "");
+			document.querySelector('input[value="'+ category +'"]').checked = true;
+			this.filterNow();
+
+		}
 	}
 
 	filterList() {
