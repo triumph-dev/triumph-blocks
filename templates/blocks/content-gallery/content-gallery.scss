@@ -50,7 +50,7 @@ $max-height: calc(16em + 20vw);
 			justify-content: center;
 			align-items: flex-start;
 			width: 100%;
-			@media screen and (min-width: $breakpoint-md) and (max-width:calc(#{$image-max-width} * 2)) {
+			@media screen and (min-width: $breakpoint-md) and (max-width: calc(#{$image-max-width} * 2)) {
 				max-width: 50%;
 			}
 			a:not(.btn) {
@@ -129,23 +129,26 @@ $max-height: calc(16em + 20vw);
 		}
 	}
 	.navigation {
+		position: absolute;
+		bottom: 0;
 		width: 100%;
 		@include md-and-up {
-			position: absolute;
 			max-width: 50%;
 			right: 0;
 			bottom: $space-md;
 			margin-left: $space-lg;
 		}
-		@media screen and (min-width:calc(#{$image-max-width} * 2)) {
+		@media screen and (min-width: calc(#{$image-max-width} * 2)) {
 			width: calc(100% - #{$image-max-width});
 			max-width: 100%;
 		}
 		.dots-container {
+			color: #fff;
 			padding-left: $space-lg;
+			height: 3em;
 			margin: 0 auto;
 			padding: $space-sm;
-			background: white;
+
 			@extend %center-flex;
 			@include md-and-up {
 				padding: 0;
@@ -155,17 +158,7 @@ $max-height: calc(16em + 20vw);
 			}
 		}
 		.dot {
-			@extend %button-clean;
-			display: block;
-			cursor: pointer;
-			border-radius: 100%;
-			background-color: white;
 			border: $border-width solid var(--color-primary);
-			transition: background-color 0.2s ease-in;
-			&:hover {
-				border: $border-width solid var(--color-primary);
-				background: var(--color-primary);
-			}
 		}
 	}
 }
