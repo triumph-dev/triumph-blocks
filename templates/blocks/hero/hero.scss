@@ -7,7 +7,7 @@ $hero-height: 500px;
 .hero {
 	@extend %white-text;
 	.tns-nav {
-		bottom:$space-md;
+		bottom:10px;
 	}
 }
 .hero-panes {
