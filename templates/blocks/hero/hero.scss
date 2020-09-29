@@ -7,7 +7,7 @@ $hero-height: 500px;
 .hero {
 	@extend %white-text;
 	.tns-nav {
-		bottom:10px;
+		bottom: 10px;
 	}
 }
 .hero-panes {
@@ -28,16 +28,17 @@ $hero-height: 500px;
 }
 
 .hero-pane {
-	padding: $space-lg;
+	padding: $space-lg $space-md;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	@include ie {
-		background-position:center !important;
-		background-size:cover !important;
+		background-position: center !important;
+		background-size: cover !important;
 	}
 	@include md-and-up {
+		padding: $space-lg;
 		height: $hero-height;
 	}
 
@@ -55,7 +56,9 @@ $hero-height: 500px;
 	z-index: 1;
 }
 .hero-copy {
+	font-size: 1rem;
 	@include md-and-up {
+		font-size: 1.125rem;
 		max-width: 30em;
 		margin-left: 15vw;
 	}

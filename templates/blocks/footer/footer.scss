@@ -26,29 +26,26 @@
 .menu-footer-nav {
 	@include md-and-up {
 		display: flex;
+		justify-content: space-between;
+
 		> *:not(:last-child) {
-			margin-right: calc(6vw + #{$space-md});
+			margin-right: $space-md;
 		}
 	}
-	@include lg-and-up {
-		> *:not(:last-child) {
-			margin-right: calc(10vw + #{$space-md});
-		}
-	}
+
 	> li {
 		margin-bottom: $space-lg;
 	}
 }
 .footer-bottom {
-	margin-top: $space-lg;
-	font-weight:400;
+	margin-top: $space-sm;
+
 	.footer-subtitle {
 		@include md-and-up {
-			text-align: center;
+			//text-align: center;
 		}
-		margin-bottom: $space-md;
 		a:hover {
-			color:white;
+			color: white;
 		}
 	}
 }
@@ -82,12 +79,12 @@ ul.menu-footer-social {
 		@include md-and-up {
 			display: grid;
 			grid-auto-flow: column;
-			grid-template-columns:repeat(2, 1fr);
-			grid-template-rows:repeat(3, 1fr);
-			grid-column-gap:$space-md;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			grid-column-gap: $space-md;
 		}
 		@include ie {
-			display:-ms-grid;
+			display: -ms-grid;
 			-ms-grid-columns: (1fr)[2];
 			li {
 				margin-right: $space-md;

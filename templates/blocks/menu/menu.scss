@@ -17,26 +17,15 @@ header#header {
 	background: #ffffff;
 	padding: $space-sm $space-md;
 	font-family: $font-sans-serif;
+	font-size: .9rem;
 	* {
 		font-family: $font-sans-serif;
-	}
-
-	.esp {
-		font-size: 0.8rem;
-		position: absolute;
-		top: $space-xs;
-		right: $space-md;
-		display: none;
 	}
 
 	@include lg-and-up {
 		flex-wrap: nowrap;
 		height: $menu-height;
 		padding: $space-md $space-lg;
-
-		.esp {
-			right: $space-lg;
-		}
 	}
 
 	a {
@@ -182,7 +171,6 @@ ul.menu-header-nav {
 		}
 		.collapse-heading {
 			border-color: transparent;
-			font-size: 1rem;
 
 			display: block;
 		}
