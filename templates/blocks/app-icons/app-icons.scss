@@ -11,6 +11,10 @@
         width:max-content;
         padding-top: $space-sm;
         padding-right: $space-sm;
+        &:hover {
+            background: none;
+            border:none;
+        }
         @include ie {
             width:auto;
         }

@@ -25,7 +25,7 @@
 				{{ fields.grid_copy }}
 			</div>
 		{% endif %}
-		<ul class="content-grid-list" data-align={{ fields.grid_item_alignment }}>
+		<ul class="content-grid-list {{ fields.grid_items|length is divisible by(4) ? 'four-up' : '' }}" data-align={{ fields.grid_item_alignment }}>
 		{% for grid_item in fields.grid_items %}
 			<li class="content-grid-item grid-item-{{ fields.grid_item_style }}">
 				{% if grid_item.image %}

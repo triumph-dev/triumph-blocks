@@ -36,6 +36,15 @@ li.content-grid-item {
 	}
 }
 
+ul.content-grid-list.four-up {
+	li.content-grid-item {
+		@include md-and-up {
+			width:calc(25% - #{$grid-gap});
+			padding: 0;
+		}
+	}
+}
+
 .grid-item-header {
 	background: $color-ui-gray;
 	margin-bottom: $space-sm;
