@@ -1,3 +1,15 @@
+.logo-carousel-wrapper {
+	width: calc(100% - #{$space-lg} - #{$space-lg});
+	margin: 0 auto;
+}
+
+.logo-carousel.section-wrapper {
+	padding: $space-lg 0;
+	padding-bottom: $space-xl;
+	@include sm-and-up {
+		padding: $space-xl 0;
+	}
+}
 .logo-carousel {
 	@extend %white-text;
 	overflow: hidden;
@@ -6,29 +18,45 @@
 	.copy {
 		margin-bottom: $space-sm;
 		p {
-			max-width:350px;
-			margin:0 auto;
+			max-width: 350px;
+			margin: 0 auto;
 		}
 	}
-
+	.tns-controls {
+		width: calc(100% + #{$space-lg} + #{$space-lg});
+		left: -#{$space-lg};
+	}
 	.tns-nav {
 		transform: translateY($space-lg);
 	}
 
 	.logo-group {
-		padding: $space-md $space-lg;
-		flex-grow: 1;
-		@extend %center-flex;
+		display: flex;
 		flex-wrap: wrap;
 	}
 	.logo-wrapper {
-		width: 120px;
-		height: 60px;
-		margin: $space-md $space-lg;
+		width: 100%;
+		padding: $space-sm;
+
+		@include md-and-up {
+			width: 50%;
+		}
+		@include lg-and-up {
+			width: 25%;
+		}
+
 		img {
-			width: 100%;
-			height: 100%;
+			margin: 0 auto;
+			height: 80px;
+			width: 180px;
 			object-fit: contain;
+		}
+	}
+	[data-double="true"] {
+		.logo-wrapper {
+			@include lg-and-up {
+				width: 50%;
+			}
 		}
 	}
 
