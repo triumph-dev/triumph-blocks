@@ -39,6 +39,12 @@
 			}
 		}
 	}
+	.left-align {
+		p {
+			text-align: left;
+			padding: $space-sm 0;
+		}
+	}
 	.apps {
 		margin: $space-md auto;
 		margin-bottom: 0;

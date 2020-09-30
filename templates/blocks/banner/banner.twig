@@ -16,7 +16,7 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class} %}
 	{% block block_content %}
-		<div class="content">
+		<div class="content {{ fields.left_align_text ? 'left-align' : '' }}">
 			{{ fields.copy }}
 		</div>
 		{% if fields.links|length %}
