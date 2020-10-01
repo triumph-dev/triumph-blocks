@@ -3,6 +3,15 @@
 }
 $grid-gap: 3em;
 ul.content-grid-list {
+	a:not([class]) {
+		overflow:auto;
+		&:hover {
+			text-decoration: none;
+		}
+		li {
+			cursor:pointer;
+		}
+	}
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 calc(-#{$grid-gap} / 2);

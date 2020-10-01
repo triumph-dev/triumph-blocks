@@ -113,7 +113,6 @@ $transition-time: 250ms;
 			font-family: $font-sans-serif;
 			display: block;
 			padding: $space-xs;
-			//border-radius: $border-radius;
 			background: var(--color-primary);
 			letter-spacing: $nav-letter-spacing;
 			color: $color-ui-light;
@@ -130,7 +129,7 @@ $transition-time: 250ms;
 				border-radius: $border-radius $border-radius 0 0;
 			}
 			ul {
-				max-height: 10em;
+				max-height: 45em;
 				border-color: var(--color-secondary);
 				transition: $transition-time max-height ease-in-out;
 			}

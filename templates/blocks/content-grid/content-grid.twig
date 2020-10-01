@@ -27,7 +27,7 @@
 		{% endif %}
 		<ul class="content-grid-list {{ fields.grid_items|length is divisible by(4) ? 'four-up' : '' }}" data-align={{ fields.grid_item_alignment }}>
 		{% for grid_item in fields.grid_items %}
-			<li class="content-grid-item grid-item-{{ fields.grid_item_style }}">
+			<li class="content-grid-item grid-item-{{ fields.grid_item_style }} {{ grid_item.hyperlink_column ? 'hyperlink-column' : '' }}">
 				{% if grid_item.image %}
 					<div class="grid-item-header {{ fields.grid_item_image_style }}">
 						{% set image = Image(grid_item.image) %}
