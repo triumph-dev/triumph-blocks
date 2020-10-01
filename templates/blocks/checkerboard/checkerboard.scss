@@ -1,0 +1,47 @@
+.section-wrapper.checkerboard {
+    padding: $space-lg 0;
+    figure {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        @include md-and-up {
+            flex-direction:row;
+        }
+    }
+    .image, figcaption {
+        width:100%;
+        position: relative;
+        @include md-and-up {
+            max-width:50%;
+        }
+    }
+    .image {
+        height:300px;
+        display: none;
+        &:first-of-type {
+            display: block;
+        }
+        @include md-and-up {
+            height:auto;
+            display: block;
+            &:first-of-type {
+                display: none;
+            }
+        }
+    }
+    figcaption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding:$space-lg;
+        @include md-and-up {
+            height:calc(10vw + 300px);
+        }
+    }
+    img {
+        position:absolute;
+        height:100%;
+        width:100%;
+        object-fit:cover;
+    }
+}

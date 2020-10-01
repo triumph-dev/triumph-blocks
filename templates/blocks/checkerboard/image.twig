@@ -1,0 +1,4 @@
+{% set image = Image(row.image) %}
+<div class="image {{ hide_on_mobile == 'false' ? '' : 'hide-on-mobile' }}">
+    <img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover" />
+</div>
