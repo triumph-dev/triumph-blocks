@@ -33,6 +33,9 @@ li.content-grid-item {
 	@include md-and-up {
 		width: calc(33.33% - #{$grid-gap});
 		padding:0 $space-md;
+		&.grid-item-card {
+			padding: 0;
+		}
 	}
 }
 

@@ -31,7 +31,7 @@
 				{% if grid_item.image %}
 					<div class="grid-item-header {{ fields.grid_item_image_style }}">
 						{% set image = Image(grid_item.image) %}
-						<img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="cover"/>
+						<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
 					</div>
 				{% endif %}
 

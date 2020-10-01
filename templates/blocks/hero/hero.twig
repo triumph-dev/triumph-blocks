@@ -29,17 +29,11 @@
 				{% if slide.background_color == 'image' %}
 					{% set bg = Image(slide.background_image) %}
 					{% set brightness = (100 - slide.background_darkness_overlay|number_format) ~ '%' %}
-					{% if is_internet_explorer() %}
-						{% set ie_fallback = true %}
-						{% set rgba = 'rgba(0,0,0,0.' ~ slide.background_darkness_overlay ~ ')' %}
-					{% endif %}
 				{% endif %}
 				
-					<div class="hero-pane" data-background-color="{{ slide.background_color }}" {% if ie_fallback and bg %}style="background:linear-gradient({{ rgba }}, {{ rgba }}), url({{ bg }});"{% endif %}>
+					<div class="hero-pane" data-background-color="{{ slide.background_color }}">
 
-						{% if bg and ie_fallback is null %}
-							<img style="filter:brightness({{ brightness }});" class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" data-object-fit="cover" />
-						{% endif %}
+						<img style="filter:brightness({{ brightness }});" class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" data-object-fit="cover" />
 
 						<div class="hero-copy-wrapper">
 							<div class="hero-copy">

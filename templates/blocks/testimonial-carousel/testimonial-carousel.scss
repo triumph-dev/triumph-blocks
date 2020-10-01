@@ -44,3 +44,18 @@
 		}
 	}
 }
+
+.testimonial-carousel {
+	&[data-background-color="image"] {
+		img {
+			filter:brightness(60%);
+		}
+		blockquote, cite h3, cite h4 {
+			color:white;
+		}
+		button {
+			background:white;
+			color:var(--color-primary);
+		}
+	}
+}

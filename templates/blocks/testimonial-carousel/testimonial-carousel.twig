@@ -28,13 +28,17 @@
 			{% for testimonial in testimonials %}
 				<li class="testimonial">
 					{% set name = testimonial.customer_name %}
-					{% set title = testimonial.customer_title_and_company %}
-					{% set city = testimonial.customer_location %}
+					{% set title = (testimonial.customer_title_and_company ? testimonial.customer_title_and_company : "") %}
+					{% set city = (testimonial.customer_location ? testimonial.customer_location : "") %}
 					<blockquote>
 						{{ testimonial.post_content }}
 						<cite>
 							{% if name %}
-								<h3 class="customer-name">{{ name }}</h3>
+								{% if title == "" and city == "" %}
+									<h4 class="customer-name">{{ name }}</h4>
+								{% else %}
+									<h3 class="customer-name">{{ name }}</h3>
+								{% endif %}
 							{% endif %}
 							{% if title %}
 								<h4 class="customer-title">{{ title }}</h4>
