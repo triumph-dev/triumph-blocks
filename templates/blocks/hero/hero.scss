@@ -27,6 +27,13 @@ $hero-height: 500px;
 	display: flex;
 }
 
+@include ie {
+	.hero-pane {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
 .hero-pane {
 	padding: $space-lg $space-md;
 	position: relative;
