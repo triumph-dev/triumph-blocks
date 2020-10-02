@@ -60,3 +60,7 @@
 #list-total {
 	margin-bottom: $space-md;
 }
+
+.blog-list ul.pagination li a {
+	@extend %center-flex;
+}
