@@ -112,7 +112,10 @@ export default class BlogFilter {
 			var categoryShow = this.showItem(itemCategories, this.categories);
 
 			// TAG
-			var itemTags = item.values().tags.split('+');
+			var itemTags = item.values().tags;
+			if(itemTags) {
+				var itemTags = itemTags.split('+')
+			}
 			var tagShow = this.showItem(itemTags, this.tags);
 
 			// YEAR
