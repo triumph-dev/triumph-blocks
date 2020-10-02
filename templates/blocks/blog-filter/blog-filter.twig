@@ -19,9 +19,9 @@
 		</ul>
 		<h3>Archive</h3>
 		<ul class="filter-years">
-			{% for year in 2019.."now"|date("Y") %}
+			{% for year in 2018.."now"|date("Y") %}
 				<li>
-					<label class="checkbox-custom" for="{{ year }}">{{year}}
+					<label class="checkbox-custom">{{year}}
 						<input class="filter-input" data-filter="year" type="checkbox" data-title="{{ year }}" value="{{ year }}" />
 						<i class="far fa-check-square"></i><i class="far fa-square"></i>
 					</label>
