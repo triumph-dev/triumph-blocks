@@ -28,6 +28,10 @@
 		<ul class="content-grid-list {{ fields.grid_items|length is divisible by(4) ? 'four-up' : '' }}" data-align={{ fields.grid_item_alignment }}>
 		{% for grid_item in fields.grid_items %}
 			<li class="content-grid-item grid-item-{{ fields.grid_item_style }} {{ grid_item.hyperlink_column ? 'hyperlink-column' : '' }}">
+				{% if grid_item.hyperlink_column %}
+					<a class="hyperlink-column" href="{{ grid_item.link.link.url }}">
+				{% endif %}
+
 				{% if grid_item.image %}
 					<div class="grid-item-header {{ fields.grid_item_image_style }}">
 						{% set image = Image(grid_item.image) %}
@@ -48,8 +52,15 @@
 						{% set link_type = 'btn' %}
 					{% endif %}
 					<div class="grid-item-footer">
-						<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
+						{% if grid_item.hyperlink_column %}
+							<p class="btn simple">{{grid_item.link.link.title}}</p>
+						{% else %}
+							<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
+						{% endif %}
 					</div>
+				{% endif %}
+				{% if grid_item.hyperlink_column %}
+					</a>
 				{% endif %}
 			</li>
 		{% endfor %}

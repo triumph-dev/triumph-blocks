@@ -53,10 +53,10 @@
                     "id": ""
                 },
                 "choices": {
-                    "container-md": "Narrow",
+                    "container-sm": "Narrow",
                     "container-lg": "Wide"
                 },
-                "default_value": "container-lg",
+                "default_value": "container-sm",
                 "allow_null": 0,
                 "multiple": 0,
                 "ui": 0,
@@ -183,7 +183,7 @@
                 "collapsed": "",
                 "min": 0,
                 "max": 0,
-                "layout": "table",
+                "layout": "row",
                 "button_label": "",
                 "sub_fields": [
                     {
@@ -314,6 +314,32 @@
                                 "placeholder": ""
                             }
                         ]
+                    },
+                    {
+                        "key": "field_5f762bfe02994",
+                        "label": "Hyperlink the entire column?",
+                        "name": "hyperlink_column",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5f6cf2e489d2c",
+                                    "operator": "!=empty"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "message": "",
+                        "default_value": 0,
+                        "ui": 0,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
                     }
                 ]
             }
