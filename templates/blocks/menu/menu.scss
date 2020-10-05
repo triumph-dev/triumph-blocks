@@ -170,7 +170,7 @@ ul.menu-header-nav {
 		}
 		.collapse-heading {
 			border-color: transparent;
-
+			width:100%;
 			display: block;
 		}
 		> li {
@@ -178,14 +178,18 @@ ul.menu-header-nav {
 			@include semi-and-up {
 				margin-left: calc(#{$space-lg} - 1em);
 			}
-			&.has-subnav .collapse-heading,
 			&.has-subnav ul {
-				@include semi-and-up {
-					margin-left: 1.5rem;
-				}
+				position: absolute;
+				min-width: max-content;
+				margin-left: auto;
+				margin-right: auto;
+				left: -50%;
+				right: -50%;
+				width:100%;
 			}
 			a {
 				border: none;
+				padding:8px $space-sm;
 			}
 		}
 		> li.has-subnav {
@@ -218,6 +222,15 @@ ul.menu-header-register {
 		}
 	}
 }
+.menu-header-get-started {
+	li {
+		background: var(--color-primary);
+		a {
+			color:white;
+		}
+	}
+}
+
 .menu-toggle {
 	@extend %button-clean;
 	height: 3em;

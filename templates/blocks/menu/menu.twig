@@ -23,5 +23,9 @@
 			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerLogin.get_items, name: 'menu-header-login'} %}
 		{% endif %}
 
+		{% if menu.headerGetStarted %}
+			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerGetStarted.get_items, name: 'menu-header-get-started'} %}
+		{% endif %}
+
 	</div>
 </nav>
