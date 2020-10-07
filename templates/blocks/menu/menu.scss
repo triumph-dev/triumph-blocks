@@ -174,9 +174,9 @@ ul.menu-header-nav {
 			display: block;
 		}
 		> li {
-			margin-left: calc(#{$space-md} - 1em);
+			//margin-left: calc(#{$space-md} - 1em);
 			@include semi-and-up {
-				margin-left: calc(#{$space-lg} - 1em);
+				//margin-left: calc(#{$space-lg} - 1em);
 			}
 			&.has-subnav ul {
 				position: absolute;
@@ -198,7 +198,7 @@ ul.menu-header-nav {
 				text-transform: none;
 				letter-spacing: 0;
 			}
-		}
+		} 
 	}
 }
 

@@ -38,6 +38,16 @@
 					{% endif %}
 				</figure>
 			{% endfor %}
+			{% if carousel %}
+				<div class="tns-controls">
+					<button class="inactive" type="button" data-controls="prev" tabindex="-1" aria-controls="tns1">
+						<i class="far fa-lg fa-angle-left"></i><span class="hidden">Previous Slide</span>
+					</button>
+					<button type="button" data-controls="next" tabindex="-1" aria-controls="tns1">
+						<i class="far fa-lg fa-angle-right"></i></i><span class="hidden">Next Slide</span>
+					</button>
+				</div>
+			{% endif %}
 		</div>
 		{% if carousel %}
 			<div class="navigation">
@@ -46,4 +56,3 @@
 		{% endif %}
 	{% endblock %}
 {% endembed %}
-

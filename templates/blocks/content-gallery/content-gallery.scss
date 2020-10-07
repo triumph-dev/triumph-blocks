@@ -8,7 +8,7 @@ $max-height: calc(16em + 20vw);
 	position: relative;
 	padding: 0;
 	blockquote {
-		font-size: calc(0.75em + 1vw);
+		font-size:20px;
 		margin: 0 auto;
 		font-family: $font-sans-serif;
 		padding: $space-lg $space-md;
@@ -17,7 +17,7 @@ $max-height: calc(16em + 20vw);
 			max-width: $blockquote-max-width;
 		}
 		@include lg-and-up {
-			font-size: 1.5em;
+			font-size: 23px;
 		}
 		p {
 			font-family: $font-sans-serif;
@@ -89,13 +89,22 @@ $max-height: calc(16em + 20vw);
 			position: relative;
 			max-width: $image-max-width;
 			width: 100%;
+			min-height:400px;
 			@include md-and-up {
 				min-height: $max-height;
+				width: 70%;
+			}
+			@include lg-and-up {
+				width: 100%;
 			}
 		}
 		img {
 			height: 100%;
 			object-fit: cover;
+			position: absolute;
+			@include md-and-up {
+				position: static;
+			}
 		}
 	}
 	.carousel {
@@ -159,6 +168,33 @@ $max-height: calc(16em + 20vw);
 		}
 		.dot {
 			border: $border-width solid var(--color-primary);
+		}
+	}
+
+	.tns-controls {
+		position: absolute;
+		right: 0;
+		overflow:hidden;
+		width: 100%;
+		top: 0;
+		color: white;
+		display: flex;
+		justify-content: space-between;
+		padding: $space-md;
+		height:400px;
+		align-items: center;
+		button {
+			background:var(--color-primary);
+			&.inactive {
+				opacity:0.5;
+			}
+		}
+		@include md-and-up {
+			width:60%;
+			height:100%;
+		}
+		@include lg-and-up {
+			width:50%;
 		}
 	}
 }
