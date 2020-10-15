@@ -39,7 +39,7 @@ header#header {
 }
 
 .menu-logo {
-	width: 14rem;
+	width: 11rem;
 	flex-shrink: 0;
 	@include se {
 		width: 10em;
@@ -74,7 +74,7 @@ header#header {
 
 $transition-time: 250ms;
 
-.has-subnav {
+.has-subnav, .is-button {
 	a {
 		display: block;
 		padding: 0.2em 0;
@@ -89,7 +89,7 @@ $transition-time: 250ms;
 		.collapse-heading {
 			height: 2.7rem;
 			transition: border-bottom 0ms linear $transition-time, border-radius 0ms linear $transition-time;
-			padding: 0 $space-sm;
+			padding: 0 $space-xs;
 			border: $border-width solid var(--color-secondary);
 			margin: 0;
 			letter-spacing: $nav-letter-spacing;
@@ -174,10 +174,6 @@ ul.menu-header-nav {
 			display: block;
 		}
 		> li {
-			//margin-left: calc(#{$space-md} - 1em);
-			@include semi-and-up {
-				//margin-left: calc(#{$space-lg} - 1em);
-			}
 			&.has-subnav ul {
 				position: absolute;
 				min-width: max-content;
@@ -217,16 +213,12 @@ ul.menu-header-register {
 			background: var(--color-primary);
 		}
 
+		button {
+			width:100%; 
+		}
+
 		> li {
 			color: var(--color-primary);
-		}
-	}
-}
-.menu-header-get-started {
-	li {
-		background: var(--color-primary);
-		a {
-			color:white;
 		}
 	}
 }
