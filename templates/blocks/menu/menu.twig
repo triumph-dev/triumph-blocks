@@ -12,7 +12,7 @@
 	<div id="menu-toggle-target" class="main-menu-wrapper" data-menu-state="closed">
 
 		{% if menu.headerNav %}
-			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerNav.get_items, name: 'menu-header-nav'} %}
+			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerNav.get_items, name: 'menu-header-nav', allSimple:'true'} %}
 		{% endif %}
 
 		{% if menu.headerRegister %}
