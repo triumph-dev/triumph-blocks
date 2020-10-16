@@ -24,7 +24,7 @@
 		{% endif %}
 
 		{% if menu.headerGetStarted %}
-			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerGetStarted.get_items, name: 'menu-header-get-started'} %}
+			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerGetStarted.get_items, name: 'menu-header-get-started', isButton:'true'} %}
 		{% endif %}
 
 	</div>
