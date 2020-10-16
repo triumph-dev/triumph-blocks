@@ -1,48 +1,54 @@
 .section-wrapper.checkerboard {
-    padding: 0;
-    figure {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        @include md-and-up {
-            flex-direction:row;
-        }
-    }
-    .image, figcaption {
-        width:100%;
-        position: relative;
-        @include md-and-up {
-            max-width:50%;
-        }
-    }
-    .image {
-        height:300px;
-        display: none;
-        &:first-of-type {
-            display: block;
-        }
-        @include md-and-up {
-            height:auto;
-            display: block;
-            &:first-of-type {
-                display: none;
-            }
-        }
-    }
-    figcaption {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding:$space-sm $space-md $space-lg $space-md;
-        @include md-and-up {
-            height:calc(10vw + 300px);
-            padding:$space-lg $space-md;
-        }
-    }
-    img {
-        position:absolute;
-        height:100%;
-        width:100%;
-        object-fit:cover;
-    }
+	padding: 0;
+	figure {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		@include md-and-up {
+			flex-direction: row;
+			figcaption {
+				padding: $space-lg $space-lg $space-lg $space-md;
+				//border-right: .5em solid var(--color-accent);
+				//border-left: none;
+			}
+			&:nth-of-type(odd) {
+				flex-direction: row-reverse;
+				figcaption {
+					padding: $space-lg $space-md $space-lg $space-lg;
+					//border-right: none;
+					//border-left: .5em solid var(--color-accent);
+				}
+			}
+		}
+	}
+	.image,
+	figcaption {
+		width: 100%;
+		position: relative;
+		@include md-and-up {
+			max-width: 50%;
+		}
+	}
+	.image {
+		height: 300px;
+		display: block;
+		@include md-and-up {
+			height: auto;
+		}
+	}
+	figcaption {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: $space-sm $space-md $space-lg $space-md;
+		@include md-and-up {
+			height: calc(10vw + 300px);
+		}
+	}
+	img {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
 }

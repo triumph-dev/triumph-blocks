@@ -17,22 +17,8 @@
 	{% block block_content %}
 		{% for row in fields.rows %}
             <figure class="row">
-                {# This is rendered on mobile #}
                 {% include "blocks/checkerboard/image.twig" %}
-
-                {# Left-aligned image #}
-                {% if loop.index is even %}
-                    {% include "blocks/checkerboard/image.twig" %}
-                {% endif %}
-
-                {# Copy #}
                 {% include "blocks/checkerboard/copy.twig" %}
-
-                {# Right-aligned image #}
-                {% if loop.index is odd %}
-                    {% include "blocks/checkerboard/image.twig" %}
-                {% endif %}
-
             </figure>
         {% endfor %}
 	{% endblock %}

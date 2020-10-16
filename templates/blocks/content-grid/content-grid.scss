@@ -1,22 +1,8 @@
 .content-grid-copy {
 	margin-bottom: $space-md;
 }
-$grid-gap: 3em;
+$grid-gap: $space-md;
 ul.content-grid-list {
-	a.hyperlink-column {
-		overflow: auto;
-		height: 100%;
-		opacity: 1;
-		margin-bottom: 0;
-		display: flex;
-		flex-direction: column;
-		&:hover {
-			text-decoration: none;
-		}
-		li {
-			cursor: pointer;
-		}
-	}
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 calc(-#{$grid-gap} / 2);
@@ -52,6 +38,7 @@ li.content-grid-item {
 		}
 	}
 }
+
 li[data-style="card"] {
 	@extend %dark-text;
 	background: #fff;

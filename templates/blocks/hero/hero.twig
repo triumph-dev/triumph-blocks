@@ -59,7 +59,16 @@
 							
 						</div>
 						{% if slide.show_arrow_watermark %}
-							<img class="image-arrow" src="{{ site.theme.link }}/assets/img/{{ brand }}/image-watermark.svg" />
+							<svg class="image-arrow" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+								<style type="text/css">
+									.primary{
+										fill-rule:evenodd;
+										clip-rule:evenodd;
+										fill:{{ function('get_theme_mod','triumph_color_primary') }};
+										}
+								</style>
+								<polygon class="primary" points="155,45 155,155 45,155 0,200 155,200 200,200 200,155 200,0 "/>
+							</svg>
 						{% endif %}
 					</div>
 			
