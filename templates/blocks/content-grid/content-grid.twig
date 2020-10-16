@@ -27,15 +27,20 @@
 		{% endif %}
 		<ul class="content-grid-list {{ fields.grid_items|length is divisible by(4) ? 'four-up' : '' }}" data-align={{ fields.grid_item_alignment }}>
 		{% for grid_item in fields.grid_items %}
-			<li class="content-grid-item grid-item-{{ fields.grid_item_style }} {{ grid_item.hyperlink_column ? 'hyperlink-column' : '' }}">
-				{% if grid_item.hyperlink_column %}
-					<a class="hyperlink-column" href="{{ grid_item.link.link.url }}">
-				{% endif %}
+			<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
+			
+				{% if grid_item.image or grid_item.icon %}
+					<div class="grid-item-header">
+					{% if fields.grid_item_image_link %}<a href="{{ grid_item.link.link.url }}">{% endif %}
+						{% if grid_item.image %}
+							{% set image = Image(grid_item.image) %}
+							<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
+						{% endif %}
 
-				{% if grid_item.image %}
-					<div class="grid-item-header {{ fields.grid_item_image_style }}">
-						{% set image = Image(grid_item.image) %}
-						<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
+						{% if grid_item.icon %}
+							{{ function('svg_code', grid_item.icon) }}
+						{% endif %}
+						{% if fields.grid_item_image_link %}</a>{% endif %}
 					</div>
 				{% endif %}
 
@@ -52,16 +57,10 @@
 						{% set link_type = 'btn' %}
 					{% endif %}
 					<div class="grid-item-footer">
-						{% if grid_item.hyperlink_column %}
-							<p class="btn simple">{{grid_item.link.link.title}}</p>
-						{% else %}
-							<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
-						{% endif %}
+						<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
 					</div>
 				{% endif %}
-				{% if grid_item.hyperlink_column %}
-					</a>
-				{% endif %}
+
 			</li>
 		{% endfor %}
 		</ul>

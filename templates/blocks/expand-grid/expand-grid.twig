@@ -22,11 +22,18 @@
 		{% endif %}
 		<ul class="expand-grid-list" data-columns="{{ fields.grid_columns }}">
 		{% for grid_item in fields.grid_items %}
-			<li class="expand-grid-item grid-item-card">
-				{% if grid_item.image %}
-					<div class="grid-item-header {{ fields.grid_item_image_style }}">
-						{% set image = Image(grid_item.image) %}
-						<img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="cover"/>
+			<li class="expand-grid-item" data-style="card" data-image-style="{{ fields.grid_item_image_style }}">
+
+				{% if grid_item.image or grid_item.icon %}
+					<div class="grid-item-header">
+						{% if grid_item.image %}
+							{% set image = Image(grid_item.image) %}
+							<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
+						{% endif %}
+
+						{% if grid_item.icon %}
+							{{ function('svg_code', grid_item.icon) }}
+						{% endif %}
 					</div>
 				{% endif %}
 

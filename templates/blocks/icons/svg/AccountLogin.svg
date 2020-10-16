@@ -1,0 +1,14 @@
+<svg class="triumph-svg-icon" xmlns="http://www.w3.org/2000/svg" width="1.38in" height="1.38in" viewBox="0 0 99.25 99.25">
+  <defs>
+    <style>
+      .secondary {
+        fill: #000000;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="secondary" d="M49.2,71.41a22,22,0,1,1,22-22A22,22,0,0,1,49.2,71.41Zm0-42a20,20,0,1,0,20,20A20,20,0,0,0,49.2,29.41Z"/>
+    <circle class="secondary" cx="49.2" cy="42.41" r="5"/>
+    <polygon class="secondary" points="52.7 60.41 45.7 60.41 47.7 43.41 50.7 43.41 52.7 60.41"/>
+  </g>
+</svg>
