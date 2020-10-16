@@ -74,8 +74,8 @@ function svg_code($file_location = null){
         $iconfile->load($file_location);
         $html = $iconfile->saveHTML($iconfile->getElementsByTagName('svg')[0]);
 		if(strpos($html, 'class="triumph-svg-icon"') !== false){
-			$html = str_replace ( '#000000', get_theme_mod('triumph_color_secondary', '#000000'), $html);
-			$html = str_replace ( '#808080', get_theme_mod('triumph_color_primary', '#808080'),  $html);
+			$html = str_replace ( '#000000', get_theme_mod('triumph_color_secondary', '#005000'), $html);
+			$html = str_replace ( '#c8c9c7', get_theme_mod('triumph_color_primary', '#c8c9c7'),  $html);
 		}
 		$return = $html;
     }
