@@ -31,6 +31,7 @@
 			
 				{% if grid_item.image or grid_item.icon %}
 					<div class="grid-item-header">
+					{% if fields.grid_item_image_link %}<a href="{{ grid_item.link.link.url }}">{% endif %}
 						{% if grid_item.image %}
 							{% set image = Image(grid_item.image) %}
 							<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
@@ -39,6 +40,7 @@
 						{% if grid_item.icon %}
 							{{ function('svg_code', grid_item.icon) }}
 						{% endif %}
+						{% if fields.grid_item_image_link %}</a>{% endif %}
 					</div>
 				{% endif %}
 
