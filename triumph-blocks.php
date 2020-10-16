@@ -5,10 +5,10 @@
  * @package triumph-blocks
  **/
 
-//use DirectoryIterator;
-//use FilesystemIterator;
-//use RecursiveDirectoryIterator;
 use Timber\Timber;
+
+define('TRIUMPH_BLOCKS_URL', get_template_directory_uri().'/vendor/triumph-dev/triumph-blocks/');
+
 
 if ( ! function_exists( 'acf_register_block' ) ) {
 	return;
@@ -19,7 +19,7 @@ if ( ! function_exists( 'add_filter' ) ) {
 if ( ! function_exists( 'add_action' ) ) {
 	return;
 }
-
+//require_once 'functions/fields.php';
 require_once 'functions/functions.php';
 
 add_filter( 'timber/acf-gutenberg-blocks-templates', function( $context ){
