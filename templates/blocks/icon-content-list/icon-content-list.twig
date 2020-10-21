@@ -1,0 +1,40 @@
+{#
+  Title: Icon Content List
+  Description: Vertical content list accompanied by icons.
+  Category: triumph-blocks
+  Icon: editor-ul
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+{% set content_layout = 'layout-' ~ fields.content_layout %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'icon-content-list ' ~ content_layout } %}
+	{% block block_content %}
+		{% if fields.intro_copy %}
+			<div class="intro-copy {{ fields.intro_copy_width }}">
+				{{ fields.intro_copy }}
+			</div>
+		{% endif %}
+		<ul class="content-list">
+		{% for item in fields.items %}
+			<li>
+				{% if item.icon %}
+					<div class="icon-wrapper">
+						{{ function('svg_code', item.icon) }}
+					</div>
+				{% endif %}
+				{% if item.content %}
+					<div class="content">
+						{{ item.content }}
+					</div>
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+    {% endblock %}
+{% endembed %}

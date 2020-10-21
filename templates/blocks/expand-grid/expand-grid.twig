@@ -20,7 +20,7 @@
 				{{ fields.grid_copy }}
 			</div>
 		{% endif %}
-		<ul class="expand-grid-list" data-columns="{{ fields.grid_columns }}">
+		<ul class="expand-grid-list" data-max-columns="{{ fields.grid_max_columns }}">
 		{% for grid_item in fields.grid_items %}
 			<li class="expand-grid-item" data-style="card" data-image-style="{{ fields.grid_item_image_style }}">
 

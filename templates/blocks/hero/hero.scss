@@ -48,6 +48,11 @@ $hero-height: 500px;
 		padding: $space-lg;
 		height: $hero-height;
 	}
+	&[data-background-color="image"] {
+		.hero-copy {
+			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+		}
+	}
 
 	.background-image {
 		@extend %absolute-fill;
@@ -77,4 +82,16 @@ $hero-height: 500px;
 	width: 10em;
 	bottom: 0;
 	right: 0;
+}
+
+.hero-chevron {
+	position: absolute;
+	width: auto;
+	height: 100%;
+	left: calc(-20em + 20vw);
+	mix-blend-mode: overlay;
+
+	polygon {
+		fill: $color-ui-dark;
+	}
 }

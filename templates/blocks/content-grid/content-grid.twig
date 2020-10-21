@@ -25,23 +25,36 @@
 				{{ fields.grid_copy }}
 			</div>
 		{% endif %}
-		<ul class="content-grid-list {{ fields.grid_items|length is divisible by(4) ? 'four-up' : '' }}" data-align={{ fields.grid_item_alignment }}>
+		<ul class="content-grid-list" data-max-columns="{{ fields.grid_max_columns }}" data-align="{{ fields.grid_item_alignment }}">
 		{% for grid_item in fields.grid_items %}
 			<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
-			
+				
 				{% if grid_item.image or grid_item.icon %}
-					<div class="grid-item-header">
-					{% if fields.grid_item_image_link %}<a class="grid-item-link" href="{{ grid_item.link.link.url }}">{% endif %}
-						{% if grid_item.image %}
-							{% set image = Image(grid_item.image) %}
-							<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
-						{% endif %}
 
-						{% if grid_item.icon %}
-							{{ function('svg_code', grid_item.icon) }}
-						{% endif %}
-						{% if fields.grid_item_image_link %}</a>{% endif %}
-					</div>
+					{% if fields.grid_item_image_link %}
+						<a class="grid-item-header" href="{{ grid_item.link.link.url }}">
+					{% else %}	
+						<div class="grid-item-header">
+					{% endif %}
+
+						<div class="grid-item-header">
+			
+							{% if grid_item.image %}
+								{% set image = Image(grid_item.image) %}
+								<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
+							{% endif %}
+
+							{% if grid_item.icon %}
+								{{ function('svg_code', grid_item.icon) }}
+							{% endif %}
+						
+						</div>
+
+					{% if fields.grid_item_image_link %}
+						</a>
+					{% else %}	
+						</div>
+					{% endif %}
 				{% endif %}
 
 				{% if grid_item.copy %}
@@ -57,7 +70,7 @@
 						{% set link_type = 'btn' %}
 					{% endif %}
 					<div class="grid-item-footer">
-						<a class="{{ link_type }} {{ grid_item.link.link_style }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
+						<a class="{{ link_type }} {{ grid_item.link.link_style }} {{ grid_item.link.link_color }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
 					</div>
 				{% endif %}
 

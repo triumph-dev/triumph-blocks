@@ -16,13 +16,19 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class} %}
 	{% block block_content %}
-		<div class="content {{ fields.left_align_text ? 'left-align' : '' }}">
+		<div class="content" data-alignment="{{ fields.alignment }}">
 			{{ fields.copy }}
 		</div>
 		{% if fields.links|length %}
-			<div class="buttons">
+		
+			<div class="buttons" data-alignment="{{ fields.alignment }}">
 				{% for link in fields.links %}
-					<a class="btn {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
+					{% if 'simple' in link.link_style %}
+						{% set link_type = '' %}
+					{% else %}
+						{% set link_type = 'btn' %}
+					{% endif %}
+					<a class="{{ link_type }} {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
 				{% endfor %}
 			</div>
 		{% endif %}

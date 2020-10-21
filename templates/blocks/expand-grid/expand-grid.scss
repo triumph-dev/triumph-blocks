@@ -9,8 +9,12 @@ ul.expand-grid-list {
 	column-gap: $space-md;
 
 	> li {
-		//position: relative;
-		break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+		-moz-column-break-inside: avoid;
+		-moz-page-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid-column;
+
 		min-height: 20em;
 		margin: 0 0 $space-md 0;
 		width: 100%;
@@ -20,7 +24,6 @@ ul.expand-grid-list {
 		&[data-toggle="open"] {
 			border-color: var(--color-accent);
 			box-shadow: 0em .5em 1em rgba($color-ui-dark, 0.2);
-
 		}
 		&::after {
 			content: '';
@@ -28,7 +31,18 @@ ul.expand-grid-list {
 			height: 100%;
 		}
 	}
-	&[data-columns="3"] {
+	&[data-max-columns="4"] {
+		@include sm-and-up {
+			column-count: 2;
+		}
+		@include md-and-up {
+			column-count: 3;
+		}
+		@include lg-and-up {
+			column-count: 4;
+		}
+	}
+	&[data-max-columns="3"] {
 		@include md-and-up {
 			column-count: 2;
 		}
@@ -36,7 +50,7 @@ ul.expand-grid-list {
 			column-count: 3;
 		}
 	}
-	&[data-columns="2"] {
+	&[data-max-columns="2"] {
 		@include md-and-up {
 			column-count: 2;
 		}

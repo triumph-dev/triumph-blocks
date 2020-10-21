@@ -1,36 +1,57 @@
 .banner {
 	padding: $space-xl 0;
-	text-align: center;
+	&[data-background-color="image"] {
+		.content {
+			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+		}
+	}
 	a.btn {
-		margin-top: $space-md;
 		@include ie {
 			display: inline;
 		}
 	}
+	.content,
+	.buttons {
+		&[data-alignment="left"] {
+			text-align: left;
+		}
+		&[data-alignment="center"] {
+			text-align: center;
+		}
+		&[data-alignment="right"] {
+			text-align: right;
+		}
+	}
+	.buttons {
+		margin-top: $space-md;
+	}
 	&[data-background-color="image"] {
 		@extend %white-text;
 		.background {
-			filter: brightness(70%);
+			z-index: -1;
+			filter: brightness(60%);
 		}
 	}
 
 	&.is-row .layout-wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		//padding: $space-md;
-		flex-direction: column;
 		@include md-and-up {
 			flex-direction: row;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			//padding: $space-md;
 		}
 		.content {
-			text-align: left;
 			@include md-and-up {
 				max-width: 50%;
 			}
 		}
 		.buttons {
-			text-align: left;
+			@include md-and-up {
+				margin-top: 0;
+			}
+
 			a {
 				margin-right: $space-sm;
 				&:last-child {
@@ -39,12 +60,7 @@
 			}
 		}
 	}
-	.left-align {
-		p {
-			text-align: left;
-			padding: $space-sm 0;
-		}
-	}
+
 	.apps {
 		margin: $space-md auto;
 		margin-bottom: 0;

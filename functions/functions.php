@@ -68,6 +68,17 @@ add_filter('acf/load_field/name=icon', 'acf_icon_selector_choices');
  * @param string $file_location The path or url to an SVG file
  */
 function svg_code($file_location = null){
+	$opts = array(
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
+
+	$context = stream_context_create($opts);
+	libxml_set_streams_context($context);
+	
     $return = false;
     if ($file_location) {
         $iconfile = new DOMDocument();
