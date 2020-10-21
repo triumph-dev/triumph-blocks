@@ -39,11 +39,11 @@ function acf_icon_selector_choices( $field ) {
     // reset choices
     $field['choices'] = array();
 
-	$choices = [];
+
 	$triumph_icon_path = dirname(__DIR__).'/templates/blocks/icons/svg/';
 	$triumph_icon_url = TRIUMPH_BLOCKS_URL.'templates/blocks/icons/svg/';
     $dir = new DirectoryIterator($triumph_icon_path);
-
+	$field['choices']['none'] = "None";
 	foreach ($dir as $fileinfo) {
 		
 		if (!$fileinfo->isDot()) {

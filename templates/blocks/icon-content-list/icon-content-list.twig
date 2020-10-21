@@ -23,7 +23,7 @@
 		<ul class="content-list">
 		{% for item in fields.items %}
 			<li>
-				{% if item.icon %}
+				{% if item.icon != "none" %}
 					<div class="icon-wrapper">
 						{{ function('svg_code', item.icon) }}
 					</div>
