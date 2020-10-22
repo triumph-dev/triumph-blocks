@@ -43,16 +43,19 @@ function acf_icon_selector_choices( $field ) {
 	$triumph_icon_path = dirname(__DIR__).'/templates/blocks/icons/svg/';
 	$triumph_icon_url = TRIUMPH_BLOCKS_URL.'templates/blocks/icons/svg/';
     $dir = new DirectoryIterator($triumph_icon_path);
-	$field['choices']['none'] = "None";
+	
 	foreach ($dir as $fileinfo) {
-		
-		if (!$fileinfo->isDot()) {
-			$icon_img = '<img class="triumph-icon-img" src="'.$triumph_icon_url.$fileinfo->getFilename().'" />';
-			//var_dump($fileinfo->getFilename());
-			$field['choices'][$triumph_icon_url.$fileinfo->getFilename()] = $icon_img.'<div class="triumph-icon-title">'.$fileinfo->getFilename().'</div>';
+		if(strpos ( $fileinfo->getFilename() , '.svg' ) !== false){
+			if (!$fileinfo->isDot()) {
+				$icon_img = '<img class="triumph-icon-img" src="'.$triumph_icon_url.$fileinfo->getFilename().'" />';
+				$title = basename($fileinfo->getFilename(), '.svg');
+				$field['choices'][$triumph_icon_url.$fileinfo->getFilename()] = $icon_img.'<div class="triumph-icon-title">'.$title.'</div>';
+			}
 		}
 	}
-
+	//$none=['none'=>'None'];
+	ksort($field['choices']);
+	//array_unshift ( $field['choices'], $field['choices'][$none] );
     // return the field
     return $field;
     
@@ -68,19 +71,23 @@ add_filter('acf/load_field/name=icon', 'acf_icon_selector_choices');
  * @param string $file_location The path or url to an SVG file
  */
 function svg_code($file_location = null){
-	$opts = array(
-		'ssl' => array(
-			'verify_peer' => false,
-			'verify_peer_name' => false,
-			'allow_self_signed' => true
-		)
-	);
+	if(WP_DEBUG){
+		$opts = array(
+			'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
 
-	$context = stream_context_create($opts);
-	libxml_set_streams_context($context);
+			)
+		);
+
+		$context = stream_context_create($opts);
+		libxml_set_streams_context($context);
+	}
+
 	
     $return = false;
     if ($file_location) {
+		
         $iconfile = new DOMDocument();
         $iconfile->load($file_location);
         $html = $iconfile->saveHTML($iconfile->getElementsByTagName('svg')[0]);
