@@ -1,0 +1,25 @@
+{#
+  Title: Expand Block
+  Description: Expand/collapse block
+  Category: triumph-blocks
+  Icon: plus-alt
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: false
+#}
+
+
+
+{% embed 'blocks/expand/expand.twig' with { expand_block : block} %}
+	{% block expand_trigger %}
+		{{ fields.expand_trigger }}
+	{% endblock %}
+	{% block expand_content %}
+		{{ fileds.expand_content }}
+	{% endblock %}
+{% endembed %}
+

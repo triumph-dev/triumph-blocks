@@ -1,0 +1,17 @@
+{% set expand_block = expand_block ? expand_block : null %}
+<div class="expand-wrapper {{ expand_block.classes ? expand_block.classes : '' }}" {{ expand_block.id ? 'data-' ~ expand_block.id : '' }} data-expand-toggle="open">
+	<button class="expand-trigger">
+		<div class="indicator">
+			<i class="far fa-lg fa-angle-down"></i>
+		</div>
+		<div class="expand-trigger-content">
+			{% block expand_trigger %}
+			{% endblock %}
+		</div>
+	</button>
+	<div class="expand-content">
+		{% block expand_content %}
+		{% endblock %}
+	</div>
+</div>
+

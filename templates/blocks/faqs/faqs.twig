@@ -1,0 +1,45 @@
+{#
+  Title: FAQs
+  Description: Frequently Asked Questions
+  Category: triumph-blocks
+  Icon: editor-help
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: false
+#}
+
+{{ function('add_list_js') }}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'faqs' } %}
+	{% block block_content %}
+		{% if fields.intro_copy %}
+			<div class="expand-grid-copy {{ fields.grid_copy_width }}">
+				{{ fields.intro_copy }}
+			</div>
+		{% endif %}
+		<div id="faqs">
+			<form name="faq-search" class="form-inline">
+				<input class="search" type="search" placeholder="Search" />
+				<button class="btn primary"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
+			</form>
+			<ul class="faq-list list">
+			{% for faq in fields.faqs %}
+				<li>
+					{% embed 'blocks/expand/expand.twig' %}
+						{% block expand_trigger %}
+							<p class="question"><strong>{{ faq.question }}</strong></p>
+						{% endblock %}
+						{% block expand_content %}
+							<div class="answer">{{ faq.answer }}</div>
+						{% endblock %}
+					{% endembed %}
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+    {% endblock %}
+{% endembed %}

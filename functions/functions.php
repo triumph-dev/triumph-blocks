@@ -99,3 +99,9 @@ function svg_code($file_location = null){
     }
     return $return;
 }
+
+
+function add_list_js(){
+	// Include List.js
+	wp_enqueue_script( "list.js", "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js", [], false, true );
+}
