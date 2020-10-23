@@ -23,6 +23,7 @@
 }
 .expand-trigger {
 	@extend %button-clean;
+	font-weight: bold;
 	line-height: 1.25;
 	display: flex;
 	align-items: center;

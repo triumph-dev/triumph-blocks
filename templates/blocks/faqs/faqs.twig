@@ -17,7 +17,7 @@
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'faqs' } %}
 	{% block block_content %}
 		{% if fields.intro_copy %}
-			<div class="expand-grid-copy {{ fields.grid_copy_width }}">
+			<div class="intro-copy {{ fields.intro_copy_width }}">
 				{{ fields.intro_copy }}
 			</div>
 		{% endif %}
@@ -31,7 +31,7 @@
 				<li>
 					{% embed 'blocks/expand/expand.twig' %}
 						{% block expand_trigger %}
-							<p class="question"><strong>{{ faq.question }}</strong></p>
+							<p class="question">{{ faq.question }}</p>
 						{% endblock %}
 						{% block expand_content %}
 							<div class="answer">{{ faq.answer }}</div>

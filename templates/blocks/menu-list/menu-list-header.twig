@@ -1,5 +1,5 @@
 {% if items|length %}
-	<ul class="{{ name }}">
+	<ul class="{{ name }} header-menu">
 		{% for item in items %}
 			<li class="{{ item.classes|join(' ') }} {% if item.children %} has-subnav {% endif %}" {% if item.children %}data-subnav-toggle="closed"{% endif %}>
 
@@ -15,7 +15,7 @@
 						<button class="subnav-toggle"><i class="fas fa-chevron-down"></i></button>
 					</div>
 
-					<ul class="{{ name }}-child">
+					<ul class="header-menu-child">
 						{% for child in item.children %}
 							<li class="{{ item.classes|join(' ') }}">
 								<a class="menu-link" target="{{child.target}}" href="{{child.link}}">{{child.title}}</a>

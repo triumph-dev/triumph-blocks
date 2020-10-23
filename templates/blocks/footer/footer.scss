@@ -73,26 +73,3 @@ ul.menu-footer-social {
 	display: block;
 	filter: grayscale(1) brightness(1000%);
 }
-
-.menu-footer-nav-first-child {
-	&.break-on-three {
-		@include md-and-up {
-			display: grid;
-			grid-auto-flow: column;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(3, 1fr);
-			grid-column-gap: $space-md;
-		}
-		@include ie {
-			display: -ms-grid;
-			-ms-grid-columns: (1fr)[2];
-			li {
-				margin-right: $space-md;
-			}
-		}
-	}
-	a {
-		display: inline-block;
-		padding: 0.2em 0;
-	}
-}

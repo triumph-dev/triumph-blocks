@@ -7,6 +7,7 @@
 		@include md-and-up {
 			flex-direction: row;
 			figcaption {
+				display: flex;
 				padding: $space-lg $space-lg $space-lg $space-md;
 				//border-right: .5em solid var(--color-accent);
 				//border-left: none;
@@ -14,6 +15,7 @@
 			&:nth-of-type(odd) {
 				flex-direction: row-reverse;
 				figcaption {
+					align-items: flex-end;
 					padding: $space-lg $space-md $space-lg $space-lg;
 					//border-right: none;
 					//border-left: .5em solid var(--color-accent);
@@ -40,7 +42,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: $space-sm $space-md $space-lg $space-md;
+		padding: $space-md $space-md $space-lg $space-md;
 		@include md-and-up {
 			height: calc(10vw + 300px);
 		}
@@ -51,4 +53,7 @@
 		width: 100%;
 		object-fit: cover;
 	}
+}
+.checkerbard-copy-wrapper {
+	max-width: 48ch;
 }

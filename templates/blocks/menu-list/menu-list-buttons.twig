@@ -1,0 +1,9 @@
+{% if items|length %}
+<ul class="{{ name }}">
+	<li>
+		{% for item in items %}
+			<a class="btn {{ item.classes|join(' ') }}" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+		{% endfor %}
+	</li>
+</ul>
+{% endif %}

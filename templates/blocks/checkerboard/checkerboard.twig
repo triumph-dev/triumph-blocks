@@ -16,9 +16,16 @@
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'checkerboard'} %}
 	{% block block_content %}
 		{% for row in fields.rows %}
-            <figure class="row">
-                {% include "blocks/checkerboard/image.twig" %}
-                {% include "blocks/checkerboard/copy.twig" %}
+			{% set image = Image(row.image) %}
+            <figure class="row" data-background-color="{{ row.background_color }}">
+				<div class="image {{ hide_on_mobile == 'false' ? '' : 'hide-on-mobile' }}">
+					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover" />
+				</div>
+                <figcaption>
+					<div class="checkerbard-copy-wrapper">
+						{{row.copy}}
+					</div>
+				</figcaption>
             </figure>
         {% endfor %}
 	{% endblock %}

@@ -12,20 +12,26 @@
 	<div id="menu-toggle-target" class="main-menu-wrapper" data-menu-state="closed">
 
 		{% if menu.headerNav %}
-			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerNav.get_items, name: 'menu-header-nav', allSimple:'true'} %}
+			{% include 'blocks/menu-list/menu-list-header.twig' with {items: menu.headerNav.get_items, name: 'menu-header-nav'} %}
 		{% endif %}
 
+		{% if menu.headerUtility %}
+			{% include 'blocks/menu-list/menu-list-header.twig' with {items: menu.headerUtility.get_items, name: 'menu-header-utility'} %}
+		{% endif %}
+
+		{% if menu.headerButtons %}
+			{% include 'blocks/menu-list/menu-list-buttons.twig' with {items: menu.headerButtons.get_items, name: 'menu-header-buttons'} %}
+		{% endif %}
+{#
 		{% if menu.headerRegister %}
 			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerRegister.get_items, name: 'menu-header-register'} %}
 		{% endif %}
 
-		{% if menu.headerLogin %}
-			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerLogin.get_items, name: 'menu-header-login'} %}
-		{% endif %}
+		
 
 		{% if menu.headerGetStarted %}
 			{% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerGetStarted.get_items, name: 'menu-header-get-started', isButton:'true'} %}
 		{% endif %}
-
+#}
 	</div>
 </nav>
