@@ -1,0 +1,128 @@
+// Button
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+a.btn,
+.btn,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	@extend %form-element;
+	opacity: 1;
+	background-color: $color-link-default;
+	border: $border-width solid $color-link-default;
+	color: $color-ui-light;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.9rem;
+	padding: 0.8rem 1.5rem;
+	font-weight: 600;
+	letter-spacing: 0.15rem;
+	line-height: normal;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background-color 150ms ease, border-color 150ms ease;
+
+	&:focus,
+	&:hover {
+		color: #fff;
+		background-color: darken($color-link-default, 5%);
+		border: $border-width solid darken($color-link-default, 5%);
+	}
+
+	&.primary {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+
+		&:focus,
+		&:hover {
+			background-color: var(--color-primary-darken);
+			border-color: var(--color-primary-darken);
+		}
+		&.border {
+			color: var(--color-primary);
+			background-color: transparent;
+			&:focus,
+			&:hover {
+				color: var(--color-primary-darken);
+			}
+		}
+	}
+
+	&.secondary {
+		background-color: var(--color-secondary);
+		border-color: var(--color-secondary);
+
+		&:focus,
+		&:hover {
+			background-color: var(--color-secondary-darken);
+			border-color: var(--color-secondary-darken);
+		}
+		&.border {
+			color: var(--color-secondary);
+			background-color: transparent;
+			&:focus,
+			&:hover {
+				color: var(--color-secondary-darken);
+			}
+		}
+	}
+
+	&.accent {
+		background-color: var(--color-acent);
+		border-color: var(--color-acent);
+
+		&:focus,
+		&:hover {
+			background-color: var(--color-acent-darken);
+			border-color: var(--color-acent-darken);
+		}
+		&.border {
+			color: var(--color-accent);
+			background-color: transparent;
+			&:focus,
+			&:hover {
+				color: var(--color-accent-darken);
+			}
+		}
+	}
+
+	&.white {
+		background-color: $color-ui-light;
+		border-color: $color-ui-light;
+		color: $color-ui-dark;
+
+		&:focus,
+		&:hover {
+			border-color: #fff;
+			background-color: #fff;
+		}
+		&.border {
+			color: $color-ui-light;
+			background-color: rgba($color-ui-dark, 0.3);
+			&:focus,
+			&:hover {
+				border-color: #fff;
+				color: #fff;
+				background-color: rgba(#000, 0.3);
+			}
+		}
+	}
+}
+
+.button-group {
+	width: 100%;
+	@include sm-and-up {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -#{$space-xs};
+	}
+	> * {
+		margin: $space-xs 0;
+		display: block;
+		width: 100%;
+		@include sm-and-up {
+			width: auto;
+			margin: 0 $space-xs;
+		}
+	}
+}

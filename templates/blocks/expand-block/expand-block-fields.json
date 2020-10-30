@@ -1,12 +1,12 @@
 [
     {
-        "key": "group_5f57f1f38894b",
-        "title": "App Icons",
+        "key": "group_5f92143c36e8d",
+        "title": "Block - Expand Block",
         "fields": [
             {
-                "key": "field_5f57f1fb8dd64",
-                "label": "Apple Link",
-                "name": "apple_link",
+                "key": "field_5f92144be93f6",
+                "label": "Expand Trigger",
+                "name": "expand_trigger",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -18,15 +18,15 @@
                 },
                 "default_value": "",
                 "placeholder": "",
-                "prepend": "<img width=\"50\" src=\"\/wp-content\/themes\/tpay-theme\/assets\/img\/app-store.svg\" \/>",
+                "prepend": "",
                 "append": "",
                 "maxlength": ""
             },
             {
-                "key": "field_5f57f2098dd65",
-                "label": "Google Link",
-                "name": "google_link",
-                "type": "text",
+                "key": "field_5f92145ae93f7",
+                "label": "Expand Content",
+                "name": "expand_content",
+                "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -36,18 +36,18 @@
                     "id": ""
                 },
                 "default_value": "",
-                "placeholder": "",
-                "prepend": "<img width=\"50\" src=\"\/wp-content\/themes\/tpay-theme\/assets\/img\/play-store.svg\" \/>",
-                "append": "",
-                "maxlength": ""
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
             }
         ],
         "location": [
             [
                 {
-                    "param": "options_page",
+                    "param": "block",
                     "operator": "==",
-                    "value": "acf-options"
+                    "value": "acf\/expand-block"
                 }
             ]
         ],

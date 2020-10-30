@@ -1,0 +1,35 @@
+{#
+  Title: Account Features
+  Description: List the features of the selected account
+  Category: triumph-blocks
+  Icon: money-alt
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leadership
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+
+{% set account_details = function('account_features', fields.account) %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'account-features' } %}
+	{% block block_content %}
+		{% if fields.intro_copy %}
+			<div class="content-intro-copy {{ fields.intro_copy_width }}">
+				{{ fields.intro_copy }}
+			</div>
+		{% endif %}
+		<ul class="account-features-list">
+			{% for feature in  account_details.features %}
+				<li>{{ feature }}</li>
+			{% endfor %}
+		</ul>
+		<div class="disclaimer">
+			{{ account_details.disclaimer }}
+		</div>
+	
+	{% endblock %}
+{% endembed %}
+

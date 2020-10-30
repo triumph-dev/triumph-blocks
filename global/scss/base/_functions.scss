@@ -1,0 +1,298 @@
+// Sizing
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 2rem;
+$space-lg: 4rem;
+$space-xl: 6rem;
+$space-page: 8rem;
+$consistent-page-padding: 10vw;
+
+// Borders
+$border-width: 2px;
+$border-radius: 4px;
+
+$menu-height: 8em;
+
+dd,
+dt,
+li,
+blockquote,
+dl,
+figure,
+form,
+ol,
+p,
+pre,
+table,
+ul,
+fieldset,
+input,
+select,
+textarea {
+	margin-bottom: $space-sm;
+}
+
+$breakpoint-iphoneSE: 330px;
+$breakpoint-tiny: 400px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 769px;
+$breakpoint-lg: 1200px;
+$breakpoint-semi: 1300px;
+$breakpoint-xl: 1440px;
+
+$breakpoints: (
+	"tiny": $breakpoint-tiny,
+	"sm": $breakpoint-sm,
+	"md": $breakpoint-md,
+	"lg": $breakpoint-lg,
+	"xl": $breakpoint-xl
+);
+
+$page-interior: 1100px;
+
+// loop
+@each $name, $size in $breakpoints {
+	.container-#{$name} {
+		width: 100%;
+		margin: 0 auto;
+		max-width: $size;
+		position: relative;
+	}
+}
+
+%flat-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+	li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+%light-link {
+	a:not(.btn) {
+		color: #fff;
+		opacity: .85;
+		transition: opacity 150ms ease;
+		&:hover,
+		&:focus {
+			opacity: 1;
+			text-decoration: underline;
+			text-decoration-color: rgba(255, 255, 255, 0.3);
+		}
+	}
+	a.simple {
+		color: #fff;
+		&:hover {
+			text-decoration: none;
+			filter: brightness(100%);
+		}
+	}
+}
+
+%dark-text {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		color: $color-ui-dark;
+	}
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
+	textarea,
+	select {
+		border-color: rgba($color-ui-dark, 0.5);
+		&:focus {
+			border-color: #fff;
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+	}
+	hr {
+		border-color: rgba($color-ui-dark, 0.2);
+	}
+	a:not(.btn) {
+		color: var(--color-primary);
+		&:not([class]) {
+			&:focus,
+			&:hover {
+				color: var(--color-primary-darken);
+				text-decoration: underline;
+			}
+		}
+		&.simple {
+			opacity: 1;
+			color: var(--color-primary);
+			&:focus,
+			&:hover {
+				color: var(--color-primary-darken);
+			}
+		}
+	}
+}
+
+%white-text {
+	color: #fff;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		color: #fff;
+	}
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
+	textarea,
+	select {
+		border-color: rgba($color-ui-light, 0.5);
+		&:focus {
+			border-color: #fff;
+		}
+	}
+	hr {
+		border-color: rgba($color-ui-light, 0.2);
+	}
+	@extend %light-link;
+}
+%uppercase {
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+%absolute-fill {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+%form-element {
+	border-radius: $border-radius;
+	appearance: none; // Removes awkward default styles on some inputs for iOS
+	box-shadow: none;
+	box-sizing: inherit;
+	height: 2.75rem;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	white-space: nowrap;
+	font-family: $font-sans-serif;
+}
+
+%center-flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+%button-clean {
+	white-space: normal;
+	text-transform: none;
+	letter-spacing: 0;
+	pointer-events: auto;
+	line-height: 1;
+	font-size: 1em;
+	height: auto;
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: none;
+	color: var(--color-text);
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	&:focus,
+	&:hover {
+		color: var(--color-text);
+		border: none;
+		outline: none;
+		background: none;
+	}
+}
+
+@mixin se {
+	@media (max-width: #{$breakpoint-iphoneSE}) {
+		@content;
+	}
+}
+
+@mixin tiny {
+	@media (max-width: #{$breakpoint-tiny}) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (max-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin sm-and-up {
+	@media (min-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin md-and-up {
+	@media (min-width: #{$breakpoint-md}) {
+		@content;
+	}
+}
+
+@mixin lg-and-up {
+	@media (min-width: #{$breakpoint-lg}) {
+		@content;
+	}
+}
+
+@mixin semi-and-up {
+	@media (min-width: #{$breakpoint-semi}) {
+		@content;
+	}
+}
+
+@mixin xl-and-up {
+	@media (min-width: #{$breakpoint-xl}) {
+		@content;
+	}
+}
+
+@mixin dark-ui {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
+
+@mixin heading {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@content;
+	}
+}
+
+@mixin ie {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}

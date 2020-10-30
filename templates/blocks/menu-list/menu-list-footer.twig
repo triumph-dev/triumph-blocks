@@ -19,7 +19,7 @@
 			{% if item.children %}
 				{% set column = 1 %}
 				{% set row = 0 %}
-				<ul class="{{ name }}-first-child {{ item.children|length > 3 ? 'break-on-three' : '' }}">
+				<ul class="{{ name }}-first-child">
 					{% for item in item.children %}
 						{% set row = row + 1 %}
 						{% if loop.index is divisible by(4) %}

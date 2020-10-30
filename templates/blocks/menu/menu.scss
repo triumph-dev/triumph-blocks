@@ -1,4 +1,5 @@
 #menu {
+	background: #fff;
 	font-family: $font-sans-serif;
 	padding: $space-sm $space-md;
 	display: flex;
@@ -47,12 +48,13 @@ ul.header-menu {
 		font-weight: 600;
 		&:hover,
 		&:focus {
-			color: var(--color-secondary);
+			color: var(--color-primary-darken);
 		}
 	}
 	> .menu-item > a,
 	> .menu-item > .menu-heading-wrapper {
-		text-transform: uppercase;
+		@extend %uppercase;
+		//text-transform: uppercase;
 		font-weight: 600;
 		@include lg-and-up {
 			padding: 0 0 0 .75rem;
@@ -98,9 +100,10 @@ a.menu-link {
 	padding: 1rem;
 	position: relative;
 	right: -1rem;
+	transition: transform 150ms ease;
 	&:hover,
 	&:focus {
-		color: var(--color-secondary);
+		color: var(--color-primary-darken);
 	}
 	@include lg-and-up {
 		color: $color-ui-dark;
@@ -114,7 +117,7 @@ ul.header-menu-child {
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
-	max-height: 100vh;
+	max-height: 30em;
 	transition: max-height 350ms ease;
 
 	.menu-item {
@@ -127,7 +130,7 @@ ul.header-menu-child {
 	@include lg-and-up {
 		position: absolute;
 		width: 100%;
-		background: $color-ui-light;
+		background: #fff;
 		border-radius: $border-radius;
 		.menu-item {
 			&:last-child {
@@ -144,6 +147,11 @@ ul.header-menu-child {
 	&[data-subnav-toggle="closed"] {
 		ul.header-menu-child {
 			max-height: 0;
+		}
+	}
+	&[data-subnav-toggle="open"] {
+		.subnav-toggle {
+			transform: rotate(180deg);
 		}
 	}
 	@include lg-and-up {

@@ -1,0 +1,80 @@
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	font-family: $font-serif;
+	line-height: 1.6;
+	font-size: .9rem;
+	display: flex;
+	flex-direction: column;
+	background: $color-ui-light;
+	color: $color-ui-dark;
+	--color-text: $color-ui-dark;
+	@include sm-and-up {
+		font-size: 1rem;
+	}
+	@include md-and-up {
+		font-size: 1.125rem;
+	}
+}
+
+.has-white-background-color {
+	background: white;
+}
+
+#content {
+	flex-grow: 1;
+}
+
+.padding {
+	padding: $space-lg $space-md;
+	&.top {
+		padding: 0;
+		&.sm {
+			padding-top: $space-sm;
+		}
+		&.md {
+			padding-top: $space-md;
+		}
+		&.lg {
+			padding-top: $space-lg;
+		}
+	}
+	&.left {
+		padding: 0;
+		&.sm {
+			padding-left: $space-sm;
+		}
+		&.md {
+			padding-left: $space-md;
+		}
+		&.lg {
+			padding-left: $space-lg;
+		}
+	}
+	&.right {
+		padding: 0;
+		&.sm {
+			padding-right: $space-sm;
+		}
+		&.md {
+			padding-right: $space-md;
+		}
+		&.lg {
+			padding-right: $space-lg;
+		}
+	}
+	&.bottom {
+		padding: 0;
+		&.sm {
+			padding-bottom: $space-sm;
+		}
+		&.md {
+			padding-bottom: $space-md;
+		}
+		&.lg {
+			padding-bottom: $space-lg;
+		}
+	}
+}

@@ -16,11 +16,6 @@ $hero-height: 500px;
 		.hero-pane {
 			width: 100%;
 		}
-		.hero-copy {
-			@include md-and-up {
-				margin-left: 10vw;
-			}
-		}
 	}
 }
 .tns-horizontal > .tns-item.hero-pane {
@@ -56,7 +51,7 @@ $hero-height: 500px;
 
 	.background-image {
 		@extend %absolute-fill;
-		z-index: 0;
+		z-index: -1;
 		object-fit: cover;
 	}
 }
@@ -65,14 +60,17 @@ $hero-height: 500px;
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
-	z-index: 1;
+	z-index: 0;
 }
 .hero-copy {
 	font-size: 1rem;
 	@include md-and-up {
 		font-size: 1.125rem;
-		max-width: 30em;
-		margin-left: 15vw;
+		max-width: 50ch;
+	}
+	.button-group {
+		margin-top: $space-md;
+		text-shadow: none;
 	}
 }
 

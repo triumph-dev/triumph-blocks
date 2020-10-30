@@ -1,5 +1,20 @@
 <?php
 
+function triumph_blocks_categories( $categories ) {
+	$category_slugs = wp_list_pluck( $categories, 'slug' );
+	return in_array( 'triumph-blocks', $category_slugs, true ) ? $categories : array_merge(
+		$categories,
+		array(
+			array(
+				'slug'  => 'triumph-blocks',
+				'title' => __( 'Triumph Blocks', 'triumph-blocks' ),
+				'icon'  => null,
+            ),
+        )
+    );
+}
+add_filter( 'block_categories', 'triumph_blocks_categories' );
+
 
 function triumph_blocks_admin_assests() {
 	wp_enqueue_style('triumph-blocks-admin-styles', TRIUMPH_BLOCKS_URL.'assets/admin.css');
@@ -12,23 +27,64 @@ function account_comparison($accounts = []){
 		'accounts'=>$accounts,
 		'rows'=>[],
 	];
-	$account_perks_obj = get_field_object('account_perks', $accounts[0]->ID);
-	$account_fields = $account_perks_obj['sub_fields'];
+	$account_features_obj = get_field_object('account_features', $accounts[0]->ID);
+	$account_fields = $account_features_obj['sub_fields'];
 
 	foreach($account_fields as $account_field){
 		$account_comparison['rows'][] = $account_field;
 	}
 
 	foreach($accounts as $account){
-		$account_perks_obj = get_field_object('account_perks', $account->ID);
-		$account_perks = $account_perks_obj['value'];
-		foreach($account_perks as $k=>$v){
+		$account_features_obj = get_field_object('account_features', $account->ID);
+		$account_features = $account_features_obj['value'];
+		foreach($account_features as $k=>$v){
 			$key = array_search($k, array_column($account_comparison['rows'], 'name'));
 			$account_comparison['rows'][$key]['values'][] = $v;
 		}
 	}
 	
 	return $account_comparison;
+}
+
+
+
+function account_features( $account_id = null) {
+	
+	if($account_id && get_field('account_features', $account_id)){
+		$account_features = get_field('account_features', $account_id);
+
+		$account_features_obj = get_field_object('account_features', $account_id);
+
+		$account_feature_fields = $account_features_obj['sub_fields'];
+
+		$list_content = [];
+		$disclaimer = '';
+		$i = 1;
+		foreach($account_features as $feature_name => $feature_value){
+			$key = array_search($feature_name, array_column($account_feature_fields, 'name'));
+
+			$feature_title = $account_feature_fields[$key]['label'];
+			
+			if(is_bool($feature_value) && $feature_value == true ){
+				$feature_value = '<i class="far fa-check"></i>';
+			}
+
+			if(!empty($account_feature_fields[$key]['instructions'])){
+				$feature_value .= '<sup>'.$i.'</sup>';
+				$disclaimer .= ' '.$i.'. '.$account_feature_fields[$key]['instructions'];
+				$i++;
+			}
+			$list_content[] = sprintf(
+				'<span class="title">%s:</span> %s',
+			$feature_title, $feature_value);
+			
+		}
+		
+		$output = ['features'=>$list_content, 'disclaimer'=>$disclaimer];
+	}else{
+		$output = null;
+	}
+	return $output;
 }
 
 

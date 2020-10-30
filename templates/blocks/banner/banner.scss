@@ -1,17 +1,16 @@
 .banner {
 	padding: $space-xl 0;
 	&[data-background-color="image"] {
+		@extend %white-text;
+		.background {
+			z-index: -1;
+			filter: brightness(60%);
+		}
 		.content {
 			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
 		}
 	}
-	a.btn {
-		@include ie {
-			display: inline;
-		}
-	}
-	.content,
-	.buttons {
+	.content {
 		&[data-alignment="left"] {
 			text-align: left;
 		}
@@ -22,14 +21,17 @@
 			text-align: right;
 		}
 	}
-	.buttons {
+
+	.button-group {
 		margin-top: $space-md;
-	}
-	&[data-background-color="image"] {
-		@extend %white-text;
-		.background {
-			z-index: -1;
-			filter: brightness(60%);
+		&[data-alignment="left"] {
+			justify-content: flex-start;
+		}
+		&[data-alignment="center"] {
+			justify-content: center;
+		}
+		&[data-alignment="right"] {
+			justify-content: flex-end;
 		}
 	}
 
@@ -47,7 +49,7 @@
 				max-width: 50%;
 			}
 		}
-		.buttons {
+		.button-group {
 			@include md-and-up {
 				margin-top: 0;
 			}

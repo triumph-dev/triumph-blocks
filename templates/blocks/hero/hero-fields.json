@@ -74,7 +74,7 @@
                         "collapsed": "",
                         "min": 0,
                         "max": 0,
-                        "layout": "block",
+                        "layout": "table",
                         "button_label": "",
                         "sub_fields": [
                             {
@@ -149,105 +149,34 @@
                         ]
                     },
                     {
-                        "key": "field_5f88519d82d77",
-                        "label": "Links (copy)",
-                        "name": "links_copy",
-                        "type": "repeater",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "collapsed": "",
-                        "min": 0,
-                        "max": 0,
-                        "layout": "block",
-                        "button_label": "",
-                        "sub_fields": [
-                            {
-                                "key": "field_5f88519d82d78",
-                                "label": "Link",
-                                "name": "link",
-                                "type": "link",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "return_format": "array"
-                            },
-                            {
-                                "key": "field_5f88519d82d79",
-                                "label": "Link Color",
-                                "name": "link_color",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "default": "Default",
-                                    "white": "White",
-                                    "primary": "Primary",
-                                    "secondary": "Secondary",
-                                    "accent": "Accent"
-                                },
-                                "default_value": "primary",
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "return_format": "value",
-                                "placeholder": ""
-                            },
-                            {
-                                "key": "field_5f88519d82d7a",
-                                "label": "Link Style",
-                                "name": "link_style",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "solid": "Solid Button",
-                                    "border": "Border Button",
-                                    "simple": "Link"
-                                },
-                                "default_value": "solid",
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "return_format": "value",
-                                "placeholder": ""
-                            }
-                        ]
-                    },
-                    {
                         "key": "field_5f6359aee2184",
                         "label": "Show Arrow Watermark?",
                         "name": "show_arrow_watermark",
                         "type": "true_false",
-                        "instructions": "This adds a green, slightly transparent arrow icon in the bottom right of your hero.",
+                        "instructions": "This adds a slightly transparent arrow icon in the bottom right of your hero.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "",
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "message": "",
+                        "default_value": 0,
+                        "ui": 0,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
+                    },
+                    {
+                        "key": "field_5f8e112b8b988",
+                        "label": "Show Chevron",
+                        "name": "show_chevron",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -266,7 +195,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },

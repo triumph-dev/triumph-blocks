@@ -6,7 +6,7 @@
 	Keywords: 
 	Mode: edit
 	Align: left
-	PostTypes: post page partners
+	PostTypes: post page account leadership partners
 	SupportsAlign: false
 	SupportsMode: false
 	SupportsMultiple: true
@@ -41,10 +41,10 @@
 							<img style="filter:brightness({{ brightness }});" class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" data-object-fit="cover" />
 						{% endif %}
 
-						<div class="hero-copy-wrapper">
+						<div class="hero-copy-wrapper container-lg">
 							<div class="hero-copy">
 								{{slide.copy}}
-								<div class="links">
+								<div class="button-group">
 									{% for link in slide.links %}
 										{% if 'simple' in link.link_style %}
 											{% set link_type = '' %}

@@ -1,0 +1,128 @@
+[
+    {
+        "key": "group_5f91fb010fb04",
+        "title": "Block - FAQs",
+        "fields": [
+            {
+                "key": "field_5f91fb0f6b04d",
+                "label": "Intro Copy",
+                "name": "intro_copy",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5f91fb266b04e",
+                "label": "Intro Copy Width",
+                "name": "intro_copy_width",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "container-sm": "Narrow",
+                    "container-md": "Wide"
+                },
+                "default_value": "container-sm",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_5f91fb526b04f",
+                "label": "FAQs",
+                "name": "faqs",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5f91fb626b050",
+                        "label": "Question",
+                        "name": "question",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5f91fb6d6b051",
+                        "label": "Answer",
+                        "name": "answer",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 1,
+                        "delay": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/faqs"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

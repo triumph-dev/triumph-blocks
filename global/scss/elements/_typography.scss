@@ -1,0 +1,109 @@
+// Headers
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+h1,
+h2,
+h3,
+h4 {
+	font-family: $font-sans-serif;
+	line-height: 1.2;
+	margin: 0 0 0.25em 0;
+	font-weight: 600;
+	color: $color-ui-dark;
+	@extend %uppercase;
+}
+h1:not([class]),
+h2:not([class]),
+h3:not([class]),
+h4:not([class]) {
+	margin-bottom: $space-xs;
+}
+
+h1 {
+	font-size: 2.5em;
+	&.dynamic-text {
+		font-size: calc(1.5em + 2vw);
+	}
+}
+
+h2 {
+	font-size: 1.75em;
+	&.dynamic-text {
+		font-size: calc(1.3em + 2vw);
+	}
+}
+
+h3 {
+	font-size: 1.25em;
+	&.dynamic-text {
+		font-size: calc(1em + 2vw);
+	}
+}
+
+h4 {
+	font-size: 1.125em;
+	&.dynamic-text {
+		font-size: calc(0.8em + 2vw);
+	}
+}
+
+cite {
+}
+
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6,
+ul + h1,
+ul + h2,
+ul + h3,
+ul + h4,
+ul + h5,
+ul + h6,
+ol + h1,
+ol + h2,
+ol + h3,
+ol + h4,
+ol + h5,
+ol + h6 {
+	margin-top: $space-md;
+}
+p + p {
+	margin-top: $space-sm;
+}
+p:last-child {
+	margin-bottom: 0;
+}
+
+abbr {
+	text-decoration: none;
+}
+
+.inline {
+	display: inline;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+
+.small {
+	font-size: 0.8em;
+}
+
+.disclaimer {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+address {
+	font-style: normal;
+}
+
+p {
+	font-family: $font-serif;
+}
+
+.underline-accent {
+	border-bottom: .15em solid var(--color-accent);
+}

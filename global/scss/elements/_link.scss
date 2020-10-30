@@ -1,0 +1,24 @@
+// Link
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+a {
+	text-decoration: none;
+	color: var(--color-primary);
+
+	&:not([class]) {
+		&:focus,
+		&:hover {
+			color: var(--color-primary-darken);
+			text-decoration: underline;
+		}
+	}
+	&.simple {
+		@extend %uppercase;
+		font: 600 .9rem/1 $font-sans-serif;
+
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

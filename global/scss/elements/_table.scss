@@ -1,0 +1,27 @@
+// Table
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+table {
+	border-spacing: 0;
+	width: 100%;
+}
+
+tr {
+	&:nth-child(even) {
+		background: rgba($color-ui-gray, 0.1);
+	}
+}
+
+td,
+th {
+	padding: 1.2rem 1.5rem;
+	text-align: left;
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+	}
+}

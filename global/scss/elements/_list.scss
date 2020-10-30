@@ -1,0 +1,36 @@
+// List
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+ol:not([class]) {
+	list-style: decimal;
+	padding-left: 1.25em;
+}
+
+ul:not([class]) {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	li {
+		padding-left: 1em;
+		text-indent: -1em;
+	}
+	li:before {
+		content: "+";
+		margin-right: .5em;
+	}
+	li:not(:last-child) {
+		margin-bottom: $space-xs;
+	}
+}

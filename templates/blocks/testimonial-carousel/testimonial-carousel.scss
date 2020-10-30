@@ -5,6 +5,8 @@
 .testimonial-carousel.section-wrapper {
 	padding: $space-lg 0;
 	padding-bottom: $space-xl;
+	//background-image: url("../../assets/img/pattern.svg");
+	//background-size: 5rem 10rem;
 	@include sm-and-up {
 		padding: $space-xl 0;
 	}
@@ -32,15 +34,17 @@
 		text-align: center;
 		font-size: 1.2em;
 		@include sm-and-up {
-			font-size: 1.4em;
+			font-size: 1.3em;
 		}
 
 		@include md-and-up {
-			font-size: 1.5em;
+			font-size: 1.4em;
 		}
 		cite {
+			display: block;
+			margin-top: $space-md;
 			font-style: normal;
-			font-size: 0.6em;
+			font-size: 1rem;
 		}
 	}
 }
@@ -48,14 +52,16 @@
 .testimonial-carousel {
 	&[data-background-color="image"] {
 		img {
-			filter:brightness(60%);
+			filter: brightness(60%);
 		}
-		blockquote, cite h3, cite h4 {
-			color:white;
+		blockquote,
+		cite h3,
+		cite h4 {
+			color: white;
 		}
 		button {
-			background:white;
-			color:var(--color-primary);
+			background: white;
+			color: var(--color-primary);
 		}
 	}
 }
