@@ -18,7 +18,7 @@ select {
 
 	&:focus {
 		background-color: rgba(255, 255, 255, 0.5);
-		border-color: var(--color-accent);
+		border-color: var(--color-primary);
 		outline: 0;
 	}
 }

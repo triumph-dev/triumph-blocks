@@ -9,7 +9,7 @@
 		border-color: rgba($color-ui-gray, 0.5);
 	}
 	&[data-expand-toggle="open"] {
-		border-color: var(--color-accent);
+		border-color: var(--color-primary);
 		.indicator {
 			transform: rotate(180deg);
 		}

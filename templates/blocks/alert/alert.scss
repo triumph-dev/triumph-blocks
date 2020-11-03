@@ -1,5 +1,5 @@
 .alert-banner {
-	background: var(--color-accent);
+	background: var(--color-secondary);
 	color: $color-ui-light;
 	overflow: hidden;
 	max-height: 0;
@@ -22,10 +22,10 @@
 	.alert-close {
 		@extend %button-clean;
 		font-size: 1.5em;
-        padding: 0.25em;
-        .hidden {
-            display: none;
-        }
+		padding: 0.25em;
+		.hidden {
+			display: none;
+		}
 	}
 }
 .alert-border {
@@ -35,25 +35,25 @@
 .alert-icon {
 	font-size: 2em;
 	height: 100%;
-    width: auto;
-    img {
-        width:auto;
-        height:30px;
-    }
+	width: auto;
+	img {
+		width: auto;
+		height: 30px;
+	}
 }
 .alert-message {
 	> :last-child {
 		margin-bottom: 0;
 	}
 	> * {
-		font-family:$font-sans-serif;
+		font-family: $font-sans-serif;
 	}
 }
 .alert-banner-content-wrapper {
-    padding:$space-sm $space-md;
-    @include lg-and-up {
-        padding: $space-sm $space-lg;
-    }
+	padding: $space-sm $space-md;
+	@include lg-and-up {
+		padding: $space-sm $space-lg;
+	}
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -64,26 +64,26 @@
 }
 
 .alert-banner.merged-office[data-open="true"] {
-	max-height:100%;
-	position:relative;
-	padding:$space-md $space-sm;
+	max-height: 100%;
+	position: relative;
+	padding: $space-md $space-sm;
 	background: var(--color-secondary);
-	color:#fff;
+	color: #fff;
 	border-bottom: 0.5rem solid var(--color-primary);
 	.alert-banner-content-wrapper {
 		flex-direction: column;
-		max-width:$breakpoint-lg;
+		max-width: $breakpoint-lg;
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
 		.icon {
-			width:50px;
+			width: 50px;
 			margin-bottom: $space-sm;
 		}
 		.alert-close {
-			position:absolute;
-			right:5%;
-			top:5%;
+			position: absolute;
+			right: 5%;
+			top: 5%;
 		}
 	}
 }

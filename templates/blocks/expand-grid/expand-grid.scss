@@ -22,7 +22,7 @@ ul.expand-grid-list {
 		transition: border-color 150ms, box-shadow 500ms;
 
 		&[data-toggle="open"] {
-			border-color: var(--color-accent);
+			border-color: var(--color-primary);
 			box-shadow: 0em .5em 1em rgba($color-ui-dark, 0.2);
 		}
 		&::after {
