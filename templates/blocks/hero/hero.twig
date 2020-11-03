@@ -35,10 +35,10 @@
 					{% endif %}
 				{% endif %}
 				
-					<div class="hero-pane" data-background-color="{{ slide.background_color }}" {% if ie_fallback and bg %}style="background:linear-gradient({{ rgba }}, {{ rgba }}), url({{ bg }});"{% endif %}>
+					<div class="hero-pane fade-in" data-background-color="{{ slide.background_color }}" {% if ie_fallback and bg %}style="background:linear-gradient({{ rgba }}, {{ rgba }}), url({{ bg }});"{% endif %}>
 
 						{% if bg and ie_fallback is null %}
-							<img style="filter:brightness({{ brightness }});" class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" data-object-fit="cover" />
+							<img style="filter:brightness({{ brightness }});" class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" alt="{{ bg.alt }}" data-object-fit="cover" loading="lazy" />
 						{% endif %}
 
 						<div class="hero-copy-wrapper container-lg">
@@ -46,12 +46,7 @@
 								{{slide.copy}}
 								<div class="button-group">
 									{% for link in slide.links %}
-										{% if 'simple' in link.link_style %}
-											{% set link_type = '' %}
-										{% else %}
-											{% set link_type = 'btn' %}
-										{% endif %}
-										<a class="{{ link_type }} {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title }}</a>
+										{% include 'blocks/link/link.twig' %}
 									{% endfor %}
 								</div>
 

@@ -1,0 +1,37 @@
+<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">	
+	{% if grid_item.image or grid_item.icon %}
+
+		{% if fields.grid_item_image_link %}
+			<a class="grid-item-header" href="{{ grid_item.link.link.url }}">
+				<div class="hidden">{{ grid_item.link.link.title }}</div>
+		{% else %}	
+			<div class="grid-item-header">
+		{% endif %}
+
+			{% if grid_item.image %}
+				{% set image = Image(grid_item.image) %}
+				<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
+			{% elseif grid_item.icon %}
+				{{ function('svg_code', grid_item.icon) }}
+			{% endif %}
+			
+		{% if fields.grid_item_image_link %}
+			</a>
+		{% else %}	
+			</div>
+		{% endif %}
+	{% endif %}
+
+	{% if grid_item.copy %}
+		<div class="grid-item-copy">
+			{{ grid_item.copy }}
+		</div>
+	{% endif %}
+
+	{% if grid_item.link.link.url  %}
+		<div class="grid-item-footer">
+			{% include 'blocks/link/link.twig' with {link: grid_item.link} %}
+		</div>
+	{% endif %}
+
+</li>

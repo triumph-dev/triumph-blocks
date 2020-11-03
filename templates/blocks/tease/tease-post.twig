@@ -24,7 +24,7 @@
 			
 		<div class="title">
 			<a href="{{ post.link }}"><h3>{{ post.title }}</h3></a>
-			<p>{{ post.date|date('F, d') }} <span class="year" data-year="{{ post.date|date('Y')}}">{{ post.date|date('Y') }}</span></p>
+			<p><em>{{ post.date|date('F, d') }} <span class="year" data-year="{{ post.date|date('Y')}}">{{ post.date|date('Y') }}</span></em></p>
 		</div>
 		
 		<p class="mobile">{{ post.preview.length(200).read_more(false)}}</p>

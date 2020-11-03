@@ -6,7 +6,7 @@ h3,
 h4 {
 	font-family: $font-sans-serif;
 	line-height: 1.2;
-	margin: 0 0 0.25em 0;
+	margin: 0 0 0.75rem 0;
 	font-weight: 600;
 	color: $color-ui-dark;
 	@extend %uppercase;
@@ -15,7 +15,7 @@ h1:not([class]),
 h2:not([class]),
 h3:not([class]),
 h4:not([class]) {
-	margin-bottom: $space-xs;
+	margin-bottom: 0.75rem;
 }
 
 h1 {
@@ -45,7 +45,16 @@ h4 {
 		font-size: calc(0.8em + 2vw);
 	}
 }
-
+h5 {
+	font-size: .9rem;
+	font-family: $font-sans-serif;
+	font-weight: 600;
+}
+h6 {
+	font-size: .8rem;
+	font-family: $font-sans-serif;
+	font-weight: 600;
+}
 cite {
 }
 

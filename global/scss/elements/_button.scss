@@ -10,7 +10,7 @@ input[type="submit"] {
 	opacity: 1;
 	background-color: $color-link-default;
 	border: $border-width solid $color-link-default;
-	color: $color-ui-light;
+	color: #fff;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 0.9rem;
@@ -24,7 +24,6 @@ input[type="submit"] {
 
 	&:focus,
 	&:hover {
-		color: #fff;
 		background-color: darken($color-link-default, 5%);
 		border: $border-width solid darken($color-link-default, 5%);
 	}

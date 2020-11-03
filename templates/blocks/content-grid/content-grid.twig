@@ -27,54 +27,7 @@
 		{% endif %}
 		<ul class="content-grid-list" data-max-columns="{{ fields.grid_max_columns }}" data-align="{{ fields.grid_item_alignment }}">
 		{% for grid_item in fields.grid_items %}
-			<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
-				
-				{% if grid_item.image or grid_item.icon %}
-
-					{% if fields.grid_item_image_link %}
-						<a class="grid-item-header" href="{{ grid_item.link.link.url }}">
-					{% else %}	
-						<div class="grid-item-header">
-					{% endif %}
-
-						<div class="grid-item-header">
-			
-							{% if grid_item.image %}
-								{% set image = Image(grid_item.image) %}
-								<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
-							{% endif %}
-
-							{% if grid_item.icon %}
-								{{ function('svg_code', grid_item.icon) }}
-							{% endif %}
-						
-						</div>
-
-					{% if fields.grid_item_image_link %}
-						</a>
-					{% else %}	
-						</div>
-					{% endif %}
-				{% endif %}
-
-				{% if grid_item.copy %}
-					<div class="grid-item-copy">
-						{{ grid_item.copy }}
-					</div>
-				{% endif %}
-
-				{% if grid_item.link.link.url  %}
-					{% if 'simple' in grid_item.link.link_style %}
-						{% set link_type = '' %}
-					{% else %}
-						{% set link_type = 'btn' %}
-					{% endif %}
-					<div class="grid-item-footer">
-						<a class="{{ link_type }} {{ grid_item.link.link_style }} {{ grid_item.link.link_color }}" href="{{ grid_item.link.link.url }}">{{ grid_item.link.link.title }}</a>
-					</div>
-				{% endif %}
-
-			</li>
+			{% include ['blocks/content-grid/item-' ~ fields.grid_item_style ~ '.twig', 'blocks/content-grid/item-default.twig'] %}
 		{% endfor %}
 		</ul>
     {% endblock %}

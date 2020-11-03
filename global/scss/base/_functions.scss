@@ -74,7 +74,6 @@ $page-interior: 1100px;
 %light-link {
 	a:not(.btn) {
 		color: #fff;
-		opacity: .85;
 		transition: opacity 150ms ease;
 		&:hover,
 		&:focus {
@@ -85,8 +84,11 @@ $page-interior: 1100px;
 	}
 	a.simple {
 		color: #fff;
-		&:hover {
-			text-decoration: none;
+		text-decoration: none;
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+			text-decoration-color: rgba(255, 255, 255, 0.3);
 			filter: brightness(100%);
 		}
 	}
@@ -161,9 +163,6 @@ $page-interior: 1100px;
 	textarea,
 	select {
 		border-color: rgba($color-ui-light, 0.5);
-		&:focus {
-			border-color: #fff;
-		}
 	}
 	hr {
 		border-color: rgba($color-ui-light, 0.2);
@@ -294,5 +293,55 @@ $page-interior: 1100px;
 @mixin ie {
 	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 		@content;
+	}
+}
+
+.fade-in {
+	animation: fadeIn ease 250ms;
+	animation-delay: 150ms;
+	animation-fill-mode: forwards;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }

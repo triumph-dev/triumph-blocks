@@ -46,6 +46,9 @@ ul > li.tease-post {
 		@include md-and-up {
 			flex-grow: 1;
 		}
+		p {
+			margin: $space-sm 0;
+		}
 	}
 	.mobile {
 		margin-bottom: $space-sm;

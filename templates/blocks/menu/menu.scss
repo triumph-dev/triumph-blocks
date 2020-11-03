@@ -6,7 +6,7 @@
 	align-items: center;
 	flex-wrap: wrap;
 	position: relative;
-	z-index: 2;
+	z-index: 4;
 
 	@include lg-and-up {
 		padding: $space-md;
@@ -20,6 +20,7 @@
 }
 
 .main-menu-wrapper {
+	overflow: hidden;
 	margin-top: 0;
 	opacity: 0;
 	width: 100%;
@@ -45,6 +46,7 @@ ul.header-menu {
 		border-top: $border-width solid rgba($color-ui-gray, .1);
 	}
 	a {
+		color: var(--color-primary);
 		font-weight: 600;
 		&:hover,
 		&:focus {
@@ -115,7 +117,7 @@ a.menu-link {
 }
 ul.header-menu-child {
 	position: relative;
-	z-index: 1;
+	z-index: 2;
 	overflow: hidden;
 	max-height: 30em;
 	transition: max-height 350ms ease;
@@ -220,11 +222,11 @@ ul.menu-header-buttons {
 		}
 
 		span:first-child {
-			transform: translateY(0.6rem) rotate(135deg);
+			transform: translateY(0.625rem) rotate(135deg);
 		}
 
 		span:last-child {
-			transform: translateY(-0.6rem) rotate(-135deg);
+			transform: translateY(-0.625rem) rotate(-135deg);
 		}
 	}
 	.main-menu-wrapper {

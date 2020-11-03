@@ -16,9 +16,22 @@
 		margin: 0 -#{$space-sm};
 		display: flex;
 		text-align: left;
-		flex-wrap: wrap;
+		@include md-and-up {
+			flex-direction: row;
+		}
+
 		> * {
 			margin: $space-sm;
+		}
+	}
+	.post {
+		background: #fff;
+		padding: $space-md;
+		display: flex;
+		flex-direction: column;
+		a.post-link {
+			margin-top: auto;
+			padding-top: $space-md;
 		}
 	}
 }

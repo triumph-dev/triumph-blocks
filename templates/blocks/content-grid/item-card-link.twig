@@ -1,0 +1,28 @@
+<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
+	<a href="{{grid_item.link.link.url}}">
+		{% if grid_item.image or grid_item.icon %}
+			<div class="grid-item-header">
+				{% if grid_item.image %}
+					{% set image = Image(grid_item.image) %}
+					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" />
+				{% endif %}
+
+				{% if grid_item.icon %}
+					{{ function('svg_code', grid_item.icon) }}
+				{% endif %}	
+			</div>
+		{% endif %}
+
+		{% if grid_item.copy %}
+			<div class="grid-item-copy">
+				{{ grid_item.copy }}
+			</div>
+		{% endif %}
+
+		{% if grid_item.link.link.title  %}
+			<div class="grid-item-footer">
+				<div class="simple-link">{{ grid_item.link.link.title }}</div>
+			</div>
+		{% endif %}
+	</a>
+</li>

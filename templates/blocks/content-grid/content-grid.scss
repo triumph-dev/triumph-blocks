@@ -27,6 +27,11 @@ ul.content-grid-list {
 				width: 100%;
 			}
 		}
+		.grid-item-header {
+			@include md-and-up {
+				height: calc(18em);
+			}
+		}
 	}
 	&[data-max-columns="2"] {
 		> li {
@@ -35,6 +40,11 @@ ul.content-grid-list {
 			}
 			@include md-and-up {
 				width: calc(50% - #{$grid-gap});
+			}
+		}
+		.grid-item-header {
+			@include md-and-up {
+				height: calc(18em);
 			}
 		}
 	}
@@ -76,17 +86,14 @@ li.content-grid-item {
 			padding: 0;
 		}
 	}
-	.grid-item-header + .grid-item-footer {
-		margin: 0 $space-md $space-md $space-md;
-	}
 }
 .grid-item-header {
 	position: relative;
 	background: $color-ui-gray;
-	margin-bottom: $space-sm;
+	margin: 0;
 	height: calc(14em + 10vw);
 	@include md-and-up {
-		height: calc(16em);
+		height: calc(12em);
 	}
 	img {
 		width: 100%;
@@ -101,23 +108,52 @@ a.grid-item-header {
 
 .grid-item-copy {
 	flex-grow: 1;
+	margin: $space-md 0;
 }
 
 .grid-item-footer {
 	margin-top: $space-sm;
 }
 
-li[data-style="card"] {
-	@extend %dark-text;
-	background: #fff;
-	border-radius: $border-radius;
-	overflow: hidden;
-	border: $border-width solid rgba($color-ui-gray, .2);
-
-	.grid-item-header {
+.grid-item-copy,
+.grid-item-footer,
+.grid-item-header {
+	&:last-child {
 		margin-bottom: 0;
 	}
-	a.grid-item-header {
+}
+
+li[data-style="card-link"] {
+	@extend %dark-text;
+	display: flex;
+	flex-direction: column;
+	a {
+		display: flex;
+		flex-direction: column;
+		background: #fff;
+		border-radius: $border-radius;
+		overflow: hidden;
+		border: $border-width solid rgba($color-ui-gray, .2);
+		width: 100%;
+		height: 100%;
+		flex-grow: 1;
+		margin: 0;
+		transition: border-color 150ms ease, transform 250ms ease !important;
+		&:hover,
+		&:focus {
+			transform: translateY(-.25rem);
+			border-color: var(--color-accent);
+			text-decoration: none !important;
+			box-shadow: 0 .25em .5em rgba($color-ui-dark, .2);
+		}
+	}
+	.simple-link {
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+	.grid-item-header {
 		border-radius: 0;
 	}
 	.grid-item-copy {
@@ -127,18 +163,8 @@ li[data-style="card"] {
 		margin: 0 $space-md $space-md $space-md;
 	}
 
-	.grid-item-header {
-		margin-bottom: 0;
-	}
-	.grid-item-copy {
-		margin: $space-md;
-	}
 	.grid-item-header + .grid-item-footer {
 		margin: $space-md;
-	}
-
-	> :last-child {
-		margin-bottom: $space-md;
 	}
 }
 

@@ -1,0 +1,7 @@
+{% if 'simple' in link.link_style %}
+	{% set link_type = '' %}
+{% else %}
+	{% set link_type = 'btn' %}
+{% endif %}
+
+<a class="{{ link_type }} {{ link.link_style }} {{ link.link_color }}" href="{{ link.link.url }}">{{ link.link.title|e('wp_kses_post') }}</a>

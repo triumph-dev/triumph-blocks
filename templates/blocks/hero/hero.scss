@@ -6,6 +6,7 @@ $hero-height: 500px;
 }
 .hero {
 	@extend %white-text;
+	background: var(--color-secondary);
 	.tns-nav {
 		bottom: 10px;
 	}
@@ -35,6 +36,9 @@ $hero-height: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 350ms ease;
 	@include ie {
 		background-position: center !important;
 		background-size: cover !important;
@@ -60,13 +64,13 @@ $hero-height: 500px;
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
-	z-index: 0;
+	z-index: 2;
 }
 .hero-copy {
 	font-size: 1rem;
 	@include md-and-up {
 		font-size: 1.125rem;
-		max-width: 50ch;
+		max-width: 55ch;
 	}
 	.button-group {
 		margin-top: $space-md;
@@ -83,6 +87,7 @@ $hero-height: 500px;
 }
 
 .hero-chevron {
+	z-index: 0;
 	position: absolute;
 	width: auto;
 	height: 100%;

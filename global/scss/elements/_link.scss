@@ -3,7 +3,7 @@
 
 a {
 	text-decoration: none;
-	color: var(--color-primary);
+	color: var(--color-primary-darken);
 
 	&:not([class]) {
 		&:focus,
@@ -20,5 +20,15 @@ a {
 		&:hover {
 			text-decoration: underline;
 		}
+	}
+}
+
+.simple-link {
+	@extend %uppercase;
+	font: 600 .9rem/1 $font-sans-serif;
+
+	&:focus,
+	&:hover {
+		text-decoration: underline;
 	}
 }

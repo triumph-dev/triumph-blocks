@@ -20,8 +20,13 @@
 	{% block block_content %}
         <h2>Recent News</h2>
         <div class="posts">
-		    {% for news in recent_news|slice(0,3) %}
-                {% include 'blocks/basic-block/basic-block.twig' with {post:news} %}
+		    {% for post in recent_news|slice(0,3) %}
+				<div class="post">
+					<h4>{{ post.title }}</h4>
+					<p><em>{{ post.date }}</em></p>
+					<p>{{ post.preview.read_more(false) }}</p>
+					<a href="{{ post.link }}" class="simple post-link">Read Article</a>
+				</div>
             {% endfor %}
         </div>
         <a href="/news" class="btn">See All News</a>
