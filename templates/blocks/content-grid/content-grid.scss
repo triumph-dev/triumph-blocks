@@ -142,7 +142,7 @@ li[data-style="card-link"] {
 		&:hover,
 		&:focus {
 			transform: translateY(-.25rem);
-			border-color: var(--color-primary);
+			border-color: var(--color-accent);
 			text-decoration: none !important;
 			box-shadow: 0 .25em .5em rgba($color-ui-dark, .2);
 		}
