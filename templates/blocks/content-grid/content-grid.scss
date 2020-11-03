@@ -172,7 +172,7 @@ li[data-image-style="icon"] {
 	.grid-item-header {
 		background: transparent;
 		position: relative;
-		height: auto;
+		height: auto !important;
 		margin: 0;
 	}
 	.grid-item-copy {
