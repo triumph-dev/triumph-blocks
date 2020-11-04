@@ -11,12 +11,8 @@
 	}
 }
 .tns-slider {
-	-webkit-transition: all 0s;
-	-moz-transition: all 0s;
 	transition: all 0s;
 	> .tns-item {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 }
@@ -60,8 +56,6 @@
 	> .tns-item {
 		position: absolute;
 		left: -100%;
-		-webkit-transition: transform 0s, opacity 0s;
-		-moz-transition: transform 0s, opacity 0s;
 		transition: transform 0s, opacity 0s;
 	}
 	> .tns-slide-active {
@@ -69,8 +63,6 @@
 		left: auto !important;
 	}
 	> .tns-moving {
-		-webkit-transition: all 0.25s;
-		-moz-transition: all 0.25s;
 		transition: all 0.25s;
 	}
 }
@@ -78,8 +70,6 @@
 	display: inline-block;
 }
 .tns-lazy-img {
-	-webkit-transition: opacity 0.6s;
-	-moz-transition: opacity 0.6s;
 	transition: opacity 0.6s;
 	opacity: 0.6;
 	&.tns-complete {
@@ -87,8 +77,6 @@
 	}
 }
 .tns-ah {
-	-webkit-transition: height 0s;
-	-moz-transition: height 0s;
 	transition: height 0s;
 }
 .tns-ovh {
@@ -140,8 +128,6 @@ $perpage: 3;
 	}
 	&-ct {
 		width: (100% * $count / $perpage);
-		width: -webkit-calc(100% * #{$count} / #{$perpage});
-		width: -moz-calc(100% * #{$count} / #{$perpage});
 		width: calc(100% * #{$count} / #{$perpage});
 		position: absolute;
 		right: 0;
@@ -152,8 +138,6 @@ $perpage: 3;
 		}
 		> div {
 			width: (100% / $count);
-			width: -webkit-calc(100% / #{$count});
-			width: -moz-calc(100% / #{$count});
 			width: calc(100% / #{$count});
 			height: $height;
 			float: left;
@@ -166,13 +150,13 @@ $perpage: 3;
 }
 .tns-controls {
 	width: 100%;
-	padding: 0 0.8em;
+	padding: 0 0.8rem;
 	display: flex;
 	justify-content: space-between;
 	position: absolute;
 	z-index: 2;
-	height: 2.5em;
-	top: calc(50% - 1.25em);
+	height: 2.5rem;
+	top: calc(50% - 1.25rem);
 
 	pointer-events: none;
 	&:focus {
@@ -183,9 +167,9 @@ $perpage: 3;
 		@extend %button-clean;
 		color: currentColor;
 		pointer-events: auto;
-		height: 2.5em;
-		width: 2.5em;
-		border-radius: 2.5em;
+		height: 2.5rem;
+		width: 2.5rem;
+		border-radius: 2.5rem;
 		border: $border-width solid currentColor !important;
 		transition: transform 250ms ease, opacity 250ms ease;
 		opacity: 0.8;
@@ -233,19 +217,18 @@ $perpage: 3;
 		@extend %button-clean;
 		pointer-events: auto;
 		background: currentColor;
-		width: 15px;
-		height: 15px;
+		width: 12px;
+		height: 12px;
 		padding: 0;
-		margin: 0 0.25em;
+		margin: 0 0.5em;
 		border: none;
 		border-radius: 100%;
 		transition: all 0.2s ease-in;
 		opacity: 0.7;
 		&.tns-nav-active,
 		&.active {
-			width: 20px;
 			opacity: 1;
-			height: 20px;
+			background: var(--color-accent);
 		}
 		&:hover,
 		&:focus {

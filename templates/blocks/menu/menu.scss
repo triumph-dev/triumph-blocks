@@ -59,7 +59,7 @@ ul.header-menu {
 		//text-transform: uppercase;
 		font-weight: 600;
 		@include lg-and-up {
-			padding: 0 0 0 .75rem;
+			padding: 0 0 0 1rem;
 			.menu-heading-title {
 				padding: .75rem 0;
 			}
@@ -111,8 +111,8 @@ a.menu-link {
 		color: $color-ui-dark;
 		pointer-events: none;
 		right: 0;
-		width: 2rem;
-		padding: .5rem;
+		width: 1.5rem;
+		padding: .5rem 0;
 	}
 }
 ul.header-menu-child {
@@ -131,7 +131,7 @@ ul.header-menu-child {
 	}
 	@include lg-and-up {
 		position: absolute;
-		width: 100%;
+		width: 24ch;
 		background: #fff;
 		border-radius: $border-radius;
 		.menu-item {

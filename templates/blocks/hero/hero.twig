@@ -21,7 +21,7 @@
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'hero' } %}
 	{% block block_content %}
 
-		<div class="hero-panes {{ carousel ? 'carousel' : '' }}">
+		<div class="hero-panes fade-in {{ carousel ? 'carousel' : '' }}">
 			{% for slide in slides %}
 
 				{% set bg = false %}
@@ -35,7 +35,7 @@
 					{% endif %}
 				{% endif %}
 				
-					<div class="hero-pane fade-in" data-background-color="{{ slide.background_color }}" {% if ie_fallback and bg %}style="background:linear-gradient({{ rgba }}, {{ rgba }}), url({{ bg }});"{% endif %}>
+					<div class="hero-pane " data-background-color="{{ slide.background_color }}" {% if ie_fallback and bg %}style="background:linear-gradient({{ rgba }}, {{ rgba }}), url({{ bg }});"{% endif %}>
 
 						{% if bg and ie_fallback is null %}
 							<img style="filter:brightness({{ brightness }});" class="background-image" src="{{ bg.src }}" srcset="{{ bg.srcset }}" alt="{{ bg.alt }}" data-object-fit="cover" loading="lazy" />
@@ -68,12 +68,6 @@
 										}
 								</style>
 								<polygon class="accent" points="155,45 155,155 45,155 0,200 155,200 200,200 200,155 200,0 "/>
-							</svg>
-						{% endif %}
-
-						{% if slide.show_chevron %}
-							<svg class="hero-chevron" xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-								<polygon points="0 0 250 250 0 500 550 500 800 250 550 0 0 0"/>
 							</svg>
 						{% endif %}
 					</div>

@@ -24,19 +24,20 @@
 
 	<div class="footer-bottom">
 		<div class="footer-subtitle">
-			&copy; {{"now"|date('Y')}} {{ site.name }} |
-			{% if options.address and options.city and options.state and options.zip %}
-				{{ options.address }} {{ options.city }}, {{ options.state }} {{ options.zip }} | 
-			{% endif %}
-			{% if options.phone %}
-				<a href="tel:{{ options.phone|replace({'(':'',')':'','-':'',' ':''}) }}">{{ options.phone }}</a> |
-			{% endif %}
-			{% if options.email %}
-				<a href="mailto:{{ options.email }}">{{ options.email }}</a> |
-			{% endif %}
-		
-			{{menu.footerNav.meta('footer_subtitle')}}
-		
+			<p> {{ site.name }} 
+				{% if options.address and options.city and options.state and options.zip %}
+					| {{ options.address }} {{ options.city }}, {{ options.state }} {{ options.zip }}
+				{% endif %}
+				{% if options.phone %}
+					| <a href="tel:{{ options.phone|replace({'(':'',')':'','-':'',' ':''}) }}">{{ options.phone }}</a>
+				{% endif %}
+				{% if options.email %}
+					| <a href="mailto:{{ options.email }}">{{ options.email }}</a>
+				{% endif %}
+			</p>
+			<p>
+				&copy; {{"now"|date('Y')}} {{ site.name }} | {{menu.footerNav.meta('footer_subtitle')}}
+			</p>
 		</div>
 	</div>
 

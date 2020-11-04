@@ -1,4 +1,3 @@
-$hero-height: 500px;
 .section-wrapper.hero {
 	padding: 0;
 	overflow: hidden;
@@ -10,9 +9,18 @@ $hero-height: 500px;
 	.tns-nav {
 		bottom: 10px;
 	}
+	h1 {
+		font-size: calc(1em + 3vw);
+		@include sm-and-up {
+			font-size: 2.5rem;
+		}
+	}
 }
 .hero-panes {
 	display: flex;
+	&.fade-in {
+		opacity: 0;
+	}
 	&:not(.carousel) {
 		.hero-pane {
 			width: 100%;
@@ -31,25 +39,28 @@ $hero-height: 500px;
 }
 
 .hero-pane {
-	padding: $space-lg $space-md;
+	padding: $space-lg $space-lg;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
-	opacity: 0;
-	transition: opacity 350ms ease;
+
+	max-height: 80vh;
 	@include ie {
 		background-position: center !important;
 		background-size: cover !important;
 	}
 	@include md-and-up {
 		padding: $space-lg;
-		height: $hero-height;
+		height: 500px;
 	}
 	&[data-background-color="image"] {
 		.hero-copy {
-			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.25);
+			p {
+				text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+			}
 		}
 	}
 
@@ -84,17 +95,4 @@ $hero-height: 500px;
 	width: 10em;
 	bottom: 0;
 	right: 0;
-}
-
-.hero-chevron {
-	z-index: 0;
-	position: absolute;
-	width: auto;
-	height: 100%;
-	left: calc(-20em + 20vw);
-	mix-blend-mode: overlay;
-
-	polygon {
-		fill: $color-ui-dark;
-	}
 }
