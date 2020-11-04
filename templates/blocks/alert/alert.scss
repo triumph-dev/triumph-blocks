@@ -1,11 +1,10 @@
 .alert-banner {
 	@extend %white-text;
 	background: var(--color-secondary);
-
 	overflow: hidden;
 	max-height: 0;
 	transition: max-height 250ms ease-out;
-	font-size: 1em;
+	font-size: 1rem;
 	&[data-open="true"] {
 		max-height: 12em;
 	}
@@ -48,9 +47,7 @@
 }
 .alert-banner-content-wrapper {
 	padding: $space-sm $space-md;
-	@include lg-and-up {
-		padding: $space-sm $space-lg;
-	}
+
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
