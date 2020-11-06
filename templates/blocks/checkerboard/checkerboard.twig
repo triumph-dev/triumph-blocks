@@ -18,7 +18,7 @@
 		{% for row in fields.rows %}
 			{% set image = Image(row.image) %}
             <figure class="row" data-background-color="{{ row.background_color }}">
-				<div class="image {{ hide_on_mobile == 'false' ? '' : 'hide-on-mobile' }}">
+				<div class="image" data-pad="{{ fields.image_pad }}" >
 					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover" />
 				</div>
                 <figcaption>

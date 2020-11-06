@@ -22,10 +22,12 @@
 			</div>
 		{% endif %}
 		<div id="faqs">
-			<form name="faq-search" class="form-inline">
-				<input class="search" type="search" placeholder="Search" />
-				<button class="btn primary"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
-			</form>
+			{% if fields.show_search %}
+				<form name="faq-search" class="form-inline">
+					<input class="search" type="search" placeholder="Search" />
+					<button class="btn primary"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
+				</form>
+			{% endif %}
 			<ul class="faq-list list">
 			{% for faq in fields.faqs %}
 				<li>

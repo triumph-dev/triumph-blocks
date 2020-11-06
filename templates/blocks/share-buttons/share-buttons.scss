@@ -1,53 +1,35 @@
-ul.share-buttons {
+.share-buttons {
 	display: flex;
-	margin-bottom: $space-sm;
-	justify-content: center;
-	flex-wrap: wrap;
-	flex-direction:row;
-	min-width:130px;
-	align-items:center;
-	@include md-and-up {
-		justify-content: flex-start;
-		align-items:flex-start;
-		flex-direction:column;
-		padding-right: $space-md;
+	align-items: center;
+	.label {
+		margin: 0;
+		@extend %uppercase;
+		font: 600 .9rem/1 $font-sans-serif;
 	}
-	li {
-		margin-bottom: $space-sm;
+	> *:not(:last-child) {
 		margin-right: $space-sm;
-		@include md-and-up {
-			width: 100%;
-			margin-right: 0;
+	}
+}
+ul.share-links {
+	margin: $space-sm 0;
+	display: flex;
+	align-items: center;
+	> *:not(:last-child) {
+		margin-right: $space-xs;
+	}
+	a {
+		display: block;
+		padding: 0 $space-xs;
+		transition: transform 150ms ease;
+		&:hover,
+		&:focus {
+			transform: scale(1.1);
 		}
-		&:first-child {
-			width:100%;
-			@include md-and-up {
-				width: auto;
-				margin-right: 0;
-			}
-		}
-		&:last-child {
-			margin-right: 0;
-		}
-		@extend %center-flex;
-		h4 {
-			margin-bottom: 0;
-		}
-		a {
-			padding: 0.3em 0.75em;
-			font-size: 1.5em;
-			@include md-and-up {
-				width:100%;
-			}
-		}
-
-		.facebook {
-			background: #4162ae;
-			border-color: #4162ae;
-		}
-		.twitter {
-			background: #56abf1;
-			border-color: #56abf1;
-		}
+	}
+	.facebook {
+		color: #4162ae;
+	}
+	.twitter {
+		color: #56abf1;
 	}
 }
