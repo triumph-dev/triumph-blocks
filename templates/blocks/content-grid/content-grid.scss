@@ -167,6 +167,9 @@ li[data-image-style="icon"] {
 	}
 	.grid-item-copy {
 		margin-top: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 	.grid-item-header + * {
 		margin-top: 0;
