@@ -78,6 +78,8 @@ ol + h5,
 ol + h6 {
 	margin-top: $space-md;
 }
+ol + p,
+ul + p,
 p + p {
 	margin-top: $space-sm;
 }
