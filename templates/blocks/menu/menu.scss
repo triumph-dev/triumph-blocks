@@ -67,6 +67,7 @@ ul.header-menu {
 	}
 	@include lg-and-up {
 		margin-top: 0;
+		margin-right: auto;
 		display: flex;
 		font-size: .9rem;
 		height: 2.75rem;
@@ -165,23 +166,10 @@ ul.header-menu-child {
 	}
 }
 
-ul.menu-header-utility {
+.menu-header-buttons {
 	@include lg-and-up {
-		margin-left: auto;
-	}
-}
-ul.menu-header-buttons {
-	margin: $space-sm 0 0 0;
-	a {
-		width: 100%;
-	}
-	@include sm-and-up {
-		a {
-			width: auto;
-		}
-	}
-	@include lg-and-up {
-		margin: 0 0 0 $space-sm;
+		flex-shrink: 1;
+		width: auto;
 	}
 }
 
