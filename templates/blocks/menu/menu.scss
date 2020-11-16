@@ -34,6 +34,9 @@
 		width: auto;
 		flex-grow: 1;
 		display: flex;
+		>*:not(:first-child){
+			margin-left:$space-md;
+		}
 	}
 }
 ul.header-menu {
@@ -67,7 +70,6 @@ ul.header-menu {
 	}
 	@include lg-and-up {
 		margin-top: 0;
-		margin-right: auto;
 		display: flex;
 		font-size: .9rem;
 		height: 2.75rem;
@@ -75,6 +77,12 @@ ul.header-menu {
 		> li {
 			border-top: none;
 		}
+
+	}
+}
+ul.menu-header-nav{
+	@include lg-and-up {
+	margin-right: auto;
 	}
 }
 a.menu-link {
@@ -92,7 +100,6 @@ a.menu-link {
 		justify-content: flex-start;
 	}
 }
-
 .subnav-toggle {
 	@extend %button-clean;
 	box-sizing: border-box;
