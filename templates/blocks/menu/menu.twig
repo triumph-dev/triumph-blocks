@@ -1,3 +1,4 @@
+{% set level = 0 %}
 <nav id="menu" class="menu" role="navigation">
 	<a class="menu-logo" href="{{site.url}}" rel="home" title="{{site.name}}" aria-label="Home">
 		<img src="{{ site_logo_src() }}" alt="{{site.name}} Logo">
@@ -13,6 +14,9 @@
 
 		{% if menu.headerNav %}
 			{% include 'blocks/menu-list/menu-list-header.twig' with {items: menu.headerNav.get_items, name: 'menu-header-nav'} %}
+		{% elseif menu.headerMegaNav %}
+		
+			{% include 'blocks/menu-list/menu-list-mega.twig' with {items: menu.headerMegaNav.get_items, name: 'menu-header-mega-nav'} %}
 		{% endif %}
 
 		{% if menu.headerUtility %}

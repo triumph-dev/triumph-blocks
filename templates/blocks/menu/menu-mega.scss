@@ -1,0 +1,43 @@
+$menu-height: 6.5rem;
+.menu-header-mega-nav{
+    &[data-level="1"]{
+        @include md-and-up{
+            display:flex;
+            margin: -#{$space-md} 0;
+            height:$menu-height;
+            
+        }
+        >li{
+            @include md-and-up{
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                border:1px solid red;
+                &:hover, &:focus{
+                    >ul{
+                        max-height:20em;
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    &[data-level="2"]{
+        color:#fff;
+        @extend %light-link;
+        background:var(--color-primary);
+        @include md-and-up{
+            max-height:0;
+            transition:max-height 250ms ease;
+            overflow:hidden;
+            position:absolute;
+            top:$menu-height;
+            left:0;
+            width:100%;
+
+            display:flex;
+        }
+    }
+    
+}

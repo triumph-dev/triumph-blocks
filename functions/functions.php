@@ -127,12 +127,20 @@ add_filter('acf/load_field/name=icon', 'acf_icon_selector_choices');
  * @param string $file_location The path or url to an SVG file
  */
 function svg_code($file_location = null){
+
+	$base = get_site_url();
+
+	if(function_exists('triumph_get_primary_color')){
+		$primary = triumph_get_primary_color();
+	}else{
+		$primary = get_theme_mod('triumph_color_primary', '#37474f');
+	}
+
 	if(WP_DEBUG){
 		$opts = array(
 			'ssl' => array(
 				'verify_peer' => false,
 				'verify_peer_name' => false,
-
 			)
 		);
 
@@ -149,7 +157,7 @@ function svg_code($file_location = null){
         $html = $iconfile->saveHTML($iconfile->getElementsByTagName('svg')[0]);
 		if(strpos($html, 'class="triumph-svg-icon"') !== false){
 			$html = str_replace ( '#000000', get_theme_mod('triumph_color_secondary', '#005000'), $html);
-			$html = str_replace ( '#c8c9c7', get_theme_mod('triumph_color_accent', '#c8c9c7'),  $html);
+			$html = str_replace ( '#c8c9c7', adjust_brightness($primary, 20),  $html);
 		}
 		$return = $html;
     }
