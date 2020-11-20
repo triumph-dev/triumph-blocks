@@ -1,25 +1,10 @@
-.apps {
-    img {
-        display:inline;
-        height: 40px;
-        @include sm-and-up {
-            height:100%;
-        }
-    }
-    a {
-        display: inline-block;
-        width:max-content;
-        padding-top: $space-sm;
-        padding-right: $space-sm;
-        &:hover {
-            background: none;
-            border:none;
-        }
-        @include ie {
-            width:auto;
-        }
-        @include sm-and-up {
-            padding-right: $space-md;
-        }
-    }
+.app-icons {
+	&[data-alignment="center"] {
+		img {
+			margin: 0 auto;
+		}
+	}
+	img {
+		max-width: 10em;
+	}
 }
