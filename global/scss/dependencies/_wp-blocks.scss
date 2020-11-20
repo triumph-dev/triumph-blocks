@@ -3,3 +3,13 @@
 		margin-left: $space-md;
 	}
 }
+.wp-block-columns {
+	margin: $space-md 0;
+}
+
+.wp-block-columns + h1,
+.wp-block-columns + h2,
+.wp-block-columns + h3,
+.wp-block-columns + h4 {
+	margin-top: $space-lg;
+}
