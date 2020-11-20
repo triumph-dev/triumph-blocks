@@ -1,43 +1,56 @@
-$menu-height: 6.5rem;
-.menu-header-mega-nav{
-    &[data-level="1"]{
-        @include md-and-up{
-            display:flex;
-            margin: -#{$space-md} 0;
-            height:$menu-height;
-            
-        }
-        >li{
-            @include md-and-up{
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                border:1px solid red;
-                &:hover, &:focus{
-                    >ul{
-                        max-height:20em;
-                    }
-                }
-                
-            }
-            
-        }
-    }
-    &[data-level="2"]{
-        color:#fff;
-        @extend %light-link;
-        background:var(--color-primary);
-        @include md-and-up{
-            max-height:0;
-            transition:max-height 250ms ease;
-            overflow:hidden;
-            position:absolute;
-            top:$menu-height;
-            left:0;
-            width:100%;
+.menu-header-mega-nav {
+	ul[data-level="2"] {
+		@extend %light-link;
+		background: var(--color-primary);
+		margin: 0 -#{$space-md};
+		padding: 0 $space-md;
+		@include lg-and-up {
+			display: flex;
+			justify-content: center;
+			border-radius: 0;
+			position: absolute;
 
-            display:flex;
-        }
-    }
-    
+			margin: 0;
+			left: 0;
+			width: 100%;
+			> li {
+				margin: $space-md;
+			}
+			.header-menu-child {
+				margin: $space-sm 0;
+				background: transparent;
+				position: relative;
+				max-height: 30em;
+				width: auto;
+			}
+		}
+		a {
+			&:hover,
+			&:focus {
+				color: #fff !important;
+			}
+		}
+
+		.menu-heading-title {
+			padding: 0;
+			@include lg-and-up {
+				padding: 0;
+			}
+		}
+		.menu-title {
+			padding: 0;
+		}
+
+		.subnav-toggle {
+			color: $color-ui-light;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+			@include lg-and-up {
+				display: none;
+			}
+		}
+	}
 }

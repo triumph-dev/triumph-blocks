@@ -15,8 +15,7 @@
 		{% if menu.headerNav %}
 			{% include 'blocks/menu-list/menu-list-header.twig' with {items: menu.headerNav.get_items, name: 'menu-header-nav'} %}
 		{% elseif menu.headerMegaNav %}
-		
-			{% include 'blocks/menu-list/menu-list-mega.twig' with {items: menu.headerMegaNav.get_items, name: 'menu-header-mega-nav'} %}
+			{% include 'blocks/menu-list/menu-list-header.twig' with {items: menu.headerMegaNav.get_items, name: 'menu-header-mega-nav'} %}
 		{% endif %}
 
 		{% if menu.headerUtility %}

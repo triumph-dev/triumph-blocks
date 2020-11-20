@@ -1,98 +1,88 @@
 #menu {
 	background: #fff;
 	font-family: $font-sans-serif;
-	padding: $space-sm $space-md;
+	//padding: $space-sm $space-md;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	position: relative;
 	z-index: 4;
 
-	@include lg-and-up {
-		padding: $space-md;
-	}
-
 	.menu-logo {
 		display: block;
-		width: 12em;
-		margin-right: $space-md;
+		width: 13em;
+
+		margin: $space-sm $space-md;
+		@include lg-and-up {
+			margin: $space-md;
+		}
 	}
 }
 
 .main-menu-wrapper {
+	padding: 0 $space-md;
 	overflow: hidden;
-	margin-top: 0;
 	opacity: 0;
 	width: 100%;
 	max-height: 0;
-	transition: max-height 350ms ease, margin-top 250ms ease, opacity 150ms ease;
+	transition: max-height 350ms ease, padding 250ms ease, opacity 150ms ease;
 	@include lg-and-up {
-		margin-top: 0;
+		padding: 0 $space-md 0 0;
 		opacity: 1;
 		overflow: visible;
 		max-height: 100vh;
 		width: auto;
 		flex-grow: 1;
 		display: flex;
-		>*:not(:first-child){
-			margin-left:1rem;
+		> *:not(:first-child) {
+			margin-left: 1rem;
 		}
 	}
 }
-ul.header-menu {
-	//margin-top: $space-sm;
-
-	> li {
-		@include lg-and-up {
-			//max-width: 12em;
-		}
-		border-top: $border-width solid rgba($color-ui-gray, .1);
-		
-	}
-	a {
-		color: var(--color-primary);
-		font-weight: 600;
-		&:hover,
-		&:focus {
-			color: var(--color-primary-darken);
-		}
-	}
-	> .menu-item > a,
-	> .menu-item > .menu-heading-wrapper {
-		@extend %uppercase;
-		//text-transform: uppercase;
-		font-weight: 600;
-		padding: .5rem 0;
-	
-		@include lg-and-up {
-			padding: 0 .75rem;
-			.menu-heading-title {
-				padding: .75rem 0;
-			}
-		}
-	}
+ul.menu-header-nav {
 	@include lg-and-up {
-		margin-top: 0;
-		display: flex;
-		font-size: .9rem;
-		height: 2.75rem;
-		overflow: visible;
-		> li {
-			border-top: none;
-		}
-
-	}
-}
-ul.menu-header-nav{
-	@include lg-and-up {
-	margin-right: auto;
+		margin-right: auto;
 	}
 }
 a.menu-link {
 	display: block;
 }
+.has-subnav {
+	//position: relative;
+	&[data-subnav-toggle="closed"] {
+		ul.header-menu-child {
+			max-height: 0;
+			overflow: hidden;
+		}
+	}
+
+	&[data-subnav-toggle="open"] {
+		> .menu-heading-wrapper .subnav-toggle {
+			transform: rotate(180deg);
+		}
+	}
+
+	@include lg-and-up {
+		&:hover {
+			> ul.header-menu-child {
+				max-height: 30em;
+			}
+		}
+	}
+}
 .menu-heading-title {
+	@extend %uppercase;
 	display: block;
+	font-weight: 600;
+	padding: .5rem 0;
+	@include lg-and-up {
+		padding: .75rem 0 .75rem 1rem;
+	}
+}
+.menu-title {
+	display: block;
+	font-weight: 600;
+	padding: .25em 0;
 }
 .menu-heading-wrapper {
 	position: relative;
@@ -125,19 +115,32 @@ a.menu-link {
 		width: 1.5rem;
 	}
 }
+ul.header-menu {
+	li[data-level="1"] {
+		border-top: $border-width solid rgba($color-ui-gray, .1);
+	}
+	&[data-level="1"] {
+		@include lg-and-up {
+			margin-top: 0;
+			display: flex;
+			font-size: .9rem;
+			height: 2.75rem;
+			overflow: visible;
+			> li {
+				border-top: none;
+				margin: 0 .5rem;
+			}
+		}
+	}
+}
 ul.header-menu-child {
 	position: relative;
 	z-index: 2;
 	overflow: hidden;
 	max-height: 30em;
 	transition: max-height 350ms ease;
-
-	.menu-item {
-		margin-bottom: $space-xs;
-		a {
-			line-height: 1.25;
-			padding: .25rem 0;
-		}
+	> li {
+		margin-bottom: .25em;
 	}
 	@include lg-and-up {
 		position: absolute;
@@ -146,39 +149,19 @@ ul.header-menu-child {
 		border-radius: $border-radius;
 		.menu-item {
 			&:last-child {
-				margin-bottom: $space-sm;
+				margin-bottom: .5rem;
 			}
 			a {
-				padding: .25rem 1rem;
-			}
-		}
-	}
-}
-.has-subnav {
-	position: relative;
-	&[data-subnav-toggle="closed"] {
-		ul.header-menu-child {
-			max-height: 0;
-		}
-	}
-	&[data-subnav-toggle="open"] {
-		.subnav-toggle {
-			transform: rotate(180deg);
-		}
-	}
-	@include lg-and-up {
-		&:hover {
-			ul.header-menu-child {
-				max-height: 30em;
+				padding: 0 1rem;
 			}
 		}
 	}
 }
 
 .menu-header-buttons {
-	margin-top:$space-md;
+	margin-top: $space-md;
 	@include lg-and-up {
-		margin-top:0;
+		margin-top: 0;
 		flex-shrink: 1;
 		width: auto;
 	}
@@ -186,11 +169,11 @@ ul.header-menu-child {
 
 .menu-toggle {
 	@extend %button-clean;
-	height: 3em;
-	padding: 0.75em;
-	margin: 0 0 0 auto;
-	width: 3em;
-	transform: translateX(1em);
+	height: 3rem;
+	padding: 0.75rem;
+	margin: 0 $space-sm 0 auto;
+	width: 3rem;
+	//transform: translateX(1em);
 
 	@include lg-and-up {
 		display: none;
@@ -229,11 +212,11 @@ ul.header-menu-child {
 		}
 	}
 	.main-menu-wrapper {
-		margin-top: $space-sm;
+		padding: $space-sm $space-md;
 		max-height: 100vh;
 		opacity: 1;
 		@include lg-and-up {
-			margin: 0;
+			padding: 0;
 		}
 	}
 }

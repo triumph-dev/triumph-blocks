@@ -75,7 +75,7 @@ $page-interior: 1100px;
 	a:not(.btn) {
 		color: #fff;
 		transition: opacity 150ms ease;
-		opacity: .8;
+		opacity: .9;
 		&:hover,
 		&:focus {
 			color: currentColor;
@@ -96,6 +96,33 @@ $page-interior: 1100px;
 	}
 }
 
+%white-text {
+	color: #fff;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		color: #fff;
+	}
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
+	textarea,
+	select {
+		border-color: rgba($color-ui-light, 0.5);
+	}
+	hr {
+		border-color: rgba($color-ui-light, 0.2);
+	}
+	@extend %light-link;
+}
 %dark-text {
 	h1,
 	h2,
@@ -143,34 +170,6 @@ $page-interior: 1100px;
 		}
 	}
 }
-
-%white-text {
-	color: #fff;
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p {
-		color: #fff;
-	}
-	input[type="email"],
-	input[type="number"],
-	input[type="password"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="text"],
-	input[type="url"],
-	textarea,
-	select {
-		border-color: rgba($color-ui-light, 0.5);
-	}
-	hr {
-		border-color: rgba($color-ui-light, 0.2);
-	}
-	@extend %light-link;
-}
 %uppercase {
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
@@ -214,13 +213,13 @@ $page-interior: 1100px;
 	padding: 0;
 	cursor: pointer;
 	outline: none;
-	color: var(--color-text);
+	color: $color-ui-dark;
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	&:focus,
 	&:hover {
-		color: var(--color-text);
+		color: $color-ui-dark;
 		border: none;
 		outline: none;
 		background: none;

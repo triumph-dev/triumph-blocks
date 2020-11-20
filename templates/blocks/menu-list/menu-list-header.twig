@@ -1,30 +1,28 @@
+{% set level = level + 1 %}
+{% set menu_child = menu_child ? 'header-menu-child' : '' %}
 {% if items|length %}
-	<ul class="{{ name }} header-menu">
+	<ul class="{{ name }} header-menu {{ menu_child }}" data-level="{{ level }}" data-type="">
 		{% for item in items %}
-			<li class="{{ item.classes|join(' ') }} {% if item.children %} has-subnav {% endif %}" {% if item.children %}data-subnav-toggle="closed"{% endif %}>
-
+			<li class="{{ item.classes|join(' ') }} {% if item.children %} has-subnav {% endif %}" data-level="{{ level }}" {% if item.children %}data-subnav-toggle="closed"{% endif %} >
+	
 				{% if item.children %}
 					<div class="menu-heading-wrapper">
 
 							{% if item.link == '#' %}
-								<span class="menu-heading-title">{{ item.title }}</span>
+								<span class="menu-heading-title" data-level="{{ level }}" >{{ item.title }}</span>
 							{% else %}
-								<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title">{{ item.title }}</span></a>
+								<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title" data-level="{{ level }}" >{{ item.title }}</span></a>
 							{% endif %}
 
 						<button class="subnav-toggle" aria-label="Expand Subnav"><i class="fas fa-chevron-down"></i></button>
 					</div>
 
-					<ul class="header-menu-child">
-						{% for child in item.children %}
-							<li class="{{ item.classes|join(' ') }}">
-								<a class="menu-link" target="{{child.target}}" href="{{child.link}}">{{child.title}}</a>
-							</li>
-						{% endfor %}
-					</ul>
-
+					{% include 'blocks/menu-list/menu-list-header.twig' with {'items': item.children, menu_child : true} %}
+				
+				{% elseif level == 1 %}
+					<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title" data-level="{{ level }}">{{ item.title }}</span></a>
 				{% else %}
-					<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title">{{ item.title }}</span></a>
+					<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-title" data-level="{{ level }}">{{ item.title }}</span></a>
 				{% endif %}
 		
 			</li>

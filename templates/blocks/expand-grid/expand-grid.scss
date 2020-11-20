@@ -3,6 +3,7 @@
 }
 
 ul.expand-grid-list {
+	@extend %dark-text;
 	column-count: 1;
 	break-inside: avoid;
 	column-width: 20em;

@@ -10,7 +10,6 @@ body {
 	flex-direction: column;
 	background: $color-ui-light;
 	color: $color-ui-dark;
-	--color-text: $color-ui-dark;
 	@include sm-and-up {
 		font-size: 1rem;
 	}

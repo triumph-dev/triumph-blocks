@@ -1,6 +1,8 @@
 .expand-wrapper {
 	margin: $space-md 0;
 	background: #fff;
+	@extend %dark-text;
+
 	border: $border-width solid rgba($color-ui-gray, 0.2);
 	border-radius: $border-radius;
 
