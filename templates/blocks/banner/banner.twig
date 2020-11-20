@@ -6,7 +6,7 @@
   Keywords: 
   Mode: edit
   Align: left
-  PostTypes: post page account leadership partners
+  PostTypes: post page account leadership partner partners
   SupportsAlign: false
   SupportsMode: false
   SupportsMultiple: true
@@ -28,7 +28,7 @@
 			</div>
 		{% endif %}
 		{% if fields.show_app_icons %}
-			{% include 'blocks/app-icons/app-icons.twig' %}
+			{% include 'blocks/app-icons/app-icons.twig' with {alignment:fields.alignment} %}
 		{% endif %}
 	{% endblock %}
 {% endembed %}

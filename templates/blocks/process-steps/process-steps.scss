@@ -43,14 +43,15 @@ ol.process-steps-list {
 			border: $border-width solid var(--color-accent);
 			border-radius: 100%;
 			@extend %center-flex;
-			font-weight: bold;
+			font-family: $font-sans-serif;
+			font-weight: 600;
 			color: $color-ui-dark;
 			position: absolute;
 			top: 0px;
-			height: 2em;
-			width: 2em;
-			font-size: 1.5em;
-			left: -#{$space-lg};
+			height: 3rem;
+			width: 3rem;
+			font-size: 1.5rem;
+			left: -4rem;
 			@include md-and-up {
 			}
 			@include ie {
@@ -61,7 +62,7 @@ ol.process-steps-list {
 			/* lines */
 			content: "";
 			position: absolute;
-			left: -2.5em;
+			left: calc(-#{$border-width} - 2.5rem);
 			border-left: $border-width solid var(--color-accent);
 			height: 100%;
 			//width: 1px;

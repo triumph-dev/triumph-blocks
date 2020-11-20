@@ -16,13 +16,17 @@ ul.expand-grid-list {
 		break-inside: avoid-column;
 
 		min-height: 20em;
+		border-radius: $border-radius;
+		overflow: hidden;
+		background: #fff;
+		border: $border-width solid rgba($color-ui-gray, .2);
 		margin: 0 0 $space-md 0;
 		width: 100%;
 		display: inline-block;
 		transition: border-color 150ms, box-shadow 500ms;
 
 		&[data-toggle="open"] {
-			border-color: var(--color-primary);
+			border-color: var(--color-accent);
 			box-shadow: 0em .5em 1em rgba($color-ui-dark, 0.2);
 		}
 		&::after {
@@ -66,6 +70,15 @@ ul.expand-grid-list {
 }
 
 .expand-grid-trigger {
+	@extend %button-clean;
+	font-size: .9em;
+	letter-spacing: .15em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	&:hover,
+	&:focus {
+		color: var(--color-primary-darken);
+	}
 	.toggle-status:after {
 		content: " More";
 	}

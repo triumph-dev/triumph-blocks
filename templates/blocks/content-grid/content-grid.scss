@@ -116,9 +116,10 @@ li.content-grid-item {
 .grid-item-footer {
 	margin: $space-md 0;
 }
-
+li[data-style="card"],
 li[data-style="card-link"] {
 	@extend %dark-text;
+
 	.grid-item-header {
 		border-radius: 0;
 	}
@@ -131,10 +132,15 @@ li[data-style="card-link"] {
 	.grid-item-footer {
 		margin: $space-md;
 	}
+}
+li[data-style="card-link"] {
 	a {
+		border-radius: $border-radius;
+		overflow: hidden;
+		background: #fff;
 		display: flex;
 		flex-direction: column;
-		background: #fff;
+
 		border-radius: $border-radius;
 		overflow: hidden;
 		border: $border-width solid rgba($color-ui-gray, .2);

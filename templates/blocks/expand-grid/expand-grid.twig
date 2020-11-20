@@ -6,7 +6,7 @@
   Keywords: 
   Mode: edit
   Align: left
-  PostTypes: post page account leadership
+  PostTypes: post page account leadership partner
   SupportsAlign: false
   SupportsMode: false
   SupportsMultiple: true
@@ -28,12 +28,12 @@
 					<div class="grid-item-header">
 						{% if grid_item.image %}
 							{% set image = Image(grid_item.image) %}
-							<img src="{{ image.src }}" srcset="{{ image.srcset }}" {{ fields.grid_item_image_style == 'icon' ? '' : 'data-object-fit="cover"' }} />
+							<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" />
 						{% endif %}
 
 						{% if grid_item.icon %}
 							{{ function('svg_code', grid_item.icon) }}
-						{% endif %}
+						{% endif %}	
 					</div>
 				{% endif %}
 
@@ -45,7 +45,7 @@
 
 				{% if grid_item.expanded_copy  %}
 					<div class="grid-item-footer">
-						<button class="expand-grid-trigger simple" data-expand-grid-toggle-id="{{ block.id }}-item-{{ loop.index }}">Show<span class="toggle-status"></span></button>
+						<button class="expand-grid-trigger" data-expand-grid-toggle-id="{{ block.id }}-item-{{ loop.index }}">Show<span class="toggle-status"></span></button>
 						<div id="{{ block.id }}-item-{{ loop.index }}" class="expanded-copy">
 							{{ grid_item.expanded_copy }}
 						</div>

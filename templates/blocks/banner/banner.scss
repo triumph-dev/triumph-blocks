@@ -42,19 +42,23 @@
 		@include md-and-up {
 			flex-direction: row;
 			display: flex;
-			flex-wrap: wrap;
+			flex-wrap: none;
 			justify-content: space-between;
 			align-items: center;
 			//padding: $space-md;
 		}
 		.content {
 			@include md-and-up {
-				max-width: 50%;
+				flex-grow: 1;
 			}
 		}
 		.button-group {
 			@include md-and-up {
 				margin-top: 0;
+				margin-left: $space-lg;
+				flex-shrink: 1;
+				width: auto;
+				justify-content: flex-end;
 			}
 
 			a {
