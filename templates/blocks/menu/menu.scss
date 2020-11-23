@@ -10,12 +10,9 @@
 
 	.menu-logo {
 		display: block;
-		width: 13em;
+		width: 12em;
 
 		margin: $space-sm $space-md;
-		@include lg-and-up {
-			margin: $space-md;
-		}
 	}
 }
 
@@ -51,6 +48,8 @@ a.menu-link {
 	//position: relative;
 	&[data-subnav-toggle="closed"] {
 		ul.header-menu-child {
+			padding-top: 0;
+			padding-bottom: 0;
 			max-height: 0;
 			overflow: hidden;
 		}
@@ -138,7 +137,7 @@ ul.header-menu-child {
 	z-index: 2;
 	overflow: hidden;
 	max-height: 30em;
-	transition: max-height 350ms ease;
+	transition: max-height 350ms ease, padding 350ms ease;
 	> li {
 		margin-bottom: .25em;
 	}

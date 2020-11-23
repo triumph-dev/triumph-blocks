@@ -1,9 +1,18 @@
-.menu-header-mega-nav {
+ul.menu-header-mega-nav {
+	&.header-menu[data-level="1"] {
+		height: auto;
+	}
+
+	.menu-heading-title[data-level="1"] {
+		@include lg-and-up {
+			padding: $space-md 0;
+		}
+	}
 	ul[data-level="2"] {
 		@extend %light-link;
 		background: var(--color-primary);
 		margin: 0 -#{$space-md};
-		padding: 0 $space-md;
+		padding: $space-sm $space-md;
 		@include lg-and-up {
 			display: flex;
 			justify-content: center;
@@ -24,6 +33,15 @@
 				width: auto;
 			}
 		}
+		&[data-title="Business"] {
+			background: var(--color-accent-blue);
+		}
+		&[data-title="Personal"] {
+			background: var(--color-accent-green);
+		}
+		&[data-title="Our Bank"] {
+			background: var(--color-accent-rust);
+		}
 		a {
 			&:hover,
 			&:focus {
@@ -32,7 +50,7 @@
 		}
 
 		.menu-heading-title {
-			padding: 0;
+			//padding: 0;
 			@include lg-and-up {
 				padding: 0;
 			}
