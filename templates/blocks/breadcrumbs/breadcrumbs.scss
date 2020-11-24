@@ -1,0 +1,15 @@
+.section-wrapper.breadcrumbs {
+	padding-top: $space-sm;
+	padding-bottom: $space-sm;
+}
+ul.breadcrumb-links {
+	font-size: .9em;
+	display: flex;
+	> li {
+		&:not(:last-child):after {
+			content: '▸';
+			padding: $space-xs;
+			opacity: .5;
+		}
+	}
+}

@@ -16,6 +16,13 @@ function triumph_blocks_categories( $categories ) {
 add_filter( 'block_categories', 'triumph_blocks_categories' );
 
 
+add_filter( 'timber/acf-gutenberg-blocks-data', function( $context ){
+    $context['post'] = Timber::get_post();
+
+    return $context;
+} );
+
+
 function triumph_blocks_admin_assests() {
 	wp_enqueue_style('triumph-blocks-admin-styles', TRIUMPH_BLOCKS_URL.'assets/admin.css');
 }
@@ -69,15 +76,17 @@ function account_features( $account_id = null) {
 				$feature_value = '<i class="far fa-check"></i>';
 			}
 
-			if(!empty($account_feature_fields[$key]['instructions'])){
+			if(!empty($feature_value) && !empty($account_feature_fields[$key]['instructions'])){
 				$feature_value .= '<sup>'.$i.'</sup>';
 				$disclaimer .= ' '.$i.'. '.$account_feature_fields[$key]['instructions'];
 				$i++;
 			}
-			$list_content[] = sprintf(
-				'<span class="title">%s:</span> %s',
-			$feature_title, $feature_value);
-			
+			if(!empty($feature_value)){
+				$list_content[] = sprintf(
+					'<span class="title">%s:</span> %s',
+				$feature_title, $feature_value);
+			}
+
 		}
 		
 		$output = ['features'=>$list_content, 'disclaimer'=>$disclaimer];
@@ -170,4 +179,57 @@ function svg_code($file_location = null){
 function add_list_js(){
 	// Include List.js
 	wp_enqueue_script( "list.js", "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js", [], false, true );
+}
+
+
+
+/**
+ * Filter the output of Yoast breadcrumbs so each item is an <li> with schema markup
+ * @param $link_output
+ * @param $link
+ *
+ * @return string
+ */
+function triumph_filter_yoast_breadcrumb_items( $link_output, $link ) {
+
+	$new_link_output = '<li>';
+
+	if(strpos( $link_output, 'breadcrumb_last' ) !== false ) {
+		$new_link_output .= '<span class="current-page">' . $link['text'] . '</span>';
+	}else{
+		$new_link_output .= '<a href="' . $link['url'] . '">' . $link['text'] . '</a>';
+	}
+	
+	$new_link_output .= '</li>';
+
+	return $new_link_output;
+}
+add_filter( 'wpseo_breadcrumb_single_link', 'triumph_filter_yoast_breadcrumb_items', 10, 2 );
+
+
+/**
+ * Filter the output of Yoast breadcrumbs to remove <span> tags added by the plugin
+ * @param $output
+ *
+ * @return mixed
+ */
+function triumph_filter_yoast_breadcrumb_output( $output ){
+
+	$from = '<span>';
+	$to = '</span>';
+	$output = str_replace( $from, $to, $output );
+
+	return $output;
+}
+add_filter( 'wpseo_breadcrumb_output', 'triumph_filter_yoast_breadcrumb_output' );
+
+
+/**
+ * Shortcut function to output Yoast breadcrumbs
+ * wrapped in the appropriate markup
+ */
+function triumph_breadcrumbs() {
+	if ( function_exists('yoast_breadcrumb') ) {
+		yoast_breadcrumb('<ul class="breadcrumb-links">', '</ul>');
+	}
 }

@@ -1,0 +1,31 @@
+{#
+  Title: Breadcrumbs
+  Description: Breadcrumb navigation
+  Category: triumph-blocks
+  Icon: align-center
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leadership partner
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: false
+#}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with { blockName: 'breadcrumbs'} %}
+	{% block block_content %}
+
+        <nav class="breadcrumb-nav">
+            {% if fields.source == 'yoast' %}
+                {{ function('triumph_breadcrumbs', '', '') }}
+            {% elseif fields.custom_breadcrumbs %}
+                <ul class="breadcrumb-links">
+                    {% for link in fields.custom_breadcrumbs %}
+                        <li><a href="{{ link.link.url }}">{{ link.link.title }}</a></li>
+                    {% endfor %}
+                    <li><span class="current_page">{{ post.title }}</span></li>
+                </ul>
+            {% endif %}
+        </nav>
+	{% endblock %}
+{% endembed %}

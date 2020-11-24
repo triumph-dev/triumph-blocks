@@ -1,4 +1,9 @@
 ul.menu-header-mega-nav {
+	[data-subnav-toggle="open"] {
+		.header-menu-child {
+			overflow-y: auto;
+		}
+	}
 	&.header-menu[data-level="1"] {
 		height: auto;
 	}
@@ -13,6 +18,7 @@ ul.menu-header-mega-nav {
 		background: var(--color-primary);
 		margin: 0 -#{$space-md};
 		padding: $space-sm $space-md;
+
 		@include lg-and-up {
 			display: flex;
 			justify-content: center;
@@ -22,8 +28,9 @@ ul.menu-header-mega-nav {
 			margin: 0;
 			left: 0;
 			width: 100%;
+
 			> li {
-				margin: $space-md;
+				margin: $space-md 0;
 			}
 			.header-menu-child {
 				margin: $space-sm 0;
@@ -68,6 +75,14 @@ ul.menu-header-mega-nav {
 			}
 			@include lg-and-up {
 				display: none;
+			}
+		}
+	}
+	li[data-level="3"] {
+		@include lg-and-up {
+			a {
+				line-height: 1.3;
+				padding: .25rem $space-sm;
 			}
 		}
 	}
