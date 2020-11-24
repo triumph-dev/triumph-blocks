@@ -1,5 +1,7 @@
 .comparison-table {
-	min-width: 460px;
+	min-width: 600px;
+	margin: 0;
+	font-size: .8em;
 
 	.true {
 		color: green;
@@ -15,12 +17,16 @@
 	tr th.account-name:last-child {
 		padding-right: $space-md;
 	}
+	.row-header-content {
+		max-width: 16ch;
+	}
 }
 
 .comparison-table-wrapper {
 	background: #fff;
 	max-width: 100vw;
 	overflow-x: scroll;
+	margin-bottom: $space-md;
 }
 .comparison-table-scroll-wrapper {
 	position: relative;

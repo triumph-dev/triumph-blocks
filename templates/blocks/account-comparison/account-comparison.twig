@@ -13,16 +13,23 @@
 #}
 
 {% set table = function('account_comparison', fields.accounts) %}
-{% set colwidth = 60 / fields.accounts|length  %}
+{% set col1 =  30 %}
+{% set col1unit =  'ch' %}
+{% set remainder = col1 / fields.accounts|length %}
+
+{% set colwidth = 'calc('~ 100 / fields.accounts|length ~ '% - ' ~ remainder ~ col1unit ~ ')' %}
 {% set disclaimers = [] %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'account-comparison' } %}
 	{% block block_content %}
+	{% if fields.intro_copy %}
+		{% include 'blocks/intro-copy/intro-copy.twig' %}
+	{% endif %}
 	<div class="comparison-table-scroll-wrapper">
 	<div class="comparison-table-wrapper">
 		<table class="comparison-table">
 			<colgroup>
-				<col span="1" style="width: 40%;">
+				<col span="1" style=" width: {{ col1 ~ col1unit }}">
 				{% for account in table.accounts %}
 					<col span="1" style="width: {{ colwidth }}%;">
 				{% endfor %}

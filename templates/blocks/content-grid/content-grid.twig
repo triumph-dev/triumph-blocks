@@ -20,11 +20,11 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class } %}
 	{% block block_content %}
-		{% if fields.grid_copy %}
-			<div class="content-grid-copy {{ fields.grid_copy_width }}">
-				{{ fields.grid_copy }}
-			</div>
+
+		{% if fields.intro_copy %}
+			{% include 'blocks/intro-copy/intro-copy.twig' %}
 		{% endif %}
+		
 		<ul class="content-grid-list" data-max-columns="{{ fields.grid_max_columns }}" data-align="{{ fields.grid_item_alignment }}">
 		{% for grid_item in fields.grid_items %}
 			{% include ['blocks/content-grid/item-' ~ fields.grid_item_style ~ '.twig', 'blocks/content-grid/item-default.twig'] %}

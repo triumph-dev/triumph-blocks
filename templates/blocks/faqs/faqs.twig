@@ -17,9 +17,7 @@
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'faqs' } %}
 	{% block block_content %}
 		{% if fields.intro_copy %}
-			<div class="intro-copy {{ fields.intro_copy_width }}">
-				{{ fields.intro_copy }}
-			</div>
+			{% include 'blocks/intro-copy/intro-copy.twig' %}
 		{% endif %}
 		<div id="faqs">
 			{% if fields.show_search %}

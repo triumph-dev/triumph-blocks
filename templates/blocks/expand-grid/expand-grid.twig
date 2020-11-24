@@ -15,10 +15,8 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'expand-grid' } %}
 	{% block block_content %}
-		{% if fields.grid_copy %}
-			<div class="expand-grid-copy {{ fields.grid_copy_width }}">
-				{{ fields.grid_copy }}
-			</div>
+		{% if fields.intro_copy %}
+			{% include 'blocks/intro-copy/intro-copy.twig' %}
 		{% endif %}
 		<ul class="expand-grid-list" data-max-columns="{{ fields.grid_max_columns }}">
 		{% for grid_item in fields.grid_items %}
