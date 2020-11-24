@@ -229,8 +229,7 @@ $perpage: 3;
 			opacity: 1;
 			background: var(--color-accent);
 		}
-		&:hover,
-		&:focus {
+		&:hover {
 			background: currentColor;
 		}
 	}

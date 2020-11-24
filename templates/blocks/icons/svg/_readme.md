@@ -9,20 +9,20 @@ ___
 
 - Change the style declarations for the light/bright/gray color to:
 ```
-    .primary {
+    .icon-accent {
         fill: #c8c9c7;
     }
 ```
-- Change any all elements with the old classname to class="primary".
+- Change any all elements with the old classname to class="icon-accent".
 
 ___
 
 - Change the style declarations for the dark/black color to:
 ```
-    .secondary {
+    .icon-dark {
         fill: #000000;
     }
 ```
-- Change any all elements with the old classname to class="secondary".
+- Change any all elements with the old classname to class="icon-dark".
 
 

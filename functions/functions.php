@@ -132,6 +132,8 @@ function svg_code($file_location = null){
 
 	if(function_exists('triumph_get_primary_color')){
 		$primary = triumph_get_primary_color();
+	}elseif(get_theme_mod('triumph_color_accent_icon')){
+		$primary = get_theme_mod('triumph_color_accent_icon', '#37474f');
 	}else{
 		$primary = get_theme_mod('triumph_color_primary', '#37474f');
 	}

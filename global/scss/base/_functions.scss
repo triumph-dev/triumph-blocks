@@ -213,13 +213,13 @@ $page-interior: 1100px;
 	padding: 0;
 	cursor: pointer;
 	outline: none;
-	color: $color-ui-dark;
+	color: currentColor;
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	&:focus,
 	&:hover {
-		color: $color-ui-dark;
+		color: currentColor;
 		border: none;
 		outline: none;
 		background: none;

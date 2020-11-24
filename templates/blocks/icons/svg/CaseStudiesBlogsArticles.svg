@@ -1,24 +1,24 @@
 <svg class="triumph-svg-icon" xmlns="http://www.w3.org/2000/svg" width="1.38in" height="1.38in" viewBox="0 0 99.25 99.25">
   <defs>
     <style>
-      .primary {
+      .icon-accent {
         fill: #c8c9c7;
       }
 
-      .secondary {
+      .icon-dark {
         fill: #000000;
       }
     </style>
   </defs>
   <g>
     <g>
-      <rect class="primary" x="37.77" y="34.4" width="22.33" height="8.37"/>
-      <path class="secondary" d="M60.1,43.77H37.77a1,1,0,0,1-1-1V34.4a1,1,0,0,1,1-1H60.1a1,1,0,0,1,1,1v8.37A1,1,0,0,1,60.1,43.77Zm-21.33-2H59.1V35.4H38.77Z"/>
+      <rect class="icon-accent" x="37.77" y="34.4" width="22.33" height="8.37"/>
+      <path class="icon-dark" d="M60.1,43.77H37.77a1,1,0,0,1-1-1V34.4a1,1,0,0,1,1-1H60.1a1,1,0,0,1,1,1v8.37A1,1,0,0,1,60.1,43.77Zm-21.33-2H59.1V35.4H38.77Z"/>
     </g>
-    <path class="secondary" d="M60.1,49.91H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
-    <path class="secondary" d="M60.1,55.49H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
-    <path class="secondary" d="M60.1,61.07H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
-    <path class="secondary" d="M60.1,66.65H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
-    <path class="secondary" d="M69.3,78.64H28.56a1,1,0,0,1-1-1V21.83a1,1,0,0,1,1-1H69.3a1,1,0,0,1,1,1V77.64A1,1,0,0,1,69.3,78.64Zm-39.74-2H68.3V22.83H29.56Z"/>
+    <path class="icon-dark" d="M60.1,49.91H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
+    <path class="icon-dark" d="M60.1,55.49H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
+    <path class="icon-dark" d="M60.1,61.07H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
+    <path class="icon-dark" d="M60.1,66.65H37.77a1,1,0,0,1,0-2H60.1a1,1,0,0,1,0,2Z"/>
+    <path class="icon-dark" d="M69.3,78.64H28.56a1,1,0,0,1-1-1V21.83a1,1,0,0,1,1-1H69.3a1,1,0,0,1,1,1V77.64A1,1,0,0,1,69.3,78.64Zm-39.74-2H68.3V22.83H29.56Z"/>
   </g>
 </svg>
