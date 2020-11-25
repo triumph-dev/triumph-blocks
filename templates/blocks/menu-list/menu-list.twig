@@ -1,20 +1,14 @@
 {% if items|length %}
-	<ul class="{{ name }}">
+	<ul class="{{ name }} {{items|length == 1 ? 'single-nav-menu' : ''}}">
 		{% for item in items %}
-			<li class="{{ item.classes|join(' ') }} {% if item.children %} has-subnav {% endif %}" {% if item.children %}data-subnav-toggle="closed"{% endif %}>
+			<li class="{{ item.classes|join(' ') }} {% if item.children %} has-subnav {% endif %} ">
+				{% if item.link == '#' %}
+					<button class="collapse-heading">{{ item.title }} {% if item.children %} <i class="far fa-chevron-down"></i> {% endif %} </button>
+				{% else %}
+					<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }} </a>
+				{% endif %}
 
 				{% if item.children %}
-					<div class="menu-heading-wrapper">
-
-							{% if item.link == '#' %}
-								<span class="menu-heading-title">{{ item.title }}</span>
-							{% else %}
-								<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title">{{ item.title }}</span></a>
-							{% endif %}
-
-						<button class="subnav-toggle"><i class="fas fa-chevron-down"></i></button>
-					</div>
-
 					<ul class="{{ name }}-child">
 						{% for child in item.children %}
 							<li class="{{ item.classes|join(' ') }}">
@@ -22,11 +16,7 @@
 							</li>
 						{% endfor %}
 					</ul>
-
-				{% else %}
-					<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title">{{ item.title }}</span></a>
 				{% endif %}
-		
 			</li>
 		{% endfor %}
 	</ul>

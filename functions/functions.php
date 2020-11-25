@@ -140,11 +140,12 @@ function svg_code($file_location = null){
 	$base = get_site_url();
 
 	if(function_exists('triumph_get_primary_color')){
-		$primary = triumph_get_primary_color();
+		$icon_accent = adjust_brightness(triumph_get_primary_color(), 20);
+		
 	}elseif(get_theme_mod('triumph_color_accent_icon')){
-		$primary = get_theme_mod('triumph_color_accent_icon', '#37474f');
+		$icon_accent = get_theme_mod('triumph_color_accent_icon', '#37474f');
 	}else{
-		$primary = get_theme_mod('triumph_color_primary', '#37474f');
+		$icon_accent = get_theme_mod('triumph_color_accent', '#37474f');
 	}
 
 	if(WP_DEBUG){
@@ -168,7 +169,7 @@ function svg_code($file_location = null){
         $html = $iconfile->saveHTML($iconfile->getElementsByTagName('svg')[0]);
 		if(strpos($html, 'class="triumph-svg-icon"') !== false){
 			$html = str_replace ( '#000000', get_theme_mod('triumph_color_secondary', '#005000'), $html);
-			$html = str_replace ( '#c8c9c7', adjust_brightness($primary, 20),  $html);
+			$html = str_replace ( '#c8c9c7', $icon_accent,  $html);
 		}
 		$return = $html;
     }
