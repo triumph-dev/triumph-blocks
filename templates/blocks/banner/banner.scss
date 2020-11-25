@@ -59,6 +59,9 @@
 				flex-shrink: 1;
 				width: auto;
 				justify-content: flex-end;
+				&.app-icons {
+					flex-shrink: 0;
+				}
 			}
 
 			a {

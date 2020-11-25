@@ -1,4 +1,7 @@
 ul.menu-header-mega-nav {
+	@include lg-and-up {
+		margin-right: auto;
+	}
 	[data-subnav-toggle="open"] {
 		.header-menu-child {
 			overflow-y: auto;

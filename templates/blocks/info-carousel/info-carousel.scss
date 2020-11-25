@@ -1,5 +1,5 @@
 .info-carousel {
-	overflow:hidden;
+	overflow: hidden;
 	.layout-wrapper {
 		@include md-and-up {
 			display: flex;
@@ -26,7 +26,7 @@
 }
 .slide-copy-wrapper {
 	position: relative;
-	min-height: 12em;
+	//min-height: 10em;
 	margin: $space-md 0 0 0;
 	@include md-and-up {
 		margin: 0 $space-md 0 -#{$space-sm};
@@ -43,29 +43,37 @@
 	border-radius: $border-radius;
 	transition: background-color 150ms ease, box-shadow 150ms ease;
 
-	
 	&[data-position="1"] {
 		background-color: #fff;
-		box-shadow: 0 0.5em 2em 0px rgba($color-ui-dark, 0.2);
+		box-shadow: 0 0.5em 2em 0px rgba(0, 0, 0, 0.2);
 	}
-	&[data-position="2"],
-	&[data-position="3"] {
-		display: none;
-	}
+
 	@include md-and-up {
 		text-align: left;
 		position: relative;
 		cursor: pointer;
 		&:hover {
 			background-color: rgba(255, 255, 255, 0.3);
-			box-shadow: 0 0.5em 2em 0px rgba($color-ui-dark, 0.1);
+			box-shadow: 0 0.5em 2em 0px rgba(0, 0, 0, 0.1);
 		}
 		&[data-position="1"] {
 			background-color: #fff;
 		}
-		&[data-position="2"],
-		&[data-position="3"] {
-			display: block;
+	}
+}
+[data-background-color="primary"],
+[data-background-color="secondary"] {
+	.info-carousel-slide-copy {
+		&[data-position="1"] {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		@include md-and-up {
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+			&[data-position="1"] {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
 		}
 	}
 }
@@ -87,7 +95,7 @@
 	}
 	.slide-images {
 		perspective: 500px;
-		height: 100vw;
+		height: 85vw;
 		width: auto;
 		position: relative;
 		display: flex;
@@ -104,12 +112,12 @@
 	transition: transform 350ms ease-in-out, z-index 150ms ease-in-out, filter 900ms ease-in-out;
 
 	img {
-		height: 100vw;
+		height: 85vw;
 		width: auto;
-		border-radius: $border-radius;
+		border-radius: 1rem;
 		border: 1px solid;
-		border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.3);
-		box-shadow: 0 0.5em 2em 0px rgba($color-ui-dark, 0.6);
+		border-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.3);
+		box-shadow: 0 0.5em 2em 0px rgba(0, 0, 0, 0.5);
 		@include md-and-up {
 			height: 30em;
 		}
@@ -118,7 +126,7 @@
 	&[data-position="1"] {
 		// this is the one in focus, don't move it around.
 		transform: translate3d(0, 0, 0);
-		z-index: 2;
+		z-index: 6;
 
 		@include md-and-up {
 			transform: none;
@@ -127,38 +135,34 @@
 			}
 		}
 	}
-
-	&[data-position="2"] {
+}
+@for $i from 2 through 5 {
+	.info-carousel-slide-image[data-position="#{$i}"] {
 		filter: brightness(0.95);
 		position: absolute;
-		// This one is not in focus,
-		// in mobile view, move it back and to the left
-		transform: translate3d(-25vw, 0, -8em);
-		z-index: 1;
+		transform: translate3d(($i - 1) * 15vw, 0, -($i - 1) * 5em);
+		z-index: 5 - $i;
 
 		@include md-and-up {
-			// in desktop view, move it back and to the right a little
-			transform: translate3d(8vw, 0, -5em);
+			transform: translate3d(($i - 1) * 10vw, 0, -($i - 1) * 5em);
 			&:hover {
 				// on hover, make it poke out a little
-				transform: translate3d(10vw, 0, -5em);
+				transform: translate3d(($i - 1) * 11vw, 0, -($i - 1) * 5em);
 			}
 		}
 	}
-	&[data-position="3"] {
-		filter: brightness(0.95);
-		position: absolute;
-		// This one is not in focus,
-		// in mobile view, move it back and to the right
-		transform: translate3d(25vw, 0, -8em);
-		z-index: 0;
+	.info-carousel-slide-copy[data-position="#{$i}"] {
+		display: none;
 
 		@include md-and-up {
-			// in desktop view, move it back and to the right a lot
-			transform: translate3d(16vw, 0, -10em);
-			&:hover {
-				// on hover, make it poke out a little
-				transform: translate3d(18vw, 0, -10em);
+			display: block;
+		}
+	}
+	.slide-images-wrapper[data-slide-number="#{$i}"] {
+		.slide-images {
+			transform: translateX(-$i * 2vw);
+			@include md-and-up {
+				transform: translateX(0);
 			}
 		}
 	}

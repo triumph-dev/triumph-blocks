@@ -117,9 +117,16 @@ $page-interior: 1100px;
 	textarea,
 	select {
 		border-color: rgba($color-ui-light, 0.5);
+		&:focus {
+			background-color: rgba(0, 0, 0, 0.1);
+			border-color: rgba($color-ui-light, 0.8);
+		}
 	}
 	hr {
 		border-color: rgba($color-ui-light, 0.2);
+	}
+	::placeholder {
+		color: rgba($color-ui-light, 0.8);
 	}
 	@extend %light-link;
 }
