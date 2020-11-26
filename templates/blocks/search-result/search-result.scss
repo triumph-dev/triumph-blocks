@@ -1,0 +1,26 @@
+a.search-result {
+	font-size: .9em;
+	display: block;
+	background: #fff;
+	padding: $space-md;
+	border-radius: $border-radius;
+	margin: $space-md 0;
+	color: inherit;
+
+	border: $border-width solid rgba($color-ui-gray, .2);
+
+	transition: border-color 150ms ease, transform 250ms ease !important;
+	&:hover,
+	&:focus {
+		transform: translateY(-.25rem);
+		border-color: var(--color-accent);
+		text-decoration: none !important;
+		box-shadow: 0 .25em .5em rgba($color-ui-dark, .2);
+	}
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
