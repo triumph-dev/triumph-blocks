@@ -1,5 +1,5 @@
 <li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
-	<a href="{{grid_item.link.link.url}}">
+	<a class="{{ grid_item.link.link_custom_class ? grid_item.link.link_custom_class : '' }}" href="{{grid_item.link.link.url}}">
 		{% if grid_item.image or grid_item.icon %}
 			<div class="grid-item-header">
 				{% if grid_item.image %}

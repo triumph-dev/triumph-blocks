@@ -28,7 +28,13 @@
 					<figcaption data-background-color="{{ slide.background_color }}">
 						<div class="copy">
 							{{ slide.copy }}
-							{% include 'blocks/content-gallery/links.twig' %}
+							{% if slide.links|length %}
+                                <div class="button-group" data-alignment="{{ fields.alignment }}">
+                                    {% for link in slide.links %}
+                                        {% include 'blocks/link/link.twig' %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
 						</div>
 					</figcaption>
 

@@ -1,8 +1,14 @@
 <section class="section-wrapper {{ blockName }} {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }} data-background-color="{{ fields.background_color }}">
 
 	{% if fields.background_color == 'image' and fields.background_image %}
+        {% if fields.background_darkness_overlay %}
+            {% set brightness = (100 - fields.background_darkness_overlay|number_format) ~ '%' %}
+            {% set brightness_filter = 'style="filter:brightness(' ~ brightness  ~');"' %}
+        {% else %}
+            {% set brightness_filter = null %}
+        {% endif %}
 		{% set image = Image(fields.background_image) %}
-		<img class="background" data-object-fit="cover" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'section background' }}" loading="lazy">
+		<img class="background" {{ brightness_filter }} data-object-fit="cover" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'section background' }}" loading="lazy">
 	{% endif %}
 
 	<div class="layout-wrapper {{ fields.width }}">
