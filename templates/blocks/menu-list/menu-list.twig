@@ -1,22 +1,8 @@
 {% if items|length %}
 	<ul class="{{ name }} {{items|length == 1 ? 'single-nav-menu' : ''}}">
 		{% for item in items %}
-			<li class="{{ item.classes|join(' ') }} {% if item.children %} has-subnav {% endif %} ">
-				{% if item.link == '#' %}
-					<button class="collapse-heading">{{ item.title }} {% if item.children %} <i class="far fa-chevron-down"></i> {% endif %} </button>
-				{% else %}
-					<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }} </a>
-				{% endif %}
-
-				{% if item.children %}
-					<ul class="{{ name }}-child">
-						{% for child in item.children %}
-							<li class="{{ item.classes|join(' ') }}">
-								<a class="menu-link" target="{{child.target}}" href="{{child.link}}">{{child.title}}</a>
-							</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
+			<li class="{{ item.classes|join(' ') }}">
+				<a class="menu-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }} </a>
 			</li>
 		{% endfor %}
 	</ul>
