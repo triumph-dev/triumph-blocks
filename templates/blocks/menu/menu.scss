@@ -80,6 +80,7 @@ a.menu-link {
 	}
 }
 .menu-title {
+	pointer-events: none;
 	display: block;
 	font-weight: 600;
 	padding: .25em 0;
