@@ -183,54 +183,28 @@ function add_list_js(){
 }
 
 
-
-/**
- * Filter the output of Yoast breadcrumbs so each item is an <li> with schema markup
- * @param $link_output
- * @param $link
- *
- * @return string
- */
-function triumph_filter_yoast_breadcrumb_items( $link_output, $link ) {
-
-	$new_link_output = '<li>';
-
-	if(strpos( $link_output, 'breadcrumb_last' ) !== false ) {
-		$new_link_output .= '<span class="current-page">' . $link['text'] . '</span>';
-	}else{
-		$new_link_output .= '<a href="' . $link['url'] . '">' . $link['text'] . '</a>';
-	}
-	
-	$new_link_output .= '</li>';
-
-	return $new_link_output;
-}
-add_filter( 'wpseo_breadcrumb_single_link', 'triumph_filter_yoast_breadcrumb_items', 10, 2 );
-
-
-/**
- * Filter the output of Yoast breadcrumbs to remove <span> tags added by the plugin
- * @param $output
- *
- * @return mixed
- */
-function triumph_filter_yoast_breadcrumb_output( $output ){
-
-	$from = '<span>';
-	$to = '</span>';
-	$output = str_replace( $from, $to, $output );
-
-	return $output;
-}
-add_filter( 'wpseo_breadcrumb_output', 'triumph_filter_yoast_breadcrumb_output' );
-
-
-/**
- * Shortcut function to output Yoast breadcrumbs
- * wrapped in the appropriate markup
- */
 function triumph_breadcrumbs() {
-	if ( function_exists('yoast_breadcrumb') ) {
-		yoast_breadcrumb('<ul class="breadcrumb-links">', '</ul>');
-	}
+
+    $baseurl = get_site_url();
+    $current_url = get_permalink();
+    $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $segments = array_filter(explode('/', $uri_path));
+    $crumbs = '<li><a href="/">Home</a></li>';
+    $i = 1;
+    foreach($segments as $segment){
+        $path_segments = array_slice($segments, 0, $i);
+        implode('/', $path_segments);
+        $path = '/'.implode('/', $path_segments).'/';
+        $post_url = rtrim($baseurl,'/').$path;
+        $id = url_to_postid($post_url);
+        $title = get_the_title($id);
+        
+        if( !next( $segments ) ) {
+            $crumbs .= '<li>'.$title.'</li>';
+        }else{
+            $crumbs .= '<li><a href="'.$path.'">'.$title.'</a></li>';
+        }
+        $i++;
+    }
+    return '<ul class="breadcrumb-links">'.$crumbs.'</ul>';
 }

@@ -30,9 +30,9 @@
     {% if menu.headerQuickLinks %}
         <div id="menu-search">
             {% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerQuickLinks.get_items, name: 'menu-header-quick-links'} %}
-            <button class="menu-search"><i class="fas fa-search"></i> Search</button>
+			<button id="menu-search-toggle" class="menu-search"><i class="fas fa-search"></i> Search</button>
         </div>
-        <div id="menu-search-content">
+        <div id="menu-search-content" data-search-menu-state="closed">
             <button class="close"><i class="fal fa-times"></i><span class="hidden">Close</span></button>
             <div class="search-wrapper">
                 

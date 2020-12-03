@@ -14,10 +14,12 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with { blockName: 'breadcrumbs'} %}
 	{% block block_content %}
-
+        
         <nav class="breadcrumb-nav">
-            {% if fields.source == 'yoast' %}
-                {{ function('triumph_breadcrumbs', '', '') }}
+            {% if fields.source != 'custom' %}
+                {% cache post.slug ~ '-breadcrumbs' fields %}
+                    {{ function('triumph_breadcrumbs', '', '') }}
+                {% endcache %}
             {% elseif fields.custom_breadcrumbs %}
                 <ul class="breadcrumb-links">
                     {% for link in fields.custom_breadcrumbs %}
@@ -27,5 +29,6 @@
                 </ul>
             {% endif %}
         </nav>
+        
 	{% endblock %}
 {% endembed %}
