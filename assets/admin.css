@@ -1,18 +1,18 @@
 .block-editor-block-list__block {
-  max-width: 100%; 
+	max-width: 100%;
 }
 
-.triumph-icon-picker .acf-input{
-	max-height:480px;
-	overflow:auto;
+.triumph-icon-picker .acf-input {
+	max-height: 480px;
+	overflow: auto;
 }
-.triumph-icon-picker img{
-	width:4em;
-	height:4em;
+.triumph-icon-picker img {
+	width: 4em;
+	height: 4em;
 }
 
-.triumph-icon-picker ul.acf-radio-list>li label{
-	display:flex;
-	flex-wrap:nowrap;
-	align-items:center;
+.triumph-icon-picker ul.acf-radio-list > li label {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
 }
