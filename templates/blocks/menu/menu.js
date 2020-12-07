@@ -8,8 +8,8 @@ export default class Menu {
 	}
 
 	open() {
-		this.menu.dataset.menuState = 'open';
-		this.doc.dataset.menuState = 'open';
+		this.menu.setAttribute('data-menu-state', 'open');
+		this.doc.setAttribute('data-menu-state', 'open');
 	}
 
 	close() {
@@ -17,7 +17,7 @@ export default class Menu {
 		this.doc.dataset.menuState = 'closed';
 	}
 
-	toggleSubnav(toggle) { 
+	toggleSubnav(toggle) {
 		let parent = toggle.closest('[data-subnav-toggle]');
 		parent.dataset.subnavToggle == 'closed'
 			? parent.setAttribute('data-subnav-toggle', 'open')
@@ -38,8 +38,7 @@ export default class Menu {
 			this.toggle();
 		});
 
-		this.subnavs.forEach((subnav) => { 
-	
+		this.subnavs.forEach((subnav) => {
 			let subnavToggle = subnav.querySelector('.subnav-toggle');
 			subnavToggle.addEventListener('click', (e) => {
 				this.toggleSubnav(e.target);
