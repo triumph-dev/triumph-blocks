@@ -49,7 +49,7 @@ label {
 	letter-spacing: 0;
 	text-transform: none;
 	font-weight: normal;
-	margin: -.75em 0 1.5em 0;
+	margin: -.25em 0 .25em 0;
 }
 textarea {
 	min-height: 6.5rem;
@@ -58,7 +58,7 @@ textarea {
 label,
 legend {
 	display: block;
-	margin-bottom: 0.5rem;
+	//margin-bottom: 0.5rem;
 }
 
 fieldset {
@@ -74,6 +74,7 @@ fieldset {
 input[type="checkbox"],
 input[type="radio"] {
 	display: inline;
+	cursor: pointer;
 }
 
 input[type="checkbox"] + label,
@@ -138,9 +139,20 @@ input[type="radio"] + label {
 }
 
 .label-inline {
+	cursor: pointer;
 	display: inline-block;
+	text-transform: none;
+	letter-spacing: 0;
 	font-weight: normal;
-	margin-left: 0.5rem;
+	margin-top: 0;
+	margin-bottom: $space-sm;
+	&:not(:last-child) {
+		margin-right: $space-sm;
+	}
+
+	input {
+		margin: 0;
+	}
 }
 
 .form-inline {
