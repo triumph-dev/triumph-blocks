@@ -20,6 +20,7 @@ export default class Expand {
 		this.target.style.transition = '';
 
 		this.open();
+		this.target.style.maxHeight = '10000vh';
 
 		this.targetHeight = this.target.offsetHeight;
 		this.target.setAttribute('data-height', this.targetHeight);

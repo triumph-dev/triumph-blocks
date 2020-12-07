@@ -11,7 +11,6 @@ export default class Modal {
 		this.triggers.forEach((trigger) => {
 			trigger.addEventListener('click', (e) => {
 				e.preventDefault();
-				console.log(e);
 
 				if (trigger.classList.contains('trigger-modal-external-link')) {
 					this.modal.querySelector('.external-link').href = e.target.href;
@@ -40,7 +39,6 @@ export default class Modal {
 	}
 
 	close() {
-		console.log('close');
 		this.modalWrapper.setAttribute('data-open', 'false');
 	}
 }
