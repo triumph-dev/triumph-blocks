@@ -1,0 +1,19 @@
+{#
+  Title: Button Group
+  Description: Single or multiple buttons
+  Category: triumph-blocks
+  Icon: admin-links
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leadership partner service
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+<div class="button-group {{ blockName }} {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+	{% for link in fields.links %}
+		{% include 'blocks/link/link.twig' %}
+	{% endfor %}
+</div>
