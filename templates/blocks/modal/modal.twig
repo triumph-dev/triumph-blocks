@@ -1,8 +1,12 @@
-<div id="{{ modal.id }}" class="modal-wrapper" data-open="false">
+<div id="{{ modal.slug }}" class="modal-wrapper" data-open="false">
     <div class="modal">
         <button class="modal-close" aria-label="close the modal"><span class="hidden">Close</span><i class="fal fa-times"></i></button>
         <div class="modal-content">
             {{ modal.content }}
+			<div class="continue-links button-group hidden">
+				<button class="modal-close primary btn border">Close</button>
+				<a class="continue-link primary btn" href="#" target="_blank">Continue <i class="far fa-arrow-right"></i></a> 
+			</div>
         </div>
     </div>
 </div>

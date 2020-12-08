@@ -12,8 +12,9 @@ export default class Modal {
 			trigger.addEventListener('click', (e) => {
 				e.preventDefault();
 
-				if (trigger.classList.contains('trigger-modal-external-link')) {
-					this.modal.querySelector('.external-link').href = e.target.href;
+				if (trigger.hasAttribute('href')) {
+					this.modal.querySelector('.continue-link').href = e.target.href;
+					this.modal.querySelector('.continue-links').classList.remove('hidden');
 				}
 
 				if (this.modalWrapper.dataset.open != 'true') {

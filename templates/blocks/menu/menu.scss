@@ -152,7 +152,7 @@ ul.header-menu-child {
 		width: 24ch;
 		background: #fff;
 		border-radius: $border-radius;
-		.menu-item {
+		> li {
 			&:last-child {
 				margin-bottom: .5rem;
 			}
