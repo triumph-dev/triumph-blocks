@@ -2,32 +2,46 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.5);
-	height: 100vh;
-	width: 100vw;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.75);
 	z-index: -10;
-	display: none;
-	transition: opacity 500ms ease, z-index 0ms linear 500ms, display 0ms linear 500ms;
+	@extend %center-flex;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	transition: opacity 500ms ease, z-index 0ms linear 500ms, width 0ms linear 500ms, height 0ms linear 500ms;
 
 	&[data-open="true"] {
-		@extend %center-flex;
+		height: 100vh;
+		width: 100vw;
 		z-index: 10;
 		opacity: 1;
-		transition: opacity 500ms ease, z-index 0ms linear;
+		transition: opacity 500ms ease, z-index 0ms linear, width 0ms linear, height 0ms linear;
 	}
 }
 .modal {
 	position: relative;
 	max-width: 45ch;
 	background: #fff;
-	padding: $space-md $space-lg $space-md $space-md;
+	padding: $space-md $space-md $space-md;
 	margin: $space-md;
-	box-shadow: .25em .25em 4em rgba(0, 0, 0, .5);
+	box-shadow: .25em .25em 6em rgba(0, 0, 0, 1);
 	> button.modal-close {
+		color: #fff;
+		opacity: 1;
 		@extend %button-clean;
-		font-size: 2em;
+		font-size: 2.25em;
 		position: absolute;
-		top: .25em;
-		right: .5em;
+		top: -1.5em;
+		right: 0;
+		transition: opacity 150ms;
+		&:hover {
+			color: #fff;
+			opacity: .5;
+		}
+		@include md-and-up {
+			top: -1em;
+			right: -1em;
+		}
 	}
 }
