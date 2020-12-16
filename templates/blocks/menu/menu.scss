@@ -51,6 +51,7 @@ a.menu-link {
 }
 .has-subnav {
 	//position: relative;
+
 	&[data-subnav-toggle="closed"] {
 		ul.header-menu-child {
 			padding-top: 0;
@@ -61,16 +62,8 @@ a.menu-link {
 	}
 
 	&[data-subnav-toggle="open"] {
-		> .menu-heading-wrapper .subnav-toggle {
+		.toggle-icon {
 			transform: rotate(180deg);
-		}
-	}
-
-	@include lg-and-up {
-		&:hover {
-			> ul.header-menu-child {
-				max-height: 30em;
-			}
 		}
 	}
 }
@@ -78,16 +71,16 @@ a.menu-link {
 	@extend %uppercase;
 	display: block;
 	font-weight: 600;
-	padding: .5rem 0;
+	//padding: .5rem 0;
 	@include lg-and-up {
-		padding: .75rem 0 .75rem 1rem;
+		//padding: .75rem 0 .75rem 1rem;
 	}
 }
 .menu-title {
 	pointer-events: none;
 	display: block;
 	font-weight: 600;
-	padding: .25em 0;
+	//padding: .25em 0;
 }
 .menu-heading-wrapper {
 	position: relative;
@@ -100,24 +93,20 @@ a.menu-link {
 }
 .subnav-toggle {
 	@extend %button-clean;
-	box-sizing: border-box;
-	display: block;
-	color: var(--color-primary);
-	width: 3rem;
-	text-align: center;
-	padding: 0;
-	position: relative;
-	right: -1rem;
-	transition: transform 150ms ease;
-	&:hover,
-	&:focus {
-		color: var(--color-primary-darken);
+	display: flex;
+	align-items: center;
+	.menu-heading-title {
+		margin-right: $space-xs;
 	}
-	@include lg-and-up {
-		color: $color-ui-dark;
-		pointer-events: none;
-		right: 0;
-		width: 1.5rem;
+
+	.toggle-icon {
+		box-sizing: border-box;
+		display: block;
+		text-align: center;
+		padding: 0;
+		position: relative;
+		//right: -1rem;
+		transition: transform 150ms ease;
 	}
 }
 ul.header-menu {
@@ -132,6 +121,7 @@ ul.header-menu {
 			height: 2.75rem;
 			overflow: visible;
 			> li {
+				padding: 1rem;
 				border-top: none;
 				margin: 0;
 			}

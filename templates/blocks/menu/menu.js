@@ -19,6 +19,14 @@ export default class Menu {
 
 	toggleSubnav(toggle) {
 		let parent = toggle.closest('[data-subnav-toggle]');
+
+		this.subnavs.forEach((subnav) => {
+			if (subnav !== parent) {
+				let parent = subnav.closest('[data-subnav-toggle]');
+				parent.setAttribute('data-subnav-toggle', 'closed');
+			}
+		});
+
 		parent.dataset.subnavToggle == 'closed'
 			? parent.setAttribute('data-subnav-toggle', 'open')
 			: parent.setAttribute('data-subnav-toggle', 'closed');

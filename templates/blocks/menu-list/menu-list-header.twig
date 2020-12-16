@@ -1,26 +1,47 @@
 {% set level = level + 1 %}
 {% set menu_child = menu_child ? 'header-menu-child' : '' %}
 {% if items|length %}
-	<ul class="{{ name }} header-menu {{ menu_child }}" data-level="{{ level }}" {% if level == 2 %}data-title="{{ item.title|striptags }}" {% endif %}>
-		{% for item in items %}
-			<li {% if item.children %} class="has-subnav" {% endif %} data-level="{{ level }}" {% if item.children %}data-subnav-toggle="closed"{% endif %} >
-	
+
+	{% if level == 1 %}
+		<ul class="{{ name }} header-menu" data-level="1" data-title="{{ item.title|striptags }}">
+			{% for item in items %}
+
 				{% if item.children %}
-					<div class="menu-heading-wrapper">
-
-							{% if item.link == '#' %}
-								<span class="menu-heading-title" data-level="{{ level }}" >{{ item.title }}</span>
-							{% else %}
-								<a class="{{ item.classes|join(' ') }} menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title" data-level="{{ level }}" >{{ item.title }}</span></a>
-							{% endif %}
-
-						<button class="subnav-toggle" aria-label="Expand Subnav"><i class="fas fa-chevron-down"></i></button>
-					</div>
-					{% include 'blocks/menu-list/menu-list-header.twig' with {'items': item.children, menu_child : true} %}
+					<li class="has-subnav" data-level="1" data-subnav-toggle="closed" >
+						<div class="menu-heading-wrapper">
+							<button class="subnav-toggle" aria-label="Expand Subnav"><span class="menu-heading-title">{{ item.title }}</span><span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></button>
+						</div>
+						{% include 'blocks/menu-list/menu-list-header.twig' with {'items': item.children, menu_child : true} %}
+					</li>
 				{% else %}
-					<a class="{{ item.classes|join(' ') }} menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="{{ level == 1 ? 'menu-heading-title' : 'menu-title' }}" data-level="{{ level }}">{{ item.title }}</span></a>
+					<li data-level="1">
+						<a class="{{ item.classes|join(' ') }} menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title" data-level="{{ level }}">{{ item.title }}</span></a>
+					</li>
 				{% endif %}
-			</li>
-		{% endfor %}
-	</ul>
+
+			{% endfor %}
+		</ul>
+	{% else %}
+		<ul class="{{ name }} header-menu {{ menu_child }}" data-level="{{ level }}" data-title="{{ item.title|striptags }}">
+			{% for item in items %}
+				<li {% if item.children %} class="has-subnav" {% endif %} data-level="{{ level }}" >
+		
+					{% if item.children %}
+						<div class="menu-heading-wrapper">
+								{% if item.link == '#' %}
+									<span class="menu-heading-title" data-level="{{ level }}" >{{ item.title }}</span>
+								{% else %}
+									<a class="{{ item.classes|join(' ') }} menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-heading-title" data-level="{{ level }}" >{{ item.title }}</span></a>
+								{% endif %}
+						</div>
+						{% include 'blocks/menu-list/menu-list-header.twig' with {'items': item.children, menu_child : true} %}
+					{% else %}
+						<a class="{{ item.classes|join(' ') }} menu-link" target="{{ item.target }}" href="{{ item.link }}"><span class="menu-title" data-level="{{ level }}">{{ item.title }}</span></a>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+
+	{% endif %}
+	
 {% endif %}
