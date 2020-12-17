@@ -22,8 +22,9 @@
 		<div id="faqs">
 			{% if fields.show_search %}
 				<form name="faq-search" class="form-inline">
-					<input class="search" type="search" placeholder="Search" />
-					<button class="btn primary"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
+					<label class="hidden" for="faq-search">Search</label>
+					<input id="faq-search" name="faq-search" class="search" type="search" placeholder="Search" />
+					<button class="btn primary" aria-label="Search FAQs"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
 				</form>
 			{% endif %}
 			<ul class="faq-list list">
