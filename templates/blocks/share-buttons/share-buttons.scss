@@ -4,7 +4,7 @@
 	.label {
 		margin: 0;
 		@extend %uppercase;
-		font: 600 .9rem/1 $font-sans-serif;
+		font: 600 .875rem/1 $font-sans-serif;
 	}
 	> *:not(:last-child) {
 		margin-right: $space-sm;

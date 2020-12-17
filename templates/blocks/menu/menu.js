@@ -3,6 +3,7 @@ export default class Menu {
 		this.toggleButton = document.querySelector(toggleButton);
 		this.menu = document.querySelector(menu);
 		this.subnavs = this.menu.querySelectorAll('[data-subnav-toggle]');
+		this.subnavActive = null;
 		this.doc = document.documentElement;
 		this.init();
 	}
@@ -17,21 +18,6 @@ export default class Menu {
 		this.doc.dataset.menuState = 'closed';
 	}
 
-	toggleSubnav(toggle) {
-		let parent = toggle.closest('[data-subnav-toggle]');
-
-		this.subnavs.forEach((subnav) => {
-			if (subnav !== parent) {
-				let parent = subnav.closest('[data-subnav-toggle]');
-				parent.setAttribute('data-subnav-toggle', 'closed');
-			}
-		});
-
-		parent.dataset.subnavToggle == 'closed'
-			? parent.setAttribute('data-subnav-toggle', 'open')
-			: parent.setAttribute('data-subnav-toggle', 'closed');
-	}
-
 	toggle() {
 		this.menu.dataset.menuState == 'closed'
 			? this.menu.setAttribute('data-menu-state', 'open')
@@ -41,16 +27,52 @@ export default class Menu {
 			: this.doc.setAttribute('data-menu-state', 'closed');
 	}
 
-	init() {
-		this.toggleButton.addEventListener('click', () => {
-			this.toggle();
+	subnavCloseAll() {
+		this.subnavActive = null;
+		this.subnavs.forEach((subnav) => {
+			subnav.setAttribute('data-subnav-toggle', 'closed');
 		});
+	}
+	toggleSubnav(toggle) {
+		let parent = toggle.closest('[data-subnav-toggle]');
+		this.subnavActive = document.getElementById(parent.id);
 
 		this.subnavs.forEach((subnav) => {
-			let subnavToggle = subnav.querySelector('.subnav-toggle');
-			subnavToggle.addEventListener('click', (e) => {
-				this.toggleSubnav(e.target);
-			});
+			if (subnav !== parent) {
+				subnav.setAttribute('data-subnav-toggle', 'closed');
+			}
+		});
+
+		parent.dataset.subnavToggle == 'closed'
+			? parent.setAttribute('data-subnav-toggle', 'open')
+			: parent.setAttribute('data-subnav-toggle', 'closed');
+	}
+
+	init() {
+		document.addEventListener('click', (e) => {
+			let targetElement = e.target; // clicked element
+			var inside = false;
+
+			if (targetElement.classList.contains('subnav-toggle')) {
+				this.toggleSubnav(targetElement);
+			}
+
+			do {
+				if (targetElement == this.subnavActive) {
+					// This is a click inside. Do nothing, just return.
+					var inside = true;
+					return;
+				}
+				// Go up the DOM
+				targetElement = targetElement.parentNode;
+			} while (targetElement);
+
+			// this is outside
+			return this.subnavCloseAll();
+		});
+
+		this.toggleButton.addEventListener('click', () => {
+			this.toggle();
 		});
 	}
 }

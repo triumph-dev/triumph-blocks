@@ -24,7 +24,7 @@ a {
 	}
 	&.simple {
 		@extend %uppercase;
-		font: 600 .9rem/1 $font-sans-serif;
+		font: 600 .875rem/1 $font-sans-serif;
 
 		&:focus,
 		&:hover {
@@ -35,7 +35,7 @@ a {
 
 .simple-link {
 	@extend %uppercase;
-	font: 600 .9rem/1 $font-sans-serif;
+	font: 600 .875rem/1 $font-sans-serif;
 
 	&:focus,
 	&:hover {
