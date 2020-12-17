@@ -128,6 +128,28 @@ function acf_icon_selector_choices( $field ) {
 
 add_filter('acf/load_field/name=icon', 'acf_icon_selector_choices');
 
+function triumph_get_accent_color(){
+	if(!empty(get_the_ID())){
+		$url = get_permalink(get_the_ID());
+		$base = get_site_url();
+
+		if(strpos($url, $base.'/personal') !== false){
+			$accent_color = get_theme_mod('triumph_color_accent_green', '#527a2e');
+		}elseif(strpos($url, $base.'/business') !== false){
+			$accent_color = get_theme_mod('triumph_color_accent_blue', '#4F758B');
+		}
+		elseif(strpos($url, $base.'/our-bank') !== false){
+			$accent_color = get_theme_mod('triumph_color_accent_rust', '#B35D23');
+		}else{
+			$accent_color = get_theme_mod('triumph_color_accent', '#37474f');
+		}
+
+	}else{
+		$accent_color = get_theme_mod('triumph_color_accent', '#37474f');
+	}
+	return $accent_color;
+}
+
 
 /**
  * Get an SVG by path or URL, and returns the SVG code
