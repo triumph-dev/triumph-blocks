@@ -1,5 +1,5 @@
 {% set level = 0 %}
-<nav id="menu" class="menu" role="navigation">
+<nav id="menu" class="menu {% if menu.headerMegaNav %}mega-menu{% endif %}" role="navigation" >
 	<a class="menu-logo" href="{{site.url}}" rel="home" title="{{site.name}}" aria-label="Home">
 		<img src="{{ site_logo_src() }}" alt="{{site.name}} Logo" data-object-fit="contain">
 		<h2 class="site-name hidden">{{site.name}}</h2>
@@ -27,13 +27,13 @@
 		{% endif %}
 
 	</div>
+
     {% if menu.headerQuickLinks %}
-        <div id="menu-search">
+        <div id="menu-search" data-subnav-toggle="closed">
             {% include 'blocks/menu-list/menu-list.twig' with {items: menu.headerQuickLinks.get_items, name: 'menu-header-quick-links'} %}
-			<button id="menu-search-toggle" class="menu-search"><i class="fas fa-search"></i> Search</button>
-        </div>
-        <div id="menu-search-content" data-search-menu-state="closed">
-            <button class="close"><i class="fal fa-times"></i><span class="hidden">Close</span></button>
+			<button class="menu-search subnav-toggle" aria-label="Search site"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
+			<div id="menu-search-content" >
+            <button class="subnav-close"><i class="fal fa-times"></i><span class="hidden">Close</span></button>
             <div class="search-wrapper">
                 
                 <div class="search-links">
@@ -47,7 +47,7 @@
                     <label>Search</label>
                     <form name="site-search" role="search" method="get" class="form-inline" action="?s">
                         <input name="s" id="menu_s" type="search" placeholder="Search" />
-                        <button class="btn primary"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
+                        <button class="btn primary" aria-label="Search site"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
                     </form>
                     <div class="search-message">
                         Didn't find what you're looking for? Contact us.
@@ -56,6 +56,8 @@
                 
             </div>
         </div>
+        
+        </div>
 		{% endif %}
-    
+
 </nav>

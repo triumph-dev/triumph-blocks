@@ -1,14 +1,16 @@
 #menu-search {
-	background: rgba($color-ui-gray, 0.2);
+	border-top: $border-width solid $color-ui-light;
 	width: 100%;
 	@include lg-and-up {
 		display: flex;
 		padding: 0 $space-md;
 	}
-	.menu-search {
+	.subnav-toggle.menu-search {
 		display: none;
 		@extend %button-clean;
-		margin-left: $space-sm;
+		height: 2.5rem;
+		width: 2.5rem;
+		padding: .5rem;
 		text-transform: uppercase;
 		letter-spacing: .1em;
 		font: 600 .875rem $font-sans-serif;
@@ -21,23 +23,24 @@
 			display: none;
 		}
 	}
-}
-[data-menu-state="open"] {
-	ul.menu-header-quick-links {
-		max-height: 100vh;
-		padding: 1.25rem;
+	&[data-subnav-toggle="open"] {
+		#menu-search-content {
+			max-height: 100vh;
+			padding: $space-md 2.5rem $space-md $space-md;
+		}
 	}
 }
+
 ul.menu-header-quick-links {
 	overflow: hidden;
-	padding: 0 1.25rem;
+	padding: 1.25rem;
 	flex-grow: 1;
-	max-height: 0;
 	transition: max-height 350ms ease, padding 350ms ease;
 	font: 600 .875rem $font-sans-serif;
 	@extend %uppercase;
 
 	@include lg-and-up {
+		padding: 0;
 		max-height: 4rem;
 		display: flex;
 		flex-wrap: wrap;
@@ -56,25 +59,23 @@ ul.menu-header-quick-links {
 }
 
 #menu-search-content {
+	background: $color-ui-light;
 	display: none;
-	position: relative;
-	padding: 0 $space-md;
-	background: rgba($color-ui-gray, 0.2);
+	position: absolute;
+	left: 0;
+	top: 100%;
+	padding: 0 2.5rem 0 $space-md;
+	//background: rgba($color-ui-gray, 0.2);
 	@include lg-and-up {
 		display: block;
 		overflow: hidden;
+		max-height: 0;
 		transition: max-height 350ms ease, padding 350ms ease;
 		&[data-search-menu-state="closed"] {
-			padding: 0 $space-md;
 			max-height: 0;
-		}
-		&[data-search-menu-state="open"] {
-			padding: 0 $space-md $space-md $space-md;
-			max-height: 30em;
 		}
 	}
 	.search-wrapper {
-		border-top: $border-width solid rgba($color-ui-gray, 0.1);
 		display: flex;
 	}
 	.search-form {
@@ -89,14 +90,6 @@ ul.menu-header-quick-links {
 		margin: 0;
 		overflow: hidden;
 	}
-	button.close {
-		position: absolute;
-		right: $space-md;
-		top: $space-xs;
-		@extend %button-clean;
-		font-size: 1.75em;
-		opacity: .8;
-	}
 }
 
 .menu-header-search {
@@ -106,4 +99,13 @@ ul.menu-header-quick-links {
 		width: 30ch;
 		margin-bottom: $space-xs;
 	}
+}
+
+button.subnav-close {
+	position: absolute;
+	right: 2.5rem;
+	top: $space-sm;
+	@extend %button-clean;
+	font-size: 1.75em;
+	opacity: .8;
 }

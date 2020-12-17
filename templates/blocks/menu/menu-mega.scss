@@ -1,3 +1,80 @@
+#menu.mega-menu {
+	@include lg-and-up {
+		max-height: 8rem;
+	}
+}
+.mega-menu {
+	ul[data-level="2"] {
+		@extend %light-link;
+		background: var(--color-primary);
+		margin: 0 -#{$space-md};
+		padding: $space-sm $space-md;
+
+		@include lg-and-up {
+			display: flex;
+			justify-content: center;
+			border-radius: 0;
+			position: absolute;
+			top: 7.7rem;
+
+			margin: 0;
+			left: 0;
+			width: 100%;
+
+			> li {
+				margin: $space-md 0;
+			}
+			.header-menu-child {
+				margin: $space-sm 0;
+				background: transparent;
+				position: relative;
+				max-height: 30em;
+				width: auto;
+			}
+		}
+		&[data-title="Business"] {
+			background: var(--color-accent-blue);
+		}
+		&[data-title="Personal"] {
+			background: var(--color-accent-green);
+		}
+		&[data-title="Our Bank"] {
+			background: var(--color-accent-rust);
+		}
+		a {
+			&:hover,
+			&:focus {
+				color: #fff !important;
+			}
+		}
+
+		.menu-heading-title {
+			//padding: 0;
+			@include lg-and-up {
+				padding: 0;
+			}
+		}
+		.menu-title {
+			padding: 0;
+		}
+
+		.subnav-toggle {
+			color: $color-ui-light;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+			@include lg-and-up {
+				display: none;
+			}
+		}
+	}
+	ul.menu-header-utility {
+		margin-left: auto;
+	}
+}
+
 /*
 ul.menu-header-mega-nav {
 	@include lg-and-up {

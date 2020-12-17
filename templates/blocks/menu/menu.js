@@ -2,7 +2,8 @@ export default class Menu {
 	constructor(menu, toggleButton) {
 		this.toggleButton = document.querySelector(toggleButton);
 		this.menu = document.querySelector(menu);
-		this.subnavs = this.menu.querySelectorAll('[data-subnav-toggle]');
+		this.subnavs = document.querySelectorAll('[data-subnav-toggle]');
+		this.subnavCloseButtons = document.querySelectorAll('.subnav-close');
 		this.subnavActive = null;
 		this.doc = document.documentElement;
 		this.init();
@@ -73,6 +74,12 @@ export default class Menu {
 
 		this.toggleButton.addEventListener('click', () => {
 			this.toggle();
+		});
+
+		this.subnavCloseButtons.forEach((subnavCloseButton) => {
+			subnavCloseButton.addEventListener('click', (e) => {
+				this.subnavCloseAll();
+			});
 		});
 	}
 }

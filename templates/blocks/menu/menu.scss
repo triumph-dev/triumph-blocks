@@ -141,8 +141,8 @@ ul.header-menu {
 ul.header-menu-child {
 	position: relative;
 	z-index: 2;
-	overflow: hidden;
-	max-height: 30em;
+	overflow: auto;
+	max-height: 90em;
 	transition: max-height 350ms ease, padding 350ms ease;
 	> li {
 		margin-bottom: .5em;
@@ -151,6 +151,7 @@ ul.header-menu-child {
 		}
 	}
 	@include lg-and-up {
+		max-height: 30em;
 		position: absolute;
 		width: 24ch;
 		background: #fff;
@@ -220,6 +221,6 @@ ul.header-menu-child {
 		}
 	}
 	#menu {
-		max-height: 100vh;
+		max-height: 300vh;
 	}
 }
