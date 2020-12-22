@@ -2,4 +2,70 @@
 	.intro-copy {
 		margin-bottom: $space-lg;
 	}
+	p.question {
+		margin: 0;
+	}
+}
+.faq-list {
+	width: 100%;
+}
+.faqs-with-filter {
+	@include md-and-up {
+		display: flex;
+
+		.faq-filter {
+			flex-grow: 1;
+			width: 20em;
+			margin: 0 $space-md 0 0;
+		}
+	}
+	.faq-list {
+		flex-shrink: 1;
+		:first-child {
+			.expand-wrapper {
+				margin-top: 0;
+			}
+		}
+	}
+}
+.faq-categories {
+	font-size: .875rem;
+	font-weight: 600;
+	opacity: .75;
+	margin-top: .25em;
+}
+
+.faq-filter {
+	position: relative;
+
+	form {
+		margin-bottom: $space-md;
+	}
+	ul {
+		margin-bottom: $space-md;
+		> li {
+			margin: 0;
+		}
+	}
+	h3 {
+		margin-bottom: 0.25em;
+	}
+	button[data-toggle-id] {
+		margin-bottom: $space-md;
+		width: 100%;
+		.toggle-status:before {
+			content: "Show";
+		}
+		&[data-target-toggle="open"] {
+			.toggle-status:before {
+				content: "Hide";
+			}
+		}
+		@include sm-and-up {
+			width: auto;
+		}
+		@include md-and-up {
+			display: none;
+		}
+	}
 }

@@ -1,0 +1,31 @@
+{#
+  Title: Mosaic
+  Description: A mosaic pattern link block
+  Category: triumph-blocks
+  Icon: grid-view
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leadership partner service
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'mosaic'} %}
+	{% block block_content %}
+		<nav class="tiles">
+			{% for tile in fields.tiles %}
+				<a class="tile" href="{{ tile.link.link }}" target="{{ tile.link.target }}" data-span="{{ tile.span }}" data-tile-color="{{ tile.tile_color }}">
+					{% set image = Image(tile.image) %}
+					<img class="tile-image" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover"/>
+					<div class="tile-copy">
+						{{ tile.copy }}
+					</div>
+					<div class="tile-link-text simple-link">{{ tile.link.title }} <i class="fas fa-angle-right"></i></div>
+				</a>
+			{% endfor %}
+		</nav>
+	{% endblock %}
+{% endembed %}

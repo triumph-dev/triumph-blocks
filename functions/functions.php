@@ -97,6 +97,16 @@ function account_features( $account_id = null) {
 }
 
 
+function triumph_faq_categories($faqs){
+	$categories = [];
+	foreach($faqs as $faq){
+		$question_categories = array_map('trim', explode(',', $faq['category'])); 
+		$categories = array_merge ($categories, $question_categories);
+	}
+	$categories = array_filter(array_unique ($categories));
+	return $categories;
+
+}
 
 
 function acf_icon_selector_choices( $field ) {

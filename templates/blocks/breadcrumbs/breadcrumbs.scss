@@ -4,8 +4,17 @@
 }
 ul.breadcrumb-links {
 	font-size: .9em;
-	display: flex;
+	//padding: 0 1em !important;
+	list-style-type: none;
+	display: block;
+	white-space: nowrap;
+	overflow-x: auto;
+	max-width: 100%;
+	direction: rtl;
+	text-align: left;
+
 	> li {
+		display: inline;
 		&:not(:last-child):after {
 			content: '▸';
 			padding: $space-xs;

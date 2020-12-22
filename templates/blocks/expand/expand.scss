@@ -25,6 +25,7 @@
 }
 .expand-trigger {
 	@extend %button-clean;
+	color: $color-ui-dark;
 	font-weight: bold;
 	line-height: 1.25;
 	display: flex;
@@ -32,6 +33,11 @@
 	width: 100%;
 	text-align: left;
 	padding: $space-md $space-md $space-md $space-sm;
+	&:hover,
+	&:focus {
+		color: $color-ui-dark;
+	}
+
 	.indicator {
 		color: var(--color-primary);
 		padding: 0 $space-sm;
