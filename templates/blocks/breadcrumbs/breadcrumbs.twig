@@ -16,6 +16,7 @@
 	{% block block_content %}
         
         <nav class="breadcrumb-nav">
+		
             {% if fields.source != 'custom' %}
                 {% cache post.slug ~ '-breadcrumbs' fields %}
                     {{ function('triumph_breadcrumbs', '', '') }}
@@ -28,7 +29,9 @@
                     <li><span class="current_page">{{ post.title }}</span></li>
                 </ul>
             {% endif %}
+			
         </nav>
+		<div class="fade"></div>
         
 	{% endblock %}
 {% endembed %}

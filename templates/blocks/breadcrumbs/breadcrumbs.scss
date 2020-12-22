@@ -1,10 +1,43 @@
 .section-wrapper.breadcrumbs {
-	padding-top: $space-sm;
-	padding-bottom: $space-sm;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	@include sm-and-up {
+		padding: 0 $space-md;
+	}
 }
+
+.breadcrumbs {
+	.fade {
+		@extend %absolute-fill;
+		pointer-events: none;
+		width: 0;
+		box-shadow: 0 0 2em 2em $color-ui-light;
+		@include sm-and-up {
+			display: none;
+		}
+	}
+}
+
+[data-background-color="primary"] .fade {
+	box-shadow: 0 0 2em 2em var(--color-primary);
+}
+
+[data-background-color="secondary"] .fade {
+	box-shadow: 0 0 2em 2em var(--color-secondary);
+}
+
+[data-background-color="accent"] .fade {
+	box-shadow: 0 0 2em 2em var(--color-accent);
+}
+
+[data-background-color="white"] .fade {
+	box-shadow: 0 0 2em 2em #fff;
+}
+
 ul.breadcrumb-links {
+	padding: $space-sm $space-sm $space-sm 0;
 	font-size: .9em;
-	//padding: 0 1em !important;
 	list-style-type: none;
 	display: block;
 	white-space: nowrap;
@@ -15,6 +48,13 @@ ul.breadcrumb-links {
 
 	> li {
 		display: inline;
+
+		&:first-child {
+			margin-left: $space-md;
+			@include sm-and-up {
+				margin-left: 0;
+			}
+		}
 		&:not(:last-child):after {
 			content: '▸';
 			padding: $space-xs;

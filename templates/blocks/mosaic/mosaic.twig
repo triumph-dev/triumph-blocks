@@ -17,7 +17,7 @@
 	{% block block_content %}
 		<nav class="tiles">
 			{% for tile in fields.tiles %}
-				<a class="tile" href="{{ tile.link.link }}" target="{{ tile.link.target }}" data-span="{{ tile.span }}" data-tile-color="{{ tile.tile_color }}">
+				<a class="tile" href="{{ tile.link.url }}" target="{{ tile.link.target }}" data-span="{{ tile.span }}" data-tile-color="{{ tile.tile_color }}">
 					{% set image = Image(tile.image) %}
 					<img class="tile-image" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover"/>
 					<div class="tile-copy">

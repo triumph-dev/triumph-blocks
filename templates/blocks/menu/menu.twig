@@ -44,13 +44,13 @@
                 </div>
 
                 <div class="search-form">
-                    <label>Search</label>
-                    <form name="site-search" role="search" method="get" class="form-inline" action="?s">
+                    <label for="menu_s">Search</label>
+                    <form name="site-search" role="search" method="get" class="form-inline" action="{{ site.url }}/">
                         <input name="s" id="menu_s" type="search" placeholder="Search" />
                         <button class="btn primary" aria-label="Search site"><i class="fas fa-search"></i><span class="hidden">Search</span></button>
                     </form>
                     <div class="search-message">
-                        Didn't find what you're looking for? Contact us.
+                        Didn't find what you're looking for? <a href="/our-bank/contact-us/">Contact us</a>.
                     </div>
                 </div>
                 
