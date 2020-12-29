@@ -1,10 +1,10 @@
 @media (min-width: 782px) {
 	.wp-block-column:not(:first-child) {
-		margin-left: $space-md;
+		margin-left: $space-lg;
 	}
 }
 .wp-block-columns {
-	margin: $space-md 0;
+	margin: $space-lg 0;
 }
 
 .wp-block-columns + h1,

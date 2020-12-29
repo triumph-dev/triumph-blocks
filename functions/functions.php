@@ -16,6 +16,36 @@ function triumph_blocks_categories( $categories ) {
 add_filter( 'block_categories', 'triumph_blocks_categories' );
 
 
+
+
+function triumph_blocks_update_field_group($group) {
+	if ( strpos($group['title'], 'Block - ') !== false ||  strpos($group['title'], 'Blocks - ') !== false) {
+	  add_filter('acf/settings/save_json', function() {
+		return TRIUMPH_BLOCKS_DIR.'assets/acf-json';
+	  });
+	}
+  }
+add_action('acf/update_field_group', 'triumph_blocks_update_field_group', 1, 1);
+
+
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+
+function my_acf_json_load_point( $paths ) {
+    
+    // remove original path (optional)
+    // unset($paths[0]);
+	$path = TRIUMPH_BLOCKS_DIR.'assets/acf-json';
+    
+    // append path
+    $paths[] = $path;
+    
+    // return
+    return $paths;
+    
+}
+
+
+
 add_filter( 'timber/acf-gutenberg-blocks-data', function( $context ){
     $context['post'] = Timber::get_post();
 

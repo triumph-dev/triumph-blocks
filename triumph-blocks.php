@@ -8,6 +8,7 @@
 use Timber\Timber;
 
 define('TRIUMPH_BLOCKS_URL', get_template_directory_uri().'/vendor/triumph-dev/triumph-blocks/');
+define('TRIUMPH_BLOCKS_DIR', get_stylesheet_directory() . '/vendor/triumph-dev/triumph-blocks/');
 
 
 if ( ! function_exists( 'acf_register_block' ) ) {
