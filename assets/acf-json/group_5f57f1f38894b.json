@@ -1,0 +1,62 @@
+{
+    "key": "group_5f57f1f38894b",
+    "title": "Triumph - App Icons",
+    "fields": [
+        {
+            "key": "field_5f57f1fb8dd64",
+            "label": "Apple Link",
+            "name": "apple_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "<img width=\"50\" src=\"\/wp-content\/themes\/tpay-theme\/assets\/img\/app-store.svg\" \/>",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f57f2098dd65",
+            "label": "Google Link",
+            "name": "google_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "<img width=\"50\" src=\"\/wp-content\/themes\/tpay-theme\/assets\/img\/play-store.svg\" \/>",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1609257319
+}

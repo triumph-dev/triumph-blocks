@@ -19,7 +19,10 @@ add_filter( 'block_categories', 'triumph_blocks_categories' );
 
 
 function triumph_blocks_update_field_group($group) {
-	if ( strpos($group['title'], 'Block - ') !== false ||  strpos($group['title'], 'Blocks - ') !== false) {
+	if ( strpos($group['title'], 'Block - ') !== false ||  
+		strpos($group['title'], 'Blocks - ') !== false ||
+		strpos($group['title'], 'Triumph - ') !== false)
+		{
 	  add_filter('acf/settings/save_json', function() {
 		return TRIUMPH_BLOCKS_DIR.'assets/acf-json';
 	  });

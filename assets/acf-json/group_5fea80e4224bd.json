@@ -1,0 +1,105 @@
+{
+    "key": "group_5fea80e4224bd",
+    "title": "Triumph - Code",
+    "fields": [
+        {
+            "key": "field_5fea80f4db891",
+            "label": "\"Here there be dragons.\"",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ask yourself the following questions:\r\n\r\nWill this code get used elsewhere in the Triumph family of sites?  If yes, stop now. Your code belongs in Triumph Blocks.  Write your code, commit it to the repo, and let CI\/CD do its thing.\r\n\r\nWill this code be used elsewhere in this website? If yes, stop now.  Your code belongs in the site theme.  Write your code, commit it to the repo, and let CI\/CD do its thing.\r\n\r\nIs this code doing something specific to this page, something that has zero purpose on any other part of this website or any other Triumph site?  If yes, you may proceed.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5fea8311298e0",
+            "label": "CSS",
+            "name": "css",
+            "type": "acf_code_field",
+            "instructions": "This will be loaded at the end of the head.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "mode": "css",
+            "theme": "monokai"
+        },
+        {
+            "key": "field_5fea8326298e1",
+            "label": "JS",
+            "name": "js",
+            "type": "acf_code_field",
+            "instructions": "This will be loaded beneath the foot.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "mode": "javascript",
+            "theme": "monokai"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1609257150
+}

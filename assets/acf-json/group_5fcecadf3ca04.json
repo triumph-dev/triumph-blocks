@@ -1,0 +1,41 @@
+{
+    "key": "group_5fcecadf3ca04",
+    "title": "Triumph - Modal",
+    "fields": [
+        {
+            "key": "field_5fcecaed97a35",
+            "label": "How To",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Modals are launched by links\/buttons that have the class \"trigger-modal-{{ YOUR MODAL SLUG HERE }}\"",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "modal"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1609257194
+}
