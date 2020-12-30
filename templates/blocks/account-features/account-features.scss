@@ -4,7 +4,8 @@
 	}
 }
 ul.account-features-list {
-	@extend %plus-list;
+	//@extend %plus-list;
+	@extend %bullet-list;
 	column-count: 1;
 	break-inside: avoid;
 	column-gap: $space-md;
@@ -14,7 +15,6 @@ ul.account-features-list {
 		column-count: 2;
 	}
 	> li {
-		display: inline-block;
 		width: 100%;
 		-webkit-column-break-inside: avoid;
 		-moz-column-break-inside: avoid;
@@ -28,8 +28,6 @@ ul.account-features-list {
 		i,
 		svg {
 			color: var(--color-primary);
-		}
-		sup {
 		}
 	}
 }
