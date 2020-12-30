@@ -60,17 +60,6 @@ $page-interior: 1100px;
 	}
 }
 
-%flat-list {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-
-	li {
-		margin: 0;
-		padding: 0;
-	}
-}
-
 %light-link {
 	a:not(.btn) {
 		color: #fff;

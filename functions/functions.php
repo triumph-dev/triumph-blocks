@@ -105,19 +105,25 @@ function account_features( $account_id = null) {
 
 			$feature_title = $account_feature_fields[$key]['label'];
 			
-			if(is_bool($feature_value) && $feature_value == true ){
-				$feature_value = '<i class="far fa-check"></i>';
-			}
 
-			if(!empty($feature_value) && !empty($account_feature_fields[$key]['instructions'])){
-				$feature_value .= '<sup>'.$i.'</sup>';
-				$disclaimer .= ' '.$i.'. '.$account_feature_fields[$key]['instructions'];
-				$i++;
-			}
 			if(!empty($feature_value)){
-				$list_content[] = sprintf(
-					'<span class="title">%s:</span> %s',
-				$feature_title, $feature_value);
+
+				if(!is_bool($feature_value)){
+					$feature_value = ': '.$feature_value;
+				}
+
+				if(is_bool($feature_value) && $feature_value == true ){
+					$feature_value = '';
+				}
+
+				if(!empty($account_feature_fields[$key]['instructions'])){
+					$feature_value .= '<sup>'.$i.'</sup>';
+					$disclaimer .= ' '.$i.'. '.$account_feature_fields[$key]['instructions'];
+					$i++;
+				}
+
+				$list_content[] = sprintf('<span class="title">%s</span>%s', $feature_title, $feature_value);
+
 			}
 
 		}

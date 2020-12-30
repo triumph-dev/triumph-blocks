@@ -4,22 +4,24 @@
 	}
 }
 ul.account-features-list {
+	@extend %plus-list;
 	column-count: 1;
 	break-inside: avoid;
 	column-gap: $space-md;
 	margin-bottom: $space-md;
+
 	@include sm-and-up {
 		column-count: 2;
 	}
 	> li {
 		display: inline-block;
+		width: 100%;
 		-webkit-column-break-inside: avoid;
 		-moz-column-break-inside: avoid;
 		-moz-page-break-inside: avoid;
 		page-break-inside: avoid;
 		break-inside: avoid-column;
-		padding-left: 1em;
-		text-indent: -1em;
+
 		p {
 			display: inline;
 		}
@@ -27,15 +29,7 @@ ul.account-features-list {
 		svg {
 			color: var(--color-primary);
 		}
-		.title {
+		sup {
 		}
-		margin: $space-sm 0;
-	}
-	> li:before {
-		content: "+";
-		margin-right: .5em;
-	}
-	> li:not(:last-child) {
-		margin-bottom: $space-xs;
 	}
 }
