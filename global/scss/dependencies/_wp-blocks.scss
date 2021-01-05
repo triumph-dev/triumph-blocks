@@ -6,6 +6,11 @@
 .wp-block-columns {
 	margin: $space-lg 0;
 }
+.layout-wrapper > .wp-block-columns {
+	&:last-child {
+		margin: 0;
+	}
+}
 
 .wp-block-columns + h1,
 .wp-block-columns + h2,
