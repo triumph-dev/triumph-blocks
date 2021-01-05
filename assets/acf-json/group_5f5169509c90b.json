@@ -98,6 +98,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5fecd37e79133",
+            "label": "Fax",
+            "name": "fax",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5f51697dea866",
             "label": "Email",
             "name": "email",
@@ -123,6 +142,13 @@
                 "operator": "==",
                 "value": "acf-options"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "location"
+            }
         ]
     ],
     "menu_order": 0,
@@ -133,5 +159,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609257293
+    "modified": 1609356181
 }

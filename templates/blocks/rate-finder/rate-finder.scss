@@ -1,0 +1,51 @@
+.rate-finder {
+	table {
+		font-size: .9rem;
+		margin: 0;
+		color: $color-ui-dark;
+	}
+}
+.account-rate {
+	background: #fff;
+	padding: $space-md;
+	@include md-and-up {
+		display: flex;
+	}
+
+	margin: $space-md 0;
+	&[data-account-type="Business Checking"],
+	&[data-account-type="Business Savings"] {
+		border-top: .5em solid var(--color-accent-blue-lighten);
+	}
+	&[data-account-type="Personal Checking"],
+	&[data-account-type="Personal Savings"] {
+		border-top: .5em solid var(--color-accent-green-lighten);
+	}
+}
+.account-title-content {
+	@include md-and-up {
+		width: 50%;
+		flex-grow: 1;
+	}
+
+	margin: 0;
+	h3 {
+		font-size: 1.25rem;
+	}
+	h4 {
+		font-size: .9rem;
+	}
+	a.simple-link {
+		display: inline-block;
+		margin: $space-sm 0 $space-md 0;
+		@include md-and-up {
+			margin: $space-md 0 0 0;
+		}
+	}
+}
+.rate-table-wrapper {
+	@include md-and-up {
+		width: 50%;
+		flex-grow: 1;
+	}
+}

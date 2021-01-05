@@ -24,23 +24,16 @@ $mosaic-grid-gap: 1rem;
 a.tile {
 	text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.5);
 	@extend %white-text;
+	@extend %card-link;
 	padding: 0;
-	background: var(--color-primary);
 	position: relative;
-	display: block;
-	border-radius: $border-radius;
-	border: $border-width solid rgba($color-ui-gray, .2);
 	transform: translateY(0);
 	@include md-and-up {
 		height: calc(32em - 10vw);
 	}
-	transition: border-color 150ms ease, transform 250ms ease !important;
 	&:hover,
 	&:focus {
-		transform: translateY(-.25rem);
-		//border-color: var(--color-accent);
-		text-decoration: none !important;
-		box-shadow: 0 .25em .5em rgba($color-ui-dark, .2);
+		border-color: transparent;
 		.tile-image {
 			opacity: .7;
 			filter: grayscale(0);

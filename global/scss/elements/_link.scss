@@ -42,3 +42,21 @@ a {
 		text-decoration: underline;
 	}
 }
+
+%card-link {
+	border-radius: $border-radius;
+	overflow: hidden;
+	background: #fff;
+	border: $border-width solid rgba($color-ui-gray, .2);
+	display: block;
+	width: 100%;
+	height: 100%;
+	transition: border-color 150ms ease, transform 250ms ease !important;
+	&:hover,
+	&:focus {
+		transform: translateY(-.25rem);
+		border-color: var(--color-accent);
+		text-decoration: none !important;
+		box-shadow: 0 .25em .5em rgba($color-ui-dark, .2);
+	}
+}

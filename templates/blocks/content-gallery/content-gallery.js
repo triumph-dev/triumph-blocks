@@ -1,4 +1,4 @@
-export default class Gallery {
+export default class ContentGallery {
 	constructor(element) {
 		this.element = document.querySelector(element);
 		this.block = this.element.parentNode;
@@ -22,33 +22,37 @@ export default class Gallery {
 			});
 		});
 		this.arrows.querySelectorAll('button').forEach((arrow) => {
-			arrow.addEventListener("click", () => {
-				this.arrows.querySelector('button[data-controls="next"]').classList.remove("inactive");
-				this.arrows.querySelector('button[data-controls="prev"]').classList.remove("inactive");
+			arrow.addEventListener('click', () => {
+				this.arrows.querySelector('button[data-controls="next"]').classList.remove('inactive');
+				this.arrows.querySelector('button[data-controls="prev"]').classList.remove('inactive');
 
 				var currentSlideNumber = parseInt(document.querySelector('.dot.active').dataset.slide.split('-')[1]);
-				var nextSlide = document.querySelector('.slide[data-slide="slide-'+ (currentSlideNumber + 1) +'"]');
-				var prevSlide = document.querySelector('.slide[data-slide="slide-'+ (currentSlideNumber - 1) +'"]');
+				var nextSlide = document.querySelector('.slide[data-slide="slide-' + (currentSlideNumber + 1) + '"]');
+				var prevSlide = document.querySelector('.slide[data-slide="slide-' + (currentSlideNumber - 1) + '"]');
 
-				if(arrow.dataset.controls=="next") {
-					if(nextSlide) {
+				if (arrow.dataset.controls == 'next') {
+					if (nextSlide) {
 						document.querySelector('.slide.active').classList.remove('active');
 						document.querySelector('.dot.active').classList.remove('active');
 						nextSlide.classList.add('active');
-						document.querySelector('.dot[data-slide="slide-'+ (currentSlideNumber + 1) +'"]').classList.add("active");
+						document
+							.querySelector('.dot[data-slide="slide-' + (currentSlideNumber + 1) + '"]')
+							.classList.add('active');
 					}
-					if(!document.querySelector('.slide[data-slide="slide-'+ (currentSlideNumber + 2) +'"]')) {
-						this.arrows.querySelector('button[data-controls="next"]').classList.add("inactive");
+					if (!document.querySelector('.slide[data-slide="slide-' + (currentSlideNumber + 2) + '"]')) {
+						this.arrows.querySelector('button[data-controls="next"]').classList.add('inactive');
 					}
 				} else {
-					if(prevSlide) {
+					if (prevSlide) {
 						document.querySelector('.slide.active').classList.remove('active');
 						document.querySelector('.dot.active').classList.remove('active');
 						prevSlide.classList.add('active');
-						document.querySelector('.dot[data-slide="slide-'+ (currentSlideNumber - 1) +'"]').classList.add("active");
+						document
+							.querySelector('.dot[data-slide="slide-' + (currentSlideNumber - 1) + '"]')
+							.classList.add('active');
 					}
-					if(!document.querySelector('.slide[data-slide="slide-'+ (currentSlideNumber - 2) +'"]')) {
-						this.arrows.querySelector('button[data-controls="prev"]').classList.add("inactive");
+					if (!document.querySelector('.slide[data-slide="slide-' + (currentSlideNumber - 2) + '"]')) {
+						this.arrows.querySelector('button[data-controls="prev"]').classList.add('inactive');
 					}
 				}
 			});
