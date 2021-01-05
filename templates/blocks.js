@@ -224,7 +224,7 @@ if (document.getElementById('menu-toggle-button') && document.getElementById('me
  * Modals can be added via custom post type. and triggered via 
  * a click on any element with class .trigger-modal-{{ post slug }}
 */
-import Modal from '../templates/blocks/menu/menu';
+import Modal from '../templates/blocks/modal/modal';
 const modals = document.querySelectorAll('.modal-wrapper');
 modals.forEach((modal) => {
 	new Modal(modal);
