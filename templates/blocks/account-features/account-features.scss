@@ -7,9 +7,10 @@ ul.account-features-list {
 	//@extend %plus-list;
 	@extend %bullet-list;
 	column-count: 1;
-	break-inside: avoid;
-	column-gap: $space-md;
+	column-gap: $space-lg;
+	//margin: 0;
 	margin-bottom: $space-md;
+	margin-top: -#{$space-xs};
 
 	@include sm-and-up {
 		column-count: 2;
@@ -20,7 +21,10 @@ ul.account-features-list {
 		-moz-column-break-inside: avoid;
 		-moz-page-break-inside: avoid;
 		page-break-inside: avoid;
-		break-inside: avoid-column;
+		break-inside: avoid;
+		margin-bottom: 0 !important;
+		//margin: $space-sm 0 !important;
+		padding: $space-xs 0;
 
 		p {
 			display: inline;
