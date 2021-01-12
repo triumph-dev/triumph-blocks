@@ -12,7 +12,7 @@
   SupportsMultiple: true
 #}
 
-<div class="button-group {{ blockName }} {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+<div class="button-group {{ blockName }} {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }} data-alignment="{{ fields.alignment }}">
 	{% for link in fields.links %}
 		{% include 'blocks/link/link.twig' %}
 	{% endfor %}

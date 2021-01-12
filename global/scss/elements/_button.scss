@@ -110,10 +110,17 @@ input[type="submit"] {
 
 .button-group {
 	width: 100%;
+
 	@include sm-and-up {
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 -#{$space-xs};
+		&[data-alignment="center"] {
+			justify-content: center;
+		}
+		&[data-alignment="right"] {
+			justify-content: flex-end;
+		}
 	}
 	> * {
 		margin: $space-xs 0;

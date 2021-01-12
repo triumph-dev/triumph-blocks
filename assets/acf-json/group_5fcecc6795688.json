@@ -20,6 +20,32 @@
             "esc_html": 0
         },
         {
+            "key": "field_5ff8e543750a5",
+            "label": "Alignment",
+            "name": "alignment",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "center": "Center",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5fcecc72ac321",
             "label": "Links",
             "name": "links",
@@ -146,5 +172,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609198406
+    "modified": 1610147178
 }

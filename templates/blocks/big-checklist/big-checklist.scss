@@ -1,0 +1,28 @@
+.big-checklist {
+	ul.checklist {
+		column-count: 1;
+		column-gap: $space-lg;
+		@include sm-and-up {
+			column-count: 2;
+		}
+
+		> li {
+			display: flex;
+			-webkit-column-break-inside: avoid;
+			-moz-column-break-inside: avoid;
+			-moz-page-break-inside: avoid;
+			page-break-inside: avoid;
+			break-inside: avoid;
+			margin-bottom: $space-md;
+		}
+	}
+	.icon {
+		flex-shrink: 0;
+		margin-right: $space-sm;
+		svg {
+			margin: -1em;
+			width: 4em;
+			height: 4em;
+		}
+	}
+}

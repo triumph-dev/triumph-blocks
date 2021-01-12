@@ -19,16 +19,16 @@
 		}
 	}
 }
+
 ol.process-steps-list {
 	list-style: none;
 	counter-reset: my-awesome-counter;
 	padding-left: $space-lg;
 	margin-bottom: 0;
 	@include md-and-up {
-		&.has-copy {
-			max-width: 50%;
-		}
+		flex-grow: 1;
 	}
+
 	h3 {
 		padding-top: 0.35em;
 	}
@@ -81,5 +81,55 @@ ol.process-steps-list {
 				height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
 			}
 		}
+	}
+}
+.process-steps.horizontal {
+	.layout-wrapper {
+		@include md-and-up {
+			display: block;
+		}
+	}
+	.copy {
+		@include md-and-up {
+			max-width: 100%;
+			width: 100%;
+			margin-bottom: $space-lg;
+			text-align: center;
+		}
+	}
+	ol.process-steps-list {
+		@include md-and-up {
+			display: flex;
+			padding: 0;
+			li {
+				text-align: center;
+				padding: 0 $space-sm;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				> * {
+					order: 1;
+				}
+				&:after {
+					position: relative;
+					order: 0;
+					left: 0;
+					margin-bottom: $space-sm;
+				}
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+.process-steps-spacer {
+	display: none;
+	@include md-and-up {
+		display: block;
+		transform: translateY(calc(1.5em - 2px));
+		border-top: $border-width solid var(--color-accent);
+		margin: 0 auto;
 	}
 }

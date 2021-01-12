@@ -11,15 +11,19 @@
   SupportsMode: false
   SupportsMultiple: true
 #}
-
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'process-steps' } %}
+{% set orientation = fields.step_orientation ? fields.step_orientation : '' %}
+{% set width = (100 - (100 / fields.steps|length))|round(3, 'floor') %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'process-steps ' ~ orientation } %}
 	{% block block_content %}
 		{% if fields.copy %}
 			<div class="copy">
 				{{ fields.copy }}
 			</div>
 		{% endif %}
-		<ol class="process-steps-list {{ fields.copy ? 'has-copy' : '' }}">
+		{% if orientation == 'horizontal' %}
+			<div class="process-steps-spacer" style="width:{{ width }}%;"></div>
+		{% endif %}
+		<ol class="process-steps-list">
 			{% for step in fields.steps %}
 				<li>{{step.copy}}</li>
 			{% endfor %}

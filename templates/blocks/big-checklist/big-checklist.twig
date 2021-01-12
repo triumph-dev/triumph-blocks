@@ -1,0 +1,36 @@
+{#
+  Title: Big Checklist
+  Description: Content Grid
+  Category: triumph-blocks
+  Icon: yes-alt
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leader partner service
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+{% set icon =  function('svg_code', site.theme.link ~ '/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/Positive.svg') %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'big-checklist' } %}
+	{% block block_content %}
+
+		{% if fields.intro_copy %}
+			{% include 'blocks/intro-copy/intro-copy.twig' %}
+		{% endif %}
+		
+		<ul class="checklist">
+		{% for list_item in fields.list %}
+			<li>
+				<div class="icon">
+					{{ icon }}
+				</div>
+				<div class="text">
+					{{ list_item.text }}
+				</div>
+			</li>
+			
+		{% endfor %}
+		</ul>
+    {% endblock %}
+{% endembed %}
