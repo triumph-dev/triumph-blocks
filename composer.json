@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "timber/timber": "^2.0.0-alpha.1",
+        "timber/timber": "^1.18",
         "palmiak/timber-acf-wp-blocks": "^1.14"
     },
     "autoload": {
