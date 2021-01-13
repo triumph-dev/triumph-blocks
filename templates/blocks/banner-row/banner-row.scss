@@ -1,0 +1,32 @@
+.banner-row {
+	@include md-and-up {
+		display: flex;
+	}
+}
+.row-banner {
+	&[data-background-color="image"] {
+		@extend %white-text;
+	}
+	width: 100%;
+	padding: $space-lg $space-md;
+	.background {
+		z-index: 0;
+	}
+	.content,
+	.button-group {
+		text-align: center;
+		position: relative;
+		z-index: 1;
+	}
+	.content + .button-group {
+		margin-top: $space-md;
+	}
+	.content {
+		max-width: $breakpoint-sm;
+		margin: 0 auto;
+		text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.25);
+		p {
+			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+		}
+	}
+}

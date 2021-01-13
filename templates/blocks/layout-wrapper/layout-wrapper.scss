@@ -40,3 +40,17 @@ section[data-background-color] {
 		padding: $space-xl $space-md;
 	}
 }
+
+.overlap {
+	.layout-wrapper {
+		margin-bottom: $space-lg;
+	}
+}
+.overlap + .section-wrapper {
+	padding-top: 0;
+	padding-bottom: 0;
+	.layout-wrapper {
+		transform: translateY(calc(-#{$space-md} - #{$space-lg}));
+		margin-bottom: -#{$space-md};
+	}
+}

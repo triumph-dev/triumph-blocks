@@ -28,5 +28,19 @@
 				<li>{{step.copy}}</li>
 			{% endfor %}
 		</ol>
+		{% if orientation == 'horizontal' %}
+			{% if fields.outro_copy %}
+				<div class="process-step-outro-copy">{{ fields.outro_copy }}</div>
+			{% endif %}
+
+			{% if fields.links %}
+				{% set fields = fields|merge({alignment: 'center'}) %}
+				<div class="process-step-buttons button-group" data-alignment="{{ fields.alignment }}">
+					{% for link in fields.links %}
+						{% include 'blocks/link/link.twig' %}
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endif %}
 	{% endblock %}
 {% endembed %}

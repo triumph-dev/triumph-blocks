@@ -85,20 +85,20 @@ ol.process-steps-list {
 }
 .process-steps.horizontal {
 	.layout-wrapper {
-		@include md-and-up {
+		@include sm-and-up {
 			display: block;
 		}
 	}
 	.copy {
-		@include md-and-up {
-			max-width: 100%;
+		@include sm-and-up {
+			max-width: $breakpoint-sm;
 			width: 100%;
-			margin-bottom: $space-lg;
+			margin: 0 auto $space-lg auto;
 			text-align: center;
 		}
 	}
 	ol.process-steps-list {
-		@include md-and-up {
+		@include sm-and-up {
 			display: flex;
 			padding: 0;
 			li {
@@ -126,10 +126,21 @@ ol.process-steps-list {
 }
 .process-steps-spacer {
 	display: none;
-	@include md-and-up {
+	@include sm-and-up {
 		display: block;
 		transform: translateY(calc(1.5em - 2px));
 		border-top: $border-width solid var(--color-accent);
 		margin: 0 auto;
 	}
+}
+.process-step-outro-copy {
+	margin: $space-lg auto 0 auto;
+	max-width: $breakpoint-sm;
+	@include sm-and-up {
+		text-align: center;
+	}
+}
+
+.process-step-buttons {
+	margin-top: $space-md;
 }

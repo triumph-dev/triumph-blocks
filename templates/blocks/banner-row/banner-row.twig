@@ -1,0 +1,47 @@
+{#
+  Title: Banner Row
+  Description: Don't use this block. Putting multiple CTA banners side-by-side reduces the impact of each CTA.
+  Category: triumph-blocks
+  Icon: thumbs-down
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leader partner service
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+
+
+{% block block_content %}
+	<section class="banner-row {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+		{% for banner in fields.banners %}
+			<div class="row-banner" data-background-color="{{ banner.background_color }}">
+
+			{% if banner.background_color == 'image' and banner.background_image %}
+				{% if banner.background_darkness_overlay %}
+					{% set brightness = (100 - banner.background_darkness_overlay|number_format) ~ '%' %}
+					{% set brightness_filter = 'style="filter:brightness(' ~ brightness  ~');"' %}
+				{% else %}
+					{% set brightness_filter = null %}
+				{% endif %}
+				{% set image = Image(banner.background_image) %}
+				<img class="background" {{ brightness_filter }} data-object-fit="cover" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'section background' }}" loading="lazy">
+			{% endif %}
+
+			<div class="content" data-alignment="center">
+				{{ banner.copy }}
+			</div>
+			{% if banner.links|length %}
+				<div class="button-group" data-alignment="center">
+					{% for link in banner.links %}
+						{% include 'blocks/link/link.twig' %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			
+			</div>
+		{% endfor %}
+		
+	</section>
+{% endblock %}

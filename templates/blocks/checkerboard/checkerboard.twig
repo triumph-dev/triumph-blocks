@@ -12,14 +12,17 @@
   SupportsMultiple: true
 #}
 
-
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'checkerboard'} %}
+{% set first_text_position = fields.first_text_position ? fields.first_text_position : 'left' %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'checkerboard ' ~ first_text_position } %}
 	{% block block_content %}
 		{% for row in fields.rows %}
 			{% set image = Image(row.image) %}
             <figure class="row" data-background-color="{{ row.background_color }}">
 				<div class="image" data-pad="{{ fields.image_pad }}" >
 					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover" />
+					{% if row.crosshair_frame %}
+						{% include "templates/blocks/crosshair-frame/crosshair-frame.twig" %}
+					{% endif %}
 				</div>
                 <figcaption>
 					<div class="checkerbard-copy-wrapper">

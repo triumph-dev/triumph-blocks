@@ -62,9 +62,7 @@ $page-interior: 1100px;
 
 %light-link {
 	a:not(.btn) {
-		color: #fff;
-		transition: opacity 150ms ease;
-		opacity: .9;
+		color: inherit;
 		&:hover,
 		&:focus {
 			color: currentColor;
@@ -74,7 +72,7 @@ $page-interior: 1100px;
 		}
 	}
 	a.simple {
-		color: #fff;
+		color: inherit;
 		text-decoration: none;
 		&:hover,
 		&:focus {
@@ -120,6 +118,7 @@ $page-interior: 1100px;
 	@extend %light-link;
 }
 %dark-text {
+	color: $color-ui-dark;
 	h1,
 	h2,
 	h3,

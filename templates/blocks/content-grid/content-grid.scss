@@ -172,10 +172,10 @@ li[data-image-style="icon"] {
 .content-grid.alternative-background-margin {
 	@include md-and-up {
 		padding-top: 0;
-		border-top: $content-grid-gap solid white;
-		//padding-bottom: $content-grid-gap;
+		border-top: calc(#{$content-grid-gap} * 4) solid white;
+		padding-bottom: $content-grid-gap;
 		ul {
-			margin-top: calc(#{-$content-grid-gap} * 2);
+			margin-top: calc(#{-$content-grid-gap} * 4);
 		}
 	}
 }

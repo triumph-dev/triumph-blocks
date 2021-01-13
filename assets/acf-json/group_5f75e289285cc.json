@@ -20,6 +20,31 @@
             "esc_html": 0
         },
         {
+            "key": "field_5fff23a6a4b2d",
+            "label": "First Text Position",
+            "name": "first_text_position",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5f75e2a70cea7",
             "label": "Rows",
             "name": "rows",
@@ -110,6 +135,25 @@
                     "return_format": "value",
                     "ajax": 0,
                     "placeholder": ""
+                },
+                {
+                    "key": "field_5fff20e61204a",
+                    "label": "Crosshair Frame",
+                    "name": "crosshair_frame",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         }
@@ -131,5 +175,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609198406
+    "modified": 1610556409
 }

@@ -6,3 +6,6 @@ img {
 	height: auto;
 	display: block;
 }
+img.background {
+	pointer-events: none;
+}

@@ -1,7 +1,7 @@
 {% set image = Image(slide.image) %}
 <div class="image-holder">
-    {% if slide.image_watermark %}
-        {% include "templates/blocks/image-watermark/image-watermark.twig" %}
+    {% if slide.crosshair_frame %}
+        {% include "templates/blocks/crosshair-frame/crosshair-frame.twig" %}
     {% endif %}
 
     <img src="{{ image.src }}" srcset="{{ image.srcset }}" data-object-fit="cover" />

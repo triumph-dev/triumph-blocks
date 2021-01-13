@@ -1,28 +1,44 @@
 .section-wrapper.checkerboard {
 	padding: 0;
-	figure {
+}
+
+.checkerboard {
+	.row {
 		display: flex;
 		flex-direction: column;
 		margin: 0;
-		@include md-and-up {
+	}
+	@include md-and-up {
+		.row {
 			flex-direction: row;
 			figcaption {
 				display: flex;
-
-				//border-right: .5em solid var(--color-accent);
-				//border-left: none;
 			}
+
 			&:nth-of-type(odd) {
 				flex-direction: row-reverse;
 				figcaption {
 					align-items: flex-end;
+				}
+			}
+		}
 
-					//border-right: none;
-					//border-left: .5em solid var(--color-accent);
+		&.right {
+			.row:nth-of-type(odd) {
+				flex-direction: row;
+				figcaption {
+					align-items: flex-start;
+				}
+			}
+			.row:nth-of-type(even) {
+				flex-direction: row-reverse;
+				figcaption {
+					align-items: flex-end;
 				}
 			}
 		}
 	}
+
 	.image,
 	figcaption {
 		width: 100%;
@@ -59,6 +75,7 @@
 	}
 }
 .checkerbard-copy-wrapper {
+	width: 100%;
 	@include md-and-up {
 		max-width: 48ch;
 	}

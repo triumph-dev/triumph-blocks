@@ -1,0 +1,35 @@
+.crosshair-frame {
+	@extend %absolute-fill;
+	padding: $space-md;
+	svg {
+		opacity: .65;
+	}
+	.top-left,
+	.bottom-right {
+		position: absolute;
+		width: 18vw;
+		height: auto;
+		@include md-and-up {
+			display: none;
+		}
+	}
+	.top-left {
+		top: $space-md;
+		left: $space-md;
+		transform: rotate(180deg);
+	}
+	.bottom-right {
+		bottom: $space-md;
+		right: $space-md;
+	}
+	.crosshair-square {
+		display: none;
+		@include md-and-up {
+			display: block;
+			margin: 0 auto;
+			height: 100%;
+			max-height: 100%;
+			width: auto;
+		}
+	}
+}
