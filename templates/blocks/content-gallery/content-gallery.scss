@@ -1,5 +1,3 @@
-$image-max-width: 100%;
-$blockquote-max-width: calc(300px + 5vw);
 $max-height: calc(16em + 20vw);
 .section-wrapper.content-gallery {
 	padding: 0;
@@ -7,18 +5,15 @@ $max-height: calc(16em + 20vw);
 .content-gallery {
 	position: relative;
 	padding: 0;
-	blockquote {
-		font-size:20px;
-		margin: 0 auto;
-		font-family: $font-sans-serif;
-		padding: $space-lg $space-md;
+	.copy {
+		padding: 2rem 5rem;
 		@include md-and-up {
-			padding: 0;
-			max-width: $blockquote-max-width;
+			font-size: calc(.5em + 1vw);
 		}
-		@include lg-and-up {
-			font-size: 23px;
-		}
+	}
+	blockquote {
+		font-family: $font-sans-serif;
+
 		p {
 			font-family: $font-sans-serif;
 			font-weight: 600;
@@ -44,59 +39,11 @@ $max-height: calc(16em + 20vw);
 		@include md-and-up {
 			display: flex;
 		}
-		figcaption {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: flex-start;
-			width: 100%;
-			@media screen and (min-width: $breakpoint-md) and (max-width: calc(#{$image-max-width} * 2)) {
-				max-width: 50%;
-			}
-			a:not(.btn) {
-				text-decoration: underline;
-				&:hover {
-					color: white;
-				}
-			}
 
-			@include sm-and-up {
-				padding: $space-lg;
-			}
-
-			@include md-and-up {
-				padding: 0;
-				padding-bottom: $space-lg;
-			}
-
-			@include md-and-up {
-				min-height: $max-height;
-			}
-
-			.links {
-				display: block;
-				@include sm-and-up {
-					display: flex;
-				}
-				margin-top: $space-md;
-				a {
-					display: inline-block;
-					margin-right: $space-sm;
-				}
-			}
-		}
 		.image-holder {
 			position: relative;
-			max-width: $image-max-width;
 			width: 100%;
-			min-height:400px;
-			@include md-and-up {
-				min-height: $max-height;
-				width: 70%;
-			}
-			@include lg-and-up {
-				width: 100%;
-			}
+			min-height: 400px;
 		}
 		img {
 			height: 100%;
@@ -107,8 +54,35 @@ $max-height: calc(16em + 20vw);
 			}
 		}
 	}
+	figcaption {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		width: 100%;
+
+		a:not(.btn) {
+			text-decoration: underline;
+			&:hover {
+				color: white;
+			}
+		}
+
+		.links {
+			display: block;
+			@include sm-and-up {
+				display: flex;
+			}
+			margin-top: $space-md;
+			a {
+				display: inline-block;
+				margin-right: $space-sm;
+			}
+		}
+	}
 	.carousel {
 		.copy {
+			//font-size: .5em;
 			width: 100%;
 		}
 		figure {
@@ -128,15 +102,7 @@ $max-height: calc(16em + 20vw);
 			}
 		}
 	}
-	.single figure figcaption {
-		padding: $space-lg $space-md;
-		.copy {
-			@include md-and-up {
-				max-width: $blockquote-max-width;
-				margin: 0 auto;
-			}
-		}
-	}
+
 	.navigation {
 		position: absolute;
 		bottom: 0;
@@ -144,13 +110,10 @@ $max-height: calc(16em + 20vw);
 		@include md-and-up {
 			max-width: 50%;
 			right: 0;
-			bottom: $space-md;
-			margin-left: $space-lg;
+			bottom: $space-sm;
+			padding-left: $space-lg;
 		}
-		@media screen and (min-width: calc(#{$image-max-width} * 2)) {
-			width: calc(100% - #{$image-max-width});
-			max-width: 100%;
-		}
+
 		.dots-container {
 			color: #fff;
 			padding-left: $space-lg;
@@ -162,37 +125,17 @@ $max-height: calc(16em + 20vw);
 			@include md-and-up {
 				padding: 0;
 				background: transparent;
-				max-width: $blockquote-max-width;
 				justify-content: flex-start;
 			}
 		}
-
 	}
 
 	.tns-controls {
-		position: absolute;
-		right: 0;
-		overflow:hidden;
-		width: 100%;
-		top: 0;
 		color: white;
-		display: flex;
-		justify-content: space-between;
-		padding: $space-md;
-		height:400px;
-		align-items: center;
-		button {
-			background:var(--color-primary);
-			&.inactive {
-				opacity:0.5;
-			}
-		}
+		padding: 0 $space-sm;
 		@include md-and-up {
-			width:60%;
-			height:100%;
-		}
-		@include lg-and-up {
-			width:50%;
+			width: 50%;
+			right: 0;
 		}
 	}
 }
