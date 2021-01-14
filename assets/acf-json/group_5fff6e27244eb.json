@@ -3,6 +3,51 @@
     "title": "Block - Timeline",
     "fields": [
         {
+            "key": "field_60008bdadc565",
+            "label": "Intro Copy",
+            "name": "intro_copy",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_60008bebdc566",
+            "label": "Intro Copy Width",
+            "name": "intro_copy_width",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "container-sm": "Narrow",
+                "container-md": "Medium",
+                "container-lg": "Wide"
+            },
+            "default_value": "container-sm",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5fff6e3244276",
             "label": "Events",
             "name": "events",
@@ -103,5 +148,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1610579310
+    "modified": 1610648654
 }

@@ -141,16 +141,12 @@ timelines.forEach((timeline) => {
 	};
 	let timelineContentCarousel = tns(timelineContentOptions);
 
-	timeline.querySelector('[data-controls="prev"]').addEventListener('click', (e) => {
-		//customizedFunction();
-	});
+	var keepSlideInFocus = (info) => {
+		document.querySelector('#' + info.container.id + ' .tns-slide-active').click();
+	};
 
-	timeline.querySelector('[data-controls="next"]').addEventListener('click', (e) => {
-		var index = timelineContentCarousel.getInfo().displayIndex;
-		console.log(index);
-		timelineContentCarousel.goTo(2);
-		timelineContentCarousel.refresh();
-	});
+	// bind function to event
+	timelineContentCarousel.events.on('indexChanged', keepSlideInFocus);
 
 	if (timeline.querySelector('.timeline-images')) {
 		let timelineImages = timeline.querySelector('.timeline-images');

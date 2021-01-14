@@ -5,11 +5,14 @@
 	}
 }
 .timeline-image {
-	margin: 0 0 $space-md 0;
+	margin: 0 auto $space-md auto;
 
 	img {
-		max-height: 50vw;
 		object-fit: cover;
+		max-height: 50vw;
+		@include lg-and-up {
+			max-height: 35em;
+		}
 	}
 }
 
