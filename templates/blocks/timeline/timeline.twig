@@ -1,0 +1,60 @@
+{#
+  Title: Timeline
+  Description: A timline of events
+  Category: triumph-blocks
+  Icon: calendar
+  Keywords: 
+  Mode: edit
+  Align: left
+  PostTypes: post page account leader partner service
+  SupportsAlign: false
+  SupportsMode: false
+  SupportsMultiple: true
+#}
+{% set images = false %}
+{% for event in fields.events %}
+	{% if event.image %}
+		{% set images = true %}
+	{% endif %}
+{% endfor %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'timeline' } %}
+	{% block block_content %}
+		<div class="timeline-sliders">
+			{% if images %}
+				<ul class="timeline-images">
+					{% for event in fields.events %}
+						<li class="timeline-image">
+						{% if event.image %}
+							{% set image = Image(event.image) %}
+							<img class="background-image tns-lazy-img" 
+							src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
+						{% else %}
+							<div class="no-image"></div>
+						{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+			
+			<div class="timeline-slider-wrapper">
+				<div class="timeline-fade"></div>
+				<div class="timeline-line"></div>
+				
+				<ul class="timeline-events">
+					{% for event in fields.events %}
+						
+						<li class="timeline-event">
+							<div class="timeline-dot"></div>
+							<h2 class="timeline-event-title">{{ event.title }}</h2>
+							{% if event.copy %}
+								{{ event.copy }}
+							{% endif %}
+							
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	{% endblock %}
+{% endembed %}

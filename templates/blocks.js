@@ -111,6 +111,62 @@ testimonialCarousels.forEach((slider) => {
 	});
 });
 
+const timelines = document.querySelectorAll('.timeline');
+
+timelines.forEach((timeline) => {
+	let timelineContent = timeline.querySelector('.timeline-events');
+
+	let timelineContentOptions = {
+		container: timelineContent,
+		items: 1,
+		slideBy: 1,
+		speed: 800,
+		loop: false,
+		controls: true,
+		controlsText: tnsControls,
+		controlsPosition: 'bottom',
+		navPosition: 'bottom',
+		swipeAngle: 15,
+		autoplay: false,
+		responsive: {
+			640: {
+				items: 2,
+				slideBy: 2
+			},
+			1024: {
+				items: 3,
+				slideBy: 3
+			}
+		}
+	};
+	let timelineContentCarousel = tns(timelineContentOptions);
+
+	timeline.querySelector('[data-controls="prev"]').addEventListener('click', (e) => {
+		//customizedFunction();
+	});
+
+	timeline.querySelector('[data-controls="next"]').addEventListener('click', (e) => {
+		var index = timelineContentCarousel.getInfo().displayIndex;
+		console.log(index);
+		timelineContentCarousel.goTo(2);
+		timelineContentCarousel.refresh();
+	});
+
+	if (timeline.querySelector('.timeline-images')) {
+		let timelineImages = timeline.querySelector('.timeline-images');
+		let timelineImagesOptions = {
+			container: timelineImages,
+			mode: 'gallery',
+			items: 1,
+			lazyload: true,
+			navContainer: timelineContent,
+			controls: false,
+			navAsThumbnails: true
+		};
+		let timelineImageCarousel = tns(timelineImagesOptions);
+	}
+});
+
 // Add labels to the TinySlider controls for WCAG
 const prevButtons = document.querySelectorAll('[data-controls="prev"]');
 const nextButtons = document.querySelectorAll('[data-controls="next"]');

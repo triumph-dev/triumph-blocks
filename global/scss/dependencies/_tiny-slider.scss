@@ -209,6 +209,26 @@ $perpage: 3;
 	pointer-events: none;
 }
 
+[data-background-color="primary"],
+[data-background-color="secondary"],
+[data-background-color="accent"] {
+	.tns-nav,
+	.navigation {
+		color: #fff;
+		button,
+		.dot {
+			&.tns-nav-active,
+			&.active {
+				opacity: 1;
+				background: #fff;
+			}
+			&:hover {
+				background: #fff;
+			}
+		}
+	}
+}
+
 .tns-nav,
 .navigation {
 	button,

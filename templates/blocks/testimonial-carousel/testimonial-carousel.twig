@@ -12,20 +12,10 @@
   SupportsMultiple: true
 #}
 
-{% if testimonials is not defined %}
-	{% set testimonials = fields.testimonials %}
-{% endif %}
-
-{% if fields.background_color == "white" %}
-	{% set icon = "carousel-arrow-primary.png" %}
-{% else %}
-	{% set icon = "carousel-arrow.png" %}
-{% endif %}
-
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'testimonial-carousel' } %}
 	{% block block_content %}
 		<ul class="testimonials {{ fields.show_arrow_navigation ? "arrows" : "" }}">
-			{% for testimonial in testimonials %}
+			{% for testimonial in fields.testimonials %}
 				<li class="testimonial">
 					{% set name = testimonial.customer_name %}
 					{% set title = (testimonial.customer_title_and_company ? testimonial.customer_title_and_company : "") %}
