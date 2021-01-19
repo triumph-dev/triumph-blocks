@@ -1,15 +1,17 @@
 {#
-  Title: Content Gallery
-  Description: 2-up gallery with image and copy
-  Category: triumph-blocks
-  Icon: images-alt2
-  Keywords: 
-  Mode: edit
-  Align: left
-  PostTypes: post page account leader partner service
-  SupportsAlign: false
-  SupportsMode: false
-  SupportsMultiple: true
+	Title: Content Gallery
+	Description: 2-up gallery with image and copy
+	Category: triumph-blocks
+	Icon: images-alt2
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
 #}
 
 {% set carousel = (fields.gallery|length > 1 ? true : false) %}

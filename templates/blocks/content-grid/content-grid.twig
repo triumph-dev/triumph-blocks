@@ -1,24 +1,20 @@
 {#
-  Title: Content Grid
-  Description: Content Grid
-  Category: triumph-blocks
-  Icon: grid-view
-  Keywords: 
-  Mode: edit
-  Align: left
-  PostTypes: post page account leader partner service
-  SupportsAlign: false
-  SupportsMode: false
-  SupportsMultiple: true
+	Title: Content Grid
+	Description: Content Grid
+	Category: triumph-blocks
+	Icon: grid-view
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
 #}
 
-{% if fields.alternative_background_margin %}
-	{% set class = 'content-grid alternative-background-margin' %}
-{% else %}
-	{% set class = 'content-grid' %}
-{% endif %}
-
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'content-grid' } %}
 	{% block block_content %}
 
 		{% if fields.intro_copy %}

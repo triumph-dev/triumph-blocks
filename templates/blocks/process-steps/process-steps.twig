@@ -1,15 +1,17 @@
 {#
-  Title:Process Steps
-  Description: Steps in a process
-  Category: triumph-blocks
-  Icon: editor-ol
-  Keywords: 
-  Mode: edit
-  Align: left
-  PostTypes: post page account leader partner service
-  SupportsAlign: false
-  SupportsMode: false
-  SupportsMultiple: true
+	Title:Process Steps
+	Description: Steps in a process
+	Category: triumph-blocks
+	Icon: editor-ol
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
 #}
 {% set orientation = fields.step_orientation ? fields.step_orientation : '' %}
 {% set width = (100 - (100 / fields.steps|length))|round(3, 'floor') %}

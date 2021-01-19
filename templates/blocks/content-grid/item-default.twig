@@ -1,8 +1,12 @@
-<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">	
+<li class="content-grid-item" 
+	data-style="{{ fields.grid_item_style }}" 
+	data-image-style="{{ fields.grid_item_image_style }}"
+	{{ fields.grid_item_custom_image_width ? 'data-custom-image-width="' ~ fields.grid_item_custom_image_width ~ 'px"' : '' }}
+	{{ fields.grid_item_image_alignment ? 'data-custom-image-alignment="' ~ fields.grid_item_image_alignment ~ '"' : '' }}
+	>	
 	{% if grid_item.image or grid_item.icon %}
 
-		{% if fields.grid_item_image_link %}
-            
+		{% if fields.grid_item_image_link and grid_item.link.link %}
 			<a class="grid-item-header {{ grid_item.link.link_custom_class ? grid_item.link.link_custom_class : '' }}" href="{{ grid_item.link.link.url }}">
 				<div class="hidden">{{ grid_item.link.link.title }}</div>
 		{% else %}	
@@ -11,7 +15,9 @@
 
 			{% if grid_item.image %}
 				{% set image = Image(grid_item.image) %}
-				<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
+
+				{% set width = fields.grid_item_custom_image_width ? 'style="width:' ~ fields.grid_item_custom_image_width ~ '%"' : '' %}
+				<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" {{ width }} />
 			{% elseif grid_item.icon %}
 				{{ function('svg_code', grid_item.icon) }}
 			{% endif %}

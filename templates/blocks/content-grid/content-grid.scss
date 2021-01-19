@@ -91,7 +91,6 @@ li.content-grid-item {
 }
 .grid-item-header {
 	position: relative;
-	background: $color-ui-gray;
 	margin: 0;
 	height: calc(14em + 10vw);
 	@include md-and-up {
@@ -119,6 +118,25 @@ li.content-grid-item {
 .grid-item-footer {
 	margin: $space-md 0;
 }
+li[data-custom-image-width] {
+	.grid-item-header {
+		height: auto;
+	}
+}
+li[data-custom-image-alignment="center"] {
+	.grid-item-header {
+		img {
+			margin: 0 auto;
+		}
+	}
+}
+li[data-custom-image-alignment="right"] {
+	.grid-item-header {
+		img {
+			margin: 0 0 0 auto;
+		}
+	}
+}
 li[data-style="card"],
 li[data-style="card-link"] {
 	@extend %dark-text;
@@ -136,6 +154,7 @@ li[data-style="card-link"] {
 		margin: $space-md;
 	}
 }
+
 li[data-style="card-link"] {
 	a {
 		@extend %card-link;

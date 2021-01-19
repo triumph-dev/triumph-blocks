@@ -1,20 +1,22 @@
 {#
-  Title: Banner Row
-  Description: Don't use this block. Putting multiple CTA banners side-by-side reduces the impact of each CTA.
-  Category: triumph-blocks
-  Icon: thumbs-down
-  Keywords: 
-  Mode: edit
-  Align: left
-  PostTypes: post page account leader partner service
-  SupportsAlign: false
-  SupportsMode: false
-  SupportsMultiple: true
+	Title: Banner Row
+	Description: Don't use this block. Putting multiple CTA banners side-by-side reduces the impact of each CTA.
+	Category: triumph-blocks
+	Icon: thumbs-down
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
 #}
 
 
 {% block block_content %}
-	<section class="banner-row {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+	<section class="banner-row {{ classes ? classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
 		{% for banner in fields.banners %}
 			<div class="row-banner" data-background-color="{{ banner.background_color }}">
 

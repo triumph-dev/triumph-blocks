@@ -9,6 +9,9 @@
 	}
 	width: 100%;
 	padding: $space-lg $space-md;
+	@include sm-and-up {
+		padding: $space-xl $space-md;
+	}
 	.background {
 		z-index: 0;
 	}
@@ -24,9 +27,9 @@
 	.content {
 		max-width: $breakpoint-sm;
 		margin: 0 auto;
-		text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.25);
+		text-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.25);
 		p {
-			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+			text-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.75);
 		}
 	}
 }

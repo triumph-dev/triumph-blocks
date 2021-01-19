@@ -1,21 +1,23 @@
 {#
-Title: Logo Carousel
-Description: A sliding carousel to display a message and some logos
-Category: triumph-blocks
-Icon: thumbs-up
-Keywords: 
-Mode: edit
-Align: left
-PostTypes: post page account leader partner service
-SupportsAlign: false
-SupportsMode: false
-SupportsMultiple: true
+	Title: Logo Carousel
+	Description: A sliding carousel to display a message and some logos
+	Category: triumph-blocks
+	Icon: thumbs-up
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
 #}
 {% set logo_count = fields.show_8_at_once ? 2 : 1 %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'logo-carousel' } %}
 	{% block block_content %}
-		<div class="logo-carousel-wrapper {{ fields.logos|length > show_total ? "active" : "" }} block full-width {{ block.classes ? block.classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
+		<div class="logo-carousel-wrapper {{ fields.logos|length > show_total ? "active" : "" }} block full-width {{ classes ? classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
 			<div class="copy">
 				{{ fields.copy }}
 			</div>

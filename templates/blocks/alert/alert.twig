@@ -1,6 +1,10 @@
-{% set alert = Post(alert) %}
+{% if alert.meta('custom_color') and alert.meta('background_color') == 'custom' %}
+	{% set style = 'style="background:' ~ alert.meta('custom_color') ~ '"' %}
+{% else %}
+	{% set style = '' %}
+{% endif %}
 
-<aside id="{{ alert.slug }}-{{ alert.id }}" data-open="false" class="alert-banner">
+<aside id="{{ alert.slug }}-{{ alert.id }}" data-open="false" class="alert-banner" data-background-color="{{ alert.meta('background_color') }}" {{ style }}>
 	{{ border }}
 	<div class="alert-banner-content-wrapper">
 		<div class="alert-icon">{{ alert.meta('icon') ? alert.meta('icon') : '<div class="ring-the-bell"><i class="fas fa-bell"></i></div>' }}</div>

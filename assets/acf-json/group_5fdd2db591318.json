@@ -20,6 +20,51 @@
             "esc_html": 0
         },
         {
+            "key": "field_60022fbc4186e",
+            "label": "Intro Copy",
+            "name": "intro_copy",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_60022fcc4186f",
+            "label": "Intro Copy Width",
+            "name": "intro_copy_width",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "container-sm": "Narrow",
+                "container-md": "Medium",
+                "container-lg": "Wide"
+            },
+            "default_value": "container-md",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5fdd2dc0db8a6",
             "label": "Tiles",
             "name": "tiles",
@@ -36,7 +81,7 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Tile",
             "sub_fields": [
                 {
                     "key": "field_5fdd3105db8ab",
@@ -169,5 +214,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609198407
+    "modified": 1610756118
 }

@@ -1,15 +1,17 @@
 {#
-  Title: Banner
-  Description: A banner with content and a CTA link.
-  Category: triumph-blocks
-  Icon: align-center
-  Keywords: 
-  Mode: edit
-  Align: left
-  PostTypes: post page account leader partner service
-  SupportsAlign: false
-  SupportsMode: false
-  SupportsMultiple: true
+	Title: Banner
+	Description: A banner with content and a CTA link.
+	Category: triumph-blocks
+	Icon: align-center
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
 #}
 
 {% set class = (fields.is_row ? 'banner is-row' : (fields.is_a_header ? 'banner header' : 'banner')) %}
