@@ -45,7 +45,7 @@ $breakpoints: (
 	"sm": $breakpoint-sm,
 	"md": $breakpoint-md,
 	"lg": $breakpoint-lg,
-	"xl": $breakpoint-xl
+	"xl": $breakpoint-xl,
 );
 
 $page-interior: 1100px;
@@ -139,9 +139,12 @@ $page-interior: 1100px;
 	select {
 		border-color: rgba($color-ui-dark, 0.5);
 		&:focus {
-			border-color: #fff;
-			background-color: rgba(0, 0, 0, 0.2);
+			background-color: rgba(255, 255, 255, 0.5);
+			border-color: var(--color-accent);
 		}
+	}
+	::placeholder {
+		color: rgba($color-ui-dark, 0.5);
 	}
 	hr {
 		border-color: rgba($color-ui-dark, 0.2);

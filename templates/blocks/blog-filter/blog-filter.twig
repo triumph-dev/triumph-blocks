@@ -1,4 +1,12 @@
-<div class="blog-filter">
+{% set last = posts|last %}
+{% set last_year = last.date|date('Y')  %}
+
+{% set first = posts|first %}
+{% set first_year = first.date|date('Y')  %}
+
+
+
+<div class="blog-filter"> 
 	<h3>Search</h3>
 	<form name="list-search" class="form-inline">
 		<input class="search" type="search" placeholder="Search" />
@@ -19,7 +27,7 @@
 		</ul>
 		<h3>Archive</h3>
 		<ul class="filter-years">
-			{% for year in 2018.."now"|date("Y") %}
+			{% for year in (last_year..first_year)|reverse %}
 				<li>
 					<label class="checkbox-custom">{{year}}
 						<input class="filter-input" data-filter="year" type="checkbox" data-title="{{ year }}" value="{{ year }}" />

@@ -15,6 +15,7 @@
 
 [data-background-color="white"] {
 	background: #fff;
+	@extend %dark-text;
 }
 
 [data-background-color="image"] {
@@ -42,7 +43,7 @@ section[data-background-color] {
 }
 $overlap: 6rem;
 .overlap {
-	.layout-wrapper {
+	> .layout-wrapper {
 		margin-bottom: $overlap;
 	}
 }

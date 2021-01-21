@@ -46,12 +46,12 @@ h4 {
 	}
 }
 h5 {
-	font-size: .9rem;
+	font-size: 0.9rem;
 	font-family: $font-sans-serif;
 	font-weight: 600;
 }
 h6 {
-	font-size: .8rem;
+	font-size: 0.8rem;
 	font-family: $font-sans-serif;
 	font-weight: 600;
 }
@@ -76,6 +76,11 @@ ol + h3,
 ol + h4,
 ol + h5,
 ol + h6 {
+	margin-top: $space-md;
+}
+p + section,
+ul + section,
+ol + section {
 	margin-top: $space-md;
 }
 ol + p,
@@ -105,7 +110,7 @@ abbr {
 .disclaimer {
 	font-size: 0.8em;
 	font-style: italic;
-	opacity: .85;
+	opacity: 0.85;
 }
 
 address {
@@ -117,17 +122,17 @@ p {
 }
 
 .underline-accent {
-	border-bottom: .15em solid var(--color-accent);
+	border-bottom: 0.15em solid var(--color-accent);
 }
 
 sup,
 sub {
-	font-size: .65em;
-	margin-left: .2em;
+	font-size: 0.65em;
+	margin-left: 0.2em;
 	vertical-align: baseline;
 	position: relative;
 	top: -0.5em;
-	opacity: .75;
+	opacity: 0.75;
 }
 sub {
 	top: -0.5em;

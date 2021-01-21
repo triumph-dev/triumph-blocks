@@ -1,11 +1,3 @@
-.blog-list {
-	ol.list {
-		> li:not(:last-child) {
-			margin-bottom: $space-md;
-		}
-	}
-}
-
 .section-blog div[class^="container"] {
 	padding: $space-lg $space-md;
 	@include sm-and-up {

@@ -1,59 +1,34 @@
-ol > li.tease-post,
-ul > li.tease-post {
-	padding: $space-md;
-}
 .tease-post {
+	background: #fff;
+	padding: $space-md;
+	margin: $space-md 0;
+	@include md-and-up {
+		padding: 3rem;
+	}
+
+	.meta {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $space-md;
+		font-size: 0.8em;
+		font-family: $font-sans-serif;
+		font-weight: 600;
+		p {
+			font-family: $font-sans-serif;
+		}
+	}
+
 	&:first-child {
 		margin-top: 0;
 	}
-	&:last-child {
-		margin-bottom: 0;
-	}
-	background: #fff;
-	padding: $space-md;
-	@include md-and-up {
-		display: flex;
-	}
-	.post-preview {
-		display: none;
-		@include md-and-up {
-			display: block;
-		}
-	}
-	.categories {
-		a {
-			font-size: 1.1em;
-			font-weight: 800;
-		}
-	}
-	.meta {
-		font-family: $font-sans-serif;
-		@include md-and-up {
-			min-width: 40%;
-			display: flex;
-			flex-direction: column;
-			margin-right: $space-lg;
-		}
-		h3 {
-			margin: 0;
-		}
-		a.btn {
-			max-width: 14em;
-		}
-	}
-	.title {
-		margin: $space-sm 0;
-		@include md-and-up {
-			flex-grow: 1;
-		}
-		p {
-			margin: $space-sm 0;
-		}
-	}
-	.mobile {
-		margin-bottom: $space-sm;
-		@include md-and-up {
-			display: none;
-		}
+}
+.post-thumb-link {
+	display: block;
+	margin-bottom: $space-md;
+}
+a.post-title-link {
+	&:hover,
+	&:focus {
+		text-decoration: none;
 	}
 }

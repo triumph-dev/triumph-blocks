@@ -1,0 +1,22 @@
+.fuel-calculator {
+	form {
+		> * {
+			width: 100%;
+		}
+		@include md-and-up {
+			display: flex;
+		}
+	}
+	.result {
+		text-align: center;
+		@include md-and-up {
+			margin-left: $space-md;
+		}
+	}
+	output {
+		color: var(--color-secondary);
+		display: block;
+		font-size: 2.5em;
+		font-weight: 300;
+	}
+}

@@ -1,30 +1,31 @@
 /*
  * COOKIE HELPER
  * Gives you methods to manipulate cookies easily via js.
-*/
+ */
 class CookieHelper {
 	constructor() {}
 	set(name, value, days) {
-		var expires = '';
+		var expires = "";
 		if (days) {
 			var date = new Date();
 			date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-			expires = '; expires=' + date.toUTCString();
+			expires = "; expires=" + date.toUTCString();
 		}
-		document.cookie = name + '=' + (value || '') + expires + '; path=/';
+		document.cookie = name + "=" + (value || "") + expires + "; path=/";
 	}
 	get(name) {
-		var nameEQ = name + '=';
-		var ca = document.cookie.split(';');
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(";");
 		for (var i = 0; i < ca.length; i++) {
 			var c = ca[i];
-			while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+			while (c.charAt(0) == " ") c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) == 0)
+				return c.substring(nameEQ.length, c.length);
 		}
 		return null;
 	}
 	erase(name) {
-		document.cookie = name + '=; Max-Age=-99999999';
+		document.cookie = name + "=; Max-Age=-99999999";
 	}
 }
 
@@ -33,88 +34,88 @@ class CookieHelper {
  * Alert banner for critical messaging.
  */
 const cookies = new CookieHelper();
-import AlertBanner from '../templates/blocks/alert/alert';
+import AlertBanner from "../templates/blocks/alert/alert";
 
-if (document.querySelectorAll('.alert-banner')) {
-	const alerts = document.querySelectorAll('.alert-banner');
+if (document.querySelectorAll(".alert-banner")) {
+	const alerts = document.querySelectorAll(".alert-banner");
 
 	alerts.forEach((alert) => {
-		new AlertBanner('#' + alert.getAttribute('id'), cookies);
+		new AlertBanner("#" + alert.getAttribute("id"), cookies);
 	});
 }
 
 /*
  * CAROUSELS
  * These all use TinySlider to drive slide transitions, nav, etc
-*/
+ */
 
-import { tns } from 'tiny-slider/src/tiny-slider';
+import { tns } from "tiny-slider/src/tiny-slider";
 
 const tnsControls = [
 	'<i class="far fa-lg fa-angle-left"></i><span class="hidden">Previous Slide</span>',
-	'<i class="far fa-lg fa-angle-right"></i></i><span class="hidden">Next Slide</span>'
+	'<i class="far fa-lg fa-angle-right"></i></i><span class="hidden">Next Slide</span>',
 ];
 
-const logoCarousels = document.querySelectorAll('.logo-carousel .carousel');
+const logoCarousels = document.querySelectorAll(".logo-carousel .carousel");
 logoCarousels.forEach((slider) => {
 	let logoCarouselOptions = {
 		container: slider,
 		items: 1,
-		slideBy: 'page',
+		slideBy: "page",
 		controls: true,
 		controlsText: tnsControls,
-		controlsPosition: 'bottom',
-		navPosition: 'bottom',
+		controlsPosition: "bottom",
+		navPosition: "bottom",
 		swipeAngle: 15,
 		autoplay: false,
 		responsive: {
 			640: {
-				items: 2
+				items: 2,
 			},
 			768: {
-				items: 3
+				items: 3,
 			},
 			1024: {
-				items: 4
-			}
-		}
+				items: 4,
+			},
+		},
 	};
 	let logoCarousel = tns(logoCarouselOptions);
 });
 
-const heroCarousels = document.querySelectorAll('.hero-panes.carousel');
+const heroCarousels = document.querySelectorAll(".hero-panes.carousel");
 heroCarousels.forEach((slider) => {
 	let heroCarousel = tns({
 		container: slider,
 		items: 1,
 		controls: true,
 		controlsText: tnsControls,
-		controlsPosition: 'bottom',
-		navPosition: 'bottom',
+		controlsPosition: "bottom",
+		navPosition: "bottom",
 		speed: 500,
 		swipeAngle: 15,
-		loop: true
+		loop: true,
 	});
 });
 
-const testimonialCarousels = document.querySelectorAll('.testimonials');
+const testimonialCarousels = document.querySelectorAll(".testimonials");
 testimonialCarousels.forEach((slider) => {
 	let testimonialCarousel = tns({
 		container: slider,
-		controlsPosition: 'bottom',
-		navPosition: 'bottom',
+		controlsPosition: "bottom",
+		navPosition: "bottom",
 		autoplay: false,
 		items: 1,
 		controls: true,
 		controlsText: tnsControls,
-		swipeAngle: 15
+		swipeAngle: 15,
 	});
 });
 
-const timelines = document.querySelectorAll('.timeline');
+const timelines = document.querySelectorAll(".timeline");
 
 timelines.forEach((timeline) => {
-	let timelineContent = timeline.querySelector('.timeline-events');
+	let timelineContent = timeline.querySelector(".timeline-events");
 
 	let timelineContentOptions = {
 		container: timelineContent,
@@ -124,40 +125,42 @@ timelines.forEach((timeline) => {
 		loop: false,
 		controls: true,
 		controlsText: tnsControls,
-		controlsPosition: 'bottom',
-		navPosition: 'bottom',
+		controlsPosition: "bottom",
+		navPosition: "bottom",
 		swipeAngle: 15,
 		autoplay: false,
 		responsive: {
 			640: {
 				items: 2,
-				slideBy: 2
+				slideBy: 2,
 			},
 			1024: {
 				items: 3,
-				slideBy: 3
-			}
-		}
+				slideBy: 3,
+			},
+		},
 	};
 	let timelineContentCarousel = tns(timelineContentOptions);
 
 	var keepSlideInFocus = (info) => {
-		document.querySelector('#' + info.container.id + ' .tns-slide-active').click();
+		document
+			.querySelector("#" + info.container.id + " .tns-slide-active")
+			.click();
 	};
 
 	// bind function to event
-	timelineContentCarousel.events.on('indexChanged', keepSlideInFocus);
+	timelineContentCarousel.events.on("indexChanged", keepSlideInFocus);
 
-	if (timeline.querySelector('.timeline-images')) {
-		let timelineImages = timeline.querySelector('.timeline-images');
+	if (timeline.querySelector(".timeline-images")) {
+		let timelineImages = timeline.querySelector(".timeline-images");
 		let timelineImagesOptions = {
 			container: timelineImages,
-			mode: 'gallery',
+			mode: "gallery",
 			items: 1,
 			lazyload: true,
 			navContainer: timelineContent,
 			controls: false,
-			navAsThumbnails: true
+			navAsThumbnails: true,
 		};
 		let timelineImageCarousel = tns(timelineImagesOptions);
 	}
@@ -167,28 +170,28 @@ timelines.forEach((timeline) => {
 const prevButtons = document.querySelectorAll('[data-controls="prev"]');
 const nextButtons = document.querySelectorAll('[data-controls="next"]');
 prevButtons.forEach((prevButton) => {
-	prevButton.setAttribute('aria-label', 'Previous Slide');
+	prevButton.setAttribute("aria-label", "Previous Slide");
 });
 
 nextButtons.forEach((nextButton) => {
-	nextButton.setAttribute('aria-label', 'Next Slide');
+	nextButton.setAttribute("aria-label", "Next Slide");
 });
 
 /*
  * CONTENT GALLERY
-*/
-import ContentGallery from '../templates/blocks/content-gallery/content-gallery';
+ */
+import ContentGallery from "../templates/blocks/content-gallery/content-gallery";
 
-if (document.querySelector('.slides.carousel')) {
-	new ContentGallery('.slides.carousel');
+if (document.querySelector(".slides.carousel")) {
+	new ContentGallery(".slides.carousel");
 }
 
 /*
  * EXPAND
  * Summary/details type component
-*/
-import Expand from '../templates/blocks/expand/expand';
-const expands = document.querySelectorAll('[data-expand-toggle]');
+ */
+import Expand from "../templates/blocks/expand/expand";
+const expands = document.querySelectorAll("[data-expand-toggle]");
 const builtExpands = [];
 
 expands.forEach((expand) => {
@@ -200,21 +203,30 @@ expands.forEach((expand) => {
  * EXPAND GRID
  * Grid of content items that expand to reveal more content
  * on click.
-*/
-import ExpandGrid from '../templates/blocks/expand-grid/expand-grid';
-const expandGrids = document.querySelectorAll('.expand-grid-list');
+ */
+import ExpandGrid from "../templates/blocks/expand-grid/expand-grid";
+const expandGrids = document.querySelectorAll(".expand-grid-list");
 expandGrids.forEach((expandGrid) => {
 	new ExpandGrid(expandGrid);
 });
+
+/*
+ * FUEL CALCULATOR
+ * Calculate savings on fuel
+ */
+import FuelCalculator from "../templates/blocks/fuel-calculator/fuel-calculator";
+if (document.forms.fuelCalculator) {
+	new FuelCalculator(document.forms.fuelCalculator);
+}
 
 /*
  * INFO CAROUSEL
  * A merry-go-round carousel with info content blocks as toggles.
  */
 
-import InfoCarousel from '../templates/blocks/info-carousel/info-carousel';
+import InfoCarousel from "../templates/blocks/info-carousel/info-carousel";
 
-const infoCarousels = document.querySelectorAll('.info-carousel');
+const infoCarousels = document.querySelectorAll(".info-carousel");
 infoCarousels.forEach((carousel) => {
 	new InfoCarousel(carousel);
 });
@@ -222,40 +234,45 @@ infoCarousels.forEach((carousel) => {
 /*
  * LIST FILTERS
  * Instantiate list search/filter for Blogs and FAQs
- * List.js must be enqueued.  you can do this manually, or use the 
+ * List.js must be enqueued.  you can do this manually, or use the
  * add_list_js() function in your template.
  */
 
-import BlogFilter from '../templates/blocks/blog-filter/blog-filter';
-import FaqFilter from '../templates/blocks/faqs/faq-filter';
+import BlogFilter from "../templates/blocks/blog-filter/blog-filter";
+import FaqFilter from "../templates/blocks/faqs/faq-filter";
 
 // Instianiations that depend on List.js
-if (typeof List !== 'undefined') {
-	if (document.querySelector('#blog .list')) {
+if (typeof List !== "undefined") {
+	if (document.querySelector("#blog .list")) {
 		const blogListOptions = {
 			valueNames: [
-				'title',
-				'post-preview',
-				{ name: 'categories', attr: 'data-categories' },
-				{ name: 'tags', attr: 'data-tags' },
-				{ name: 'year', attr: 'data-year' }
+				"title",
+				"post-preview",
+				{ name: "categories", attr: "data-categories" },
+				{ name: "tags", attr: "data-tags" },
+				{ name: "year", attr: "data-year" },
 			],
-			page: 15,
-			pagination: true
 		};
 
-		var posts = new List('blog', blogListOptions);
-		new BlogFilter(posts, 'input.filter-input');
+		const blogPosts = new List("blog", blogListOptions);
+		new BlogFilter(blogPosts, "input.filter-input");
 	}
 
-	if (document.querySelector('#faqs .list') && document.querySelector('#faqs .search')) {
+	if (
+		document.querySelector("#faqs .list") &&
+		document.querySelector("#faqs .search")
+	) {
 		const faqListOptions = {
-			valueNames: [ 'question', 'answer', { name: 'categories', attr: 'data-categories' } ]
+			valueNames: [
+				"question",
+				"answer",
+				{ name: "categories", attr: "data-categories" },
+			],
 		};
 
-		var faqs = new List('faqs', faqListOptions);
-		if (document.querySelector('.faq-filter')) {
-			new FaqFilter(faqs, 'input.filter-input');
+		var faqs = new List("faqs", faqListOptions);
+		if (document.querySelector(".faq-filter")) {
+			new FaqFilter(faqs, "input.filter-input");
 		}
 	}
 }
@@ -264,20 +281,23 @@ if (typeof List !== 'undefined') {
  * MENU
  * Init by passing the menu wrapper element, and the hamburger element.
  * On init, the menu is set to toggle when the hamburger is clicked.
-*/
-import Menu from '../templates/blocks/menu/menu';
+ */
+import Menu from "../templates/blocks/menu/menu";
 
-if (document.getElementById('menu-toggle-button') && document.getElementById('menu-toggle-target')) {
-	const menu = new Menu('#menu-toggle-target', '#menu-toggle-button');
+if (
+	document.getElementById("menu-toggle-button") &&
+	document.getElementById("menu-toggle-target")
+) {
+	const menu = new Menu("#menu-toggle-target", "#menu-toggle-button");
 }
 
 /*
  * MODAL
- * Modals can be added via custom post type. and triggered via 
+ * Modals can be added via custom post type. and triggered via
  * a click on any element with class .trigger-modal-{{ post slug }}
-*/
-import Modal from '../templates/blocks/modal/modal';
-const modals = document.querySelectorAll('.modal-wrapper');
+ */
+import Modal from "../templates/blocks/modal/modal";
+const modals = document.querySelectorAll(".modal-wrapper");
 modals.forEach((modal) => {
 	new Modal(modal);
 });
@@ -285,11 +305,11 @@ modals.forEach((modal) => {
 /*
  * RATE FINDER
  * Hit the TBK API to get the Account Rates for a given user Zip
-*/
-import RateFinder from '../templates/blocks/rate-finder/rate-finder';
+ */
+import RateFinder from "../templates/blocks/rate-finder/rate-finder";
 
-if (document.querySelector('.rate-finder')) {
-	const rateFinder = new RateFinder('.rate-finder');
+if (document.querySelector(".rate-finder")) {
+	const rateFinder = new RateFinder(".rate-finder");
 }
 
 // WINDOW EVENTS
@@ -303,7 +323,7 @@ function workAfterResizeIsDone() {
 	});
 }
 var timeOutFunctionId;
-window.addEventListener('resize', function() {
+window.addEventListener("resize", function () {
 	clearTimeout(timeOutFunctionId);
 	timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
 });
