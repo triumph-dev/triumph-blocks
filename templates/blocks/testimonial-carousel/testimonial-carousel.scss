@@ -23,6 +23,11 @@
 	}
 }
 .testimonial {
+	h4 {
+		letter-spacing: 0;
+		text-transform: none;
+		font-weight: 400;
+	}
 	blockquote {
 		padding: 0 $space-lg;
 		max-width: $breakpoint-md;
@@ -41,23 +46,6 @@
 			margin-top: $space-md;
 			font-style: normal;
 			font-size: 1rem;
-		}
-	}
-}
-
-.testimonial-carousel {
-	&[data-background-color="image"] {
-		img {
-			filter: brightness(60%);
-		}
-		blockquote,
-		cite h3,
-		cite h4 {
-			color: white;
-		}
-		button {
-			background: white;
-			color: var(--color-primary);
 		}
 	}
 }

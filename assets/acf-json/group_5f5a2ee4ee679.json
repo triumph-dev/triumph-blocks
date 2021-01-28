@@ -1,10 +1,10 @@
 {
     "key": "group_5f5a2ee4ee679",
-    "title": "Block - Recent News",
+    "title": "Block - Blog Teasers",
     "fields": [
         {
             "key": "field_5f5a2ef52145f",
-            "label": "Triumph - Recent News",
+            "label": "Triumph - Blog Teasers",
             "name": "",
             "type": "message",
             "instructions": "",
@@ -20,6 +20,51 @@
             "esc_html": 0
         },
         {
+            "key": "field_60131e281c97b",
+            "label": "Intro Copy",
+            "name": "intro_copy",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_60131e341c97c",
+            "label": "Intro Copy Width",
+            "name": "intro_copy_width",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "container-sm": "Narrow",
+                "container-md": "Medium",
+                "container-lg": "Wide"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5f5a2f0521460",
             "label": "What would you like to display?",
             "name": "what_to_show",
@@ -33,7 +78,8 @@
                 "id": ""
             },
             "choices": {
-                "most_recent": "The last 3 blog posts",
+                "recent": "The last 3 blog posts",
+                "featured": "The 3 most recent featured posts",
                 "custom": "3 custom-chosen blog posts"
             },
             "default_value": false,
@@ -85,7 +131,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/recent-news"
+                "value": "acf\/blog-teasers"
             }
         ]
     ],
@@ -97,5 +143,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609198407
+    "modified": 1611866171
 }

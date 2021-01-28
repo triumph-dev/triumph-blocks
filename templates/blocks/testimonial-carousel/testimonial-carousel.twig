@@ -19,24 +19,19 @@
 		<ul class="testimonials {{ fields.show_arrow_navigation ? "arrows" : "" }}">
 			{% for testimonial in fields.testimonials %}
 				<li class="testimonial">
-					{% set name = testimonial.customer_name %}
-					{% set title = (testimonial.customer_title_and_company ? testimonial.customer_title_and_company : "") %}
-					{% set city = (testimonial.customer_location ? testimonial.customer_location : "") %}
 					<blockquote>
 						{{ testimonial.post_content }}
 						<cite>
-							{% if name %}
-								{% if title == "" and city == "" %}
-									<h4 class="customer-name">{{ name }}</h4>
-								{% else %}
-									<h3 class="customer-name">{{ name }}</h3>
-								{% endif %}
+							{% if testimonial.customer_name %}
+								<h3 class="customer-name">{{ testimonial.customer_name }}</h3>
 							{% endif %}
-							{% if title %}
-								<h4 class="customer-title">{{ title }}</h4>
-							{% endif %}
-							{% if city %}
-								<h4 class="customer-city">{{ city }}</h4>
+								
+							{% if testimonial.customer_title_and_company or testimonial.customer_location %}
+								<h4 class="customer-details">
+									{{ testimonial.customer_title_and_company ? testimonial.customer_title_and_company : '' }}
+									{{ testimonial.customer_title_and_company and testimonial.customer_location ? ' / ' : ''}}
+									{{ testimonial.customer_location ? testimonial.customer_location : '' }}
+								</h4>
 							{% endif %}
 						</cite>
 					</blockquote>

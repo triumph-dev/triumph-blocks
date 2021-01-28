@@ -84,6 +84,25 @@
             "min": "",
             "max": "",
             "step": ""
+        },
+        {
+            "key": "field_60105c51d4222",
+            "label": "Outro Copy",
+            "name": "outro_copy",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -103,5 +122,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1611101961
+    "modified": 1611684977
 }

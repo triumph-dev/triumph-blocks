@@ -10,8 +10,22 @@
 	max-height: 5rem;
 	transition: max-height 450ms ease;
 	overflow: hidden;
+
+	.mobile-show {
+		display: block;
+	}
+	.mobile-hide {
+		display: none;
+	}
+
 	@include lg-and-up {
 		overflow: visible;
+		.mobile-show {
+			display: none;
+		}
+		.mobile-hide {
+			display: block;
+		}
 	}
 
 	.menu-logo {
@@ -55,6 +69,9 @@ ul.menu-header-nav {
 }
 a.menu-link {
 	display: block;
+	&.nav-section-header {
+		@extend %uppercase;
+	}
 }
 .has-subnav {
 	//position: relative;
@@ -99,7 +116,7 @@ a.menu-link {
 	@extend %uppercase;
 	display: block;
 	font-weight: 600;
-	padding: .78rem 0;
+	padding: 0.78rem 0;
 	@include lg-and-up {
 		padding: 1rem 0 1rem 1rem;
 	}
@@ -125,16 +142,16 @@ ul.header-menu {
 		@include lg-and-up {
 			margin-top: 0;
 			display: flex;
-			font-size: .875rem;
+			font-size: 0.875rem;
 			height: 2.75rem;
 			overflow: visible;
 		}
 	}
 	li[data-level="1"] {
-		border-top: $border-width solid rgba($color-ui-gray, .1);
+		border-top: $border-width solid rgba($color-ui-gray, 0.1);
 		@include lg-and-up {
 			border-top: none;
-			padding-right: .75rem;
+			padding-right: 0.75rem;
 		}
 	}
 }
@@ -145,7 +162,7 @@ ul.header-menu-child {
 	max-height: 90em;
 	transition: max-height 350ms ease, padding 350ms ease;
 	> li {
-		margin-bottom: .5em;
+		margin-bottom: 0.5em;
 		&:last-child {
 			margin-bottom: 1em;
 		}
@@ -158,7 +175,7 @@ ul.header-menu-child {
 		border-radius: $border-radius;
 		> li {
 			&:last-child {
-				margin-bottom: .5rem;
+				margin-bottom: 0.5rem;
 			}
 			a {
 				padding: 0 1rem;

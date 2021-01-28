@@ -69,7 +69,7 @@ ul.content-grid-list {
 				width: calc(50% - #{$content-grid-gap});
 			}
 			@include md-and-up {
-				width: calc(50% - #{$content-grid-gap});
+				width: calc(33.33% - #{$content-grid-gap});
 			}
 			@include lg-and-up {
 				width: calc(25% - #{$content-grid-gap});

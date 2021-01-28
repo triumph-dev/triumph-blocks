@@ -17,6 +17,9 @@
 			font-family: $font-sans-serif;
 		}
 	}
+	.tags {
+		display: none;
+	}
 
 	&:first-child {
 		margin-top: 0;

@@ -1,0 +1,27 @@
+.blog-teaser-links {
+	@include md-and-up {
+		display: flex;
+		> *:not(:last-child) {
+			margin-right: $space-md;
+		}
+	}
+}
+a.blog-teaser {
+	font-family: $font-sans-serif;
+	@extend %card-link;
+	height: auto;
+	padding: $space-md;
+	display: flex;
+	flex-direction: column;
+	.simple-link {
+		padding-top: $space-md;
+		margin-top: auto;
+	}
+	.meta {
+		color: $color-ui-dark;
+		opacity: 0.75;
+		font-size: 0.8em;
+		font-family: $font-sans-serif;
+		font-weight: 600;
+	}
+}

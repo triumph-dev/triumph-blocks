@@ -215,17 +215,6 @@ $perpage: 3;
 	.tns-nav,
 	.navigation {
 		color: #fff;
-		button,
-		.dot {
-			&.tns-nav-active,
-			&.active {
-				opacity: 1;
-				background: #fff;
-			}
-			&:hover {
-				background: #fff;
-			}
-		}
 	}
 }
 
@@ -251,6 +240,7 @@ $perpage: 3;
 		}
 		&:hover {
 			background: currentColor;
+			opacity: 1;
 		}
 	}
 }

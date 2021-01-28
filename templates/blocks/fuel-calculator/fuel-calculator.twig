@@ -21,6 +21,7 @@
 		{% endif %}
 		<form name="fuelCalculator" data-multiplier={{ fields.multiplier ? fields.multiplier :  38.875 }}>
 			<fieldset data-background-color="white">
+				<h3>Your Company Information</h3>
 				<label>Number of Trucks*
 					<input id="trucks" name="trucks" type="number" placeholder="5" required>
 				</label>
@@ -38,11 +39,12 @@
 				</label>
 				<br>
 
-				<button class="btn accent border">Calculate</button>
+				<button class="btn accent border calculate">Calculate</button>
 			</fieldset>
 
 			<fieldset class="result" data-background-color="white">
-				<label>Total spent on diesel in a week:
+				<h3>Results</h3>
+				<label>Total spent on diesel<br>in a week:
 					<output id="total-spent" name="total-spent">$0</output>
 				</label>
 
@@ -59,5 +61,10 @@
 				</label>
 			</fieldset>
 		</form>
+		{% if fields.outro_copy %}
+			<div id="fuel-calculator-outro" class="container-sm hidden">
+				{{ fields.outro_copy }}
+			</div>
+		{% endif %}
 	{% endblock %}
 {% endembed %}

@@ -256,7 +256,10 @@ function svg_code($file_location = null){
 
 function add_list_js(){
 	// Include List.js
-	wp_enqueue_script( "list.js", "https:////cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js", [], false, true );
+	if(!wp_script_is( 'list.js', 'enqueued' )){
+		wp_enqueue_script( 'list.js', 'https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js', [], false, true );
+	}
+	
 }
 
 

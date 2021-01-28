@@ -32,7 +32,6 @@ textarea {
 	margin-bottom: $space-sm;
 }
 
-$breakpoint-iphoneSE: 330px;
 $breakpoint-tiny: 400px;
 $breakpoint-sm: 640px;
 $breakpoint-md: 769px;
@@ -222,12 +221,6 @@ $page-interior: 1100px;
 		border: none;
 		outline: none;
 		background: none;
-	}
-}
-
-@mixin se {
-	@media (max-width: #{$breakpoint-iphoneSE}) {
-		@content;
 	}
 }
 

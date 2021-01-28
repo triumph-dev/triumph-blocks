@@ -29,6 +29,26 @@ class CookieHelper {
 	}
 }
 
+class AnchorScroll {
+	constructor(e) {
+		(this.link = e), (this.linkHref = e.getAttribute("href")), this.init();
+	}
+	init() {
+		this.link.addEventListener("click", (e) => {
+			(e.preventDefault(), "#" !== this.linkHref) &&
+				(document.querySelector(this.linkHref).scrollIntoView({
+					behavior: "smooth",
+					block: "start",
+				}),
+				history.pushState(null, null, this.linkHref));
+		});
+	}
+}
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+anchorLinks.forEach((e) => {
+	new AnchorScroll(e);
+});
+
 /*
  * ALERT BANNER
  * Alert banner for critical messaging.
@@ -205,7 +225,7 @@ expands.forEach((expand) => {
  * on click.
  */
 import ExpandGrid from "../templates/blocks/expand-grid/expand-grid";
-const expandGrids = document.querySelectorAll(".expand-grid-list");
+const expandGrids = document.querySelectorAll(".expand-grid");
 expandGrids.forEach((expandGrid) => {
 	new ExpandGrid(expandGrid);
 });

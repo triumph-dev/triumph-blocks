@@ -1,10 +1,10 @@
 {#
 	Title: Blog Teasers
-	Description: Excerpt view of the blog posts
+	Description: A grid grouping of recent blog posts
 	Category: triumph-blocks
-	Icon: excerpt-view
+	Icon: format-image
 	Keywords: 
-	Mode: preview
+	Mode: edit
 	Align: left
 	PostTypes: post page account leader partner service
 	SupportsAlign: false
@@ -14,8 +14,43 @@
 	SupportsCustomClassName: true
 #}
 
+
+
+{% if fields.what_to_show == 'recent' %}
+    {% set posts = recent %}
+{% endif %}
+
+{% if fields.what_to_show == 'featured' %}
+    {% set posts = featured %}
+{% endif %}
+
+{% if fields.what_to_show == 'custom' %}
+    {% if fields.choose_your_posts %}
+		{% set posts = Post(fields.choose_your_posts) %}
+	{% endif %}
+{% endif %}
+
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'blog-teasers' } %}
 	{% block block_content %}
-		{# Write your component code here #}
+
+		{% if fields.intro_copy %}
+			{% include 'blocks/intro-copy/intro-copy.twig' %}
+		{% endif %}
+		<div class="blog-teaser-links">
+			{% for post in posts|slice(0,3) %}
+				<a class="blog-teaser" href="{{ post.link }}">
+					<h3>{{ post.title }}</h3>
+					<div class="meta">
+						<time datetime="{{post.date|date('Y-m-d')}}" class="date">{{ post.date|date('F, d Y') }}</time>
+						<div class="categories" data-categories="{{ cat_slug_array|join('+') }}">
+							{% for category in post.categories %}
+								{{ category.name }}{{ loop.last ? '' : ',' }}
+							{% endfor %}
+						</div>
+					</div>
+					<div class="simple-link">Read Article</div>
+				</a>
+			{% endfor %}
+		</div>
 	{% endblock %}
 {% endembed %}

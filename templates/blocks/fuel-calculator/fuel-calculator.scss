@@ -1,4 +1,14 @@
 .fuel-calculator {
+	text-align: center;
+	.calculate {
+		width: 100%;
+	}
+	fieldset {
+		padding: $space-md;
+	}
+	label {
+		text-align: left;
+	}
 	form {
 		> * {
 			width: 100%;
@@ -8,7 +18,9 @@
 		}
 	}
 	.result {
-		text-align: center;
+		label {
+			text-align: center;
+		}
 		@include md-and-up {
 			margin-left: $space-md;
 		}

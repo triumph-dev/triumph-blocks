@@ -34,7 +34,7 @@ ol.process-steps-list {
 	}
 	li {
 		position: relative;
-		padding: 0 0 $space-md 0;
+		padding: 0.6rem 0 $space-md 0;
 		counter-increment: my-awesome-counter;
 		&:after {
 			/* bullets */
@@ -68,7 +68,6 @@ ol.process-steps-list {
 			//width: 1px;
 		}
 		&:first-child {
-			padding-top: 0;
 			&:before {
 				/* first li's line */
 				top: 6px; /* moves the line down so that it disappears under the bullet. Adjust manually */

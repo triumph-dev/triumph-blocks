@@ -14,6 +14,11 @@ export default class FuelCalculator {
 		});
 	}
 	calculate() {
+		if (document.getElementById("fuel-calculator-outro")) {
+			document
+				.getElementById("fuel-calculator-outro")
+				.classList.remove("hidden");
+		}
 		let trucks = parseFloat(document.getElementById("trucks").value);
 		let truckMiles = parseFloat(
 			document.getElementById("truck-miles").value

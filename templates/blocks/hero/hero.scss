@@ -15,6 +15,11 @@
 			font-size: 2.5rem;
 		}
 	}
+	h4,
+	h5,
+	h6 {
+		@extend %uppercase;
+	}
 }
 .hero-panes {
 	display: flex;
@@ -58,9 +63,9 @@
 	}
 	&[data-background-color="image"] {
 		.hero-copy {
-			text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.25);
+			text-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.25);
 			p {
-				text-shadow: .1em .1em .75em rgba(0, 0, 0, 0.75);
+				text-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.75);
 			}
 		}
 	}
@@ -91,7 +96,7 @@
 }
 
 .corner-crosshair {
-	opacity: .5;
+	opacity: 0.5;
 	position: absolute;
 	width: 12em;
 	height: 12em;

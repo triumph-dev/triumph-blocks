@@ -1,5 +1,6 @@
 .big-checklist {
 	ul.checklist {
+		margin: -#{$space-sm} 0;
 		column-count: 1;
 		column-gap: $space-lg;
 		@include sm-and-up {
@@ -8,12 +9,8 @@
 
 		> li {
 			display: flex;
-			-webkit-column-break-inside: avoid;
-			-moz-column-break-inside: avoid;
-			-moz-page-break-inside: avoid;
-			page-break-inside: avoid;
-			break-inside: avoid;
-			margin-bottom: $space-md;
+			break-inside: avoid-column;
+			padding: $space-sm 0;
 		}
 	}
 	.icon {

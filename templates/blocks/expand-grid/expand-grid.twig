@@ -13,16 +13,16 @@
 	SupportsAnchor: true
 	SupportsCustomClassName: true
 #}
-
+{% set list_type = fields.grid_style ? fields.grid_style : 'columns' %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'expand-grid' } %}
 	{% block block_content %}
 		{% if fields.intro_copy %}
 			{% include 'blocks/intro-copy/intro-copy.twig' %}
 		{% endif %}
-		<ul class="expand-grid-list" data-max-columns="{{ fields.grid_max_columns }}">
+		<ul class="content-{{ list_type }}-list" data-max-columns="{{ fields.grid_max_columns }}">
 		{% for grid_item in fields.grid_items %}
-			<li class="expand-grid-item" data-style="card" data-image-style="{{ fields.grid_item_image_style }}">
+			<li class="expand-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
 
 				{% if grid_item.image or grid_item.icon %}
 					<div class="grid-item-header">
