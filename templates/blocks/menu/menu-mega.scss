@@ -33,15 +33,19 @@
 			}
 		}
 		&[data-title="Business"] {
+			@extend %white-text;
 			background: var(--color-accent-blue);
 		}
 		&[data-title="Personal"] {
+			@extend %white-text;
 			background: var(--color-accent-green);
 		}
 		&[data-title="Our Bank"] {
+			@extend %white-text;
 			background: var(--color-accent-rust);
 		}
 		&[data-title="Online Banking"] {
+			@extend %white-text;
 			background: var(--color-secondary);
 		}
 		a {
