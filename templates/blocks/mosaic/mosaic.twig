@@ -15,6 +15,9 @@
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'mosaic'} %}
 	{% block block_content %}
+		{% if fields.intro_copy %}
+			{% include 'blocks/intro-copy/intro-copy.twig' %}
+		{% endif %}
 		<nav class="tiles">
 			{% for tile in fields.tiles %}
 				<a class="tile" href="{{ tile.link.url }}" target="{{ tile.link.target }}" data-span="{{ tile.span }}" data-tile-color="{{ tile.tile_color }}">
