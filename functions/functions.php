@@ -214,7 +214,6 @@ function triumph_get_accent_color(){
  */
 function svg_code($file_location = null){
 
-	$base = get_site_url();
 
 	if(function_exists('triumph_get_primary_color')){
 		$icon_accent = adjust_brightness(triumph_get_primary_color(), 20);
@@ -240,7 +239,9 @@ function svg_code($file_location = null){
 	
     $return = false;
     if ($file_location) {
-		
+    	if (strpos($file_location, '/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/') !== false) {
+		    $file_location = dirname(__DIR__).'/templates/blocks/icons/svg/'. array_pop(explode('/', $file_location));
+		}
         $iconfile = new DOMDocument();
         $iconfile->load($file_location);
         $html = $iconfile->saveHTML($iconfile->getElementsByTagName('svg')[0]);

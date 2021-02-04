@@ -19,6 +19,7 @@
 }
 
 [data-background-color="image"] {
+	@extend %white-text;
 	position: relative;
 	img.background {
 		object-fit: cover;

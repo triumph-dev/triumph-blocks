@@ -2,7 +2,17 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 
 blockquote {
+	font-size: 1.125em;
+	border-left: 0.25em solid rgba($color-ui-gray, 0.3);
+	background: #fff;
+	padding: $space-sm $space-md;
+	margin: $space-md 0;
 	*:last-child {
 		margin-bottom: 0;
 	}
+}
+
+cite {
+	font-size: 0.9em;
+	font-style: italic;
 }

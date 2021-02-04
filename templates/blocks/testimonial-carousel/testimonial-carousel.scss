@@ -29,6 +29,8 @@
 		font-weight: 400;
 	}
 	blockquote {
+		border: none;
+		background: transparent;
 		padding: 0 $space-lg;
 		max-width: $breakpoint-md;
 		margin: 0 auto;
