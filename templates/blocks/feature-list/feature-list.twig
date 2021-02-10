@@ -21,7 +21,7 @@
 		{% for feature in fields.features %}
 			{% set image = Image(feature.icon) %}
 			<div class="feature" style="-ms-grid-column:{{loop.index}};">
-				<img src="{{ image.src }}" srcset="{{ image.srcset }}" />
+				<img src="{{ image.src }}" srcset="{{ image.srcset }}" loading="lazy"/>
 				<div class="copy">
 					{{ feature.copy }}
 				</div>

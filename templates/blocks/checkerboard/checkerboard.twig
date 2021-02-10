@@ -21,7 +21,7 @@
 			{% set image = Image(row.image) %}
             <figure class="row" data-background-color="{{ row.background_color }}">
 				<div class="image" data-pad="{{ fields.image_pad }}" >
-					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover" />
+					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" data-object-fit="cover" loading="lazy"/>
 					{% if row.crosshair_frame %}
 						{% include "templates/blocks/crosshair-frame/crosshair-frame.twig" %}
 					{% endif %}

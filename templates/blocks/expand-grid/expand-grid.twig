@@ -28,7 +28,7 @@
 					<div class="grid-item-header">
 						{% if grid_item.image %}
 							{% set image = Image(grid_item.image) %}
-							<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" />
+							<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
 						{% endif %}
 
 						{% if grid_item.icon %}

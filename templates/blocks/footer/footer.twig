@@ -2,9 +2,9 @@
 	<div class="footer-top">
 		<div class="footer-menu-logo">
 			{% if is_internet_explorer() %}
-				<img src="{{ fallback_logo_light_src() }}" alt="{{site.name}} Logo" />
+				<img src="{{ fallback_logo_light_src() }}" alt="{{site.name}} Logo" loading="lazy"/>
 			{% else %}
-				<img src="{{ site_logo_src() }}" alt="{{site.name}} Logo" />
+				<img src="{{ site_logo_src() }}" alt="{{site.name}} Logo" loading="lazy"/>
 			{% endif %}
 		</div>
 		

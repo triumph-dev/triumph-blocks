@@ -14,7 +14,7 @@
 
 	{% if post.thumbnail %}
 		<a class="post-thumb-link" href="{{ post.link }}">
-			<img class="post-thumb" src="{{ post.thumbnail.src('small') }}" srcset="{{ post.thumbnail.srcset }}" class="my-thumb-class" alt="Image for {{ post.title }}" />
+			<img class="post-thumb" src="{{ post.thumbnail.src('small') }}" srcset="{{ post.thumbnail.srcset }}" class="my-thumb-class" alt="Image for {{ post.title }}" loading="lazy"/>
 		</a>
 	{% endif %}
 

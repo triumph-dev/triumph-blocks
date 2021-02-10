@@ -23,7 +23,7 @@
 				{% for slide in fields.slides %}
 
 					<div class="info-carousel-slide-image" data-content-id="{{ loop.index }}" data-active="{{ loop.index == 1 ? 'true' : 'false' }}" data-position="{{ loop.index }}">
-						<img src="{{ Image(slide.image).src }}" srcset="{{ Image(slide.image).srcset }}" />
+						<img src="{{ Image(slide.image).src }}" srcset="{{ Image(slide.image).srcset }}" loading="lazy"/>
 					</div>
 
 				{% endfor %}
