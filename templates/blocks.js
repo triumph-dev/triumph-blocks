@@ -73,7 +73,7 @@ import { tns } from "tiny-slider/src/tiny-slider";
 
 const tnsControls = [
 	'<i class="far fa-lg fa-angle-left"></i><span class="hidden">Previous Slide</span>',
-	'<i class="far fa-lg fa-angle-right"></i></i><span class="hidden">Next Slide</span>',
+	'<i class="far fa-lg fa-angle-right"></i><span class="hidden">Next Slide</span>',
 ];
 
 const logoCarousels = document.querySelectorAll(".logo-carousel .carousel");
