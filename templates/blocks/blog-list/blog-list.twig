@@ -23,7 +23,7 @@
 
 
 
-<div class="blog-list">
+<div {{ anchor ? 'id="'~ anchor ~'"' : '' }} class="blog-list">
 	{% if posts|length > 1 %}
 		<div id="list-total">q</div>
 	{% endif %}

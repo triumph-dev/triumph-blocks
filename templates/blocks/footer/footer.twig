@@ -16,15 +16,23 @@
 		{% endif %}
 	</div>
 	
-
 	{% if menu.footerNav %}
 		{% include 'blocks/menu-list/menu-list-footer.twig' with {items: menu.footerNav.get_items, 'name': 'menu-footer-nav'} %}
 	{% endif %}
 
-
-	<div class="footer-bottom">
+	<div class="footer-bottom {{  menu.footerNav.meta('footer_logos') ? 'with-logos' : '' }}" >
+		{% if menu.footerNav.meta('footer_logos') %}
+			<div class="footer-logos">
+				{% for footer_logo in menu.footerNav.meta('footer_logos') %}
+				
+					{% set image = Image(footer_logo) %}
+					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt ? image.alt : 'footer logo' }}" loading="lazy">
+				{% endfor %}
+			</div>
+		{% endif %}
 		<div class="footer-subtitle">
-			<p> {{ site.name }} 
+		{% if options.address and options.city and options.state and options.zip %}
+			<p> {{ site.name  }} 
 				{% if options.address and options.city and options.state and options.zip %}
 					| {{ options.address }} {{ options.city }}, {{ options.state }} {{ options.zip }}
 				{% endif %}
@@ -35,12 +43,14 @@
 					| <a href="mailto:{{ options.email }}">{{ options.email }}</a>
 				{% endif %}
 			</p>
+			{% endif %}
+			
+			{% if menu.footerNav.meta('footer_main') %}
+				{{ menu.footerNav.meta('footer_main') }}
+			{% endif %}
 			<p class="footer-legal">
-				&copy; {{"now"|date('Y')}} {{menu.footerNav.meta('footer_subtitle')}}
+				&copy; {{"now"|date('Y')}} {{ site.name }}{{ menu.footerNav.meta('footer_subtitle') ? ' | ' : '' }}{{menu.footerNav.meta('footer_subtitle')}}
 			</p>
 		</div>
 	</div>
-
-
 </nav>
-

@@ -51,7 +51,7 @@ function my_acf_json_load_point( $paths ) {
 
 add_filter( 'timber/acf-gutenberg-blocks-data', function( $context ){
     $context['post'] = Timber::get_post();
-
+	$context['anchor'] = $context['block']['anchor'];
     return $context;
 } );
 
@@ -92,19 +92,20 @@ function account_comparison($accounts = []){
 	return $account_comparison;
 }
 
-
+ 
 
 function account_features( $account_id = null) {
 	
 	if($account_id && get_field('account_features', $account_id)){
 		$account_features = get_field('account_features', $account_id);
+		$account_legal = get_field('account_legal', $account_id);
 
 		$account_features_obj = get_field_object('account_features', $account_id);
 
 		$account_feature_fields = $account_features_obj['sub_fields'];
 
 		$list_content = [];
-		$disclaimer = '';
+		$disclaimers = [];
 		$i = 1;
 		foreach($account_features as $feature_name => $feature_value){
 			$key = array_search($feature_name, array_column($account_feature_fields, 'name'));
@@ -124,17 +125,19 @@ function account_features( $account_id = null) {
 
 				if(!empty($account_feature_fields[$key]['instructions'])){
 					$feature_value .= '<sup>'.$i.'</sup>';
-					$disclaimer .= ' '.$i.'. '.$account_feature_fields[$key]['instructions'];
+					$disclaimers[] = $account_feature_fields[$key]['instructions'];
 					$i++;
 				}
 
 				$list_content[] = sprintf('<span class="title">%s</span>%s', $feature_title, $feature_value);
-
 			}
-
 		}
 		
-		$output = ['features'=>$list_content, 'disclaimer'=>$disclaimer];
+		$output = [
+			'features'=>$list_content, 
+			'disclaimers'=>$disclaimers,
+			'legal'=>$account_legal
+		];
 	}else{
 		$output = null;
 	}

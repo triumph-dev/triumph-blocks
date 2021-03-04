@@ -46,17 +46,27 @@
 	margin-top: $space-sm;
 
 	.footer-subtitle {
-		
-		text-align:center;
+		text-align: left;
 		@include md-and-up {
-			//text-align: center;
+			text-align: center;
 		}
+
 		a:hover {
 			color: white;
 		}
 	}
-	.footer-legal{
-		font-size:.8rem;
+	.footer-legal {
+		font-size: 0.8rem;
+	}
+	&.with-logos {
+		@include md-and-up {
+			display: flex;
+			align-items: center;
+			//justify-content: space-between;
+		}
+		.footer-subtitle {
+			text-align: left;
+		}
 	}
 }
 .footer-top {
@@ -82,4 +92,17 @@ ul.menu-footer-social {
 	margin-bottom: $space-lg;
 	display: block;
 	filter: grayscale(1) brightness(1000%);
+}
+
+.footer-logos {
+	display: flex;
+	margin: 0 -#{$space-sm};
+	@include md-and-up {
+		margin-right: $space-md;
+	}
+	img {
+		margin: $space-sm;
+		height: 3rem;
+		width: auto;
+	}
 }

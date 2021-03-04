@@ -1,10 +1,16 @@
-<li class="content-grid-item" data-style="{{ fields.grid_item_style }}" data-image-style="{{ fields.grid_item_image_style }}">
+<li class="content-grid-item" 
+	data-style="{{ fields.grid_item_style }}" 
+	data-image-style="{{ fields.grid_item_image_style }}"
+	{{ fields.grid_item_custom_image_width ? 'data-custom-image-width="' ~ fields.grid_item_custom_image_width ~ '%"' : '' }}
+	{{ fields.grid_item_image_alignment ? 'data-custom-image-alignment="' ~ fields.grid_item_image_alignment ~ '"' : '' }}
+	>
 	<a class="{{ grid_item.link.link_custom_class ? grid_item.link.link_custom_class : '' }}" href="{{grid_item.link.link.url}}">
 		{% if grid_item.image or grid_item.icon %}
 			<div class="grid-item-header">
 				{% if grid_item.image %}
 					{% set image = Image(grid_item.image) %}
-					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
+					{% set width = fields.grid_item_custom_image_width ? 'style="width:' ~ fields.grid_item_custom_image_width ~ '%"' : '' %}
+					<img src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" {{ width }} />
 				{% endif %}
 
 				{% if grid_item.icon %}

@@ -26,8 +26,15 @@
 				<li>{{ feature }}</li>
 			{% endfor %}
 		</ul>
-		<div class="disclaimer">
-			{{ account_details.disclaimer }}
+		<div class="disclaimer small">
+			{% if account_details.legal %}
+				<p>{{ account_details.legal }}</p>
+			{% endif %}
+			<ol>
+				{% for disclaimer in account_details.disclaimers %}
+					<li id="{{ block.id }}-disclaimer-{{ loop.index }}">{{ disclaimer }}</li>
+				{% endfor %}
+			</ol>
 		</div>
 	
 	{% endblock %}
