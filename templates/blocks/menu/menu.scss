@@ -54,8 +54,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		> *:not(:first-child) {
-			margin-left: 1rem;
+		> *:not(:last-child) {
+			margin-right: 1rem;
 		}
 		> *:last-child {
 			margin-right: $space-md;
@@ -181,6 +181,12 @@ ul.header-menu-child {
 				padding: 0 1rem;
 			}
 		}
+	}
+}
+
+ul.menu-header-utility {
+	@include lg-and-up {
+		margin-left: auto;
 	}
 }
 

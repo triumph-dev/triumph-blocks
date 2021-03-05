@@ -3,7 +3,7 @@
 		max-height: 8rem;
 	}
 }
-.mega-menu {
+.menu-header-mega-nav {
 	ul[data-level="2"] {
 		@extend %light-link;
 		background: var(--color-primary);
@@ -75,11 +75,6 @@
 			@include lg-and-up {
 				display: none;
 			}
-		}
-	}
-	ul.menu-header-utility {
-		@include lg-and-up {
-			margin-left: auto;
 		}
 	}
 }

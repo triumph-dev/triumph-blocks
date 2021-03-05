@@ -191,6 +191,8 @@ function triumph_get_accent_color(){
 		$url = get_permalink(get_the_ID());
 		$base = get_site_url();
 
+	
+
 		if(strpos($url, $base.'/personal') !== false){
 			$accent_color = get_theme_mod('triumph_color_accent_green', '#527a2e');
 		}elseif(strpos($url, $base.'/business') !== false){
@@ -205,6 +207,7 @@ function triumph_get_accent_color(){
 	}else{
 		$accent_color = get_theme_mod('triumph_color_accent', '#37474f');
 	}
+
 	return $accent_color;
 }
 
@@ -216,16 +219,15 @@ function triumph_get_accent_color(){
  * @param string $file_location The path or url to an SVG file
  */
 function svg_code($file_location = null){
-
-
-	if(function_exists('triumph_get_primary_color')){
-		$icon_accent = adjust_brightness(triumph_get_primary_color(), 20);
 		
-	}elseif(get_theme_mod('triumph_color_accent_icon')){
+	if(get_theme_mod('triumph_color_accent_icon')){
 		$icon_accent = get_theme_mod('triumph_color_accent_icon', '#37474f');
 	}else{
-		$icon_accent = get_theme_mod('triumph_color_accent', '#37474f');
+		$icon_accent = triumph_get_accent_color();
 	}
+
+	$icon_accent = adjust_brightness($icon_accent, 10);
+
 
 	if(WP_DEBUG){
 		$opts = array(
