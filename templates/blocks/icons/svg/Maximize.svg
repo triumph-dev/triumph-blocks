@@ -5,8 +5,8 @@
         fill: #c8c9c7;
       }
 
-      .b {
-        fill: #0a263c;
+      .icon-dark {
+        fill: #000000;
       }
     </style>
   </defs>

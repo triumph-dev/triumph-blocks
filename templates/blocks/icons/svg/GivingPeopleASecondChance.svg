@@ -1,9 +1,8 @@
 <svg class="triumph-svg-icon" xmlns="http://www.w3.org/2000/svg" width="1.38in" height="1.38in" viewBox="0 0 99.25 99.25">
   <defs>
     <style>
-      .a {
+      .icon-accent {
         fill: #c8c9c7;
-        fill-rule: evenodd;
       }
 
       .icon-dark {
