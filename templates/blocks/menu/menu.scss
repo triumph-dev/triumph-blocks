@@ -190,6 +190,12 @@ ul.menu-header-utility {
 	}
 }
 
+ul.menu-header-nav + .menu-header-buttons {
+	@include lg-and-up {
+		margin-left: auto;
+	}
+}
+
 .menu-header-buttons {
 	margin-top: $space-sm;
 	@include lg-and-up {
