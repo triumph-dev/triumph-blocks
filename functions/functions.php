@@ -270,10 +270,9 @@ function add_list_js(){
 
 
 function triumph_breadcrumbs() {
-
     $baseurl = get_site_url();
-    $current_url = get_permalink();
     $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+	
     $segments = array_filter(explode('/', $uri_path));
     $crumbs = '<li><a href="/">Home</a></li>';
     $i = 1;
@@ -283,9 +282,13 @@ function triumph_breadcrumbs() {
         $path = '/'.implode('/', $path_segments).'/';
         $post_url = rtrim($baseurl,'/').$path;
         $id = url_to_postid($post_url);
+
         $title = get_the_title($id);
         
         if( !next( $segments ) ) {
+			if ( is_home() ) {
+				$title = get_the_title( get_option( 'page_for_posts' ));
+			}
             $crumbs .= '<li>'.$title.'</li>';
         }else{
             $crumbs .= '<li><a href="'.$path.'">'.$title.'</a></li>';

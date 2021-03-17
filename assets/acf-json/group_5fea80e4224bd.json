@@ -75,21 +75,14 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "account"
             }
         ],
         [
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
+                "value": "service"
             }
         ]
     ],
@@ -101,5 +94,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609257150
+    "modified": 1616016798
 }
