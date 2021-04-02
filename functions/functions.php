@@ -116,11 +116,11 @@ function account_features( $account_id = null) {
 			if(!empty($feature_value)){
 
 				if(!is_bool($feature_value)){
-					$feature_value = ': '.$feature_value;
+					$feature_value = $feature_value;
 				}
 
 				if(is_bool($feature_value) && $feature_value == true ){
-					$feature_value = '';
+					$feature_value = $feature_title;
 				}
 
 				if(!empty($account_feature_fields[$key]['instructions'])){
@@ -129,7 +129,7 @@ function account_features( $account_id = null) {
 					$i++;
 				}
 
-				$list_content[] = sprintf('<span class="title">%s</span>%s', $feature_title, $feature_value);
+				$list_content[] = $feature_value;
 			}
 		}
 		
