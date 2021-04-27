@@ -332,13 +332,6 @@
                                 "operator": "==",
                                 "value": "image"
                             }
-                        ],
-                        [
-                            {
-                                "field": "field_5f6d1e3a172c9",
-                                "operator": "==",
-                                "value": "image-custom-width"
-                            }
                         ]
                     ],
                     "wrapper": {
@@ -364,7 +357,15 @@
                     "type": "radio",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f6d1e3a172c9",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "triumph-icon-picker",
@@ -521,5 +522,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619545494
+    "modified": 1619553751
 }
