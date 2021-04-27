@@ -16,7 +16,7 @@
 
 {% set carousel = (fields.gallery|length > 1 ? true : false) %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'content-gallery' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		<div class="slides {{ carousel ? 'carousel' : 'single' }}">
 			{% for slide in fields.gallery %}

@@ -16,7 +16,7 @@
 
 
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'feature-list' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		{% for feature in fields.features %}
 			{% set image = Image(feature.icon) %}

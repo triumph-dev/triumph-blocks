@@ -14,21 +14,19 @@
 	SupportsCustomClassName: true
 #}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with { blockName: 'breadcrumbs'} %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
         
         <nav class="breadcrumb-nav">
 		
             {% if fields.source != 'custom' %}
-                {% cache post.slug ~ '-breadcrumbs' fields %}
-                    {{ function('triumph_breadcrumbs', '', '') }}
-                {% endcache %}
+                {{ function('triumph_breadcrumbs', '', '') }}
             {% elseif fields.custom_breadcrumbs %}
                 <ul class="breadcrumb-links">
                     {% for link in fields.custom_breadcrumbs %}
-                        <li><a href="{{ link.link.url }}">{{ link.link.title }}</a></li>
+                        <li><a href="{{ link.link.url }}">{{ link.link.title }}</a>&lrm;</li>
                     {% endfor %}
-                    <li><span class="current_page">{{ post.title }}</span></li>
+                    <li><span class="current_page">{{ post.title }}</span>&lrm;</li>
                 </ul>
             {% endif %}
 			

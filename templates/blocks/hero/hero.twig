@@ -20,7 +20,7 @@
 
 {% set carousel = (slides|length > 1 ? true : false) %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'hero' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 
 		<div class="hero-panes fade-in {{ carousel ? 'carousel' : '' }}">

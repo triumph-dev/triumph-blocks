@@ -49,13 +49,6 @@ function my_acf_json_load_point( $paths ) {
 
 
 
-add_filter( 'timber/acf-gutenberg-blocks-data', function( $context ){
-    $context['post'] = Timber::get_post();
-	$context['anchor'] = $context['block']['anchor'];
-    return $context;
-} );
-
-
 function triumph_blocks_admin_assests() {
 	wp_enqueue_style('triumph-blocks-admin-styles', TRIUMPH_BLOCKS_URL.'assets/admin.css');
 }
@@ -304,9 +297,9 @@ function triumph_breadcrumbs() {
 			if ( is_home() ) {
 				$title = get_the_title( get_option( 'page_for_posts' ));
 			}
-            $crumbs .= '<li>'.$title.'</li>';
+            $crumbs .= '<li>'.$title.'&lrm;</li>';
         }else{
-            $crumbs .= '<li><a href="'.$path.'">'.$title.'</a></li>';
+            $crumbs .= '<li><a href="'.$path.'">'.$title.'</a>&lrm;</li>';
         }
         $i++;
     }

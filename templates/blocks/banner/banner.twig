@@ -14,9 +14,10 @@
 	SupportsCustomClassName: true
 #}
 
-{% set class = (fields.is_row ? 'banner is-row' : (fields.is_a_header ? 'banner header' : 'banner')) %}
+{% set class = (fields.is_row ? 'is-row' : (fields.is_a_header ? 'header' : '')) %}
+{% set classes = classes ~ ' ' ~ class %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: class} %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		<div class="content" data-alignment="{{ fields.alignment }}">
 			{{ fields.copy }}

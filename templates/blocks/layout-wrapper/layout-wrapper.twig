@@ -1,4 +1,4 @@
-<section {{ anchor ? 'id="'~ anchor ~'"' : '' }} class="section-wrapper {{ blockName }} {{ classes ? classes : '' }} {{ fields.overlap ? 'overlap' : '' }}" {{ block.id ? 'data-' ~ block.id : '' }} data-background-color="{{ fields.background_color }}">
+<section {{ block.anchor ? 'id="'~ block.anchor ~'"' : '' }} class="section-wrapper {{ classes ? classes : '' }} {{ fields.overlap ? 'overlap' : '' }}" data-{{ block.id }} data-background-color="{{ fields.background_color }}">
 	{% if fields.background_color == 'image' and fields.background_image %}
         {% if fields.background_darkness_overlay %}
             {% set brightness = (100 - fields.background_darkness_overlay|number_format) ~ '%' %}
@@ -15,5 +15,4 @@
 				
 		{% endblock %}
 	</div>
-
 </section>

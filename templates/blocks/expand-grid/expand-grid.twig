@@ -15,7 +15,7 @@
 #}
 {% set list_type = fields.grid_style ? fields.grid_style : 'columns' %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'expand-grid' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with %}
 	{% block block_content %}
 		{% if fields.intro_copy %}
 			{% include 'blocks/intro-copy/intro-copy.twig' %}

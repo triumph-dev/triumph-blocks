@@ -14,8 +14,8 @@
 	SupportsCustomClassName: true
 #}
 
-{% set content_layout = 'layout-' ~ fields.content_layout %}
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'icon-content-list ' ~ content_layout } %}
+{% set classes = classes ~' layout-' ~ fields.content_layout %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		{% if fields.intro_copy %}
 			{% include 'blocks/intro-copy/intro-copy.twig' %}

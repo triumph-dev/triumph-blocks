@@ -15,7 +15,7 @@
 #}
 {% set logo_count = fields.show_8_at_once ? 2 : 1 %}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'logo-carousel' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		<div class="logo-carousel-wrapper {{ fields.logos|length > show_total ? "active" : "" }} block full-width {{ classes ? classes : '' }}" {{ block.id ? 'data-' ~ block.id : '' }}>
 			<div class="copy">

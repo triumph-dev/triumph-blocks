@@ -14,7 +14,7 @@
 	SupportsCustomClassName: true
 #}
 {% set icon =  function('svg_code', site.theme.link ~ '/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/Positive.svg') %}
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'big-checklist' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 
 		{% if fields.intro_copy %}

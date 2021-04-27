@@ -15,7 +15,7 @@
 #}
 
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'info-carousel' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 	<h2 class="info-carousel-heading-mobile">{{ fields.heading }}</h2>
 		<div class="slide-images-wrapper" data-slide-number="{{ fields.slides|length }}">

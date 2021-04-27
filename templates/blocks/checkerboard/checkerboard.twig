@@ -15,7 +15,8 @@
 #}
 
 {% set first_text_position = fields.first_text_position ? fields.first_text_position : 'left' %}
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'checkerboard ' ~ first_text_position } %}
+{% set classes = classes ~ ' ' ~ first_text_position %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		{% for row in fields.rows %}
 			{% set image = Image(row.image) %}

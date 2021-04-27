@@ -14,7 +14,7 @@
 	SupportsCustomClassName: true
 #}
 
-{% embed 'blocks/layout-wrapper/layout-wrapper.twig' with {blockName: 'testimonial-carousel' } %}
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		<ul class="testimonials {{ fields.show_arrow_navigation ? "arrows" : "" }}">
 			{% for testimonial in fields.testimonials %}
