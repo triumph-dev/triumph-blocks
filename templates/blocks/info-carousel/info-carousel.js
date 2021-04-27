@@ -12,7 +12,13 @@ export default class InfoCarousel {
 
 				this.setActive(trigger, this.images);
 				this.setActive(trigger, this.copies);
-				var x = trigger.getBoundingClientRect();
+				if (e.target.href) {
+					//if (e.target.target == '_blank') {
+					//	window.open(e.target.href, e.target.target);
+					//} else {
+					window.location.href = e.target.href;
+					//}
+				}
 			});
 		});
 	}

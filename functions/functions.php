@@ -55,6 +55,10 @@ function triumph_blocks_admin_assests() {
 add_action( 'admin_enqueue_scripts', 'triumph_blocks_admin_assests' );
 
 
+add_filter( 'timber/acf-gutenberg-blocks-data', function( $context ){
+    $context['post'] = Timber::get_post();
+    return $context;
+} );
 
 
 function remove_style_tags($html="") {
