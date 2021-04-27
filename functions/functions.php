@@ -176,7 +176,7 @@ function acf_icon_selector_choices( $field ) {
     // reset choices
     $field['choices'] = array();
 
-	$triumph_icon_path = '/wp-content/themes/tbk-theme/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/';
+	$triumph_icon_path = '/wp-content/themes/'.get_stylesheet().'/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/';
 
 	$triumph_icon_dir = TRIUMPH_BLOCKS_DIR.'templates/blocks/icons/svg/';
 	$triumph_icon_url = TRIUMPH_BLOCKS_URL.'templates/blocks/icons/svg/';
