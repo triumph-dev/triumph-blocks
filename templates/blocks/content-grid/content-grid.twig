@@ -26,5 +26,12 @@
 			{% include ['blocks/content-grid/item-' ~ fields.grid_item_style ~ '.twig', 'blocks/content-grid/item-default.twig'] %}
 		{% endfor %}
 		</ul>
+
+		{% if fields.outro_copy %}
+			<div class="outro-copy {{ fields.intro_copy_width }}">
+				{{ fields.outro_copy }}
+			</div>
+		{% endif %}
     {% endblock %}
+
 {% endembed %}

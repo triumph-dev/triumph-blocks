@@ -1,7 +1,6 @@
 <a class="search-result search-result-{{post.post_type}}" id="search-result-{{post.ID}}" href="{{ post.link }}">
 	{% block content %}
 		<h2>{{post.title}}</h2>
-        <h3 class="post-type">{{ post.post_type }}</h3>
-		<p>{{ post.content|striptags|split(' ')|slice(0, 30)|join(' ') ~'...'}}</p>
+		{{ post.preview.length(50).read_more(false)}}
 	{% endblock %}
 </a>

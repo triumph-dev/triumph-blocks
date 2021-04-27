@@ -9,7 +9,7 @@ export default class FaqFilter {
 		this.init();
 	}
 	init() {
-		this.filterList();
+		this.filterNow();
 
 		this.filters.forEach((filter) => {
 			// listen for check/uncheck
@@ -32,6 +32,20 @@ export default class FaqFilter {
 	}
 
 	getCheckedInputs() {
+		let urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('faqCat')) {
+			let catsString = urlParams.get('faqCat');
+			let cats = catsString.split('|');
+
+			cats.forEach((cat) => {
+				let checkbox = document.querySelector(this.filterSelector + '[data-title="' + cat + '"]');
+				if (checkbox) {
+					checkbox.checked = 'checked';
+				}
+			});
+			this.filterSelector;
+		}
+
 		// Empty the arrays of checked inputs.
 		this.categories = [];
 		this.titles = [];
@@ -73,7 +87,7 @@ export default class FaqFilter {
 			var itemCategories = item.values().categories;
 			if (itemCategories) {
 				var itemCategories = itemCategories.split('+');
-				itemCategories = itemCategories.map(function(el) {
+				itemCategories = itemCategories.map(function (el) {
 					return el.trim();
 				});
 			}

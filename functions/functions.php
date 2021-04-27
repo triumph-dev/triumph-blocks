@@ -64,6 +64,20 @@ add_action( 'admin_enqueue_scripts', 'triumph_blocks_admin_assests' );
 
 
 
+function remove_style_tags($html="") {
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors(true);
+	$dom->loadHTML($html);
+	libxml_use_internal_errors(false);
+	foreach ($dom->getElementsByTagName('style') as $style) {
+		$style->parentNode->removeChild($style);
+	}
+	$html_new = $dom->saveHTML();
+	
+	return $html_new;
+}
+
 
 
 
@@ -162,17 +176,18 @@ function acf_icon_selector_choices( $field ) {
     // reset choices
     $field['choices'] = array();
 
+	$triumph_icon_path = '/wp-content/themes/tbk-theme/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/';
 
-	$triumph_icon_path = dirname(__DIR__).'/templates/blocks/icons/svg/';
+	$triumph_icon_dir = TRIUMPH_BLOCKS_DIR.'templates/blocks/icons/svg/';
 	$triumph_icon_url = TRIUMPH_BLOCKS_URL.'templates/blocks/icons/svg/';
-    $dir = new DirectoryIterator($triumph_icon_path);
+    $dir = new DirectoryIterator($triumph_icon_dir);
 	
 	foreach ($dir as $fileinfo) {
 		if(strpos ( $fileinfo->getFilename() , '.svg' ) !== false){
 			if (!$fileinfo->isDot()) {
-				$icon_img = '<img class="triumph-icon-img" src="'.$triumph_icon_url.$fileinfo->getFilename().'" />';
+				$icon_img = '<img class="triumph-icon-img" src="'.$triumph_icon_path.$fileinfo->getFilename().'" />';
 				$title = basename($fileinfo->getFilename(), '.svg');
-				$field['choices'][$triumph_icon_url.$fileinfo->getFilename()] = $icon_img.'<div class="triumph-icon-title">'.$title.'</div>';
+				$field['choices'][$triumph_icon_path.$fileinfo->getFilename()] = $icon_img.'<div class="triumph-icon-title">'.$title.'</div>';
 			}
 		}
 	}

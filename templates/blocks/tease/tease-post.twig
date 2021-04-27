@@ -32,8 +32,9 @@
 	</div>	
 	
 		<a class="post-title-link" href="{{ post.link }}"><h3>{{ post.title }}</h3></a>
-		<p>{{ post.content|striptags|split(' ')|slice(0, 50)|join(' ') ~'...'}}</p>
-		<a class="simple" href="{{ post.link }}">Read Article</a>
+		<p>{{ post.preview.length(50).read_more(false)}}</p>
+		
+		<p><a class="simple" href="{{ post.link }}">Read Article</a></p>
 	
 
 {% endblock %}
