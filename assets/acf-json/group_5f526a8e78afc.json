@@ -42,21 +42,25 @@
                     "key": "field_5f526ab56a67f",
                     "label": "Icon",
                     "name": "icon",
-                    "type": "radio",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "triumph-icon-picker",
+                        "class": "",
                         "id": ""
                     },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "",
-                    "layout": "vertical",
-                    "return_format": "value",
-                    "save_other_choice": 0
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
                 },
                 {
                     "key": "field_5f526ad06a680",
@@ -97,5 +101,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619545877
+    "modified": 1619621884
 }
