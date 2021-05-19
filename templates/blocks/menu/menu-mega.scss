@@ -4,7 +4,7 @@
 	}
 }
 .menu-header-mega-nav {
-	ul[data-level="2"] {
+	ul[data-level='2'] {
 		@extend %light-link;
 		background: var(--color-primary);
 		margin: 0 -#{$space-md};
@@ -32,19 +32,19 @@
 				width: auto;
 			}
 		}
-		&[data-title="Business"] {
+		&[data-title='Business'] {
 			@extend %white-text;
 			background: var(--color-accent-blue);
 		}
-		&[data-title="Personal"] {
+		&[data-title='Personal'] {
 			@extend %white-text;
 			background: var(--color-accent-green);
 		}
-		&[data-title="Our Bank"] {
+		&[data-title='Our Bank'] {
 			@extend %white-text;
 			background: var(--color-accent-rust);
 		}
-		&[data-title="Online Banking"] {
+		&[data-title='Online Banking'] {
 			@extend %white-text;
 			background: var(--color-secondary);
 		}

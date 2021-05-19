@@ -21,7 +21,7 @@
 		{% if fields.intro_copy %}
 			{% include 'blocks/intro-copy/intro-copy.twig' %}
 		{% endif %}
-		<div id="faqs" {{ fields.show_category_filter ? 'class="faqs-with-filter"' : '' }} >
+		<div id="faqs-list" {{ fields.show_category_filter ? 'class="faqs-with-filter"' : '' }} >
 			{% if fields.show_category_filter %}
 				{% set categories = function('triumph_faq_categories', fields.faqs) %}
 				<div class="faq-filter">
@@ -40,7 +40,7 @@
 							{% for category in categories %}
 								<li>
 									<label class="checkbox-custom">{{category}}
-										<input class="filter-input" data-filter="categories" data-title="{{ category }}" type="checkbox" value="{{ category }}" />
+										<input class="faq-filter-input" data-filter="categories" data-title="{{ category }}" type="checkbox" value="{{ category }}" />
 										<i class="far fa-check-square"></i><i class="far fa-square"></i>
 									</label>
 								</li>
@@ -66,9 +66,7 @@
 						{% block expand_trigger %}
 							<p class="question">{{ faq.question }}</p>
 							{% if fields.show_category_filter %}
-								<div class="categories faq-categories" data-categories="{{ faq.category|split(',')|join('+')|replace({' + ':'+', ' +': '+', '+ ':'+'}) }}">
-									{{ faq.category }}
-								</div>
+								<div class="categories faq-categories">{{ faq.category }}</div>
 							{% endif %}
 						{% endblock %}
 						{% block expand_content %}

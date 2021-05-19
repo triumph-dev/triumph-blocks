@@ -1,21 +1,21 @@
 export default class RateFinder {
 	constructor(rateFinder) {
 		this.rateFinder = document.querySelector(rateFinder);
-		this.form = this.rateFinder.querySelector("form");
-		this.rateWrapper = this.rateFinder.querySelector(".rate-wrapper");
+		this.form = this.rateFinder.querySelector('form');
+		this.method = this.form.dataset.method;
+		this.rateWrapper = this.rateFinder.querySelector('.rate-wrapper');
 		this.init();
 	}
 	init() {
-		this.form.addEventListener("submit", (e) => {
+		this.form.addEventListener('submit', (e) => {
 			e.preventDefault();
-			let queryString = document.getElementById("zip").value;
-			if (document.getElementById("account")) {
-				queryString +=
-					"&account=" + document.getElementById("account").value;
+			let queryString = document.getElementById('zip').value;
+			if (document.getElementById('account')) {
+				queryString += '&account=' + document.getElementById('account').value;
 			}
 
-			let url = "/wp-json/tbkbank/rates?zip=" + queryString;
-			this.rateWrapper.innerHTML = "";
+			let url = '/wp-json/tbkbank/' + this.method + '?zip=' + queryString;
+			this.rateWrapper.innerHTML = '';
 			this.getAccountRates(url);
 		});
 	}
@@ -28,7 +28,13 @@ export default class RateFinder {
 			<p><a href="${region.pdf.url}">Download the PDF</a> of all the rates for your region.</p>
 			<ul>
 				<li><span class="label">Region:</span> ${region.name}</li>
-				<li><span class="label">Nearest Location:</span> ${location.post_title}</li>
+				<li><span class="label">Nearest Location:</span> <strong>${location.post_title}</strong><br>
+					<p>${location.meta.address}<br>
+					${location.meta.city}, ${location.meta.state} ${location.meta.zip}<br>
+					${location.meta.phone} 
+					</p>
+				</li>
+				<li><span class="label">Distance:</span> ${Number(location.distance.toFixed(1))} mi</li>
 			</ul>
 		</div>
 		`;
@@ -36,37 +42,38 @@ export default class RateFinder {
 	}
 
 	buildAccountCards(accounts) {
-		let accountCards = "";
+		let accountCards = '';
+
 		accounts.forEach((account) => {
-			let headerRow = "";
-			let contentRows = "";
+			let headerRow = '';
+			let contentRows = '';
 			let i = 0;
 			account.rates.forEach((rate) => {
 				i++;
-				let contentString = "";
+				let contentString = '';
 
-				if (rate.account_tier !== "") {
+				if (rate.account_tier !== '') {
 					if (i === 1) {
-						headerRow += "<th>Account Tier</th>";
+						headerRow += '<th>Account Tier</th>';
 					}
-					contentString += "<td>" + rate.account_tier + "</td>";
+					contentString += '<td>' + rate.account_tier + '</td>';
 				}
 
-				if (rate.interest_rate !== "") {
+				if (rate.interest_rate !== '') {
 					if (i === 1) {
-						headerRow += "<th>Interest Rate</th>";
+						headerRow += '<th>Interest Rate</th>';
 					}
 
-					contentString += "<td>" + rate.interest_rate + "%</td>";
+					contentString += '<td>' + rate.interest_rate + '%</td>';
 				}
 
-				if (rate.apy !== "") {
+				if (rate.apy !== '') {
 					if (i === 1) {
-						headerRow += "<th>APY</th>";
+						headerRow += '<th>APY</th>';
 					}
-					contentString += "<td>" + rate.apy + "%</td>";
+					contentString += '<td>' + rate.apy + '%</td>';
 				}
-				contentRows += "<tr>" + contentString + "</tr>";
+				contentRows += '<tr>' + contentString + '</tr>';
 			});
 			let rateTable = `
 				<div class="account-rate" data-account-type="${account.type}">
@@ -86,6 +93,7 @@ export default class RateFinder {
 				`;
 			accountCards += rateTable;
 		});
+
 		return accountCards;
 	}
 
@@ -96,9 +104,11 @@ export default class RateFinder {
 			})
 			.then((data) => {
 				let regionCard = this.buildRegionCard(data);
-				this.rateWrapper.insertAdjacentHTML("beforeend", regionCard);
-				// let accountCards = this.buildAccountCards(data.accounts);
-				// this.rateWrapper.insertAdjacentHTML("beforeend", accountCards);
+				this.rateWrapper.insertAdjacentHTML('beforeend', regionCard);
+				if (this.method == 'rates-geo') {
+					//let accountCards = this.buildAccountCards(data.accounts);
+					//this.rateWrapper.insertAdjacentHTML('beforeend', accountCards);
+				}
 			});
 	}
 }

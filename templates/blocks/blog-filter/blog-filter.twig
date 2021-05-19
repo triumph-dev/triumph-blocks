@@ -19,7 +19,7 @@
 			{% for category in categories %}
 				<li>
 					<label class="checkbox-custom">{{category.title}}
-						<input class="filter-input" data-filter="categories" data-title="{{ category.title }}" type="checkbox" value="{{ category.slug }}" />
+						<input class="blog-filter-input" data-filter="categories" data-title="{{ category.title }}" type="checkbox" data-slug="{{ category.slug }}" value="{{ category.title }}" />
 						<i class="far fa-check-square"></i><i class="far fa-square"></i>
 					</label>
 				</li>
@@ -30,7 +30,7 @@
 			{% for year in (last_year..first_year)|reverse %}
 				<li>
 					<label class="checkbox-custom">{{year}}
-						<input class="filter-input" data-filter="year" type="checkbox" data-title="{{ year }}" value="{{ year }}" />
+						<input class="blog-filter-input" data-filter="year" type="checkbox" data-title="{{ year }}" value="{{ year }}" />
 						<i class="far fa-check-square"></i><i class="far fa-square"></i>
 					</label>
 				</li>

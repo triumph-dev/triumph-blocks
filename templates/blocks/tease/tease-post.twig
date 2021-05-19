@@ -19,16 +19,15 @@
 	{% endif %}
 
 	<div class="meta">
-		<div class="categories" data-categories="{{ cat_slug_array|join('+') }}">
+		<div class="category-links">
 			{% for category in post.categories %}
 				<a class="{{category.slug}}" href="{{ category.link }}">{{ category.name }}</a>{{ loop.last ? '' : ',' }}
 			{% endfor %}
 		</div>
 
-		<div class="tags" data-tags="{{ tag_slug_array|join('+') }}">
-			{{ post.tags|join(', ') }}
-		</div>
-		<time datetime="{{post.date|date('Y-m-d')}}">{{ post.date|date('F, d') }} <span class="year" data-year="{{ post.date|date('Y')}}">{{ post.date|date('Y') }}</span></time>
+		<div class="tags hidden">{{ post.tags|join(', ') }}</div>
+		<div class="categories hidden">{{ post.categories|join(', ') }}</div>
+		<time datetime="{{post.date|date('Y-m-d')}}">{{ post.date|date('F, d') }} <span class="year">{{ post.date|date('Y') }}</span></time>
 	</div>	
 	
 		<a class="post-title-link" href="{{ post.link }}"><h3 class="title">{{ post.title }}</h3></a>

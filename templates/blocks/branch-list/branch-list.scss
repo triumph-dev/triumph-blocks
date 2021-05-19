@@ -1,0 +1,63 @@
+$branch-grid-gap: 3rem;
+#branch-list {
+	.list {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 calc(-#{$branch-grid-gap} / 2);
+		> li {
+			font-size: 0.875em;
+			margin: calc(#{$branch-grid-gap} / 2);
+			width: 100%;
+		}
+
+		> li {
+			@include sm-and-up {
+				width: calc(50% - #{$branch-grid-gap});
+			}
+			@include md-and-up {
+				width: calc(33.3% - #{$branch-grid-gap});
+			}
+		}
+	}
+}
+
+.branch-card {
+	background: rgba(0, 0, 0, 0.3);
+	padding: $space-md;
+	a.download {
+		width: 100%;
+	}
+}
+
+.branch-links {
+	margin-bottom: $space-sm;
+	a {
+		display: flex;
+		&:not(:last-child) {
+			margin-bottom: $space-sm;
+		}
+	}
+	.link-icon {
+		margin-right: $space-sm;
+	}
+}
+.branch-list-intro {
+	margin-bottom: $space-md;
+	@include sm-and-up {
+		display: flex;
+	}
+	.intro-text {
+		margin-right: 6vw;
+	}
+}
+.branch-list-filter {
+	display: flex;
+	flex-wrap: wrap;
+	> * {
+		width: 50%;
+	}
+}
+#branch-list-load-more {
+	display: block;
+	margin: $space-md auto 0 auto;
+}

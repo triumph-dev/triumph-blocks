@@ -1,0 +1,98 @@
+{#
+	Title: Branch List
+	Description: A list of TBK Bank branches
+	Category: triumph-blocks
+	Icon: location
+	Keywords: 
+	Mode: edit
+	Align: left
+	PostTypes: post page account leader partner service
+	SupportsAlign: false
+	SupportsMode: false
+	SupportsMultiple: true
+	SupportsAnchor: true
+	SupportsCustomClassName: true
+#}
+
+{{ function('add_list_js') }}
+
+{# this is from the TBK API Plugin #}
+{% set branches = function('tbkbank_get_locations') %}
+
+{% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
+	{% block block_content %}
+		<div class="branch-list-intro">
+			<div class="intro-text">
+				{{ fields.intro_copy }}
+			</div>
+			<form name="branch-list-controls" class="list-controls">
+				<h3>Search by Zip Code</h3>
+				<label class="hidden" for="branch-zip-search">Sort by Zip</label>
+				<p>Enter your zip code and download your community summer guide!</p>
+				<div class="form-inline">
+					<input type="search" name="branch-zip-search" placeholder="75251" />
+					<button class="btn solid accent" type="button">
+						<span class="hidden">Search zip code</span> <i class="fas fa-search"></i>
+					</button>
+				</div>
+				<br>
+				<h3>Filter by State</h3>
+				<ul class="branch-list-filter">
+					{% set states = [] %}
+					{% for branch in branches %}
+						{% if branch.state not in states %}
+							{% set states = states|merge([branch.state]) %}
+							<li>
+								<label class="checkbox-custom">{{ branch.state }}
+									<input class="branch-list-filter-input" data-filter="state" type="checkbox" value="{{ branch.state }}" />
+									<i class="far fa-check-square"></i><i class="far fa-square"></i>
+								</label>
+							
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</form>
+			
+		</div>
+		<div id="branch-list" class="branch-list">
+			<ol class="list">
+				{% for branch in branches %}
+				{% set address = 'TBK Bank ' ~ branch.address ~ ', ' ~ branch.city ~ ', ' ~ branch.state ~ ' ' ~ branch.zip %}
+				{% set address_map_link = 'https://www.google.com/maps/search/?api=1&query=' ~ address|url_encode %}
+					<li class="branch-card" data-lat="{{ branch.latitude}}", data-lng="{{ branch.longitude}}">
+						<div class="hidden distance">0</div>	
+						<h4 class="title">{{ branch.post_title}}</h4>
+						<div class="branch-links">
+							<a href="tel:{{ branch.phone|replace({'(':'',')':'','-':'',' ':''}) }}">
+								<div class="link-icon">
+									<i class="fas fa-phone"></i>
+								</div>
+								<div class="link-text">
+									{{ branch.phone }}
+								</div>
+							</a>
+						
+							<a href="{{ address_map_link }}">
+								<div class="link-icon">
+									<i class="fas fa-map-marker-alt"></i>
+								</div>
+								<div class="link-text">
+									<address>
+										{{ branch.address}}<br>
+										{{ branch.city}}, <span class="state">{{ branch.state}}</span> {{ branch.zip}}
+									</address>
+								</div>
+							</a>
+						</div>
+						<a class="btn solid accent download" href="#"><i class="fas fa-download"></i> Download Guide</a>
+					</li>
+				{% endfor %}
+			</ol>
+			<button id="branch-list-load-more" class="btn accent border">Load More</button>
+		</div>
+	{% endblock %}
+{% endembed %}
+
+
+

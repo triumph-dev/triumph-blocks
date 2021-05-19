@@ -13,13 +13,13 @@
 	SupportsAnchor: true
 	SupportsCustomClassName: true
 #}
-
+{% set method = fields.method ? fields.method : 'rates' %}
 
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
         <h2>Interest Rates</h2>
 		<p>The interest rates of some accounts may vary by region and account balance, please enter your zip code to see your rates.</p>
-		<form name="rate-finder">
+		<form name="rate-finder" data-method="{{ method }}">
 			<label for="zip">5-digit Zip Code</label>
 			<div class="form-inline">
 				<input id="zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" placeholder="75251" required>

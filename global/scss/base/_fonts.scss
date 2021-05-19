@@ -1,11 +1,8 @@
-@import "https://fonts.googleapis.com/css?family=Crimson+Text:300, 400, 600, 700"; // Crimson
+@import 'https://fonts.googleapis.com/css?family=Crimson+Text:300, 400, 600, 700'; // Crimson
 
 @font-face {
 	font-family: 'Gotham';
-	src: url('../../assets/fonts/Gotham-Bold/Gotham-Bold_Web.eot');
-	src: url('../../assets/fonts/Gotham-Bold/Gotham-Bold_Web.eot?#iefix') format('embedded-opentype'),
-		url('../../assets/fonts/Gotham-Bold/Gotham-Bold_Web.woff2') format('woff2'),
-		url('../../assets/fonts/Gotham-Bold/Gotham-Bold_Web.woff') format('woff');
+	src: url('../../assets/fonts/Gotham-Bold/Gotham-Bold_Web.woff2') format('woff2'), url('../../assets/fonts/Gotham-Bold/Gotham-Bold_Web.woff') format('woff');
 	font-style: normal;
 	font-weight: 800;
 	font-display: swap;
@@ -27,10 +24,7 @@
 */
 @font-face {
 	font-family: 'Gotham';
-	src: url('../../assets/fonts/Gotham-Medium/Gotham-Medium_Web.eot');
-	src: url('../../assets/fonts/Gotham-Medium/Gotham-Medium_Web.eot?#iefix') format('embedded-opentype'),
-		url('../../assets/fonts/Gotham-Medium/Gotham-Medium_Web.woff2') format('woff2'),
-		url('../../assets/fonts/Gotham-Medium/Gotham-Medium_Web.woff') format('woff');
+	src: url('../../assets/fonts/Gotham-Medium/Gotham-Medium_Web.woff2') format('woff2'), url('../../assets/fonts/Gotham-Medium/Gotham-Medium_Web.woff') format('woff');
 	font-style: normal;
 	font-weight: 600;
 	font-display: swap;
@@ -52,10 +46,7 @@
 
 @font-face {
 	font-family: 'Gotham';
-	src: url('../../assets/fonts/Gotham-Book/Gotham-Book_Web.eot');
-	src: url('../../assets/fonts/Gotham-Book/Gotham-Book_Web.eot?#iefix') format('embedded-opentype'),
-		url('../../assets/fonts/Gotham-Book/Gotham-Book_Web.woff2') format('woff2'),
-		url('../../assets/fonts/Gotham-Book/Gotham-Book_Web.woff') format('woff');
+	src: url('../../assets/fonts/Gotham-Book/Gotham-Book_Web.woff2') format('woff2'), url('../../assets/fonts/Gotham-Book/Gotham-Book_Web.woff') format('woff');
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
@@ -100,5 +91,5 @@
 }
 */
 
-$font-serif: "Crimson", "Georgia", serif;
-$font-sans-serif: "Gotham", "Arial", sans-serif;
+$font-serif: 'Crimson', 'Georgia', serif;
+$font-sans-serif: 'Gotham', 'Arial', sans-serif;

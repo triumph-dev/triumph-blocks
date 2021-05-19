@@ -20,12 +20,8 @@ export default class Menu {
 	}
 
 	toggle() {
-		this.menu.dataset.menuState == 'closed'
-			? this.menu.setAttribute('data-menu-state', 'open')
-			: this.menu.setAttribute('data-menu-state', 'closed');
-		this.doc.dataset.menuState == 'closed'
-			? this.doc.setAttribute('data-menu-state', 'open')
-			: this.doc.setAttribute('data-menu-state', 'closed');
+		this.menu.dataset.menuState == 'closed' ? this.menu.setAttribute('data-menu-state', 'open') : this.menu.setAttribute('data-menu-state', 'closed');
+		this.doc.dataset.menuState == 'closed' ? this.doc.setAttribute('data-menu-state', 'open') : this.doc.setAttribute('data-menu-state', 'closed');
 	}
 
 	subnavCloseAll() {
@@ -44,9 +40,7 @@ export default class Menu {
 			}
 		});
 
-		parent.dataset.subnavToggle == 'closed'
-			? parent.setAttribute('data-subnav-toggle', 'open')
-			: parent.setAttribute('data-subnav-toggle', 'closed');
+		parent.dataset.subnavToggle == 'closed' ? parent.setAttribute('data-subnav-toggle', 'open') : parent.setAttribute('data-subnav-toggle', 'closed');
 	}
 
 	init() {

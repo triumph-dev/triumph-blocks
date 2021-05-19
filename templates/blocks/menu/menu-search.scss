@@ -10,10 +10,10 @@
 		@extend %button-clean;
 		height: 2.5rem;
 		width: 2.5rem;
-		padding: .5rem;
+		padding: 0.5rem;
 		text-transform: uppercase;
-		letter-spacing: .1em;
-		font: 600 .875rem $font-sans-serif;
+		letter-spacing: 0.1em;
+		font: 600 0.875rem $font-sans-serif;
 		@include lg-and-up {
 			display: block;
 		}
@@ -23,7 +23,7 @@
 			display: none;
 		}
 	}
-	&[data-subnav-toggle="open"] {
+	&[data-subnav-toggle='open'] {
 		#menu-search-content {
 			max-height: 100vh;
 			padding: $space-md 2.5rem $space-md $space-md;
@@ -36,7 +36,7 @@ ul.menu-header-quick-links {
 	padding: 1.25rem;
 	flex-grow: 1;
 	transition: max-height 350ms ease, padding 350ms ease;
-	font: 600 .875rem $font-sans-serif;
+	font: 600 0.875rem $font-sans-serif;
 	@extend %uppercase;
 
 	@include lg-and-up {
@@ -52,7 +52,7 @@ ul.menu-header-quick-links {
 		}
 
 		a {
-			padding: .78rem;
+			padding: 0.78rem;
 			white-space: nowrap;
 		}
 	}
@@ -64,6 +64,7 @@ ul.menu-header-quick-links {
 	position: absolute;
 	left: 0;
 	top: 100%;
+	width: 100%;
 	padding: 0 2.5rem 0 $space-md;
 	//background: rgba($color-ui-gray, 0.2);
 	@include lg-and-up {
@@ -71,7 +72,7 @@ ul.menu-header-quick-links {
 		overflow: hidden;
 		max-height: 0;
 		transition: max-height 350ms ease, padding 350ms ease;
-		&[data-search-menu-state="closed"] {
+		&[data-search-menu-state='closed'] {
 			max-height: 0;
 		}
 	}
@@ -94,10 +95,17 @@ ul.menu-header-quick-links {
 		overflow: hidden;
 	}
 }
+.search-links {
+	flex-grow: 1;
 
+	@include lg-and-up {
+		width: 60ch;
+	}
+}
 .menu-header-search {
 	display: flex;
 	flex-wrap: wrap;
+
 	> * {
 		width: 30ch;
 		margin-bottom: $space-xs;
@@ -110,5 +118,5 @@ button.subnav-close {
 	top: $space-sm;
 	@extend %button-clean;
 	font-size: 1.75em;
-	opacity: .8;
+	opacity: 0.8;
 }
