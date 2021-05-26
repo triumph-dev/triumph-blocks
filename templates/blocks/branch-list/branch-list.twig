@@ -19,6 +19,13 @@
 {# this is from the TBK API Plugin #}
 {% set branches = function('tbkbank_get_locations') %}
 
+{% set states = [] %}
+{% for branch in branches %}
+	{% if branch.state not in states %}
+		{% set states = states|merge([branch.state]) %}
+	{% endif %}
+{% endfor %}
+
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 		<div class="branch-list-intro">
@@ -38,18 +45,13 @@
 				<br>
 				<h3>Filter by State</h3>
 				<ul class="branch-list-filter">
-					{% set states = [] %}
-					{% for branch in branches %}
-						{% if branch.state not in states %}
-							{% set states = states|merge([branch.state]) %}
-							<li>
-								<label class="checkbox-custom">{{ branch.state }}
-									<input class="branch-list-filter-input" data-filter="state" type="checkbox" value="{{ branch.state }}" />
-									<i class="far fa-check-square"></i><i class="far fa-square"></i>
-								</label>
-							
-							</li>
-						{% endif %}
+					{% for state in states|sort %}
+						<li>
+							<label class="checkbox-custom">{{ state }}
+								<input class="branch-list-filter-input" data-filter="state" type="checkbox" value="{{ state }}" />
+								<i class="far fa-check-square"></i><i class="far fa-square"></i>
+							</label>
+						</li>
 					{% endfor %}
 				</ul>
 			</form>
@@ -58,35 +60,37 @@
 		<div id="branch-list" class="branch-list">
 			<ol class="list">
 				{% for branch in branches %}
-				{% set address = 'TBK Bank ' ~ branch.address ~ ', ' ~ branch.city ~ ', ' ~ branch.state ~ ' ' ~ branch.zip %}
-				{% set address_map_link = 'https://www.google.com/maps/search/?api=1&query=' ~ address|url_encode %}
-					<li class="branch-card" data-lat="{{ branch.latitude}}", data-lng="{{ branch.longitude}}">
-						<div class="hidden distance">0</div>	
-						<h4 class="title">{{ branch.post_title}}</h4>
-						<div class="branch-links">
-							<a href="tel:{{ branch.phone|replace({'(':'',')':'','-':'',' ':''}) }}">
-								<div class="link-icon">
-									<i class="fas fa-phone"></i>
-								</div>
-								<div class="link-text">
-									{{ branch.phone }}
-								</div>
-							</a>
-						
-							<a href="{{ address_map_link }}">
-								<div class="link-icon">
-									<i class="fas fa-map-marker-alt"></i>
-								</div>
-								<div class="link-text">
-									<address>
-										{{ branch.address}}<br>
-										{{ branch.city}}, <span class="state">{{ branch.state}}</span> {{ branch.zip}}
-									</address>
-								</div>
-							</a>
-						</div>
-						<a class="btn solid accent download" href="#"><i class="fas fa-download"></i> Download Guide</a>
-					</li>
+					{% if branch.lobby_hours %}
+						{% set address = 'TBK Bank ' ~ branch.address ~ ', ' ~ branch.city ~ ', ' ~ branch.state ~ ' ' ~ branch.zip %}
+						{% set address_map_link = 'https://www.google.com/maps/search/?api=1&query=' ~ address|url_encode %}
+						<li class="branch-card" data-lat="{{ branch.latitude}}", data-lng="{{ branch.longitude}}">
+							<div class="hidden distance">0</div>	
+							<h4 class="title">{{ branch.post_title}}</h4>
+							<div class="branch-links">
+								<a href="tel:{{ branch.phone|replace({'(':'',')':'','-':'',' ':''}) }}">
+									<div class="link-icon">
+										<i class="fas fa-phone"></i>
+									</div>
+									<div class="link-text">
+										{{ branch.phone }}
+									</div>
+								</a>
+							
+								<a href="{{ address_map_link }}">
+									<div class="link-icon">
+										<i class="fas fa-map-marker-alt"></i>
+									</div>
+									<div class="link-text">
+										<address>
+											{{ branch.address}}<br>
+											{{ branch.city}}, <span class="state">{{ branch.state}}</span> {{ branch.zip}}
+										</address>
+									</div>
+								</a>
+							</div>
+							<a class="btn solid accent download" href="#"><i class="fas fa-download"></i> Download Guide</a>
+						</li>
+					{% endif %}
 				{% endfor %}
 			</ol>
 			<button id="branch-list-load-more" class="btn accent border">Load More</button>

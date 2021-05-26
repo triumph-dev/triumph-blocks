@@ -4,20 +4,9 @@
 		margin: 0;
 	}
 }
-.timeline-image {
-	margin: 0 auto $space-md auto;
-
-	img {
-		object-fit: cover;
-		max-height: 50vw;
-		@include lg-and-up {
-			max-height: 35em;
-		}
-	}
-}
 
 .timeline-slider-wrapper {
-	font-size: .9em;
+	font-size: 0.9em;
 	position: relative;
 	overflow: hidden;
 	.tns-inner {
@@ -25,7 +14,7 @@
 	}
 
 	.tns-inner:after {
-		content: "";
+		content: '';
 		@extend %absolute-fill;
 		height: calc(100% + 12rem);
 		top: -6rem;
@@ -42,9 +31,65 @@
 		}
 	}
 }
+ul.timeline-slides {
+	margin-bottom: $space-md;
+}
+.timeline-slide {
+	height: 80vh;
+	@include md-and-up {
+		border-radius: $border-radius;
+		overflow: hidden;
+		height: 60vh;
+	}
+}
+.timeline-image {
+	position: relative;
+	height: 100%;
+	@include md-and-up {
+		display: flex;
+	}
+
+	img {
+		object-fit: cover;
+		width: 100%;
+		&.with-copy {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			z-index: 0;
+			top: 0;
+			left: 0;
+			mix-blend-mode: multiply;
+			filter: grayscale(1);
+			opacity: 0.4;
+			@include md-and-up {
+				width: 50%;
+				position: relative;
+				mix-blend-mode: normal;
+				filter: none;
+				opacity: 1;
+			}
+		}
+	}
+	.timeline-image-copy {
+		height: 100%;
+		position: relative;
+		z-index: 1;
+		padding: $space-md;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@include md-and-up {
+			width: 50%;
+			padding: $space-md 5vw;
+		}
+	}
+}
+
 .timeline-event {
 	text-align: center;
-	padding: 0 $space-sm $space-lg $space-sm;
+	padding: 0 $space-sm $space-md $space-sm;
 }
 .timeline-dot {
 	width: 1.5rem;
@@ -62,18 +107,18 @@
 	top: 1.25rem;
 }
 
-[data-background-color="primary"] .timeline-slider-wrapper .tns-inner:after {
+[data-background-color='primary'] .timeline-slider-wrapper .tns-inner:after {
 	box-shadow: inset 0 0 1rem 5rem var(--color-primary);
 }
 
-[data-background-color="secondary"] .timeline-slider-wrapper .tns-inner:after {
+[data-background-color='secondary'] .timeline-slider-wrapper .tns-inner:after {
 	box-shadow: inset 0 0 1rem 5rem var(--color-secondary);
 }
 
-[data-background-color="accent"] .timeline-slider-wrapper .tns-inner:after {
+[data-background-color='accent'] .timeline-slider-wrapper .tns-inner:after {
 	box-shadow: inset 0 0 1rem 5rem var(--color-accent);
 }
 
-[data-background-color="white"] .timeline-slider-wrapper .tns-inner:after {
+[data-background-color='white'] .timeline-slider-wrapper .tns-inner:after {
 	box-shadow: inset 0 0 1rem 5rem #fff;
 }

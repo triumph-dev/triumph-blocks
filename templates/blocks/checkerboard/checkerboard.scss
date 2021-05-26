@@ -53,6 +53,12 @@
 		@include md-and-up {
 			height: auto;
 		}
+		img {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
 	}
 	figcaption {
 		display: flex;
@@ -66,12 +72,6 @@
 		@include lg-and-up {
 			padding: $space-lg;
 		}
-	}
-	img {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
 	}
 }
 .checkerbard-copy-wrapper {

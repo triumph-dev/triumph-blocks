@@ -165,8 +165,8 @@ timelines.forEach((timeline) => {
 	// bind function to event
 	timelineContentCarousel.events.on('indexChanged', keepSlideInFocus);
 
-	if (timeline.querySelector('.timeline-images')) {
-		let timelineImages = timeline.querySelector('.timeline-images');
+	if (timeline.querySelector('.timeline-slides')) {
+		let timelineImages = timeline.querySelector('.timeline-slides');
 		let timelineImagesOptions = {
 			container: timelineImages,
 			mode: 'gallery',

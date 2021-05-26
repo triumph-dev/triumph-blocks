@@ -127,6 +127,58 @@
                     "toolbar": "full",
                     "media_upload": 1,
                     "delay": 0
+                },
+                {
+                    "key": "field_60ad6bad31a33",
+                    "label": "Copy Position",
+                    "name": "copy_position",
+                    "type": "radio",
+                    "instructions": "Select copy position",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "with-title": "Copy with Title",
+                        "with-image": "Copy with Image"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "with-title",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_60ad74391c6c5",
+                    "label": "Copy Background",
+                    "name": "copy_background",
+                    "type": "select",
+                    "instructions": "Select Copy Background Color",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "transparent": "Transparent",
+                        "white": "White",
+                        "primary": "Primary Color",
+                        "secondary": "Secondary Color",
+                        "accent": "Accent Color"
+                    },
+                    "default_value": "transparent",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -148,5 +200,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1610648654
+    "modified": 1621980311
 }

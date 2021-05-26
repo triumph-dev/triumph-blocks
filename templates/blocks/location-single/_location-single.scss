@@ -1,0 +1,54 @@
+.location-single {
+	width: 100%;
+	font-size: 0.875em;
+	padding-bottom: 0;
+	h3 {
+		font-size: 1.3em;
+		margin-bottom: 0.2em;
+	}
+	a {
+		text-decoration: none;
+	}
+	p.phone {
+		margin-bottom: 0;
+		i {
+			color: $color-primary;
+			text-decoration: none;
+			padding-right: 10px;
+		}
+	}
+}
+
+.location-links {
+	display: flex;
+	padding: $space-sm 0 0 0;
+	> * {
+		text-align: center;
+		display: block;
+		&:not(:last-child) {
+			margin-right: $space-sm;
+		}
+	}
+	a {
+		font-size: 20px;
+	}
+}
+
+.location-detials {
+	display: flex;
+}
+
+.location-distance {
+	padding-left: $space-sm;
+	margin-left: auto;
+	min-width: 5em;
+	text-align: center;
+	font-size: 0.9em;
+	font-weight: 700;
+}
+.location-icon {
+	color: var(--color-primary);
+}
+.location-link-label {
+	margin: 0;
+}

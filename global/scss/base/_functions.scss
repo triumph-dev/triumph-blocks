@@ -40,11 +40,11 @@ $breakpoint-semi: 1300px;
 $breakpoint-xl: 1440px;
 
 $breakpoints: (
-	"tiny": $breakpoint-tiny,
-	"sm": $breakpoint-sm,
-	"md": $breakpoint-md,
-	"lg": $breakpoint-lg,
-	"xl": $breakpoint-xl,
+	'tiny': $breakpoint-tiny,
+	'sm': $breakpoint-sm,
+	'md': $breakpoint-md,
+	'lg': $breakpoint-lg,
+	'xl': $breakpoint-xl,
 );
 
 $page-interior: 1100px;
@@ -93,13 +93,13 @@ $page-interior: 1100px;
 	p {
 		color: #fff;
 	}
-	input[type="email"],
-	input[type="number"],
-	input[type="password"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="text"],
-	input[type="url"],
+	input[type='email'],
+	input[type='number'],
+	input[type='password'],
+	input[type='search'],
+	input[type='tel'],
+	input[type='text'],
+	input[type='url'],
 	textarea,
 	select {
 		border-color: rgba($color-ui-light, 0.5);
@@ -127,13 +127,13 @@ $page-interior: 1100px;
 	p {
 		color: $color-ui-dark;
 	}
-	input[type="email"],
-	input[type="number"],
-	input[type="password"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="text"],
-	input[type="url"],
+	input[type='email'],
+	input[type='number'],
+	input[type='password'],
+	input[type='search'],
+	input[type='tel'],
+	input[type='text'],
+	input[type='url'],
 	textarea,
 	select {
 		border-color: rgba($color-ui-dark, 0.5);

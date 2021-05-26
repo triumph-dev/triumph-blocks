@@ -47,7 +47,10 @@ $branch-grid-gap: 3rem;
 		display: flex;
 	}
 	.intro-text {
-		margin-right: 6vw;
+		margin: 0 0 $space-md 0;
+		@include sm-and-up {
+			margin: 0 6vw 0 0;
+		}
 	}
 }
 .branch-list-filter {

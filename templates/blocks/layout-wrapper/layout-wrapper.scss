@@ -1,24 +1,24 @@
-[data-background-color="primary"] {
+[data-background-color='primary'] {
 	background: var(--color-primary);
 	@extend %white-text;
 }
 
-[data-background-color="secondary"],
-[data-background-color="accent"] {
+[data-background-color='secondary'],
+[data-background-color='accent'] {
 	background: var(--color-secondary);
 	@extend %white-text;
 }
 
-[data-background-color="accent"] {
+[data-background-color='accent'] {
 	background: var(--color-accent);
 }
 
-[data-background-color="white"] {
+[data-background-color='white'] {
 	background: #fff;
-	@extend %dark-text;
+	color: $color-ui-dark;
 }
 
-[data-background-color="image"] {
+[data-background-color='image'] {
 	@extend %white-text;
 	position: relative;
 	img.background {

@@ -1,0 +1,40 @@
+<div class="location-single">
+	<div class="location-map"> {% block map %}{% endblock %}
+		</div>
+		<div class="location-detials">
+			<address class="location-address">
+				<h3 class="location-title">{{ office.title }}</h3>
+				{{ office.address }}<br/>
+				{{ office.city }},
+				{{ office.state }}
+				{{ office.zip }}
+				<br>
+				<a class="office-phone-swap" href="tel:{{ office_phone(office.id, 'number_stripped') }}">{{ office.office_phone }}</a>
+				<div class="location-links">
+					{% block links %}
+						<a href="{{ vanity_url(office.ID) }}/">
+							<i class="fas fa-lg fa-mouse-pointer"></i>
+							<h6 class="location-link-label">Website</h6>
+						</a>
+						<a class="office-phone-swap" href="tel:{{ office_phone(office.id, 'number_stripped') }}">
+							<i class="fas fa-lg fa-phone"></i>
+							<h6 class="location-link-label">Phone<span class="hidden">{{office.office_phone}}</span>
+							</h6>
+						</a>
+						<a href="{{ office_directions_link(office.id) }}" target="_blank" rel="noreferrer">
+							<i class="fas  fa-lg fa-directions"></i>
+							<h6 class="location-link-label">Directions</h6>
+						</a>
+					{% endblock %}
+				</div>
+			</address>
+			{% if distance %}
+				<div class="location-distance">
+					<i class="location-icon fas fa-2x fa-map-marker-alt"></i><br>
+					<span class="distance-value">{{ distance }}</span>
+					mi
+				</div>
+			{% endif %}
+		</div>
+
+	</div>
