@@ -39,7 +39,7 @@ ul.timeline-slides {
 	@include md-and-up {
 		border-radius: $border-radius;
 		overflow: hidden;
-		height: 60vh;
+		height: calc(24em + 20vh);
 	}
 }
 .timeline-image {
@@ -72,6 +72,7 @@ ul.timeline-slides {
 		}
 	}
 	.timeline-image-copy {
+		font-size: 0.9em;
 		height: 100%;
 		position: relative;
 		z-index: 1;
@@ -81,9 +82,15 @@ ul.timeline-slides {
 		flex-direction: column;
 		justify-content: center;
 		@include md-and-up {
+			font-size: 1em;
 			width: 50%;
 			padding: $space-md 5vw;
 		}
+	}
+}
+.timeline-slides-wrapper {
+	.tns-controls {
+		top: calc(100% + #{$border-width});
 	}
 }
 

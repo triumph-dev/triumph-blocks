@@ -27,27 +27,29 @@
 		{% endif %}
 		<div class="timeline-sliders">
 			{% if images %}
-				<ul class="timeline-slides">
-					{% for event in fields.events %}
-						<li class="timeline-slide">
-							<div class="timeline-image" data-background-color="{{ event.copy_background }}">
-								{% if event.image %}
-									{% set image = Image(event.image) %}
-									<img class="background-image tns-lazy-img {{ event.copy_position == 'with-image' ? 'with-copy' : ''}}" 
-									src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
-								{% else %}
-									<div class="no-image"></div>
-								{% endif %}
+				<div class="timeline-slides-wrapper">
+					<ul class="timeline-slides">
+						{% for event in fields.events %}
+							<li class="timeline-slide">
+								<div class="timeline-image" data-background-color="{{ event.copy_background }}">
+									{% if event.image %}
+										{% set image = Image(event.image) %}
+										<img class="background-image tns-lazy-img {{ event.copy_position == 'with-image' ? 'with-copy' : ''}}" 
+										src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image.alt }}" loading="lazy" />
+									{% else %}
+										<div class="no-image"></div>
+									{% endif %}
 
-								{% if event.copy_position == 'with-image' and event.copy %}
-									<div class="timeline-image-copy">
-										{{ event.copy }}
-									</div>
-								{% endif %}
-							</div>
-						</li>
-					{% endfor %}
-				</ul>
+									{% if event.copy_position == 'with-image' and event.copy %}
+										<div class="timeline-image-copy">
+											{{ event.copy }}
+										</div>
+									{% endif %}
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
 			{% endif %}
 			
 			<div class="timeline-slider-wrapper">

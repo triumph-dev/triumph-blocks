@@ -132,52 +132,76 @@ const timelines = document.querySelectorAll('.timeline');
 
 timelines.forEach((timeline) => {
 	let timelineContent = timeline.querySelector('.timeline-events');
+	let timelineSlides = timeline.querySelector('.timeline-slides');
+	let timelineContentOptions;
+	if (!timelineSlides) {
+		timelineContentOptions = {
+			container: timelineContent,
+			items: 1,
+			slideBy: 3,
+			speed: 800,
+			loop: false,
+			controls: true,
+			controlsText: tnsControls,
+			controlsPosition: 'bottom',
+			navPosition: 'bottom',
+			swipeAngle: 15,
+			autoplay: false,
+			responsive: {
+				640: {
+					items: 2,
+				},
+				1024: {
+					items: 3,
+				},
+			},
+		};
+	} else {
+		timelineContentOptions = {
+			container: timelineContent,
+			items: 1,
+			slideBy: 1,
+			speed: 800,
+			loop: false,
+			controls: false,
+			nav: false,
+			autoplay: false,
+			responsive: {
+				640: {
+					items: 2,
+				},
+				1024: {
+					items: 3,
+					center: true,
+				},
+			},
+		};
+	}
 
-	let timelineContentOptions = {
-		container: timelineContent,
-		items: 1,
-		slideBy: 1,
-		speed: 800,
-		loop: false,
-		controls: true,
-		controlsText: tnsControls,
-		controlsPosition: 'bottom',
-		navPosition: 'bottom',
-		swipeAngle: 15,
-		autoplay: false,
-		responsive: {
-			640: {
-				items: 2,
-				slideBy: 2,
-			},
-			1024: {
-				items: 3,
-				slideBy: 3,
-			},
-		},
-	};
 	let timelineContentCarousel = tns(timelineContentOptions);
 
-	var keepSlideInFocus = (info) => {
-		document.querySelector('#' + info.container.id + ' .tns-slide-active').click();
+	var advanceContentCarousel = (info) => {
+		timelineContentCarousel.goTo(info.displayIndex - 1);
+		//document.querySelector('#' + info.container.id + ' .tns-slide-active').click();
 	};
-
-	// bind function to event
-	timelineContentCarousel.events.on('indexChanged', keepSlideInFocus);
 
 	if (timeline.querySelector('.timeline-slides')) {
 		let timelineImages = timeline.querySelector('.timeline-slides');
 		let timelineImagesOptions = {
 			container: timelineImages,
-			mode: 'gallery',
+			speed: 1200,
 			items: 1,
+			loop: true,
 			lazyload: true,
+			controlsText: tnsControls,
+			controlsPosition: 'bottom',
 			navContainer: timelineContent,
-			controls: false,
 			navAsThumbnails: true,
 		};
 		let timelineImageCarousel = tns(timelineImagesOptions);
+		timelineImageCarousel.events.on('indexChanged', advanceContentCarousel);
 	}
+	// bind function to event
 });
 
 // Add labels to the TinySlider controls for WCAG

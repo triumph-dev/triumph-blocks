@@ -257,7 +257,8 @@ function svg_code($file_location = null){
     $return = false;
     if ($file_location) {
     	if (strpos($file_location, '/vendor/triumph-dev/triumph-blocks/templates/blocks/icons/svg/') !== false) {
-		    $file_location = dirname(__DIR__).'/templates/blocks/icons/svg/'. array_pop(explode('/', $file_location));
+			$location = explode('/', $file_location);
+		    $file_location = dirname(__DIR__).'/templates/blocks/icons/svg/'. array_pop($location);
 		}
         $iconfile = new DOMDocument();
         $iconfile->load($file_location);
