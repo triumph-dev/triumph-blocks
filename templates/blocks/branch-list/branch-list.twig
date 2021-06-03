@@ -88,7 +88,9 @@
 									</div>
 								</a>
 							</div>
-							<a class="btn solid accent download" href="#"><i class="fas fa-download"></i> Download Guide</a>
+							{% if branch.community_guide_pdf %}
+								<a class="btn solid accent download" href="{{ branch.community_guide_pdf }}"><i class="fas fa-download"></i> Download Guide</a>
+							{% endif %}
 						</li>
 					{% endif %}
 				{% endfor %}

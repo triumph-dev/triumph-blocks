@@ -24,8 +24,14 @@ $branch-grid-gap: 3rem;
 .branch-card {
 	background: rgba(0, 0, 0, 0.3);
 	padding: $space-md;
+	display: flex;
+	flex-direction: column;
 	a.download {
+		margin-top: auto;
 		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
