@@ -60,7 +60,7 @@
 		<div id="branch-list" class="branch-list">
 			<ol class="list">
 				{% for branch in branches %}
-					{% if branch.lobby_hours %}
+					{% if branch.location_services.lobby == true %}
 						{% set address = 'TBK Bank ' ~ branch.address ~ ', ' ~ branch.city ~ ', ' ~ branch.state ~ ' ' ~ branch.zip %}
 						{% set address_map_link = 'https://www.google.com/maps/search/?api=1&query=' ~ address|url_encode %}
 						<li class="branch-card" data-lat="{{ branch.latitude}}", data-lng="{{ branch.longitude}}">
@@ -89,7 +89,10 @@
 								</a>
 							</div>
 							{% if branch.community_guide_pdf %}
-								<a class="btn solid accent download" href="{{ branch.community_guide_pdf }}"><i class="fas fa-download"></i> Download Guide</a>
+								<a class="btn solid accent download" href="{{ branch.community_guide_pdf }}">
+									<img height="1" width="1" class="hidden" alt="Yup, we are tracking this too." src="https://insight.adsrvr.org/track/pxl/?adv=yxtmil0&ct=0:lyui48n&fmt=3"/>
+									<i class="fas fa-download"></i> Download Guide
+								</a>
 							{% endif %}
 						</li>
 					{% endif %}
