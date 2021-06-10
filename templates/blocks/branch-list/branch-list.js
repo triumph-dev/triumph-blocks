@@ -26,15 +26,14 @@ export default class BranchList {
 				branchCards.forEach((branchCard) => {
 					var distance = this.getDistance(zipLat, zipLng, branchCard.dataset.lat, branchCard.dataset.lng, 'M');
 					branchCard.querySelector('.distance').textContent = distance;
+					branchCard.querySelector('.distance-text').textContent = 'mi from ' + zip;
 				});
 
-				console.log(this.list);
 				this.list.reIndex();
 
 				this.list.sort('distance', {
 					order: 'asc',
 				});
-				console.log(this.list);
 				this.list.show(1, this.listFilter.listLength);
 			});
 		this.list.update();

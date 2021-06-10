@@ -64,7 +64,6 @@
 						{% set address = 'TBK Bank ' ~ branch.address ~ ', ' ~ branch.city ~ ', ' ~ branch.state ~ ' ' ~ branch.zip %}
 						{% set address_map_link = 'https://www.google.com/maps/search/?api=1&query=' ~ address|url_encode %}
 						<li class="branch-card" data-lat="{{ branch.latitude}}", data-lng="{{ branch.longitude}}">
-							<div class="hidden distance">0</div>	
 							<h4 class="title">{{ branch.post_title}}</h4>
 							<div class="branch-links">
 								<a href="tel:{{ branch.phone|replace({'(':'',')':'','-':'',' ':''}) }}">
@@ -82,8 +81,9 @@
 									</div>
 									<div class="link-text">
 										<address>
-											{{ branch.address}}<br>
-											{{ branch.city}}, <span class="state">{{ branch.state}}</span> {{ branch.zip}}
+											<p>{{ branch.address}}<br>
+											{{ branch.city}}, <span class="state">{{ branch.state}}</span> {{ branch.zip}}</p>
+											<p><em><span class="distance"></span> <span class="distance-text"></span></em></p>
 										</address>
 									</div>
 								</a>
