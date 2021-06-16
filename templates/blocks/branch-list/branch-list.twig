@@ -63,7 +63,7 @@
 					{% if branch.location_services.lobby == true %}
 						{% set address = 'TBK Bank ' ~ branch.address ~ ', ' ~ branch.city ~ ', ' ~ branch.state ~ ' ' ~ branch.zip %}
 						{% set address_map_link = 'https://www.google.com/maps/search/?api=1&query=' ~ address|url_encode %}
-						<li class="branch-card" data-lat="{{ branch.latitude}}", data-lng="{{ branch.longitude}}">
+						<li class="branch-card" data-lat="{{ branch.latitude}}" data-lng="{{ branch.longitude}}">
 							<h4 class="title">{{ branch.post_title}}</h4>
 							<div class="branch-links">
 								<a href="tel:{{ branch.phone|replace({'(':'',')':'','-':'',' ':''}) }}">
