@@ -39,7 +39,7 @@
 				<a class="blog-teaser" href="{{ post.link }}">
 					<h3>{{ post.title }}</h3>
 					<div class="meta">
-						<time datetime="{{post.date|date('Y-m-d')}}" class="date">{{ post.date|date('F, d Y') }}</time>
+						<time datetime="{{post.date|date('Y-m-d')}}" class="date">{{ post.date|date('F d, Y') }}</time>
 						<div class="categories" data-categories="{{ cat_slug_array|join('+') }}">
 							{% for category in post.categories %}
 								{{ category.name }}{{ loop.last ? '' : ',' }}
