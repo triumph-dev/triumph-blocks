@@ -1,23 +1,21 @@
-// Fonts
-
 // Base
-@import "base/reset";
-@import "base/colors";
-@import "base/fonts";
-@import "base/functions";
-@import "base/global";
+@import 'base/reset';
+@import 'base/colors';
+@import 'base/fonts';
+@import 'base/functions';
+@import 'base/global';
 
 // Dependencies
-@import "dependencies/tiny-slider";
-@import "dependencies/wp-blocks";
+@import 'dependencies/tiny-slider';
+@import 'dependencies/wp-blocks';
 
 // Elements
-@import "elements/button";
-@import "elements/blockquote";
-@import "elements/divider";
-@import "elements/image";
-@import "elements/link";
-@import "elements/list";
-@import "elements/form";
-@import "elements/typography";
-@import "elements/table";
+@import 'elements/button';
+@import 'elements/blockquote';
+@import 'elements/divider';
+@import 'elements/image';
+@import 'elements/link';
+@import 'elements/list';
+@import 'elements/form';
+@import 'elements/typography';
+@import 'elements/table';
