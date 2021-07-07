@@ -43,15 +43,18 @@
 		margin-right: 0 !important;
 	}
 }
+.hero-pane:not(.tns-item):not(:first-child) {
+	display: none;
+}
 
 .hero-pane {
 	padding: $space-lg $space-lg;
 	position: relative;
 	display: flex;
+	width: 100%;
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
-
 	max-height: 80vh;
 	@include ie {
 		background-position: center !important;
@@ -61,7 +64,8 @@
 		padding: $space-lg;
 		height: 500px;
 	}
-	&[data-background-color="image"] {
+
+	&[data-background-color='image'] {
 		.hero-copy {
 			text-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.25);
 			p {
