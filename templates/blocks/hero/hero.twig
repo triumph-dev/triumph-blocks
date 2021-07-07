@@ -23,7 +23,7 @@
 {% embed 'blocks/layout-wrapper/layout-wrapper.twig' %}
 	{% block block_content %}
 
-		<div class="hero-panes fade-in {{ carousel ? 'carousel' : '' }}">
+		<div class="hero-panes {{ carousel ? 'carousel' : '' }}">
 			{% for slide in slides %}
 
 				{% set bg = false %}
