@@ -23,9 +23,7 @@
 }
 .hero-panes {
 	display: flex;
-	&.fade-in {
-		opacity: 0;
-	}
+
 	&:not(.carousel) {
 		.hero-pane {
 			width: 100%;
@@ -76,7 +74,7 @@
 
 	.background-image {
 		@extend %absolute-fill;
-		z-index: -1;
+		z-index: 0;
 		object-fit: cover;
 	}
 }
